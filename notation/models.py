@@ -31,16 +31,6 @@ class Eleve(models.Model):
     tuteur = models.ForeignKey(User, related_name='tuteur', verbose_name=u'Tuteur')
     formateur = models.ForeignKey(User, related_name='formateur', verbose_name='Formateur')
 
-class Note(models.Model):
-    """
-    Relie une note à un élève et à une compétence
-    L'année est une donnée
-    """
-    valeur = models.DecimalField(max_digits=3, decimal_places=1)
-    competence = models.ForeignKey(Competence)
-    # FIXME : est-ce un numero (1, 2, 3) ou une annee ?
-    annee = models.PositiveIntegerField(u'Année')
-
 class CommentaireCompetence(models.Model):
     """
     Permet le stockage d'un commentaire libre pour un élève et un
@@ -54,6 +44,16 @@ class Competence(models.Model):
     """
     """
     pass
+
+class Note(models.Model):
+    """
+    Relie une note à un élève et à une compétence
+    L'année est une donnée
+    """
+    valeur = models.DecimalField(max_digits=3, decimal_places=1)
+    competence = models.ForeignKey(Competence)
+    # FIXME : est-ce un numero (1, 2, 3) ou une annee ?
+    annee = models.PositiveIntegerField(u'Année')
 
 class EnsembleCompetence(models.Model):
     """

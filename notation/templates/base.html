@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+    <title>Notation des apprentis{% block title %}{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="/media/css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+</head>
+<body>
+    <div id="entete"><a href="{% url notation.views.index %}"><img src="/static/images/logo.gif" width="271" height="104"/></a></div>
+    <div id="contenu">{% block content %}{% endblock %}</div>
+    <div id="pied">
+      v0.1
+      propulsé par <a href="http://www.djangoproject.com/">django</a> | 
+      réalisé par <a href="http://www.octets.fr/">octets</a> | 
+      <a href="/admin/">administration</a>
+    </div>
+</body>
+</html>

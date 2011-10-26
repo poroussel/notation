@@ -1,0 +1,338 @@
+html {height: 100%; font-size: 100%;}
+body {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: Verdana, "Bitstream Vera Sans", "Lucida Grande", sans-serif; /* 3 */
+}
+
+p {margin: .75em 0;}
+a img {border: none;}
+
+table {width: 100%; text-align: left; border-spacing: 0px}
+
+#entete {height: 84px; margin-bottom: -42px}
+
+#recherche {text-align: right}
+#recherche form {display: inline; padding-right: 5%}
+
+#navigation ul {list-style: none; text-align: right; padding-right: 5%;}
+#navigation li {display: inline; padding-right: 1em;}
+
+#contenu {width: 90%; margin-left: auto; margin-right: auto;}
+#contenu h1 {border-bottom: solid thin #AAA; margin-bottom: 1.5em; margin-top: 0.5em;}
+#contenu ul {list-style: none;}
+#contenu li {margin: 0; padding: 0;}
+
+.contenugauche {width:48%; float:left}
+.contenudroit {width:48%; float:right}
+
+.tableau {margin-top: 0.2em; margin-bottom: 0.3em}
+.tableau td {padding: 2px}
+.tableau th {padding-left: 2px}
+
+.minitablecontainer .MonthPicker {display:none}
+
+#pied {color:#AAAAAA; margin-top:32px; text-align:center; clear:both}
+#pied a {color: lightblue;text-decoration: none;}
+
+h1#titretable {border-bottom: solid thin #AAA; margin-bottom: 0; margin-top: 0.5em}
+h1#piedtable {border-bottom: solid thin #AAA; margin-bottom: 0; margin-top: 0;}
+#soustitretable {display:block; width:100%; height:2em}
+.pagenav {font-size: 10px; text-align: right; margin-right: 2em;}
+.pagenavbt {font-size: 10px; text-align: right; margin-top: 1em; margin-right: 2em;}
+
+.errorlist li {background:red;}
+
+.important {color:darkred;font-weight:bold;}
+.important a:link {color:darkred;font-weight:bold;}
+.important a:visited {color:darkred;font-weight:bold;}
+
+.actions a {
+ display: inline-block;
+ padding: 6px 12px 6px;
+ line-height: 1;
+ color: black;
+ font-size: 11px;
+ -moz-border-radius: 5px;
+ -webkit-border-radius: 5px;
+ -moz-box-shadow: 0 1px 3px #444;
+ -webkit-box-shadow: 0 1px 3px #444;
+ border-bottom: 1px solid #666;
+}
+
+input[type="submit"] {padding: 1px}
+
+img.tooltip {vertical-align:baseline}
+
+/* Anciennement dans overlay.css */
+.simple_overlay {  
+    /* must be initially hidden */ 
+    display:none; 
+     
+    /* place overlay on top of other elements */ 
+    z-index:10000; 
+     
+    /* styling */ 
+    background-color:#333; 
+     
+    width:1000px;     
+    min-height:50px;
+    border:1px solid #666;
+    color:white;
+}                   
+ 
+/* close button positioned on upper right corner */ 
+.simple_overlay .close {  
+    background-image:url(../images/close.png); 
+    position:absolute; 
+    right:-15px; 
+    top:-15px; 
+    cursor:pointer; 
+    height:35px; 
+    width:35px;                         
+}
+
+.simple_overlay #pagenav { margin-right: 18px; }
+
+.simple_overlay tr.datatablerow:hover { background-color:white; color:black; }
+
+input[type="date"] {border: 1px solid #CCC;}
+
+/* the input field */
+.date {
+	border:1px solid #ccc;
+	padding:4px;
+	text-align:center;
+	width:80px;		
+	-moz-box-shadow:0 0 10px #eee inset;
+	float:left;
+}
+
+.caltrigger {
+	    -moz-border-radius:3px 3px 3px 3px;
+	    background:url("../images/calendar.jpg") no-repeat scroll 0 0 transparent;
+	    display:block;
+	    float:left;
+	    height:32px;
+	    margin-top:-4px;
+	    margin-left:8px;
+	    width:30px;
+}
+
+/* calendar root element */
+#calroot {
+	margin-top:-1px;
+	width:198px;
+	padding:2px;
+	background-color:#fff;
+	font-size:11px;
+	border:1px solid #ccc;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-box-shadow: 0 0 15px #666;
+	-webkit-box-shadow: 0 0 15px #666;	
+}
+
+/* head. contains title, prev/next month controls and possible month/year selectors */
+#calhead {	
+	padding:2px 0;
+	height:22px;
+} 
+
+#caltitle {
+	font-size:14px;
+	color:#0150D1;	
+	float:left;
+	text-align:center;
+	width:155px;
+	line-height:20px;
+	text-shadow:0 1px 0 #ddd;
+}
+
+#calnext, #calprev {
+	display:block;
+	width:20px;
+	height:20px;
+	background:transparent url(../images/prev.gif) no-repeat scroll center center;
+	float:left;
+	cursor:pointer;
+}
+
+#calnext {
+	background-image:url(../images/next.gif);
+	float:right;
+}
+
+#calprev.caldisabled, #calnext.caldisabled {
+	visibility:hidden;	
+}
+
+/* year/month selector */
+#caltitle select {
+	font-size:10px;	
+}
+
+/* names of the days */
+#caldays {
+	height:14px;
+	border-bottom:1px solid #ddd;
+}
+
+#caldays span {
+	display:block;
+	float:left;
+	width:28px;
+	text-align:center;
+}
+
+/* container for weeks */
+#calweeks {
+	background-color:#fff;
+	margin-top:4px;
+}
+
+/* single week */
+.calweek {
+	clear:left;
+	height:22px;
+}
+
+/* single day */
+.calweek a {
+	display:block;
+	float:left;
+	width:27px;
+	height:20px;
+	text-decoration:none;
+	font-size:11px;
+	margin-left:1px;
+	text-align:center;
+	line-height:20px;
+	color:#666;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px; 		
+} 
+
+/* different states */
+.calweek a:hover, .calfocus {
+	background-color:#ddd;
+}
+
+/* sunday */
+a.calsun {
+	color:red;		
+}
+
+/* offmonth day */
+a.caloff {
+	color:#ccc;		
+}
+
+a.caloff:hover {
+	background-color:rgb(245, 245, 250);		
+}
+
+
+/* unselecteble day */
+a.caldisabled {
+	background-color:#efefef !important;
+	color:#ccc	!important;
+	cursor:default;
+}
+
+/* current day */
+#calcurrent {
+	background-color:#498CE2;
+	color:#fff;
+}
+
+/* today */
+#caltoday {
+	background-color:#333;
+	color:#fff;
+}
+
+/* monthpicker http://project.yctin.com/monthpicker/demo/ */ 
+.MonthPicker {margin:0; padding:0; color:#ffe; float:left}
+.MonthPicker {-moz-user-select:none; user-select:none}
+.MonthPicker th{padding-left:20px}
+.MonthPicker td{padding:0px}
+.MonthPicker a{text-decoration:none; color:#333}
+.MonthPicker a:hover{background:#ffe}
+.MonthPicker a:hover span{background:#ffe; color:#f60}
+.MonthPicker a.li{position:relative}
+.MonthPicker ul{list-style:none; margin:0; padding:0}
+.MonthPicker ul table{width:100%; border-collapse:collapse}
+.MonthPicker ul ul{position:absolute; visibility:hidden; left:-1px; top:15px; z-index:2; border:1px solid #999}
+.MonthPicker ul ul .selected{background:#f60; color:#fff}
+.MonthPicker li{position:relative; width:60px; float:left; text-align:center}
+.MonthPicker li a{display:block}
+.MonthPicker .li:hover ul{background:#ffe; visibility:visible}
+.MonthPicker .li:hover li a:hover{background:#09f; color:#ffe}
+.MonthPicker span{display:inline-block; width:58px; text-align:center; cursor:pointer}
+.MonthPicker .month span{width:40px; font-size:10px}
+.MonthPicker .selected{font-weight:bold}
+/* print style */
+@media print{
+.MonthPicker span{display:none}
+.MonthPicker .selected{display:none}
+}
+
+/* Les elements des calendriers */
+
+#calendarleft {float:left; width:24%}
+#calendarright {float:right; width:75%}
+
+.weekday {
+    width:180px;
+    height:220px;
+    padding:2px;
+    margin:3px;
+    background-color:#fff;
+    font-size:11px;
+    border:1px solid #ccc;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    float:left;
+}
+.dayheader {
+    width:176px;
+    padding:0px;
+    margin:0px;
+    background-color:#aaa;
+    border:1px solid #ccc;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    text-align:center;
+    font-weight:bold;
+}
+.dayevent {
+    width:176px;
+    padding:0px;
+    margin:0px;
+    background-color:#66e;
+    border:1px solid #ccc;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    text-align:center;
+}
+.weekday a, .weekday a:visited {color:black}
+
+.calbutton a {
+    float:left;
+    padding:2px;
+    margin:3px;
+    width:180px;
+    height:16px;
+    color:black;
+    font-size:11px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: 0 1px 3px #444;
+    -webkit-box-shadow: 0 1px 3px #444;
+    border-bottom: 1px solid #666;
+    text-align:center;
+}
