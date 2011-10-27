@@ -56,6 +56,9 @@ class EnsembleCapacite(models.Model):
     class Meta:
         verbose_name = u'Ensemble de capacités'
         verbose_name_plural = u'Ensembles de capacités'
+        order_with_respect_to = 'grille'
+        ordering = ['partie', 'numero']
+        unique_together = ('grille', 'partie', 'numero')
 
     grille = models.ForeignKey(GrilleNotation)
     # Relie plusieurs ensembles dans une catégorie
@@ -63,6 +66,9 @@ class EnsembleCapacite(models.Model):
     numero = models.PositiveIntegerField()
     libelle = models.CharField(u'Libellé', max_length=80)
     poids = models.PositiveIntegerField(default=1)
+
+    def __unicode__(self):
+        return u'%c.%d %s (%s)'% (self.partie, self.numero, self.libelle, self.grille)
 
 class Capacite(models.Model):
     """
@@ -72,6 +78,7 @@ class Capacite(models.Model):
         verbose_name_plural = u'Capacités'
 
     ensemble = models.ForeignKey(EnsembleCapacite)
+    numero = models.PositiveIntegerField()
     libelle = models.CharField(u'Libellé', max_length=80)
     cours = models.CharField(u'Cours associé', max_length=80)
 
