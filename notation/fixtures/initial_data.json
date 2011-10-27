@@ -151,19 +151,6 @@
     }
   }, 
   {
-    "pk": 25, 
-    "model": "admin.logentry", 
-    "fields": {
-      "action_flag": 1, 
-      "action_time": "2011-10-27 13:32:15", 
-      "object_repr": "5.C Assurer le traitement des d\u00e9chets (ITII / 2011 - 2013)", 
-      "object_id": "20", 
-      "change_message": "", 
-      "user": 1, 
-      "content_type": 12
-    }
-  }, 
-  {
     "pk": 24, 
     "model": "admin.logentry", 
     "fields": {
@@ -716,18 +703,6 @@
       "partie": "D", 
       "libelle": "D\u00e9ployer la politique Environnement", 
       "numero": 4, 
-      "grille": 2, 
-      "poids": 1
-    }
-  }, 
-  {
-    "pk": 20, 
-    "model": "notation.ensemblecapacite", 
-    "fields": {
-      "_order": 19, 
-      "partie": "C", 
-      "libelle": "Assurer le traitement des d\u00e9chets", 
-      "numero": 5, 
       "grille": 2, 
       "poids": 1
     }
