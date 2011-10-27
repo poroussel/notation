@@ -151,6 +151,45 @@
     }
   }, 
   {
+    "pk": 27, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2011-10-27 15:15:49", 
+      "object_repr": "B.1.2 Analyser un cahier des charges client", 
+      "object_id": "3", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 13
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2011-10-27 15:15:27", 
+      "object_repr": "B.1.1 Pr\u00e9ciser les objectifs du projet", 
+      "object_id": "2", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 13
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2011-10-27 15:15:13", 
+      "object_repr": "A.1.1 Analyser le march\u00e9 et la concurrence", 
+      "object_id": "1", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 13
+    }
+  }, 
+  {
     "pk": 24, 
     "model": "admin.logentry", 
     "fields": {
@@ -705,6 +744,39 @@
       "numero": 4, 
       "grille": 2, 
       "poids": 1
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "notation.capacite", 
+    "fields": {
+      "_order": 0, 
+      "cours": "", 
+      "libelle": "Analyser le march\u00e9 et la concurrence", 
+      "ensemble": 1, 
+      "numero": 1
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "notation.capacite", 
+    "fields": {
+      "_order": 0, 
+      "cours": "", 
+      "libelle": "Pr\u00e9ciser les objectifs du projet", 
+      "ensemble": 4, 
+      "numero": 1
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "notation.capacite", 
+    "fields": {
+      "_order": 1, 
+      "cours": "", 
+      "libelle": "Analyser un cahier des charges client", 
+      "ensemble": 4, 
+      "numero": 2
     }
   }, 
   {

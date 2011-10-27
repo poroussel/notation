@@ -76,11 +76,17 @@ class Capacite(models.Model):
     class Meta:
         verbose_name = u'Capacité'
         verbose_name_plural = u'Capacités'
+        order_with_respect_to = 'ensemble'
+        ordering = ['numero']
+        unique_together = ('ensemble', 'numero')
 
     ensemble = models.ForeignKey(EnsembleCapacite)
     numero = models.PositiveIntegerField()
     libelle = models.CharField(u'Libellé', max_length=80)
-    cours = models.CharField(u'Cours associé', max_length=80)
+    cours = models.CharField(u'Cours associé', max_length=80, blank=True)
+
+    def __unicode__(self):
+        return u'%c.%d.%d %s'% (self.ensemble.partie, self.ensemble.numero, self.numero, self.libelle)
 
 class Note(models.Model):
     """
