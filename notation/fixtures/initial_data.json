@@ -221,7 +221,7 @@
     "fields": {
       "action_flag": 1, 
       "action_time": "2011-10-27 13:30:55", 
-      "object_repr": "4.C Conna\u00eetre les traitements de surface (ITII / 2011 - 2013)", 
+      "object_repr": "5.C Conna\u00eetre les traitements de surface (ITII / 2011 - 2013)", 
       "object_id": "15", 
       "change_message": "", 
       "user": 1, 
@@ -667,7 +667,7 @@
       "_order": 14, 
       "partie": "C", 
       "libelle": "Conna\u00eetre les traitements de surface", 
-      "numero": 4, 
+      "numero": 5, 
       "grille": 2, 
       "poids": 1
     }
