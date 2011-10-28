@@ -2,6 +2,24 @@
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+
+TYPES = (('e', u'Elève'),
+         ('t', u'Tuteur'),
+         ('f', u'Formateur'),
+         ('a', u'Administratif'))
+
+class ProfilUtilisateur(models.Model):
+    user = models.OneToOneField(User, unique=True)
+    user_type = models.CharField(u'Type', max_length=1, default='e', choices=TYPES)
+
+    def __unicode__(self):
+        return u'%s - %s' % (self.user.get_full_name(), self.get_user_type_display())
+    
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        profile, created = ProfilUtilisateur.objects.get_or_create(user=instance)
+post_save.connect(create_user_profile, sender=User)
 
 
 class GrilleNotation(models.Model):
@@ -27,28 +45,23 @@ class Entreprise(models.Model):
     def __unicode__(self):
         return self.nom
     
-class Eleve(models.Model):
+class Bulletin(models.Model):
     """
-    Un élève est encadré par un tuteur, supervisé par un formateur et
-    lié à une grille de notation et une entreprise.
-    
-    Dans le cas d'un même élève participant à plusieurs formations, les
-    champs devront être écrasés et l'historique sera perdu.
+    Bulletin de notes d'un élève pour une formation
     """
     class Meta:
-        verbose_name = u'Elève'
-        verbose_name_plural = u'Elèves'
+        verbose_name = u'Bulletin'
+        verbose_name_plural = u'Bulletins'
         
-    user = models.ForeignKey(User, unique=True, editable=False)
-    nom = models.CharField(u'Nom', max_length=80)
-    prenom = models.CharField(u'Prénom', max_length=80)
+    eleve = models.ForeignKey(User, related_name='eleve', verbose_name=u'Elève')
     grille = models.ForeignKey(GrilleNotation, verbose_name=u'Formation suivie')
     entreprise = models.ForeignKey(Entreprise)
     tuteur = models.ForeignKey(User, related_name='tuteur', verbose_name=u'Tuteur')
-    formateur = models.ForeignKey(User, related_name='formateur', verbose_name='Formateur')
+    formateur = models.ForeignKey(User, related_name='formateur', verbose_name=u'Formateur')
 
     def __unicode__(self):
-        return u'%s %s' % (self.prenom, self.nom)
+        return u'Bulletin de %s (%s - %s)' % (self.eleve.get_full_name(), self.grille, self.entreprise)
+
 
 class EnsembleCapacite(models.Model):
     """
@@ -90,10 +103,8 @@ class Capacite(models.Model):
 
 class Note(models.Model):
     """
-    Relie une note à un élève et à une capacité
-    L'année est une donnée
     """
-    eleve = models.ForeignKey(Eleve)
+    bulletin = models.ForeignKey(Bulletin)
     capacite = models.ForeignKey(Capacite)
     valeur = models.DecimalField(max_digits=3, decimal_places=1)
     # FIXME : est-ce un numero (1, 2, 3) ou une annee ?
@@ -101,7 +112,7 @@ class Note(models.Model):
 
 class Commentaire(models.Model):
     """
-    Permet le stockage d'un commentaire libre pour un élève et un
+    Permet le stockage d'un commentaire libre pour un bulletin et un
     ensemble de capacités
     
     Doit être modifiable par l'élève ce qui nécessite un login/password pour les élèves
@@ -110,7 +121,7 @@ class Commentaire(models.Model):
         verbose_name = u'Commentaire'
         verbose_name_plural = u'Commentaires'
         
-    eleve = models.ForeignKey(Eleve)
+    bulletin = models.ForeignKey(Bulletin)
     ensemble = models.ForeignKey(EnsembleCapacite)
     texte = models.TextField()
 

@@ -1,7 +1,8 @@
 from django.contrib import admin
 from notation.models import *
 
-admin.site.register(Eleve)
+admin.site.register(ProfilUtilisateur)
+admin.site.register(Bulletin)
 admin.site.register(Entreprise)
 admin.site.register(Commentaire)
 admin.site.register(Note)

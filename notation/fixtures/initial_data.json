@@ -1,5 +1,541 @@
 [
   {
+    "pk": 22, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_logentry", 
+      "name": "Can add log entry", 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_logentry", 
+      "name": "Can change log entry", 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_logentry", 
+      "name": "Can delete log entry", 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_group", 
+      "name": "Can add group", 
+      "content_type": 2
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_group", 
+      "name": "Can change group", 
+      "content_type": 2
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_group", 
+      "name": "Can delete group", 
+      "content_type": 2
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_message", 
+      "name": "Can add message", 
+      "content_type": 4
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_message", 
+      "name": "Can change message", 
+      "content_type": 4
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_message", 
+      "name": "Can delete message", 
+      "content_type": 4
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_permission", 
+      "name": "Can add permission", 
+      "content_type": 1
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_permission", 
+      "name": "Can change permission", 
+      "content_type": 1
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_permission", 
+      "name": "Can delete permission", 
+      "content_type": 1
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_user", 
+      "name": "Can add user", 
+      "content_type": 3
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_user", 
+      "name": "Can change user", 
+      "content_type": 3
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_user", 
+      "name": "Can delete user", 
+      "content_type": 3
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_contenttype", 
+      "name": "Can add content type", 
+      "content_type": 5
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_contenttype", 
+      "name": "Can change content type", 
+      "content_type": 5
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_contenttype", 
+      "name": "Can delete content type", 
+      "content_type": 5
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_bulletin", 
+      "name": "Can add Bulletin", 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_bulletin", 
+      "name": "Can change Bulletin", 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_bulletin", 
+      "name": "Can delete Bulletin", 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 40, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_capacite", 
+      "name": "Can add Capacit\u00e9", 
+      "content_type": 14
+    }
+  }, 
+  {
+    "pk": 41, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_capacite", 
+      "name": "Can change Capacit\u00e9", 
+      "content_type": 14
+    }
+  }, 
+  {
+    "pk": 42, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_capacite", 
+      "name": "Can delete Capacit\u00e9", 
+      "content_type": 14
+    }
+  }, 
+  {
+    "pk": 46, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_commentaire", 
+      "name": "Can add Commentaire", 
+      "content_type": 16
+    }
+  }, 
+  {
+    "pk": 47, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_commentaire", 
+      "name": "Can change Commentaire", 
+      "content_type": 16
+    }
+  }, 
+  {
+    "pk": 48, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_commentaire", 
+      "name": "Can delete Commentaire", 
+      "content_type": 16
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_ensemblecapacite", 
+      "name": "Can add Ensemble de capacit\u00e9s", 
+      "content_type": 13
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_ensemblecapacite", 
+      "name": "Can change Ensemble de capacit\u00e9s", 
+      "content_type": 13
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_ensemblecapacite", 
+      "name": "Can delete Ensemble de capacit\u00e9s", 
+      "content_type": 13
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_entreprise", 
+      "name": "Can add entreprise", 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_entreprise", 
+      "name": "Can change entreprise", 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_entreprise", 
+      "name": "Can delete entreprise", 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_grillenotation", 
+      "name": "Can add Grille de notation", 
+      "content_type": 10
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_grillenotation", 
+      "name": "Can change Grille de notation", 
+      "content_type": 10
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_grillenotation", 
+      "name": "Can delete Grille de notation", 
+      "content_type": 10
+    }
+  }, 
+  {
+    "pk": 43, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_note", 
+      "name": "Can add note", 
+      "content_type": 15
+    }
+  }, 
+  {
+    "pk": 44, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_note", 
+      "name": "Can change note", 
+      "content_type": 15
+    }
+  }, 
+  {
+    "pk": 45, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_note", 
+      "name": "Can delete note", 
+      "content_type": 15
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_profilutilisateur", 
+      "name": "Can add profil utilisateur", 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_profilutilisateur", 
+      "name": "Can change profil utilisateur", 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_profilutilisateur", 
+      "name": "Can delete profil utilisateur", 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_session", 
+      "name": "Can add session", 
+      "content_type": 6
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_session", 
+      "name": "Can change session", 
+      "content_type": 6
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_session", 
+      "name": "Can delete session", 
+      "content_type": 6
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_site", 
+      "name": "Can add site", 
+      "content_type": 7
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_site", 
+      "name": "Can change site", 
+      "content_type": 7
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_site", 
+      "name": "Can delete site", 
+      "content_type": 7
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "philou", 
+      "first_name": "Philippe", 
+      "last_name": "Roussel", 
+      "is_active": true, 
+      "is_superuser": true, 
+      "is_staff": true, 
+      "last_login": "2011-10-28 10:43:11", 
+      "groups": [], 
+      "user_permissions": [], 
+      "password": "sha1$8bf10$6e35b04951bac7c1268c76efcbb9dff29c2b806f", 
+      "email": "p.o.roussel@free.fr", 
+      "date_joined": "2011-10-28 10:43:04"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "pmounier", 
+      "first_name": "Perrine", 
+      "last_name": "Mounier", 
+      "is_active": true, 
+      "is_superuser": false, 
+      "is_staff": false, 
+      "last_login": "2011-10-28 10:49:09", 
+      "groups": [], 
+      "user_permissions": [], 
+      "password": "sha1$0a584$94e9ae5b553b06a2d3ca5e87d767621111b832e1", 
+      "email": "", 
+      "date_joined": "2011-10-28 10:49:09"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "ybernard", 
+      "first_name": "Yves", 
+      "last_name": "Bernard", 
+      "is_active": true, 
+      "is_superuser": false, 
+      "is_staff": false, 
+      "last_login": "2011-10-28 10:50:34", 
+      "groups": [], 
+      "user_permissions": [], 
+      "password": "sha1$a8c5d$e74d554c7df6708051644c414d07276120c15b5a", 
+      "email": "", 
+      "date_joined": "2011-10-28 10:50:34"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "bpages", 
+      "first_name": "Benjamin", 
+      "last_name": "Pages", 
+      "is_active": true, 
+      "is_superuser": false, 
+      "is_staff": false, 
+      "last_login": "2011-10-28 10:51:19", 
+      "groups": [], 
+      "user_permissions": [], 
+      "password": "sha1$651ae$4b531717bc5f052e19b6dc5a5bec1e8dca26a944", 
+      "email": "", 
+      "date_joined": "2011-10-28 10:51:19"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "notation.profilutilisateur", 
+    "fields": {
+      "user": 1, 
+      "user_type": "a"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "notation.profilutilisateur", 
+    "fields": {
+      "user": 2, 
+      "user_type": "e"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "notation.profilutilisateur", 
+    "fields": {
+      "user": 3, 
+      "user_type": "t"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "notation.profilutilisateur", 
+    "fields": {
+      "user": 4, 
+      "user_type": "f"
+    }
+  }, 
+  {
     "pk": 2, 
     "model": "notation.grillenotation", 
     "fields": {
@@ -9,11 +545,39 @@
     }
   }, 
   {
+    "pk": 3, 
+    "model": "notation.grillenotation", 
+    "fields": {
+      "promotion": 2011, 
+      "formation": "BTS IRIS", 
+      "duree": 2
+    }
+  }, 
+  {
     "pk": 1, 
     "model": "notation.entreprise", 
     "fields": {
       "nom": "Octets", 
       "description": "Services informatiques (conseil et d\u00e9veloppement) pour les PME/PMI"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "notation.entreprise", 
+    "fields": {
+      "nom": "Thales Angenieux", 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "notation.bulletin", 
+    "fields": {
+      "formateur": 4, 
+      "tuteur": 3, 
+      "entreprise": 2, 
+      "eleve": 2, 
+      "grille": 2
     }
   }, 
   {
@@ -276,5 +840,5 @@
       "ensemble": 4, 
       "numero": 2
     }
-  } 
- ]
+  }
+]
