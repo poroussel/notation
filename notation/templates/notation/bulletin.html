@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ bulletin }}</h1>
+<ul>
+{% for ensemble in ens %}
+  <li>{{ ensemble }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

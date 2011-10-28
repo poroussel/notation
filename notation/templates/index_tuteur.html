@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Les bulletins à remplir</h1>
+<ul>
+{% for bulletin in bulletins %}
+  <li><a href="{% url notation.views.bulletin bulletin.id %}">{{ bulletin.eleve.get_full_name }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

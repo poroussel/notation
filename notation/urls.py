@@ -7,5 +7,7 @@ urlpatterns = patterns('',
     (r'^accounts/login/$',  login),
     (r'^accounts/logout/$', logout, {'next_page':'/'}),
 
+    (r'^bulletin/(?P<object_id>\d+)/$', bulletin),
+    (r'^tuteur/$', index_tuteur),
     (r'^$', index)
 )
