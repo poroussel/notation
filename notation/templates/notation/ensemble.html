@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ ensemble }}</h1>
+<ul>
+{% for cap in capacites %}
+  <li>{{ cap }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

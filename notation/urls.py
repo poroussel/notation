@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     (r'^accounts/logout/$', logout, {'next_page':'/'}),
 
     (r'^bulletin/(?P<object_id>\d+)/$', bulletin),
+    (r'^ensemble/(?P<object_id>\d+)/$', ensemble),
     (r'^tuteur/$', index_tuteur),
     (r'^$', index)
 )

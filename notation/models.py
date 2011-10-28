@@ -90,7 +90,7 @@ class EnsembleCapacite(models.Model):
     poids = models.PositiveIntegerField(default=1)
 
     def __unicode__(self):
-        return u'%c.%d %s (%s)'% (self.partie, self.numero, self.libelle, self.grille)
+        return u'%c.%d %s'% (self.partie, self.numero, self.libelle)
 
 class Capacite(models.Model):
     """
