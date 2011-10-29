@@ -15,7 +15,7 @@
     <div id="navigation">
        <ul>
           {% if user.is_authenticated %}
-	  <li>{{ user.get_full_name }} <a href="{% url django.contrib.auth.views.logout %}">(déconnexion)</a></li>
+	  <li><a href="{% url notation.views.utilisateur %}">{{ user.get_full_name }}</a> <a href="{% url django.contrib.auth.views.logout %}">(déconnexion)</a></li>
 	  {% endif %}
        </ul>
     </div>

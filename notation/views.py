@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.contenttypes.models import ContentType
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
@@ -30,3 +31,9 @@ def ensemble(request, object_id):
     ens = get_object_or_404(EnsembleCapacite, pk=object_id)
     capacites = Capacite.objects.filter(ensemble=ens)
     return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens, 'capacites' : capacites}))
+
+@login_required
+def utilisateur(request):
+    password_form = PasswordChangeForm(request.user)
+    return render_to_response('notation/utilisateur.html', RequestContext(request, {'password_form' : password_form}))
+
