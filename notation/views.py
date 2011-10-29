@@ -2,7 +2,7 @@
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.contenttypes.models import ContentType
+from django.contrib.auth import logout
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
@@ -34,6 +34,13 @@ def ensemble(request, object_id):
 
 @login_required
 def utilisateur(request):
-    password_form = PasswordChangeForm(request.user)
+    if request.method == 'POST':
+        password_form = PasswordChangeForm(request.user, request.POST)
+        if password_form.is_valid():
+            password_form.save()
+            logout(request)
+            return HttpResponseRedirect(reverse(index))
+    else:
+        password_form = PasswordChangeForm(None)
     return render_to_response('notation/utilisateur.html', RequestContext(request, {'password_form' : password_form}))
 

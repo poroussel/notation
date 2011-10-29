@@ -3,7 +3,7 @@
 
 <h1>Votre profile</h1>
 
-<form action="." method="POST">
+<form action="" method="POST">{% csrf_token %}
 <table>
 {{ password_form }}
 <tr><td></td><td><input type="submit" value="Enregistrer" /></td></tr>
