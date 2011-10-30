@@ -8,6 +8,7 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from cfai.notation.models import *
+from cfai.notation.forms import *
 
 @login_required
 def index_tuteur(request):
@@ -63,3 +64,14 @@ def utilisateur(request):
         password_form = PasswordChangeForm(None)
     return render_to_response('notation/utilisateur.html', RequestContext(request, {'password_form' : password_form}))
 
+
+@login_required
+def ajouter_eleve(request):
+    form = AjouterEleveForm()
+    return render_to_response('notation/ajouter_eleve.html', RequestContext(request, {'form' : form}))
+@login_required
+def ajouter_tuteur(request):
+    pass
+@login_required
+def ajouter_formateur(request):
+    pass

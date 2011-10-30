@@ -3,9 +3,8 @@
 
 <h1>Gestion des utilisateurs</h1>
 <ul>
-  <li>Ajouter un élève</li>
-  <li>Ajouter un tuteur</li>
-  <li>Ajouter un formateur</li>
-  <li>Ajouter un administratif</li>
+  <li><a href="{% url notation.views.ajouter_eleve %}">Ajouter un élève</a></li>
+  <li><a href="{% url notation.views.ajouter_tuteur %}">Ajouter un tuteur</a></li>
+  <li><a href="{% url notation.views.ajouter_formateur %}">Ajouter un formateur</a></li>
 </ul>
 {% endblock %}
