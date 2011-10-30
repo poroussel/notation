@@ -9,6 +9,10 @@ urlpatterns = patterns('',
     (r'^utilisateur/$', utilisateur),
     (r'^bulletin/(?P<object_id>\d+)/$', bulletin),
     (r'^ensemble/(?P<object_id>\d+)/$', ensemble),
+                       
+    (r'^administratif/$', index_admin),
+    (r'^formateur/$', index_formateur),
     (r'^tuteur/$', index_tuteur),
+    (r'^eleve/$', index_eleve),
     (r'^$', index)
 )

@@ -15,9 +15,28 @@ def index_tuteur(request):
     return render_to_response('index_tuteur.html', RequestContext(request, {'bulletins' : bulletins}))
 
 @login_required
+def index_admin(request):
+    return render_to_response('index_admin.html', RequestContext(request))
+
+@login_required
+def index_formateur(request):
+    return render_to_response('index_formateur.html', RequestContext(request))
+
+@login_required
+def index_eleve(request):
+    return render_to_response('index_eleve.html', RequestContext(request))
+
+@login_required
 def index(request):
-    if request.user.get_profile().is_tuteur():
+    profile = request.user.get_profile()
+    if profile.is_tuteur():
         return HttpResponseRedirect(reverse(index_tuteur))
+    if profile.is_administratif():
+        return HttpResponseRedirect(reverse(index_admin))
+    if profile.is_formateur():
+        return HttpResponseRedirect(reverse(index_formateur))
+    if profile.is_eleve():
+        return HttpResponseRedirect(reverse(index_eleve))
     return render_to_response('index.html', RequestContext(request))
 
 @login_required
