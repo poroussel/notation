@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import patterns
 from django.views.generic.list_detail import object_list, object_detail
-from django.views.generic.create_update import update_object
+from django.views.generic.create_update import update_object, create_object
 from notation.views import *
 from notation.models import Entreprise
 from notation.forms import EntrepriseForm
@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     (r'^ensemble/(?P<object_id>\d+)/$', ensemble),
                        
     (r'^entreprises/$', object_list, liste_entreprises_dict, 'liste_entreprise'),
+    (r'^entreprises/ajouter/$', create_object, edition_entreprise_dict, 'ajouter_entreprise'),
     (r'^entreprises/(?P<object_id>\d+)/$', update_object, edition_entreprise_dict, 'detail_entreprise'),
                        
     (r'^administratif/ajouter/eleve/$', ajouter_eleve),

@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Gestion des utilisateurs</h1>
+<h1>Paramétrage</h1>
 <ul>
+  <li><a href="{% url liste_entreprise %}">Liste des entreprises</a></li>
   <li><a href="{% url notation.views.ajouter_eleve %}">Ajouter un élève</a></li>
   <li><a href="{% url notation.views.ajouter_tuteur %}">Ajouter un tuteur</a></li>
   <li><a href="{% url notation.views.ajouter_formateur %}">Ajouter un formateur</a></li>
-  <li><a href="{% url liste_entreprise %}">Liste des entreprises</a></li>
 </ul>
 {% endblock %}

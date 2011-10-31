@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Les entreprises</h1>
+<div class="actions">
+<a href="{% url ajouter_entreprise %}">Ajouter une entreprise</a>
+</div>
 <ul>
 {% for etpr in object_list %}
   <li><a href="{% url detail_entreprise etpr.id %}">{{ etpr }}</a></li>
