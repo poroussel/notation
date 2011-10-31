@@ -50,7 +50,9 @@ class GrilleNotation(models.Model):
 class Entreprise(models.Model):
     nom = models.CharField(u'Nom', max_length=80)
     description = models.TextField(u'Description', blank=True)
-
+    telephone = models.CharField(u'Téléphone', max_length=15, blank=True)
+    fax = models.CharField(max_length=15, blank=True)
+    
     def __unicode__(self):
         return self.nom
 

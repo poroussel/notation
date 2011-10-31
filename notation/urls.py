@@ -3,9 +3,12 @@ from django.views.generic.list_detail import object_list, object_detail
 from django.views.generic.create_update import update_object
 from notation.views import *
 from notation.models import Entreprise
+from notation.forms import EntrepriseForm
 
 liste_entreprises_dict = {'queryset' : Entreprise.objects.all()}
-edition_entreprise_dict = {'model' : Entreprise}
+edition_entreprise_dict = {'form_class' : EntrepriseForm,
+                           'login_required' : True,
+                           'post_save_redirect' : '/entreprises/'}
 
 urlpatterns = patterns('',
     (r'^accounts/login/$',  'django.contrib.auth.views.login'),
