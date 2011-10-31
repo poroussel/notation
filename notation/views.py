@@ -67,11 +67,34 @@ def utilisateur(request):
 
 @login_required
 def ajouter_eleve(request):
-    form = AjouterEleveForm()
-    return render_to_response('notation/ajouter_eleve.html', RequestContext(request, {'form' : form}))
+    if request.method == 'POST':
+        form = AjouterEleveForm(request.POST)
+        if form.is_valid():
+            eleve = User()
+            eleve.username = form.cleaned_data['identifiant']
+            eleve.password = form.cleaned_data['identifiant']
+            eleve.first_name = form.cleaned_data['prenom']
+            eleve.last_name = form.cleaned_data['nom']
+            eleve.email = form.cleaned_data['email']
+            eleve.is_active = True
+            eleve.save()
+            # Le profil par défaut est élève, pas besoin de le spécifier
+            bulletin = Bulletin()
+            bulletin.eleve = eleve
+            bulletin.grille = form.cleaned_data['formation']
+            bulletin.entreprise = form.cleaned_data['entreprise']
+            bulletin.tuteur = form.cleaned_data['tuteur']
+            bulletin.formateur = form.cleaned_data['formateur']
+            bulletin.save()
+            return HttpResponseRedirect(reverse('liste_eleve'))
+    else:
+        form = AjouterEleveForm()
+    return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form}))
+
 @login_required
 def ajouter_tuteur(request):
     pass
+
 @login_required
 def ajouter_formateur(request):
     pass

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Les formateurs</h1>
+<div class="actions">
+<a href="{% url notation.views.ajouter_eleve %}">Ajouter un formateur</a>
+</div>
+<ul>
+{% for elv in object_list %}
+  <li><a href="{% url detail_eleve elv.id %}">{{ elv.get_full_name }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
