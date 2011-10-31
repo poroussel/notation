@@ -1,6 +1,11 @@
 from django.conf.urls.defaults import patterns
+from django.views.generic.list_detail import object_list, object_detail
+from django.views.generic.create_update import update_object
 from notation.views import *
+from notation.models import Entreprise
 
+liste_entreprises_dict = {'queryset' : Entreprise.objects.all()}
+edition_entreprise_dict = {'model' : Entreprise}
 
 urlpatterns = patterns('',
     (r'^accounts/login/$',  'django.contrib.auth.views.login'),
@@ -9,6 +14,9 @@ urlpatterns = patterns('',
     (r'^utilisateur/$', utilisateur),
     (r'^bulletin/(?P<object_id>\d+)/$', bulletin),
     (r'^ensemble/(?P<object_id>\d+)/$', ensemble),
+                       
+    (r'^entreprises/$', object_list, liste_entreprises_dict, 'liste_entreprise'),
+    (r'^entreprises/(?P<object_id>\d+)/$', update_object, edition_entreprise_dict, 'detail_entreprise'),
                        
     (r'^administratif/ajouter/eleve/$', ajouter_eleve),
     (r'^administratif/ajouter/tuteur/$', ajouter_tuteur),

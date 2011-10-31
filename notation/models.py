@@ -53,6 +53,11 @@ class Entreprise(models.Model):
 
     def __unicode__(self):
         return self.nom
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('detail_entreprise', [self.id])
+        
     
 class Bulletin(models.Model):
     """
