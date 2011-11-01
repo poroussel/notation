@@ -10,9 +10,9 @@ class UserChoiceField(forms.ModelChoiceField):
         return obj.get_full_name()
             
 class AjouterEleveForm(forms.Form):
-    identifiant = forms.CharField(max_length=80)
-    prenom = forms.CharField(label = u'Prénom', max_length=80)
-    nom = forms.CharField(label = u'Nom', max_length=80)
+    identifiant = forms.CharField(max_length=30)
+    prenom = forms.CharField(label = u'Prénom', max_length=30)
+    nom = forms.CharField(label = u'Nom', max_length=30)
     email = forms.EmailField(label = u'Adresse email', required=False)
     formation = forms.ModelChoiceField(queryset=GrilleNotation.objects.all())
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
