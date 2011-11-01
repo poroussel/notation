@@ -72,7 +72,7 @@ def ajouter_eleve(request):
         if form.is_valid():
             eleve = User()
             eleve.username = form.cleaned_data['identifiant']
-            eleve.password = form.cleaned_data['identifiant']
+            eleve.set_password(form.cleaned_data['identifiant'])
             eleve.first_name = form.cleaned_data['prenom']
             eleve.last_name = form.cleaned_data['nom']
             eleve.email = form.cleaned_data['email']
