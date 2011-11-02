@@ -4,7 +4,7 @@ from django.views.generic.create_update import update_object, create_object
 from django.contrib.auth.models import User
 from notation.views import *
 from notation.models import Entreprise, ProfilUtilisateur
-from notation.forms import EntrepriseForm
+from notation.forms import EntrepriseForm, UtilisateurForm
 
 liste_entreprises_dict = {'queryset' : Entreprise.objects.all()}
 edition_entreprise_dict = {'form_class' : EntrepriseForm,
@@ -16,13 +16,17 @@ liste_eleves_dict = {'queryset' : User.objects.filter(profilutilisateur__user_ty
 edition_eleve_dict = {'model' : User,
                       'login_required' : True,
                       'template_name' : 'notation/eleve_form.html',
-                      'post_save_redirect' : '/entreprises/'}
+                      'post_save_redirect' : '/eleves/'}
 
 liste_tuteurs_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='t').order_by('last_name'),
                       'template_name' : 'notation/tuteur_list.html'}
 
 liste_formateurs_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='f').order_by('last_name'),
                         'template_name' : 'notation/formateur_list.html'}
+edition_formateur_dict = {'form_class' : UtilisateurForm,
+                          'login_required' : True,
+                          'template_name' : 'notation/formateur_form.html',
+                          'post_save_redirect' : '/formateurs/'}
 
 urlpatterns = patterns('',
     (r'^accounts/login/$',  'django.contrib.auth.views.login'),
@@ -43,6 +47,8 @@ urlpatterns = patterns('',
     (r'^tuteurs/$', object_list, liste_tuteurs_dict, 'liste_tuteur'),
 
     (r'^formateurs/$', object_list, liste_formateurs_dict, 'liste_formateur'),
+    (r'^formateurs/ajouter/$', ajouter_formateur, None, 'ajouter_formateur'),
+    (r'^formateurs/(?P<object_id>\d+)/$', update_object, edition_formateur_dict, 'detail_formateur'),
 
     (r'^administratif/$', index_admin),
     (r'^formateur/$', index_formateur),

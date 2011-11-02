@@ -68,7 +68,7 @@ def utilisateur(request):
 @login_required
 def ajouter_eleve(request):
     if request.method == 'POST':
-        form = AjouterEleveForm(request.POST)
+        form = EleveForm(request.POST)
         if form.is_valid():
             eleve = User()
             eleve.username = form.cleaned_data['identifiant']
@@ -88,7 +88,7 @@ def ajouter_eleve(request):
             bulletin.save()
             return HttpResponseRedirect(reverse('liste_eleve'))
     else:
-        form = AjouterEleveForm()
+        form = EleveForm()
     return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form}))
 
 @login_required
@@ -97,4 +97,5 @@ def ajouter_tuteur(request):
 
 @login_required
 def ajouter_formateur(request):
-    pass
+    form = UtilisateurForm()
+    return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form}))

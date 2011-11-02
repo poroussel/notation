@@ -9,7 +9,7 @@ class UserChoiceField(forms.ModelChoiceField):
     def label_from_instance(self, obj):
         return obj.get_full_name()
             
-class AjouterEleveForm(forms.Form):
+class EleveForm(forms.Form):
     identifiant = forms.CharField(max_length=30)
     prenom = forms.CharField(label = u'Prénom', max_length=30)
     nom = forms.CharField(label = u'Nom', max_length=30)
@@ -18,6 +18,14 @@ class AjouterEleveForm(forms.Form):
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
     tuteur = UserChoiceField(queryset=User.objects.filter(profilutilisateur__user_type='t'))
     formateur = UserChoiceField(queryset=User.objects.filter(profilutilisateur__user_type='f'))
+
+class UtilisateurForm(forms.ModelForm):
+    """
+    Gère les tuteurs, formateurs et administratifs 
+    """
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'email')
     
 class EntrepriseForm(forms.ModelForm):
     class Meta:
