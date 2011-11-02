@@ -21,11 +21,16 @@ class EleveForm(forms.Form):
 
 class UtilisateurForm(forms.ModelForm):
     """
-    Gère les tuteurs, formateurs et administratifs 
+    Gère les tuteurs, formateurs et administratifs
+    Les champs sont redéfinis afin d'être obligatoires
     """
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email')
+        
+    first_name = forms.CharField(label = u'Prénom', max_length=30)
+    last_name = forms.CharField(label = u'Nom', max_length=30)
+    email = forms.EmailField(label = u'Adresse électronique')
     
 class EntrepriseForm(forms.ModelForm):
     class Meta:

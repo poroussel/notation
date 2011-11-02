@@ -20,6 +20,10 @@ edition_eleve_dict = {'model' : User,
 
 liste_tuteurs_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='t').order_by('last_name'),
                       'template_name' : 'notation/tuteur_list.html'}
+edition_tuteur_dict = {'form_class' : UtilisateurForm,
+                       'login_required' : True,
+                       'template_name' : 'notation/tuteur_form.html',
+                       'post_save_redirect' : '/tuteurs/'}
 
 liste_formateurs_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='f').order_by('last_name'),
                         'template_name' : 'notation/formateur_list.html'}
@@ -45,6 +49,8 @@ urlpatterns = patterns('',
     (r'^eleves/(?P<object_id>\d+)/$', update_object, edition_eleve_dict, 'detail_eleve'),
 
     (r'^tuteurs/$', object_list, liste_tuteurs_dict, 'liste_tuteur'),
+    (r'^tuteurs/ajouter/$', ajouter_tuteur, None, 'ajouter_tuteur'),
+    (r'^tuteurs/(?P<object_id>\d+)/$', update_object, edition_tuteur_dict, 'detail_tuteur'),
 
     (r'^formateurs/$', object_list, liste_formateurs_dict, 'liste_formateur'),
     (r'^formateurs/ajouter/$', ajouter_formateur, None, 'ajouter_formateur'),

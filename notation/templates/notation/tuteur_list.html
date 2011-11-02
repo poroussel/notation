@@ -2,11 +2,11 @@
 {% block content %}
 <h1>Les tuteurs</h1>
 <div class="actions">
-<a href="{% url notation.views.ajouter_eleve %}">Ajouter un tuteur</a>
+<a href="{% url notation.views.ajouter_tuteur %}">Ajouter un tuteur</a>
 </div>
 <ul>
-{% for elv in object_list %}
-  <li><a href="{% url detail_eleve elv.id %}">{{ elv.get_full_name }}</a></li>
+{% for obj in object_list %}
+  <li><a href="{% url detail_tuteur obj.id %}">{{ obj.get_full_name }}</a></li>
 {% endfor %}
 </ul>
 {% endblock %}

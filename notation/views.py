@@ -93,9 +93,16 @@ def ajouter_eleve(request):
 
 @login_required
 def ajouter_tuteur(request):
-    pass
+    if request.method == 'POST':
+        form = UtilisateurForm(request.POST)
+    else:
+        form = UtilisateurForm()
+    return render_to_response('notation/tuteur_form.html', RequestContext(request, {'form' : form}))
 
 @login_required
 def ajouter_formateur(request):
-    form = UtilisateurForm()
+    if request.method == 'POST':
+        form = UtilisateurForm(request.POST)
+    else:
+        form = UtilisateurForm()
     return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form}))
