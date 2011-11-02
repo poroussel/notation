@@ -68,7 +68,7 @@ def utilisateur(request):
 @login_required
 def ajouter_eleve(request):
     if request.method == 'POST':
-        form = EleveForm(request.POST)
+        form = CreationEleveForm(request.POST)
         if form.is_valid():
             eleve = User()
             eleve.username = form.cleaned_data['identifiant']
@@ -88,7 +88,38 @@ def ajouter_eleve(request):
             bulletin.save()
             return HttpResponseRedirect(reverse('liste_eleve'))
     else:
-        form = EleveForm()
+        form = CreationEleveForm()
+    return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form}))
+
+@login_required
+def modifier_eleve(request, object_id):
+    """
+    On gère la relation élève-bulletin (et donc élève-formation) comme
+    si elle était unique. La base permet d'avoir plusieurs bulletins pour
+    un élève, si cela s'avère utile il faudra modifier l'interface de saisie.
+    """
+    elv = get_object_or_404(User, pk=object_id)
+    blt = Bulletin.objects.get(eleve=elv)
+    if request.method == 'POST':
+        form = EditionEleveForm(request.POST)
+        if form.is_valid():
+            elv.first_name = form.cleaned_data['prenom']
+            elv.last_name = form.cleaned_data['nom']
+            elv.email = form.cleaned_data['email']
+            elv.save()
+            blt.entreprise = form.cleaned_data['entreprise']
+            blt.tuteur = form.cleaned_data['tuteur']
+            blt.formateur = form.cleaned_data['formateur']
+            blt.save()
+            return HttpResponseRedirect(reverse('liste_eleve'))
+    else:
+        form = EditionEleveForm(initial={'identifiant' : elv.username,
+                                         'prenom' : elv.first_name,
+                                         'nom' : elv.last_name,
+                                         'email' : elv.email,
+                                         'entreprise' : blt.entreprise,
+                                         'tuteur' : blt.tuteur,
+                                         'formateur' : blt.formateur})
     return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form}))
 
 @login_required

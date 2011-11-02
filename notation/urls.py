@@ -13,10 +13,6 @@ edition_entreprise_dict = {'form_class' : EntrepriseForm,
 
 liste_eleves_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='e').order_by('last_name'),
                      'template_name' : 'notation/eleve_list.html'}
-edition_eleve_dict = {'model' : User,
-                      'login_required' : True,
-                      'template_name' : 'notation/eleve_form.html',
-                      'post_save_redirect' : '/eleves/'}
 
 liste_tuteurs_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='t').order_by('last_name'),
                       'template_name' : 'notation/tuteur_list.html'}
@@ -46,7 +42,7 @@ urlpatterns = patterns('',
 
     (r'^eleves/$', object_list, liste_eleves_dict, 'liste_eleve'),
     (r'^eleves/ajouter/$', ajouter_eleve, None, 'ajouter_eleve'),
-    (r'^eleves/(?P<object_id>\d+)/$', update_object, edition_eleve_dict, 'detail_eleve'),
+    (r'^eleves/(?P<object_id>\d+)/$', modifier_eleve, None, 'detail_eleve'),
 
     (r'^tuteurs/$', object_list, liste_tuteurs_dict, 'liste_tuteur'),
     (r'^tuteurs/ajouter/$', ajouter_tuteur, None, 'ajouter_tuteur'),
