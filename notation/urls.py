@@ -11,17 +11,17 @@ edition_entreprise_dict = {'form_class' : EntrepriseForm,
                            'login_required' : True,
                            'post_save_redirect' : '/entreprises/'}
 
-liste_eleves_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='e'),
+liste_eleves_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='e').order_by('last_name'),
                      'template_name' : 'notation/eleve_list.html'}
 edition_eleve_dict = {'model' : User,
                       'login_required' : True,
                       'template_name' : 'notation/eleve_form.html',
                       'post_save_redirect' : '/entreprises/'}
 
-liste_tuteurs_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='t'),
+liste_tuteurs_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='t').order_by('last_name'),
                       'template_name' : 'notation/tuteur_list.html'}
 
-liste_formateurs_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='f'),
+liste_formateurs_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='f').order_by('last_name'),
                         'template_name' : 'notation/formateur_list.html'}
 
 urlpatterns = patterns('',
