@@ -40,12 +40,11 @@ urlpatterns = patterns('',
     (r'^eleves/ajouter/$', ajouter_eleve, None, 'ajouter_eleve'),
     (r'^eleves/(?P<object_id>\d+)/$', update_object, edition_eleve_dict, 'detail_eleve'),
 
-    (r'^tuteur/$', object_list, liste_tuteurs_dict, 'liste_tuteur'),
+    (r'^tuteurs/$', object_list, liste_tuteurs_dict, 'liste_tuteur'),
 
-    (r'^formateur/$', object_list, liste_formateurs_dict, 'liste_formateur'),
+    (r'^formateurs/$', object_list, liste_formateurs_dict, 'liste_formateur'),
 
     (r'^administratif/$', index_admin),
-                       
     (r'^formateur/$', index_formateur),
     (r'^tuteur/$', index_tuteur),
     (r'^eleve/$', index_eleve),
