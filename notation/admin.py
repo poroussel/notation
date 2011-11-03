@@ -14,4 +14,5 @@ admin.site.register(EnsembleCapacite, EnsembleCapaciteAdmin)
 
 class CapaciteAdmin(admin.ModelAdmin):
     list_filter = ('ensemble',)
+    ordering = ['ensemble']
 admin.site.register(Capacite, CapaciteAdmin)

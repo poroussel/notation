@@ -113,6 +113,9 @@ class Capacite(models.Model):
     numero = models.PositiveIntegerField()
     libelle = models.CharField(u'Libellé', max_length=80)
     cours = models.CharField(u'Cours associé', max_length=80, blank=True)
+    an_1 = models.BooleanField(u'Valide pour la première année')
+    an_2 = models.BooleanField(u'Valide pour la deuxième année')
+    an_3 = models.BooleanField(u'Valide pour la troisième année')
 
     def __unicode__(self):
         return u'%c.%d.%d %s'% (self.ensemble.partie, self.ensemble.numero, self.numero, self.libelle)
