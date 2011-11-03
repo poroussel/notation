@@ -48,6 +48,7 @@ def bulletin(request, blt_id):
 
 @login_required
 def ensemble_bulletin(request, blt_id, ens_id):
+    blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
     capacites = Capacite.objects.filter(ensemble=ens)
     questions = [str(x) for x in capacites]
@@ -56,7 +57,7 @@ def ensemble_bulletin(request, blt_id, ens_id):
         form = NotationForm(request.POST, extra=questions)
     else:
         form = NotationForm(extra=questions)
-    return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens, 'capacites' : capacites, 'form' : form}))
+    return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens, 'bulletin' : blt, 'form' : form}))
 
 @login_required
 def utilisateur(request):
