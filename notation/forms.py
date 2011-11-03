@@ -52,9 +52,19 @@ class UtilisateurForm(forms.ModelForm):
     last_name = forms.CharField(label = u'Nom', max_length=30)
     email = forms.EmailField(label = u'Adresse électronique')
 
-
 class EntrepriseForm(forms.ModelForm):
     class Meta:
         model = Entreprise
     telephone = FRPhoneNumberField(label=u'Téléphone', required=False)
     fax = FRPhoneNumberField(required=False)
+
+class NotationForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        if 'extra' in kwargs:
+            extra = kwargs.pop('extra')
+        else:
+            extra = []
+        super(NotationForm, self).__init__(*args, **kwargs)
+        
+        for i, question in enumerate(extra):
+            self.fields['custom_%s' % i] = forms.IntegerField(label=question, min_value=0, max_value=5, required=False)
