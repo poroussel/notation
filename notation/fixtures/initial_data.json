@@ -545,15 +545,6 @@
     }
   }, 
   {
-    "pk": 3, 
-    "model": "notation.grillenotation", 
-    "fields": {
-      "promotion": 2011, 
-      "formation": "BTS IRIS", 
-      "duree": 2
-    }
-  }, 
-  {
     "pk": 1, 
     "model": "notation.entreprise", 
     "fields": {
@@ -808,6 +799,210 @@
       "partie": "D", 
       "libelle": "D\u00e9ployer la politique Environnement", 
       "numero": 4, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 19, 
+      "partie": "E", 
+      "libelle": "Manager les \u00e9quipes", 
+      "numero": 1, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 20, 
+      "partie": "E", 
+      "libelle": "Maintenir et d\u00e9velopper les comp\u00e9tences", 
+      "numero": 2, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 21, 
+      "partie": "E", 
+      "libelle": "N\u00e9gocier et faire respecter les r\u00e8gles", 
+      "numero": 3, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 22, 
+      "partie": "E", 
+      "libelle": "Conduire une r\u00e9union", 
+      "numero": 4, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 23, 
+      "partie": "E", 
+      "libelle": "Conna\u00eetre le droit et la r\u00e9glementation", 
+      "numero": 5, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 24, 
+      "partie": "F", 
+      "libelle": "Pr\u00e9parer la production", 
+      "numero": 1, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 25, 
+      "partie": "F", 
+      "libelle": "Conduire un processus de production", 
+      "numero": 2, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 26, 
+      "partie": "F", 
+      "libelle": "Am\u00e9liorer un processus de production", 
+      "numero": 3, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 27, 
+      "partie": "G", 
+      "libelle": "Situer l\u2019entreprise dans son environnement macro\u00e9conomique", 
+      "numero": 1, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 28, 
+      "partie": "G", 
+      "libelle": "Elaborer et suivre le budget de fonctionnement de son service", 
+      "numero": 2, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 29, 
+      "partie": "G", 
+      "libelle": "D\u00e9finir le co\u00fbt d\u2019un produit", 
+      "numero": 3, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 30, 
+      "partie": "G", 
+      "libelle": "D\u00e9cider fabrication ou sous-traitance", 
+      "numero": 4, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 31, 
+      "partie": "H", 
+      "libelle": "Transmettre une information compr\u00e9hensible \u00e0 tous", 
+      "numero": 1, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 32, 
+      "partie": "H", 
+      "libelle": "Recevoir une information ", 
+      "numero": 2, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 33, 
+      "partie": "I", 
+      "libelle": "Evoluer dans un contexte international", 
+      "numero": 1, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 34, 
+      "partie": "J", 
+      "libelle": "Maitriser les bases du syst\u00e8me informatique", 
+      "numero": 1, 
+      "grille": 2, 
+      "poids": 1
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "_order": 35, 
+      "partie": "J", 
+      "libelle": "Maitriser les outils informatiques", 
+      "numero": 2, 
       "grille": 2, 
       "poids": 1
     }
