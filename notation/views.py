@@ -41,14 +41,14 @@ def index(request):
     return render_to_response('index.html', RequestContext(request))
 
 @login_required
-def bulletin(request, object_id):
-    blt = get_object_or_404(Bulletin, pk=object_id)
+def bulletin(request, blt_id):
+    blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = EnsembleCapacite.objects.filter(grille=blt.grille)
     return render_to_response('notation/bulletin.html', RequestContext(request, {'bulletin' : blt, 'ens' : ens}))
 
 @login_required
-def ensemble(request, object_id):
-    ens = get_object_or_404(EnsembleCapacite, pk=object_id)
+def ensemble_bulletin(request, blt_id, ens_id):
+    ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
     capacites = Capacite.objects.filter(ensemble=ens)
     return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens, 'capacites' : capacites}))
 
