@@ -7,4 +7,14 @@
     <tr><th></th><td><input type="submit" value="Enregistrer et revenir à la liste" /></td></tr>
     </table>
   </form>
+
+{% if object.bulletin_set.count %}
+<h1>Les apprentis de l'entreprise</h1>
+<ul>
+{% for blt in object.bulletin_set.all %}
+    <li><a href="{% url detail_eleve blt.eleve.id %}">{{ blt.eleve.get_full_name }} ({{ blt.grille }})</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+    
 {% endblock %}
