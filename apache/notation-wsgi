@@ -7,7 +7,7 @@
 	CustomLog /var/log/apache2/notation-access.log combined
 
     	# Django settings
-        WSGIScriptAlias / /home/www/createch/wsgi_handler.py
+        WSGIScriptAlias / /home/www/cfai/apache/wsgi_handler.py
 	WSGIDaemonProcess cfai user=philou group=users processes=1 threads=2
     	WSGIProcessGroup cfai
 </VirtualHost>
