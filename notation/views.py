@@ -96,7 +96,7 @@ def ajouter_eleve(request):
             return HttpResponseRedirect(reverse('liste_eleve'))
     else:
         form = CreationEleveForm()
-    return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form}))
+    return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : None}))
 
 @login_required
 def modifier_eleve(request, object_id):
@@ -127,7 +127,7 @@ def modifier_eleve(request, object_id):
                                          'entreprise' : blt.entreprise,
                                          'tuteur' : blt.tuteur,
                                          'formateur' : blt.formateur})
-    return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form}))
+    return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blt}))
 
 @login_required
 def ajouter_tuteur(request):

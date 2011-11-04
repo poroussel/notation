@@ -7,4 +7,11 @@
     <tr><th></th><td><input type="submit" value="Enregistrer et revenir à la liste" /></td></tr>
     </table>
   </form>
+    
+{% if blt %}
+<h1>Bulletin de note</h1>
+    <ul>
+      <li><a href="{% url notation.views.bulletin blt.id %}">{{ blt }}</a></li>
+    </ul>
+{% endif %}
 {% endblock %}
