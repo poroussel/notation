@@ -9,7 +9,9 @@ admin.site.register(Note)
 admin.site.register(GrilleNotation)
 
 class EnsembleCapaciteAdmin(admin.ModelAdmin):
-    list_filter = ('grille', 'partie',)
+    list_display = ('__unicode__', 'grille',)
+    list_filter = ('partie',)
+    search_fields = ['grille__formation', 'libelle']
 admin.site.register(EnsembleCapacite, EnsembleCapaciteAdmin)
 
 class CapaciteAdmin(admin.ModelAdmin):
