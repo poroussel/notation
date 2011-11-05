@@ -133,6 +133,12 @@ def modifier_eleve(request, object_id):
 def ajouter_tuteur(request):
     if request.method == 'POST':
         form = UtilisateurForm(request.POST)
+        if form.is_valid():
+            tuteur = form.save()
+            profil = ProfilUtilisateur.objects.get(user=tuteur)
+            profil.user_type = 't'
+            profil.save()
+            return HttpResponseRedirect(reverse('liste_tuteur'))
     else:
         form = UtilisateurForm()
     return render_to_response('notation/tuteur_form.html', RequestContext(request, {'form' : form}))
@@ -141,6 +147,12 @@ def ajouter_tuteur(request):
 def ajouter_formateur(request):
     if request.method == 'POST':
         form = UtilisateurForm(request.POST)
+        if form.is_valid():
+            formateur = form.save()
+            profil = ProfilUtilisateur.objects.get(user=formateur)
+            profil.user_type = 'f'
+            profil.save()
+            return HttpResponseRedirect(reverse('liste_formateur'))
     else:
         form = UtilisateurForm()
     return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form}))
