@@ -441,7 +441,7 @@
       "is_active": true, 
       "is_superuser": true, 
       "is_staff": true, 
-      "last_login": "2011-11-03 17:25:51", 
+      "last_login": "2011-11-05 20:13:13", 
       "groups": [], 
       "user_permissions": [], 
       "password": "sha1$8bf10$6e35b04951bac7c1268c76efcbb9dff29c2b806f", 
@@ -501,6 +501,14 @@
       "password": "sha1$651ae$4b531717bc5f052e19b6dc5a5bec1e8dca26a944", 
       "email": "", 
       "date_joined": "2011-10-28 10:51:19"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "sites.site", 
+    "fields": {
+      "domain": "notation.octets.fr", 
+      "name": "Site de d\u00e9monstration"
     }
   }, 
   {
