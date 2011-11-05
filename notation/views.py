@@ -21,11 +21,13 @@ def index_admin(request):
 
 @login_required
 def index_formateur(request):
-    return render_to_response('index_formateur.html', RequestContext(request))
+    bulletins = Bulletin.objects.filter(formateur=request.user)
+    return render_to_response('index_formateur.html', RequestContext(request, {'bulletins' : bulletins}))
 
 @login_required
 def index_eleve(request):
-    return render_to_response('index_eleve.html', RequestContext(request))
+    bulletins = Bulletin.objects.filter(eleve=request.user)
+    return render_to_response('index_eleve.html', RequestContext(request, {'bulletins' : bulletins}))
 
 @login_required
 def index(request):

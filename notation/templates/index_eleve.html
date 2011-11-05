@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Gestion élève</h1>
+<h1>Mon bulletin</h1>
+<ul>
+  {% for blt in bulletins %}
+  <li><a href="{% url notation.views.bulletin blt.id %}">{{ blt }}</a></li>
+  {% endfor %}
+</ul>
 {% endblock %}
