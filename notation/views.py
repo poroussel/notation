@@ -93,6 +93,8 @@ def ajouter_eleve(request):
             bulletin.tuteur = form.cleaned_data['tuteur']
             bulletin.formateur = form.cleaned_data['formateur']
             bulletin.save()
+            if '_continuer' in request.POST:
+                return HttpResponseRedirect(reverse('ajouter_eleve'))
             return HttpResponseRedirect(reverse('liste_eleve'))
     else:
         form = CreationEleveForm()
@@ -138,6 +140,8 @@ def ajouter_tuteur(request):
             profil = ProfilUtilisateur.objects.get(user=tuteur)
             profil.user_type = 't'
             profil.save()
+            if '_continuer' in request.POST:
+                return HttpResponseRedirect(reverse('ajouter_tuteur'))
             return HttpResponseRedirect(reverse('liste_tuteur'))
     else:
         form = UtilisateurForm()
@@ -152,6 +156,8 @@ def ajouter_formateur(request):
             profil = ProfilUtilisateur.objects.get(user=formateur)
             profil.user_type = 'f'
             profil.save()
+            if '_continuer' in request.POST:
+                return HttpResponseRedirect(reverse('ajouter_formateur'))
             return HttpResponseRedirect(reverse('liste_formateur'))
     else:
         form = UtilisateurForm()
