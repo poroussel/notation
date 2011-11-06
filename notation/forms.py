@@ -66,5 +66,5 @@ class NotationForm(forms.Form):
             extra = []
         super(NotationForm, self).__init__(*args, **kwargs)
         
-        for i, question in enumerate(extra):
-            self.fields['custom_%s' % i] = forms.IntegerField(label=question, min_value=0, max_value=5, required=False)
+        for id,question in extra:
+            self.fields[id] = forms.IntegerField(label=question, min_value=0, max_value=5, required=False)

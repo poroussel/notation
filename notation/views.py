@@ -53,7 +53,7 @@ def ensemble_bulletin(request, blt_id, ens_id):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
     capacites = Capacite.objects.filter(ensemble=ens)
-    questions = [str(x) for x in capacites]
+    questions = [(str(x.id), str(x)) for x in capacites]
     
     # Recherche de l'ensemble suivant dans la grille
     # Pourrait être une méthode du modèle
@@ -68,9 +68,17 @@ def ensemble_bulletin(request, blt_id, ens_id):
         
     if request.method == 'POST':
         form = NotationForm(request.POST, extra=questions)
-        if suivant:
-            return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, suivant.id]))
-        return HttpResponseRedirect(reverse(bulletin, args=[blt_id]))
+        if form.is_valid():
+            for key, value in form.cleaned_data.items():
+                cap = Capacite.objects.get(id=int(key))
+                if value:
+                    Note.objects.get_or_create(bulletin=blt, capacite=cap, defaults={'valeur' : value, 'annee' : 1})
+                else:
+                    Note.objects.filter(bulletin=blt, capacite=cap).delete()
+                    
+            if suivant:
+                return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, suivant.id]))
+            return HttpResponseRedirect(reverse(bulletin, args=[blt_id]))
     else:
         form = NotationForm(extra=questions)
     return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens, 'bulletin' : blt, 'form' : form}))
