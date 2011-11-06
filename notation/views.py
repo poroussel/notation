@@ -55,8 +55,22 @@ def ensemble_bulletin(request, blt_id, ens_id):
     capacites = Capacite.objects.filter(ensemble=ens)
     questions = [str(x) for x in capacites]
     
+    # Recherche de l'ensemble suivant dans la grille
+    # Pourrait être une méthode du modèle
+    suivant = None
+    suivants = EnsembleCapacite.objects.filter(partie=ens.partie, numero=ens.numero + 1)
+    if suivants.count() > 0:
+        suivant = suivants[0]
+    else:
+        suivants = EnsembleCapacite.objects.filter(partie=chr(ord(ens.partie) + 1), numero=1)
+        if suivants.count() > 0:
+            suivant = suivants[0]
+        
     if request.method == 'POST':
         form = NotationForm(request.POST, extra=questions)
+        if suivant:
+            return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, suivant.id]))
+        return HttpResponseRedirect(reverse(bulletin, args=[blt_id]))
     else:
         form = NotationForm(extra=questions)
     return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens, 'bulletin' : blt, 'form' : form}))
