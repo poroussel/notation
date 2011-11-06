@@ -129,6 +129,9 @@ class Note(models.Model):
     # FIXME : est-ce un numero (1, 2, 3) ou une annee ?
     annee = models.PositiveIntegerField(u'Année')
 
+    def __unicode__(self):
+        return u'Note de %s pour la capacité %s'% (self.bulletin.eleve.get_full_name(), self.capacite)
+
 class Commentaire(models.Model):
     """
     Permet le stockage d'un commentaire libre pour un bulletin et un
