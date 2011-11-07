@@ -92,7 +92,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
     return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens, 'annee' : annee, 'bulletin' : blt, 'form' : form}))
 
 @login_required
-def utilisateur(request):
+def motdepasse(request):
     if request.method == 'POST':
         password_form = PasswordChangeForm(request.user, request.POST)
         if password_form.is_valid():
