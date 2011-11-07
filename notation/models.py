@@ -41,7 +41,7 @@ class GrilleNotation(models.Model):
         verbose_name_plural = u'Grilles de notation'
         
     formation = models.CharField(u'Nom de la formation', max_length=100, blank=False)
-    promotion = models.PositiveIntegerField(u'Première années de la promotion')
+    promotion = models.PositiveIntegerField(u'Première année de la promotion')
     duree = models.PositiveIntegerField(u'Durée en années de la formation')
 
     def __unicode__(self):

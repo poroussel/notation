@@ -33,8 +33,9 @@ urlpatterns = patterns('',
     (r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page':'/'}),
 
     (r'^utilisateur/$', utilisateur),
-    (r'^bulletin/(?P<blt_id>\d+)/$', bulletin),
-    (r'^bulletin/(?P<blt_id>\d+)/groupes/(?P<ens_id>\d+)/$', ensemble_bulletin),
+    (r'^bulletins/(?P<blt_id>\d+)/$', bulletin),
+    (r'^bulletins/(?P<blt_id>\d+)/annees/(?P<annee>\d+)/$', annee_bulletin),
+    (r'^bulletins/(?P<blt_id>\d+)/annees/(?P<annee>\d+)/groupes/(?P<ens_id>\d+)/$', ensemble_bulletin),
 
     (r'^entreprises/$', object_list, liste_entreprises_dict, 'liste_entreprise'),
     (r'^entreprises/ajouter/$', create_object, edition_entreprise_dict, 'ajouter_entreprise'),

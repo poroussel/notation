@@ -45,11 +45,19 @@ def index(request):
 @login_required
 def bulletin(request, blt_id):
     blt = get_object_or_404(Bulletin, pk=blt_id)
+    # annees = [0, 1, 2] pour une formation de 3 ans
+    annees = range(blt.grille.duree)
     ens = EnsembleCapacite.objects.filter(grille=blt.grille)
-    return render_to_response('notation/bulletin.html', RequestContext(request, {'bulletin' : blt, 'ens' : ens}))
+    return render_to_response('notation/bulletin.html', RequestContext(request, {'bulletin' : blt, 'ens' : ens, 'annees' : annees}))
 
 @login_required
-def ensemble_bulletin(request, blt_id, ens_id):
+def annee_bulletin(request, blt_id, annee):
+    blt = get_object_or_404(Bulletin, pk=blt_id)
+    ens = EnsembleCapacite.objects.filter(grille=blt.grille)
+    return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'ens' : ens}))
+
+@login_required
+def ensemble_bulletin(request, blt_id, annee, ens_id):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
     capacites = Capacite.objects.filter(ensemble=ens)
@@ -72,16 +80,16 @@ def ensemble_bulletin(request, blt_id, ens_id):
             for key, value in form.cleaned_data.items():
                 cap = Capacite.objects.get(id=int(key))
                 if value:
-                    Note.objects.get_or_create(bulletin=blt, capacite=cap, defaults={'valeur' : value, 'annee' : 1})
+                    Note.objects.get_or_create(bulletin=blt, capacite=cap, defaults={'valeur' : value, 'annee' : annee})
                 else:
                     Note.objects.filter(bulletin=blt, capacite=cap).delete()
                     
             if suivant:
-                return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, suivant.id]))
+                return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, annee, suivant.id]))
             return HttpResponseRedirect(reverse(bulletin, args=[blt_id]))
     else:
         form = NotationForm(extra=questions)
-    return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens, 'bulletin' : blt, 'form' : form}))
+    return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens, 'annee' : annee, 'bulletin' : blt, 'form' : form}))
 
 @login_required
 def utilisateur(request):

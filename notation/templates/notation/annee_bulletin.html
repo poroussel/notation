@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ bulletin }}</h1>
+<ul>
+{% for ensemble in ens %}
+  <li><a href="{% url notation.views.ensemble_bulletin bulletin.id annee ensemble.id %}">{{ ensemble }} ({{ ensemble.capacite_set.count }})</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
