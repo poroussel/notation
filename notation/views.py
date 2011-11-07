@@ -82,8 +82,6 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
         if precedents.count() > 0:
             precedent = precedents[0]
 
-    print precedent
-    print suivant
     if request.method == 'POST':
         form = NotationForm(request.POST, extra=questions)
         if form.is_valid():
