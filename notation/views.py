@@ -73,7 +73,17 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
         suivants = EnsembleCapacite.objects.filter(partie=chr(ord(ens.partie) + 1), numero=1)
         if suivants.count() > 0:
             suivant = suivants[0]
-        
+    precedent = None
+    precedents = EnsembleCapacite.objects.filter(partie=ens.partie, numero=ens.numero - 1)
+    if precedents.count() > 0:
+        precedent = precedents[0]
+    else:
+        precedents = EnsembleCapacite.objects.filter(partie=chr(ord(ens.partie) - 1)).reverse()
+        if precedents.count() > 0:
+            precedent = precedents[0]
+
+    print precedent
+    print suivant
     if request.method == 'POST':
         form = NotationForm(request.POST, extra=questions)
         if form.is_valid():
@@ -89,7 +99,12 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
             return HttpResponseRedirect(reverse(bulletin, args=[blt_id]))
     else:
         form = NotationForm(extra=questions)
-    return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens, 'annee' : annee, 'bulletin' : blt, 'form' : form}))
+    return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens,
+                                                                                 'annee' : annee,
+                                                                                 'bulletin' : blt,
+                                                                                 'form' : form,
+                                                                                 'precedent' : precedent,
+                                                                                 'suivant' : suivant}))
 
 @login_required
 def motdepasse(request):
