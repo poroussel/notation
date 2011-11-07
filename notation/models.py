@@ -126,10 +126,15 @@ class Note(models.Model):
     bulletin = models.ForeignKey(Bulletin)
     capacite = models.ForeignKey(Capacite)
     valeur = models.DecimalField(max_digits=3, decimal_places=1)
-    # FIXME : est-ce un numero (1, 2, 3) ou une annee ?
+    # Indice dans la liste des annees (0, 1 etc) 
     annee = models.PositiveIntegerField(u'Année')
-
+    date_modification = models.DateTimeField(auto_now=True)
+    auteur_modification = models.ForeignKey(User)
+    
     def eleve(self):
+        """
+        Méthode utilisée dans le vue liste admin
+        """
         return self.bulletin.eleve.get_full_name()
     
     def __unicode__(self):
