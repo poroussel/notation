@@ -4,7 +4,7 @@
 <h1>{{ bulletin }}</h1>
 <ul>
   {% for annee in annees %}
-  <li><a href="{% url notation.views.annee_bulletin bulletin.id annee %}">Année {{ bulletin.grille.promotion|add:annee }}</a></li>
+  <li><a href="{% url notation.views.annee_bulletin bulletin.id annee %}">Année {{ bulletin.grille.promotion|add:annee }} - {{ bulletin.grille.promotion|add:annee|add:1 }}</a></li>
   {% endfor %}
 </ul>
 {% endblock %}

@@ -67,4 +67,4 @@ class NotationForm(forms.Form):
         super(NotationForm, self).__init__(*args, **kwargs)
         
         for id,question,cours in extra:
-            self.fields[id] = forms.IntegerField(label=question, help_text='Cours : %s' % cours, min_value=0, max_value=5, required=False)
+            self.fields[id] = forms.IntegerField(label=question, help_text=cours and u'Cours associé : %s' % cours or None, min_value=0, max_value=5, required=False)
