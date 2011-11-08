@@ -61,8 +61,12 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
     capacites = Capacite.objects.filter(ensemble=ens)
-    questions = [(str(x.id), str(x)) for x in capacites]
-    
+    questions = [(str(x.id), str(x)) for x in capacites if x.valide(annee)]
+    # L'utilisation de list() n'est pas nécessaire mais force l'exécution
+    # du QuerySet afin déviter une requête imbriquée
+    notes = Note.objects.filter(bulletin=blt, capacite__in=list(capacites), annee=annee)
+    for cap in capacites:
+        print cap.valide(annee)
     # Recherche de l'ensemble suivant dans la grille
     # Pourrait être une méthode du modèle
     suivant = None
