@@ -118,8 +118,6 @@ class Capacite(models.Model):
     an_3 = models.BooleanField(u'Valide pour la troisième année')
 
     def valide(self, annee):
-        print annee
-        print self.ensemble.grille.duree
         if int(annee) < self.ensemble.grille.duree:
             return self.__dict__['an_%d' % (int(annee) + 1)]
         return False
