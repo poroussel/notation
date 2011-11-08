@@ -60,11 +60,19 @@ class EntrepriseForm(forms.ModelForm):
 
 class NotationForm(forms.Form):
     def __init__(self, *args, **kwargs):
-        if 'extra' in kwargs:
-            extra = kwargs.pop('extra')
+        if 'questions' in kwargs:
+            questions = kwargs.pop('questions')
         else:
-            extra = []
+            questions = []
+        if 'notes' in kwargs:
+            notes = kwargs.pop('notes')
+        else:
+            notes = None
         super(NotationForm, self).__init__(*args, **kwargs)
         
-        for id,question,cours in extra:
-            self.fields[id] = forms.IntegerField(label=question, help_text=cours and u'Cours associé : %s' % cours or None, min_value=0, max_value=5, required=False)
+        for id,question,cours in questions:
+            if notes:
+                note = notes.filter(capacite__id=id)
+            else:
+                note = None
+            self.fields[id] = forms.IntegerField(label=question, help_text=cours and u'Cours associé : %s' % cours or None, min_value=0, max_value=5, required=False, initial=note and int(note[0].valeur) or None)

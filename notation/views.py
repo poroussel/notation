@@ -87,12 +87,15 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
             precedent = precedents[0]
 
     if request.method == 'POST':
-        form = NotationForm(request.POST, extra=questions)
+        form = NotationForm(request.POST, questions=questions)
         if form.is_valid():
             for key, value in form.cleaned_data.items():
                 cap = Capacite.objects.get(id=int(key))
                 if value:
-                    Note.objects.get_or_create(bulletin=blt, capacite=cap, defaults={'valeur' : value, 'annee' : annee, 'auteur_modification' : request.user})
+                    note, created = Note.objects.get_or_create(bulletin=blt, capacite=cap, defaults={'valeur' : value, 'annee' : annee, 'auteur_modification' : request.user})
+                    if not created:
+                        note.valeur = value
+                        note.save()
                 else:
                     Note.objects.filter(bulletin=blt, capacite=cap).delete()
                     
@@ -100,7 +103,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                 return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, annee, suivant.id]))
             return HttpResponseRedirect(reverse(bulletin, args=[blt_id]))
     else:
-        form = NotationForm(extra=questions)
+        form = NotationForm(questions=questions, notes=notes)
     return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens,
                                                                                  'annee' : annee,
                                                                                  'bulletin' : blt,
