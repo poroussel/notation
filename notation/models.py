@@ -159,4 +159,6 @@ class Commentaire(models.Model):
     bulletin = models.ForeignKey(Bulletin)
     ensemble = models.ForeignKey(EnsembleCapacite)
     texte = models.TextField()
+    date_modification = models.DateTimeField(auto_now=True)
+    auteur_modification = models.ForeignKey(User)
 
