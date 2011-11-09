@@ -5,8 +5,12 @@
     <table>
     {{ form.as_table }}
     <tr><th></th><td>
+{% if object %}
+      <input type="submit" value="Enregistrer" />
+{% else %}
       <input type="submit" name="_continuer" value="Enregistrer et saisir un autre tuteur" />
       <input type="submit" value="Enregistrer et revenir à la liste" />
+{% endif %}
     </td></tr>
     </table>
   </form>
