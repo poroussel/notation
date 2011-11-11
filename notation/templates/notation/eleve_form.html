@@ -18,7 +18,10 @@
 {% if blt %}
 <h1>Bulletin de note</h1>
     <ul>
-      <li><a href="{% url notation.views.bulletin blt.id %}">{{ blt }}</a></li>
+      <li>
+      <a href="{% url notation.views.bulletin blt.id %}">{{ blt }}</a>
+       / <a href="{% url notation.views.bulletin blt.id %}?format=xls">Fichier excel</a>
+      </li>
     </ul>
 {% endif %}
 {% endblock %}

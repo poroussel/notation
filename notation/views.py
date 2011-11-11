@@ -48,6 +48,10 @@ def bulletin(request, blt_id):
     # annees = [0, 1, 2] pour une formation de 3 ans
     annees = range(blt.grille.duree)
     ens = EnsembleCapacite.objects.filter(grille=blt.grille)
+    
+    if request.GET.get('format', None) == 'xls':
+        print "format excel"
+        
     return render_to_response('notation/bulletin.html', RequestContext(request, {'bulletin' : blt, 'ens' : ens, 'annees' : annees}))
 
 @login_required
