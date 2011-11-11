@@ -61,10 +61,17 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
     capacites = Capacite.objects.filter(ensemble=ens)
-    questions = [(str(x.id), x.libelle, x.cours) for x in capacites if x.valide(annee)]
+    questions = [(x.id, x.libelle, x.cours) for x in capacites if x.valide(annee)]
+    
     # L'utilisation de list() n'est pas nécessaire mais force l'exécution
     # du QuerySet afin déviter une requête imbriquée
     notes = Note.objects.filter(bulletin=blt, capacite__in=list(capacites), annee=annee)
+    
+    commentaires = Commentaire.objects.filter(bulletin=blt, ensemble=ens)
+    if commentaires.count() > 0:
+        commentaire = commentaires[0].texte
+    else:
+        commentaire = None
 
     # Recherche de l'ensemble suivant dans la grille
     # Pourrait être une méthode du modèle
@@ -89,21 +96,29 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
     if request.method == 'POST':
         form = NotationForm(request.POST, questions=questions)
         if form.is_valid():
-            for key, value in form.cleaned_data.items():
-                cap = Capacite.objects.get(id=int(key))
-                if value:
-                    note, created = Note.objects.get_or_create(bulletin=blt, capacite=cap, defaults={'valeur' : value, 'annee' : annee, 'auteur_modification' : request.user})
-                    if not created:
-                        note.valeur = value
-                        note.save()
-                else:
-                    Note.objects.filter(bulletin=blt, capacite=cap).delete()
+            if 'commentaire' in form.cleaned_data:
+                com, created = Commentaire.objects.get_or_create(bulletin=blt, ensemble=ens, defaults={'texte' : form.cleaned_data['commentaire'], 'auteur_modification' : request.user})
+                if not created:
+                    com.texte = form.cleaned_data['commentaire']
+                    com.save()
                     
+            for (capid, libelle, cours) in questions:
+                if str(capid) in form.cleaned_data:
+                    value = form.cleaned_data[str(capid)]
+                    cap = Capacite.objects.get(id=capid)
+                    if value:
+                        note, created = Note.objects.get_or_create(bulletin=blt, capacite=cap, defaults={'valeur' : value, 'annee' : annee, 'auteur_modification' : request.user})
+                        if not created:
+                            note.valeur = value
+                            note.save()
+                    else:
+                        Note.objects.filter(bulletin=blt, capacite=cap).delete()
+                                        
             if suivant:
                 return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, annee, suivant.id]))
             return HttpResponseRedirect(reverse(bulletin, args=[blt_id]))
     else:
-        form = NotationForm(questions=questions, notes=notes)
+        form = NotationForm(questions=questions, notes=notes, commentaire=commentaire)
     return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens,
                                                                                  'annee' : annee,
                                                                                  'bulletin' : blt,

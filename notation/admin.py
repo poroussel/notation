@@ -4,7 +4,6 @@ from notation.models import *
 admin.site.register(ProfilUtilisateur)
 admin.site.register(Bulletin)
 admin.site.register(Entreprise)
-admin.site.register(Commentaire)
 admin.site.register(GrilleNotation)
 
 class EnsembleCapaciteAdmin(admin.ModelAdmin):
@@ -19,6 +18,20 @@ class CapaciteAdmin(admin.ModelAdmin):
 admin.site.register(Capacite, CapaciteAdmin)
 
 class NoteAdmin(admin.ModelAdmin):
-    list_display = ('eleve', 'capacite', 'annee', 'valeur')
+    list_display = ('eleve',
+                    'capacite',
+                    'annee',
+                    'valeur',
+                    'auteur_modification',
+                    'date_modification')
     list_display_links = ('capacite',)
 admin.site.register(Note, NoteAdmin)
+
+class CommentaireAdmin(admin.ModelAdmin):
+    list_display = ('eleve',
+                    'ensemble',
+                    'texte',
+                    'auteur_modification',
+                    'date_modification')
+    list_display_links = ('ensemble',)
+admin.site.register(Commentaire, CommentaireAdmin)

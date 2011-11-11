@@ -162,3 +162,11 @@ class Commentaire(models.Model):
     date_modification = models.DateTimeField(auto_now=True)
     auteur_modification = models.ForeignKey(User)
 
+    def eleve(self):
+        """
+        Méthode utilisée dans le vue liste admin
+        """
+        return self.bulletin.eleve.get_full_name()
+
+    def __unicode__(self):
+        return u'Commentaire de %s pour le groupe %s'% (self.bulletin.eleve.get_full_name(), self.ensemble)

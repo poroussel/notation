@@ -68,6 +68,10 @@ class NotationForm(forms.Form):
             notes = kwargs.pop('notes')
         else:
             notes = None
+        if 'commentaire' in kwargs:
+            commentaire = kwargs.pop('commentaire')
+        else:
+            commentaire = None
         super(NotationForm, self).__init__(*args, **kwargs)
         
         for id,question,cours in questions:
@@ -75,4 +79,6 @@ class NotationForm(forms.Form):
                 note = notes.filter(capacite__id=id)
             else:
                 note = None
-            self.fields[id] = forms.IntegerField(label=question, help_text=cours and u'Cours associé : %s' % cours or None, min_value=0, max_value=5, required=False, initial=note and int(note[0].valeur) or None)
+            self.fields[str(id)] = forms.IntegerField(label=question, help_text=cours and u'Cours associé : %s' % cours or None, min_value=0, max_value=5, required=False, initial=note and int(note[0].valeur) or None)
+
+        self.fields['commentaire'] = forms.CharField(widget=forms.Textarea, required=False, initial=commentaire)
