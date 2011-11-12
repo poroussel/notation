@@ -3,13 +3,15 @@ from django.views.generic.list_detail import object_list, object_detail
 from django.views.generic.create_update import update_object, create_object
 from django.contrib.auth.models import User
 from notation.views import *
-from notation.models import Entreprise, ProfilUtilisateur
+from notation.models import Entreprise, ProfilUtilisateur, Bulletin
 from notation.forms import EntrepriseForm, UtilisateurForm
 
 liste_entreprises_dict = {'queryset' : Entreprise.objects.all()}
 edition_entreprise_dict = {'form_class' : EntrepriseForm,
                            'login_required' : True,
                            'post_save_redirect' : '/entreprises/'}
+
+liste_bulletins_dict = {'queryset' : Bulletin.objects.all()}
 
 liste_eleves_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='e').order_by('last_name'),
                      'template_name' : 'notation/eleve_list.html'}
@@ -33,6 +35,8 @@ urlpatterns = patterns('',
     (r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page':'/'}),
 
     (r'^utilisateur/motdepasse/$', motdepasse),
+                       
+    (r'^bulletins/$', object_list, liste_bulletins_dict, 'liste_bulletin'),
     (r'^bulletins/(?P<blt_id>\d+)/$', bulletin),
     (r'^bulletins/(?P<blt_id>\d+)/annees/(?P<annee>\d+)/$', annee_bulletin),
     (r'^bulletins/(?P<blt_id>\d+)/annees/(?P<annee>\d+)/groupes/(?P<ens_id>\d+)/$', ensemble_bulletin),
