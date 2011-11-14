@@ -105,6 +105,7 @@ class Capacite(models.Model):
     class Meta:
         verbose_name = u'Capacité'
         verbose_name_plural = u'Capacités'
+        # FIXME : pas sur que les lignes suivantes servent à qq chose
         order_with_respect_to = 'ensemble'
         ordering = ['numero']
         unique_together = ('ensemble', 'numero')

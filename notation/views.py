@@ -5,10 +5,11 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import logout
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from cfai.notation.models import *
 from cfai.notation.forms import *
+from xlwt import *
 
 @login_required
 def index_tuteur(request):
@@ -42,6 +43,50 @@ def index(request):
         return HttpResponseRedirect(reverse(index_eleve))
     return render_to_response('index.html', RequestContext(request))
 
+def bulletin_xls(request, blt):
+    response = HttpResponse(mimetype='application/xls')
+    response['Content-Disposition'] = 'attachment; filename="%s.xls"' % blt.eleve.get_full_name()
+
+    # Creation d'un workbook en Unicode
+    book = Workbook(encoding='cp1251')
+    sheet = book.add_sheet('Bulletin %d-%d' % (blt.grille.promotion, blt.grille.promotion + blt.grille.duree - 1))
+
+    # Les entêtes de colonnes sur la deuxième ligne
+    sheet.write(2, 0, u'Partie spécifique')
+    sheet.write(2, 1, u'Capacités professionnelles et Tâches professionnelles (Etre capable de…)')
+    sheet.write(2, 2, u'1ère année')
+    sheet.write(2, 3, u'2ème année')
+    sheet.write(2, 4, u'3ème année')
+    sheet.write(2, 5, u'Cours associé')
+    sheet.write(2, 6, u'Résultats - indicateurs de performance - validation (Actions réalisées ou initiées en entreprise)')
+
+    lig = 3
+    ensembles = EnsembleCapacite.objects.filter(grille = blt.grille)
+    for ens in ensembles:
+        capacites = Capacite.objects.filter(ensemble = ens).order_by('numero')
+        if capacites.count() == 0:
+            continue
+        
+        sheet.write(lig, 0, ens.partie)
+        sheet.write(lig, 1, u'%d %s' % (ens.numero, ens.libelle))
+        lig = lig + 1
+
+        for cap in capacites:
+            sheet.write(lig, 1, u'%d.%d %s' % (ens.numero, cap.numero, cap.libelle))
+            sheet.write(lig, 5, cap.cours)
+
+            notes = Note.objects.filter(bulletin=blt, capacite=cap)
+            for note in notes:
+                sheet.write(lig, 2 + note.annee, note.valeur)
+                
+            lig = lig + 1
+            
+        sheet.write(lig, 1, u'Note sur 5')
+        lig = lig + 1
+        
+    book.save(response)
+    return response
+
 @login_required
 def bulletin(request, blt_id):
     blt = get_object_or_404(Bulletin, pk=blt_id)
@@ -50,8 +95,8 @@ def bulletin(request, blt_id):
     ens = EnsembleCapacite.objects.filter(grille=blt.grille)
     
     if request.GET.get('format', None) == 'xls':
-        print "format excel"
-        
+        return bulletin_xls(request, blt)
+    
     return render_to_response('notation/bulletin.html', RequestContext(request, {'bulletin' : blt, 'ens' : ens, 'annees' : annees}))
 
 @login_required

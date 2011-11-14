@@ -2,6 +2,7 @@ Développé avec :
 
  - python 2.7.1
  - django 1.2.5
+ - xlwt 0.7.2
 
 
 Mise à jour de la base de données :
