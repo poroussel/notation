@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>{{ ensemble }} / {{ bulletin.eleve.get_full_name }} / Année {{ bulletin.grille.promotion|add:annee }} - {{ bulletin.grille.promotion|add:annee|add:1 }}</h1>
+<h1>{{ ensemble }} / {{ bulletin.eleve.get_full_name }} ({{ bulletin.grille.promotion|add:annee }}-{{ bulletin.grille.promotion|add:annee|add:1 }})</h1>
 <div id="soustitre">
 <a href="{% url notation.views.annee_bulletin bulletin.id annee %}">retour à la liste</a>
 {% if precedent %}
