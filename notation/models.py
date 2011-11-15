@@ -96,6 +96,24 @@ class EnsembleCapacite(models.Model):
     libelle = models.CharField(u'Libellé', max_length=80)
     poids = models.PositiveIntegerField(default=1)
 
+    def precedent(self):
+        precedents = EnsembleCapacite.objects.filter(grille=self.grille, partie=self.partie, numero=self.numero - 1)
+        if precedents.count() > 0:
+            return precedents[0]
+        precedents = EnsembleCapacite.objects.filter(grille=self.grille, partie=chr(ord(self.partie) - 1)).reverse()
+        if precedents.count() > 0:
+            return precedents[0]
+        return None
+    
+    def suivant(self):
+        suivants = EnsembleCapacite.objects.filter(grille=self.grille, partie=self.partie, numero=self.numero + 1)
+        if suivants.count() > 0:
+            return suivants[0]
+        suivants = EnsembleCapacite.objects.filter(grille=self.grille, partie=chr(ord(self.partie) + 1), numero=1)
+        if suivants.count() > 0:
+            return suivants[0]
+        return None
+    
     def __unicode__(self):
         return u'%c.%d %s'% (self.partie, self.numero, self.libelle)
 

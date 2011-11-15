@@ -122,25 +122,8 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
     else:
         commentaire = None
 
-    # Recherche de l'ensemble suivant dans la grille
-    # Pourrait être une méthode du modèle
-    ensembles = EnsembleCapacite.objects.filter(grille=ens.grille)
-    suivant = None
-    suivants = ensembles.filter(partie=ens.partie, numero=ens.numero + 1)
-    if suivants.count() > 0:
-        suivant = suivants[0]
-    else:
-        suivants = ensembles.filter(partie=chr(ord(ens.partie) + 1), numero=1)
-        if suivants.count() > 0:
-            suivant = suivants[0]
-    precedent = None
-    precedents = ensembles.filter(partie=ens.partie, numero=ens.numero - 1)
-    if precedents.count() > 0:
-        precedent = precedents[0]
-    else:
-        precedents = ensembles.filter(partie=chr(ord(ens.partie) - 1)).reverse()
-        if precedents.count() > 0:
-            precedent = precedents[0]
+    suivant = ens.suivant()
+    precedent = ens.precedent()
 
     if request.method == 'POST':
         form = NotationForm(request.POST, questions=questions)
