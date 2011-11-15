@@ -441,7 +441,7 @@
       "is_active": true, 
       "is_superuser": true, 
       "is_staff": true, 
-      "last_login": "2011-11-05 20:13:13", 
+      "last_login": "2011-11-15 09:47:23", 
       "groups": [], 
       "user_permissions": [], 
       "password": "sha1$8bf10$6e35b04951bac7c1268c76efcbb9dff29c2b806f", 
@@ -548,7 +548,7 @@
     "model": "notation.grillenotation", 
     "fields": {
       "promotion": 2011, 
-      "formation": "ITII", 
+      "formation": "ITII M\u00e9canique", 
       "duree": 3
     }
   }, 
