@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Les élèves</h1>
+<h1>Les apprentis</h1>
 <div class="actions">
-<a href="{% url notation.views.ajouter_eleve %}">Ajouter un élève</a>
+<a href="{% url notation.views.ajouter_eleve %}">Ajouter un apprenti</a>
 </div>
 <ul>
 {% for elv in object_list %}

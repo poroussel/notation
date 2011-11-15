@@ -4,7 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 
-TYPES = (('e', u'Elève'),
+TYPES = (('e', u'Apprenti'),
          ('t', u'Tuteur entreprise'),
          ('f', u'Tuteur académique'),
          ('a', u'Administratif'))
@@ -69,7 +69,7 @@ class Bulletin(models.Model):
         verbose_name = u'Bulletin'
         verbose_name_plural = u'Bulletins'
         
-    eleve = models.ForeignKey(User, related_name='eleve', verbose_name=u'Elève')
+    eleve = models.ForeignKey(User, related_name='eleve', verbose_name=u'Apprenti')
     grille = models.ForeignKey(GrilleNotation, verbose_name=u'Formation suivie')
     entreprise = models.ForeignKey(Entreprise)
     tuteur = models.ForeignKey(User, related_name='tuteur', verbose_name=u'Tuteur entreprise')
