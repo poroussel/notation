@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 
 TYPES = (('e', u'Elève'),
-         ('t', u'Tuteur'),
-         ('f', u'Formateur'),
+         ('t', u'Tuteur entreprise'),
+         ('f', u'Tuteur académique'),
          ('a', u'Administratif'))
 
 class ProfilUtilisateur(models.Model):
@@ -72,8 +72,8 @@ class Bulletin(models.Model):
     eleve = models.ForeignKey(User, related_name='eleve', verbose_name=u'Elève')
     grille = models.ForeignKey(GrilleNotation, verbose_name=u'Formation suivie')
     entreprise = models.ForeignKey(Entreprise)
-    tuteur = models.ForeignKey(User, related_name='tuteur', verbose_name=u'Tuteur')
-    formateur = models.ForeignKey(User, related_name='formateur', verbose_name=u'Formateur')
+    tuteur = models.ForeignKey(User, related_name='tuteur', verbose_name=u'Tuteur entreprise')
+    formateur = models.ForeignKey(User, related_name='formateur', verbose_name=u'Tuteur académique')
 
     def __unicode__(self):
         return u'Bulletin de %s (%s - %s)' % (self.eleve.get_full_name(), self.grille, self.entreprise)

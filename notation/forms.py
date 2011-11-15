@@ -12,13 +12,13 @@ class UserChoiceField(forms.ModelChoiceField):
             
 class CreationEleveForm(forms.Form):
     identifiant = forms.CharField(label=u'Nom d\'utilisateur', max_length=30, help_text=u'Lors de la création du compte, le mot de passe sera initialisé avec la même valeur.')
-    prenom = forms.CharField(label = u'Prénom', max_length=30)
-    nom = forms.CharField(label = u'Nom', max_length=30)
-    email = forms.EmailField(label = u'Adresse email', required=False)
+    prenom = forms.CharField(label=u'Prénom', max_length=30)
+    nom = forms.CharField(label=u'Nom', max_length=30)
+    email = forms.EmailField(label=u'Adresse email', required=False)
     formation = forms.ModelChoiceField(queryset=GrilleNotation.objects.all())
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
-    tuteur = UserChoiceField(queryset=User.objects.filter(profilutilisateur__user_type='t'))
-    formateur = UserChoiceField(queryset=User.objects.filter(profilutilisateur__user_type='f'))
+    tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t'))
+    formateur = UserChoiceField(label=u'Tuteur académique', queryset=User.objects.filter(profilutilisateur__user_type='f'))
 
     def clean(self):
       """
@@ -36,8 +36,8 @@ class EditionEleveForm(forms.Form):
     nom = forms.CharField(label = u'Nom', max_length=30)
     email = forms.EmailField(label = u'Adresse email', required=False)
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
-    tuteur = UserChoiceField(queryset=User.objects.filter(profilutilisateur__user_type='t'))
-    formateur = UserChoiceField(queryset=User.objects.filter(profilutilisateur__user_type='f'))
+    tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t'))
+    formateur = UserChoiceField(label=u'Tuteur académique', queryset=User.objects.filter(profilutilisateur__user_type='f'))
 
 class UtilisateurForm(forms.ModelForm):
     """

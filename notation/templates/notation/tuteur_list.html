@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Les tuteurs</h1>
+<h1>Les tuteurs entreprises</h1>
 <div class="actions">
-<a href="{% url notation.views.ajouter_tuteur %}">Ajouter un tuteur</a>
+<a href="{% url notation.views.ajouter_tuteur %}">Ajouter un tuteur entreprise</a>
 </div>
 <ul>
 {% for obj in object_list %}

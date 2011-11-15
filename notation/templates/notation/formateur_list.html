@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Les formateurs</h1>
+<h1>Les tuteurs académiques</h1>
 <div class="actions">
-<a href="{% url notation.views.ajouter_formateur %}">Ajouter un formateur</a>
+<a href="{% url notation.views.ajouter_formateur %}">Ajouter un tuteur académique</a>
 </div>
 <ul>
 {% for obj in object_list %}
