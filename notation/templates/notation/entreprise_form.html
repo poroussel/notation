@@ -1,10 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
+{% if object %}
 <h1>Détails de l'entreprise {{ object }}</h1>
+{% else %}
+<h1>Ajout d'une entreprise</h1>
+{% endif %}
   <form style="margin-left: 10%;" action="" method="post">{% csrf_token %}
     <table>
     {{ form.as_table }}
-    <tr><th></th><td><input type="submit" value="Enregistrer et revenir à la liste" /></td></tr>
+    <tr><th></th><td>
+    {% if object %}
+      <input type="submit" name="_save" value="Enregistrer et revenir à la liste" />
+    {% else %}
+      <input type="submit" name="_addanother" value="Enregistrer et saisir une autre entreprise" />
+      <input type="submit" name="_save "value="Enregistrer et revenir à la liste" />
+    {% endif %}
+    </td></tr>
     </table>
   </form>
 

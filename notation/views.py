@@ -6,6 +6,7 @@ from django.contrib.auth import logout
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponseRedirect, HttpResponse
+from django.views.generic.create_update import update_object, create_object
 from django.core.urlresolvers import reverse
 from cfai.notation.models import *
 from cfai.notation.forms import *
@@ -261,3 +262,12 @@ def ajouter_formateur(request):
     else:
         form = UtilisateurForm()
     return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form}))
+
+@login_required
+def detail_entreprise(request, object_id=None):
+    psr = reverse('liste_entreprise')
+    if object_id:
+        return update_object(request, form_class=EntrepriseForm, object_id=object_id, post_save_redirect=psr)
+    if '_addanother' in request.POST:
+        psr = reverse('ajouter_entreprise')
+    return create_object(request, form_class=EntrepriseForm, post_save_redirect=psr)

@@ -4,12 +4,9 @@ from django.views.generic.create_update import update_object, create_object
 from django.contrib.auth.models import User
 from notation.views import *
 from notation.models import Entreprise, ProfilUtilisateur, Bulletin
-from notation.forms import EntrepriseForm, UtilisateurForm
+from notation.forms import UtilisateurForm
 
 liste_entreprises_dict = {'queryset' : Entreprise.objects.all()}
-edition_entreprise_dict = {'form_class' : EntrepriseForm,
-                           'login_required' : True,
-                           'post_save_redirect' : '/entreprises/'}
 
 liste_bulletins_dict = {'queryset' : Bulletin.objects.all()}
 
@@ -42,8 +39,8 @@ urlpatterns = patterns('',
     (r'^bulletins/(?P<blt_id>\d+)/annees/(?P<annee>\d+)/groupes/(?P<ens_id>\d+)/$', ensemble_bulletin),
 
     (r'^entreprises/$', object_list, liste_entreprises_dict, 'liste_entreprise'),
-    (r'^entreprises/ajouter/$', create_object, edition_entreprise_dict, 'ajouter_entreprise'),
-    (r'^entreprises/(?P<object_id>\d+)/$', update_object, edition_entreprise_dict, 'detail_entreprise'),
+    (r'^entreprises/ajouter/$', detail_entreprise, None, 'ajouter_entreprise'),
+    (r'^entreprises/(?P<object_id>\d+)/$', detail_entreprise, None, 'detail_entreprise'),
 
     (r'^eleves/$', object_list, liste_eleves_dict, 'liste_eleve'),
     (r'^eleves/ajouter/$', ajouter_eleve, None, 'ajouter_eleve'),
