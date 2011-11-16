@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+{% if object %}
 <h1>Détails du tuteur entreprise {{ object.get_full_name }}</h1>
+{% else %}
+<h1>Ajout d'un tuteur entreprise {{ object.get_full_name }}</h1>
+{% endif %}
   <form style="margin-left: 10%;" action="" method="post">{% csrf_token %}
     <table>
     {{ form.as_table }}
@@ -14,4 +18,14 @@
     </td></tr>
     </table>
   </form>
+
+{% if bulletins.count %}
+<h1>Les bulletins de ce tuteur</h1>
+<ul>
+{% for blt in bulletins %}
+    <li><a href="{% url detail_eleve blt.eleve.id %}">{{ blt.eleve.get_full_name }} ({{ blt.grille }})</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+    
 {% endblock %}

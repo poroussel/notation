@@ -282,3 +282,14 @@ def detail_formateur(request, object_id):
                          post_save_redirect=reverse('liste_formateur'),
                          template_name='notation/formateur_form.html',
                          extra_context={'bulletins' : bulletins})
+
+@login_required
+def detail_tuteur(request, object_id):
+    frm = get_object_or_404(User, pk=object_id)
+    bulletins = Bulletin.objects.filter(tuteur=frm)
+    return update_object(request,
+                         form_class=UtilisateurForm,
+                         object_id=object_id,
+                         post_save_redirect=reverse('liste_tuteur'),
+                         template_name='notation/tuteur_form.html',
+                         extra_context={'bulletins' : bulletins})
