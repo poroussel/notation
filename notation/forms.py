@@ -18,7 +18,7 @@ class CreationEleveForm(forms.Form):
     formation = forms.ModelChoiceField(queryset=GrilleNotation.objects.all())
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
     tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t'))
-    formateur = UserChoiceField(label=u'Tuteur académique', queryset=User.objects.filter(profilutilisateur__user_type='f'))
+    formateur = UserChoiceField(label=u'Chargé de promotion', queryset=User.objects.filter(profilutilisateur__user_type='f'))
 
     def clean(self):
       """
@@ -37,7 +37,7 @@ class EditionEleveForm(forms.Form):
     email = forms.EmailField(label = u'Adresse email', required=False)
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
     tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t'))
-    formateur = UserChoiceField(label=u'Tuteur académique', queryset=User.objects.filter(profilutilisateur__user_type='f'))
+    formateur = UserChoiceField(label=u'Chargé de promotion', queryset=User.objects.filter(profilutilisateur__user_type='f'))
 
 class UtilisateurForm(forms.ModelForm):
     """

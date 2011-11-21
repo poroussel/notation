@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Les bulletins de mes élèves</h1>
+<h1>Les bulletins de mes apprentis</h1>
 <ul>
   {% for blt in bulletins %}
   <li><a href="{% url notation.views.bulletin blt.id %}">{{ blt }}</a></li>

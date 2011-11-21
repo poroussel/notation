@@ -6,7 +6,7 @@ from django.db.models.signals import post_save
 
 TYPES = (('e', u'Apprenti'),
          ('t', u'Tuteur entreprise'),
-         ('f', u'Tuteur académique'),
+         ('f', u'Chargé de promotion'),
          ('a', u'Administratif'))
 
 class ProfilUtilisateur(models.Model):
