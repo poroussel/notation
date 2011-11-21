@@ -14,7 +14,7 @@ class CreationEleveForm(forms.Form):
     identifiant = forms.CharField(label=u'Nom d\'utilisateur', max_length=30, help_text=u'Lors de la création du compte, le mot de passe sera initialisé avec la même valeur.')
     prenom = forms.CharField(label=u'Prénom', max_length=30)
     nom = forms.CharField(label=u'Nom', max_length=30)
-    email = forms.EmailField(label=u'Adresse email', required=False)
+    email = forms.EmailField(label=u'Adresse email', required=True)
     formation = forms.ModelChoiceField(queryset=GrilleNotation.objects.all())
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
     tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t'))
@@ -34,7 +34,7 @@ class CreationEleveForm(forms.Form):
 class EditionEleveForm(forms.Form):
     prenom = forms.CharField(label = u'Prénom', max_length=30)
     nom = forms.CharField(label = u'Nom', max_length=30)
-    email = forms.EmailField(label = u'Adresse email', required=False)
+    email = forms.EmailField(label = u'Adresse email', required=True)
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
     tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t'))
     formateur = UserChoiceField(label=u'Chargé de promotion', queryset=User.objects.filter(profilutilisateur__user_type='f'))
