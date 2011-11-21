@@ -127,16 +127,21 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
     precedent = ens.precedent()
 
     if request.method == 'POST':
-        form = NotationForm(request.POST, questions=questions)
+        form = NotationForm(request.POST, questions=questions, user=request.user)
         if form.is_valid():
             if 'commentaire' in form.cleaned_data:
-                com, created = Commentaire.objects.get_or_create(bulletin=blt, ensemble=ens, defaults={'texte' : form.cleaned_data['commentaire'], 'auteur_modification' : request.user})
-                if not created:
-                    com.texte = form.cleaned_data['commentaire']
-                    com.save()
+                if hasattr(form.fields['commentaire'].widget, 'attrs') and 'disabled' in form.fields['commentaire'].widget.attrs:
+                    pass
+                else:
+                    com, created = Commentaire.objects.get_or_create(bulletin=blt, ensemble=ens, defaults={'texte' : form.cleaned_data['commentaire'], 'auteur_modification' : request.user})
+                    if not created:
+                        com.texte = form.cleaned_data['commentaire']
+                        com.save()
                     
             for (capid, libelle, cours) in questions:
                 if str(capid) in form.cleaned_data:
+                    if hasattr(form.fields[str(capid)].widget, 'attrs') and 'disabled' in form.fields[str(capid)].widget.attrs:
+                        continue
                     value = form.cleaned_data[str(capid)]
                     cap = Capacite.objects.get(id=capid)
                     if value:
@@ -151,7 +156,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                 return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, annee, suivant.id]))
             return HttpResponseRedirect(reverse(bulletin, args=[blt_id]))
     else:
-        form = NotationForm(questions=questions, notes=notes, commentaire=commentaire)
+        form = NotationForm(questions=questions, notes=notes, commentaire=commentaire, user=request.user)
     return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens,
                                                                                  'annee' : annee,
                                                                                  'bulletin' : blt,

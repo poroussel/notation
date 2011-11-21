@@ -58,12 +58,9 @@ class EntrepriseForm(forms.ModelForm):
     telephone = FRPhoneNumberField(label=u'Téléphone', required=False)
     fax = FRPhoneNumberField(required=False)
 
+
 class NotationForm(forms.Form):
     def __init__(self, *args, **kwargs):
-        if 'questions' in kwargs:
-            questions = kwargs.pop('questions')
-        else:
-            questions = []
         if 'notes' in kwargs:
             notes = kwargs.pop('notes')
         else:
@@ -72,6 +69,9 @@ class NotationForm(forms.Form):
             commentaire = kwargs.pop('commentaire')
         else:
             commentaire = None
+        questions = kwargs.pop('questions')
+        user = kwargs.pop('user')
+        profile = user.get_profile()
         super(NotationForm, self).__init__(*args, **kwargs)
         
         for id,question,cours in questions:
@@ -80,5 +80,10 @@ class NotationForm(forms.Form):
             else:
                 note = None
             self.fields[str(id)] = forms.IntegerField(label=question, help_text=cours and u'Cours associé : %s' % cours or None, min_value=0, max_value=5, required=False, initial=note and int(note[0].valeur) or None)
+            if profile.is_eleve() or profile.is_formateur():
+                self.fields[str(id)].widget.attrs['disabled'] = True
 
         self.fields['commentaire'] = forms.CharField(widget=forms.Textarea, required=False, initial=commentaire)
+        if profile.is_formateur():
+            self.fields['commentaire'].widget.attrs['disabled'] = True
+        
