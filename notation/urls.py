@@ -49,5 +49,6 @@ urlpatterns = patterns('',
     (r'^formateur/$', index_formateur),
     (r'^tuteur/$', index_tuteur),
     (r'^eleve/$', index_eleve),
+    (r'^recherche/$', recherche),
     (r'^$', index)
 )

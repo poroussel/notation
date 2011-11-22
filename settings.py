@@ -76,6 +76,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'notation.views.SearchMiddleware',
 )
 
 ROOT_URLCONF = 'cfai.urls'

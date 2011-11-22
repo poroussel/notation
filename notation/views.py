@@ -6,6 +6,7 @@ from django.contrib.auth import logout
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponseRedirect, HttpResponse
+from django.utils.http import urlquote
 from django.views.generic.create_update import update_object, create_object
 from django.core.urlresolvers import reverse
 from cfai.notation.models import *
@@ -298,3 +299,20 @@ def detail_tuteur(request, object_id):
                          post_save_redirect=reverse('liste_tuteur'),
                          template_name='notation/tuteur_form.html',
                          extra_context={'bulletins' : bulletins})
+
+
+@login_required
+def recherche(request):
+    search = request.GET.get('search', '')
+    ol = list(ProfilUtilisateur.objects.filter(user__last_name__istartswith=search))
+    ol += list(ProfilUtilisateur.objects.filter(user__first_name__istartswith=search))
+    ol += list(Entreprise.objects.filter(nom__istartswith=search))
+    ol += list(Bulletin.objects.filter(grille__formation__istartswith=search))
+    return render_to_response('search.html', RequestContext(request, {'object_list' : ol}))
+
+class SearchMiddleware(object):
+    def process_request(self, request):
+        if request.method == 'POST' and '_search' in request.POST:
+            chaine =  urlquote(request.POST['chaine'])
+            return HttpResponseRedirect(reverse(recherche) + '?search=%s' % chaine)
+        return None

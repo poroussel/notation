@@ -18,7 +18,7 @@
       <a href="{% url notation.views.motdepasse %}">modifier votre mot de passe</a> /
       <a href="{% url django.contrib.auth.views.logout %}">déconnexion</a>
       <form id="recherche" action="" method="post">{% csrf_token %}
-      <input type="text" maxlength="40" name="numero" id="numero"/>
+      <input type="text" maxlength="40" name="chaine" id="chaine"/>
       <input type="hidden" name="_search" value="Aller" />
       </form>
     {% endif %}
