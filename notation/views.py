@@ -303,12 +303,19 @@ def detail_tuteur(request, object_id):
 
 @login_required
 def recherche(request):
+    # FIXME : les résultats doivent dépendrent de l'utilisateur courant
     search = request.GET.get('search', '')
-    ol = list(ProfilUtilisateur.objects.filter(user__last_name__istartswith=search))
-    ol += list(ProfilUtilisateur.objects.filter(user__first_name__istartswith=search))
-    ol += list(Entreprise.objects.filter(nom__istartswith=search))
+    if search == '':
+        search = 'rien'
+    ol = list(Entreprise.objects.filter(nom__istartswith=search))
     ol += list(Bulletin.objects.filter(grille__formation__istartswith=search))
-    return render_to_response('search.html', RequestContext(request, {'object_list' : ol}))
+    # Liste des bulletins qui référencent l'entreprise
+    ol += list(Bulletin.objects.filter(entreprise__nom__istartswith=search))
+    # Liste des bulletins qui référencent l'eleve
+    ol += list(Bulletin.objects.filter(eleve__last_name__istartswith=search))
+    ol += list(Bulletin.objects.filter(eleve__first_name__istartswith=search))
+    
+    return render_to_response('search.html', RequestContext(request, {'object_list' : ol, 'search_str' : search}))
 
 class SearchMiddleware(object):
     def process_request(self, request):

@@ -25,7 +25,7 @@ urlpatterns = patterns('',
     (r'^utilisateur/motdepasse/$', motdepasse),
                        
     (r'^bulletins/$', object_list, liste_bulletins_dict, 'liste_bulletin'),
-    (r'^bulletins/(?P<blt_id>\d+)/$', bulletin),
+    (r'^bulletins/(?P<blt_id>\d+)/$', bulletin, None, 'bulletin'),
     (r'^bulletins/(?P<blt_id>\d+)/annees/(?P<annee>\d+)/$', annee_bulletin),
     (r'^bulletins/(?P<blt_id>\d+)/annees/(?P<annee>\d+)/groupes/(?P<ens_id>\d+)/$', ensemble_bulletin),
 

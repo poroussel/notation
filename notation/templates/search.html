@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Résultats de la recherche</h1>
+<h1>Résultats de la recherche sur '{{ search_str }}'</h1>
+{% if object_list %}
 <ul>
 {% for obj in object_list %}
-  <li><a href="">{{ obj }}</a></li>
+  <li><a href="{{ obj.get_absolute_url }}">{{ obj }}</a></li>
 {% endfor %}
 </ul>
+{% else %}
+<p>Aucun résultat</p>
+{% endif %}
 {% endblock %}
