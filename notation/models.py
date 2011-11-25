@@ -3,6 +3,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from django.conf import settings
 
 TYPES = (('e', u'Apprenti'),
          ('t', u'Tuteur entreprise'),
@@ -32,6 +33,8 @@ class ProfilUtilisateur(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         profile, created = ProfilUtilisateur.objects.get_or_create(user=instance)
+        if settings.DEBUG:
+            print u"Création de l'utilisateur %s et envoi d'un email à l'adresse %s" % (instance.username, instance.email)
 post_save.connect(create_user_profile, sender=User)
 
 

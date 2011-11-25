@@ -441,7 +441,7 @@
       "is_active": true, 
       "is_superuser": true, 
       "is_staff": true, 
-      "last_login": "2011-11-15 09:47:23", 
+      "last_login": "2011-11-25 23:55:59", 
       "groups": [], 
       "user_permissions": [], 
       "password": "sha1$8bf10$6e35b04951bac7c1268c76efcbb9dff29c2b806f", 
@@ -463,7 +463,7 @@
       "groups": [], 
       "user_permissions": [], 
       "password": "sha1$0a584$94e9ae5b553b06a2d3ca5e87d767621111b832e1", 
-      "email": "", 
+      "email": "p.o.roussel@free.fr", 
       "date_joined": "2011-10-28 10:49:09"
     }
   }, 
@@ -481,7 +481,7 @@
       "groups": [], 
       "user_permissions": [], 
       "password": "sha1$a8c5d$e74d554c7df6708051644c414d07276120c15b5a", 
-      "email": "", 
+      "email": "p.o.roussel@free.fr", 
       "date_joined": "2011-10-28 10:50:34"
     }
   }, 
@@ -499,7 +499,7 @@
       "groups": [], 
       "user_permissions": [], 
       "password": "sha1$651ae$4b531717bc5f052e19b6dc5a5bec1e8dca26a944", 
-      "email": "", 
+      "email": "p.o.roussel@free.fr", 
       "date_joined": "2011-10-28 10:51:19"
     }
   }, 
