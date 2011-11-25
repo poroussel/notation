@@ -46,6 +46,8 @@ urlpatterns = patterns('',
     (r'^formateurs/(?P<object_id>\d+)/$', detail_formateur, None, 'detail_formateur'),
 
     (r'^administratif/$', index_admin),
+    (r'^gestion/$', index_gestion, None, 'index_gestion'),
+    (r'^assistance/$', index_assistance, None, 'index_assistance'),
     (r'^formateur/$', index_formateur),
     (r'^tuteur/$', index_tuteur),
     (r'^eleve/$', index_eleve),

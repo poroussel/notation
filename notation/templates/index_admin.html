@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Accès aux différents éléments</h1>
+<h1>Menu administration</h1>
 <div class="actions">
-  <div><a href="{% url liste_entreprise %}">Les entreprises</a></div>
-  <div><a href="{% url liste_eleve %}">Les apprentis</a></div>
-  <div><a href="{% url liste_bulletin %}">Les bulletins de notes</a></div>
-  <div><a href="{% url liste_formateur %}">Les chargés de promotion</a></div>
-  <div><a href="{% url liste_tuteur %}">Les tuteurs entreprises</a></div>
+  <div class="contenugauche">
+    <a href="{% url index_gestion %}">Gestion</a>
+    <p>Accès aux données administratives</p>
+  </div>
+  <div class="contenudroit">
+    <a href="{% url index_assistance %}">Assistance</a>
+    <p>Accès aux tableau récapitulatifs et aux fiches de compétence des apprentis</p>
+  </div>
 </div>
 {% endblock %}
