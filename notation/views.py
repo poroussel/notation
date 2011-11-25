@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import logout
 from django.shortcuts import render_to_response, get_object_or_404
@@ -13,29 +13,29 @@ from cfai.notation.models import *
 from cfai.notation.forms import *
 from xlwt import *
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_tuteur())
 def index_tuteur(request):
     bulletins = Bulletin.objects.filter(tuteur=request.user)
     return render_to_response('index_tuteur.html', RequestContext(request, {'bulletins' : bulletins}))
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def index_admin(request):
     return render_to_response('index_admin.html', RequestContext(request))
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def index_gestion(request):
     return render_to_response('index_gestion.html', RequestContext(request))
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def index_assistance(request):
     return render_to_response('index_assistance.html', RequestContext(request))
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_formateur())
 def index_formateur(request):
     bulletins = Bulletin.objects.filter(formateur=request.user)
     return render_to_response('index_formateur.html', RequestContext(request, {'bulletins' : bulletins}))
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_eleve())
 def index_eleve(request):
     bulletins = Bulletin.objects.filter(eleve=request.user)
     return render_to_response('index_eleve.html', RequestContext(request, {'bulletins' : bulletins}))
