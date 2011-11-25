@@ -52,6 +52,15 @@ class UtilisateurForm(forms.ModelForm):
     last_name = forms.CharField(label = u'Nom', max_length=30)
     email = forms.EmailField(label = u'Adresse électronique')
 
+class ProfilUtilisateurForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email')        
+
+    first_name = forms.CharField(label = u'Prénom', max_length=30, required=True)
+    last_name = forms.CharField(label = u'Nom', max_length=30, required=True)
+    email = forms.EmailField(label = u'Adresse électronique', required=True)
+
 class EntrepriseForm(forms.ModelForm):
     class Meta:
         model = Entreprise

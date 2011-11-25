@@ -23,6 +23,7 @@ urlpatterns = patterns('',
     (r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page':'/'}),
 
     (r'^utilisateur/motdepasse/$', motdepasse),
+    (r'^utilisateur/profil/$', profil),
                        
     (r'^bulletins/$', object_list, liste_bulletins_dict, 'liste_bulletin'),
     (r'^bulletins/(?P<blt_id>\d+)/$', bulletin, None, 'bulletin'),

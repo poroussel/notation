@@ -14,14 +14,14 @@
     <div id="entete"><a href="{% url notation.views.index %}"><img src="/static/images/logo-cfai.jpg" width="225" height="100"/><img src="/static/images/logo-ensmm.jpg" width="398" height="80" style="vertical-align:top; margin-top:6px"/></a></div>
     <div id="navigation">
       {% if user.is_authenticated %}
-      <b>{{ user.get_full_name }}</b> /
+      <b><a href="{% url notation.views.profil %}">{{ user.get_full_name }}</a></b> /
       <a href="{% url notation.views.motdepasse %}">modifier votre mot de passe</a> /
       <a href="{% url django.contrib.auth.views.logout %}">déconnexion</a>
       <form id="recherche" action="" method="post">{% csrf_token %}
       <input type="text" maxlength="40" name="chaine" id="chaine"/>
       <input type="hidden" name="_search" value="Aller" />
       </form>
-    {% endif %}
+      {% endif %}
     </div>
     <div id="contenu">{% block content %}{% endblock %}</div>
     <div id="pied">

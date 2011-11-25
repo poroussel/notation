@@ -183,7 +183,18 @@ def motdepasse(request):
             return HttpResponseRedirect(reverse(index))
     else:
         password_form = PasswordChangeForm(None)
-    return render_to_response('notation/utilisateur.html', RequestContext(request, {'password_form' : password_form}))
+    return render_to_response('notation/motdepasse.html', RequestContext(request, {'password_form' : password_form}))
+
+@login_required
+def profil(request):
+    if request.method == 'POST':
+        form = ProfilUtilisateurForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse(index))
+    else:
+        form = ProfilUtilisateurForm(instance=request.user)
+    return render_to_response('notation/profil.html', RequestContext(request, {'password_form' : form}))
 
 
 @login_required

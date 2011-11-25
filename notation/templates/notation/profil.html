@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Modification de votre profil</h1>
+
+<form action="" method="POST">{% csrf_token %}
+<table>
+{{ password_form }}
+<tr><td></td><td><input type="submit" value="Enregistrer" /></td></tr>
+</table>
+</form>
+
+{% endblock %}
