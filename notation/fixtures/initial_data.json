@@ -378,6 +378,33 @@
     }
   }, 
   {
+    "pk": 49, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_savoiretre", 
+      "name": "Can add Savoir \u00eatre", 
+      "content_type": 17
+    }
+  }, 
+  {
+    "pk": 50, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_savoiretre", 
+      "name": "Can change Savoir \u00eatre", 
+      "content_type": 17
+    }
+  }, 
+  {
+    "pk": 51, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_savoiretre", 
+      "name": "Can delete Savoir \u00eatre", 
+      "content_type": 17
+    }
+  }, 
+  {
     "pk": 16, 
     "model": "auth.permission", 
     "fields": {
@@ -2331,6 +2358,83 @@
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "notation.savoiretre", 
+    "fields": {
+      "an_3": true, 
+      "libelle": "Comprendre et mettre en application les directives", 
+      "an_1": true, 
+      "an_2": true, 
+      "grille": 2
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "notation.savoiretre", 
+    "fields": {
+      "an_3": true, 
+      "libelle": "D\u00e9montrer son int\u00e9r\u00eat et sa motivation", 
+      "an_1": true, 
+      "an_2": true, 
+      "grille": 2
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "notation.savoiretre", 
+    "fields": {
+      "an_3": true, 
+      "libelle": "Etre poli et courtois", 
+      "an_1": true, 
+      "an_2": true, 
+      "grille": 2
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "notation.savoiretre", 
+    "fields": {
+      "an_3": true, 
+      "libelle": "Accepter des critiques constructives et apporter des correctifs demand\u00e9s", 
+      "an_1": true, 
+      "an_2": true, 
+      "grille": 2
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "notation.savoiretre", 
+    "fields": {
+      "an_3": true, 
+      "libelle": "Etre ponctuel et assidu", 
+      "an_1": true, 
+      "an_2": true, 
+      "grille": 2
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "notation.savoiretre", 
+    "fields": {
+      "an_3": true, 
+      "libelle": "Mettre \u00e0 profit ses comp\u00e9tences", 
+      "an_1": true, 
+      "an_2": true, 
+      "grille": 2
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "notation.savoiretre", 
+    "fields": {
+      "an_3": true, 
+      "libelle": "Effectuer son travail avec dilligence et efficacit\u00e9", 
+      "an_1": true, 
+      "an_2": true, 
+      "grille": 2
     }
   }
 ]

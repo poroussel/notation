@@ -106,7 +106,7 @@ class EnsembleCapacite(models.Model):
     # Relie plusieurs ensembles dans une catégorie
     partie = models.CharField(max_length=1)
     numero = models.PositiveIntegerField()
-    libelle = models.CharField(u'Libellé', max_length=80)
+    libelle = models.CharField(u'Libellé', max_length=200)
     poids = models.PositiveIntegerField(default=1)
 
     def precedent(self):
@@ -131,8 +131,6 @@ class EnsembleCapacite(models.Model):
         return u'%c.%d %s'% (self.partie, self.numero, self.libelle)
 
 class Capacite(models.Model):
-    """
-    """
     class Meta:
         verbose_name = u'Capacité'
         verbose_name_plural = u'Capacités'
@@ -143,7 +141,7 @@ class Capacite(models.Model):
 
     ensemble = models.ForeignKey(EnsembleCapacite)
     numero = models.PositiveIntegerField()
-    libelle = models.CharField(u'Libellé', max_length=80)
+    libelle = models.CharField(u'Libellé', max_length=200)
     cours = models.CharField(u'Cours associé', max_length=80, blank=True)
     an_1 = models.BooleanField(u'Valide pour la première année')
     an_2 = models.BooleanField(u'Valide pour la deuxième année')
@@ -157,9 +155,26 @@ class Capacite(models.Model):
     def __unicode__(self):
         return u'%c.%d.%d %s'% (self.ensemble.partie, self.ensemble.numero, self.numero, self.libelle)
 
+class SavoirEtre(models.Model):
+    class Meta:
+        verbose_name = u'Savoir être'
+        verbose_name_plural = u'Savoirs être'
+
+    grille = models.ForeignKey(GrilleNotation)
+    libelle = models.CharField(u'Libellé', max_length=200)
+    an_1 = models.BooleanField(u'Valide pour la première année')
+    an_2 = models.BooleanField(u'Valide pour la deuxième année')
+    an_3 = models.BooleanField(u'Valide pour la troisième année')
+
+    def valide(self, annee):
+        if int(annee) < self.grille.duree:
+            return self.__dict__['an_%d' % (int(annee) + 1)]
+        return False
+        
+    def __unicode__(self):
+        return self.libelle
+
 class Note(models.Model):
-    """
-    """
     bulletin = models.ForeignKey(Bulletin)
     capacite = models.ForeignKey(Capacite)
     valeur = models.DecimalField(max_digits=3, decimal_places=1)
