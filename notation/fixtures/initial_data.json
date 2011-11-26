@@ -441,7 +441,7 @@
       "is_active": true, 
       "is_superuser": true, 
       "is_staff": true, 
-      "last_login": "2011-11-25 23:55:59", 
+      "last_login": "2011-11-26 22:27:36", 
       "groups": [], 
       "user_permissions": [], 
       "password": "sha1$8bf10$6e35b04951bac7c1268c76efcbb9dff29c2b806f", 
@@ -547,6 +547,8 @@
     "pk": 2, 
     "model": "notation.grillenotation", 
     "fields": {
+      "poids_capacite": 1, 
+      "poids_savoir_etre": 1, 
       "promotion": 2011, 
       "formation": "ITII M\u00e9canique", 
       "duree": 3

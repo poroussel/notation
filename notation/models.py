@@ -50,6 +50,8 @@ class GrilleNotation(models.Model):
     formation = models.CharField(u'Nom de la formation', max_length=100, blank=False)
     promotion = models.PositiveIntegerField(u'Première année de la promotion')
     duree = models.PositiveIntegerField(u'Durée en années de la formation')
+    poids_capacite = models.PositiveIntegerField(u'Poids de la moyenne des capacités dans la moyenne générale', default=1)
+    poids_savoir_etre = models.PositiveIntegerField(u'Poids de la moyenne des savoirs être dans la moyenne générale', default=1)
 
     def __unicode__(self):
         return u'%s / %d - %d' % (self.formation, self.promotion, self.promotion + self.duree - 1)
