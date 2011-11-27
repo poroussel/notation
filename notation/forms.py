@@ -102,7 +102,7 @@ class BulletinForm(forms.Form):
         commentaire = kwargs.pop('commentaire')
         profile = user.get_profile()
         super(BulletinForm, self).__init__(*args, **kwargs)
-        self.fields['commentaires_generaux'] = forms.CharField(widget=forms.Textarea, required=False, initial=commentaire)
+        self.fields['commentaires_generaux'] = forms.CharField(label=u'Commentaires généraux', widget=forms.Textarea, required=False, initial=commentaire)
         if profile.is_eleve():
             self.fields['commentaires_generaux'].widget.attrs['readonly'] = True
 
