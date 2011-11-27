@@ -73,6 +73,10 @@ class Entreprise(models.Model):
 class Bulletin(models.Model):
     """
     Bulletin de notes d'un élève pour une formation
+
+    Les moyennes des notes de capacités et de savoir être sont stockées
+    afin d'éviter les calculs lors des affichages. Le recalcul d'effectue
+    lors de l'enregistrement du formulaire d'un ensemble
     """
     class Meta:
         verbose_name = u'Bulletin'
@@ -84,6 +88,9 @@ class Bulletin(models.Model):
     tuteur = models.ForeignKey(User, related_name='tuteur', verbose_name=u'Tuteur entreprise')
     formateur = models.ForeignKey(User, related_name='formateur', verbose_name=u'Tuteur académique')
     commentaires_generaux = models.TextField(u'Commentaires généraux')
+    moyenne_cap = models.DecimalField(max_digits=4, decimal_places=2, default=4, editable=False)
+    moyenne_sav = models.DecimalField(max_digits=4, decimal_places=2, default=4, editable=False)
+    date_modification = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
         return u'Bulletin de %s (%s - %s)' % (self.eleve.get_full_name(), self.grille, self.entreprise)
@@ -92,7 +99,9 @@ class Bulletin(models.Model):
     def get_absolute_url(self):
         return ('bulletin', [self.id])
 
-
+    def maj_moyennes(self):
+        pass
+    
 class EnsembleCapacite(models.Model):
     """
     """

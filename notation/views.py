@@ -153,7 +153,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                     if not created:
                         com.texte = form.cleaned_data['commentaire']
                         com.save()
-                    
+                        
             for (capid, libelle, cours) in questions:
                 if str(capid) in form.cleaned_data:
                     if hasattr(form.fields[str(capid)].widget, 'attrs') and 'disabled' in form.fields[str(capid)].widget.attrs:
@@ -167,7 +167,8 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                             note.save()
                     else:
                         Note.objects.filter(bulletin=blt, capacite=cap).delete()
-                                        
+                        
+            blt.maj_moyennes()
             if suivant:
                 return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, annee, suivant.id]))
             return HttpResponseRedirect(reverse(bulletin, args=[blt_id]))
