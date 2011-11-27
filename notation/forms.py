@@ -14,7 +14,8 @@ class CreationEleveForm(forms.Form):
     identifiant = forms.CharField(label=u'Nom d\'utilisateur', max_length=30, help_text=u'Lors de la création du compte, le mot de passe sera initialisé avec la même valeur.')
     prenom = forms.CharField(label=u'Prénom', max_length=30)
     nom = forms.CharField(label=u'Nom', max_length=30)
-    email = forms.EmailField(label=u'Adresse email', required=True)
+    email = forms.EmailField(label=u'Adresse électronique', required=True)
+    telephone = FRPhoneNumberField(label=u'N° de téléphone', required=False)
     formation = forms.ModelChoiceField(queryset=GrilleNotation.objects.all())
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
     tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t'))
@@ -34,7 +35,8 @@ class CreationEleveForm(forms.Form):
 class EditionEleveForm(forms.Form):
     prenom = forms.CharField(label = u'Prénom', max_length=30)
     nom = forms.CharField(label = u'Nom', max_length=30)
-    email = forms.EmailField(label = u'Adresse email', required=True)
+    email = forms.EmailField(label = u'Adresse électronique', required=True)
+    telephone = FRPhoneNumberField(label=u'N° de téléphone', required=False)
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
     tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t'))
     formateur = UserChoiceField(label=u'Chargé de promotion', queryset=User.objects.filter(profilutilisateur__user_type='f'))
@@ -46,20 +48,22 @@ class UtilisateurForm(forms.ModelForm):
     """
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email')
+        fields = ('username', 'first_name', 'last_name', 'email', 'phone_number')
         
     first_name = forms.CharField(label = u'Prénom', max_length=30)
     last_name = forms.CharField(label = u'Nom', max_length=30)
     email = forms.EmailField(label = u'Adresse électronique')
+    phone_number = FRPhoneNumberField(label=u'N° de téléphone', required=False)
 
 class ProfilUtilisateurForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email')        
+        fields = ('first_name', 'last_name', 'email', 'phone_number')
 
     first_name = forms.CharField(label = u'Prénom', max_length=30, required=True)
     last_name = forms.CharField(label = u'Nom', max_length=30, required=True)
     email = forms.EmailField(label = u'Adresse électronique', required=True)
+    phone_number = FRPhoneNumberField(label=u'N° de téléphone', required=False)
 
 class EntrepriseForm(forms.ModelForm):
     class Meta:

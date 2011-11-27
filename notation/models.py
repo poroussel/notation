@@ -14,6 +14,7 @@ class ProfilUtilisateur(models.Model):
     user = models.OneToOneField(User, unique=True)
     user_type = models.CharField(u'Type', max_length=1, default='e', choices=TYPES)
     password_modified = models.BooleanField(default=False, editable=True)
+    phone_number = models.CharField(u'N° de téléphone', max_length=15, blank=True)
                                             
     def __unicode__(self):
         return u'%s - %s' % (self.nom_complet, self.get_user_type_display())
@@ -60,8 +61,8 @@ class GrilleNotation(models.Model):
 class Entreprise(models.Model):
     nom = models.CharField(u'Nom', max_length=80)
     description = models.TextField(u'Description', blank=True)
-    telephone = models.CharField(u'Téléphone', max_length=15, blank=True)
-    fax = models.CharField(max_length=15, blank=True)
+    telephone = models.CharField(u'N° de téléphone', max_length=15, blank=True)
+    fax = models.CharField(u'N° de fax', max_length=15, blank=True)
     
     def __unicode__(self):
         return self.nom
