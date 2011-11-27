@@ -3,6 +3,7 @@
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import logout
+from django.contrib import messages
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponseRedirect, HttpResponse
@@ -193,6 +194,7 @@ def motdepasse(request):
             user = password_form.save(commit=False)
             user.password_modified = True
             user.save()
+            messages.success(request, u'Votre mot de passe a été mis à jour.')
             logout(request)
             return HttpResponseRedirect(reverse(index))
     else:
@@ -205,6 +207,7 @@ def profil(request):
         form = ProfilUtilisateurForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
+            messages.success(request, u'Votre profil a été mis à jour.')
             return HttpResponseRedirect(reverse(index))
     else:
         form = ProfilUtilisateurForm(instance=request.user)

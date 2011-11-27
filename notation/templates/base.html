@@ -12,6 +12,15 @@
 </head>
 <body>
     <div id="entete"><a href="{% url notation.views.index %}"><img src="/static/images/logo-cfai.jpg" width="225" height="100"/><img src="/static/images/logo-ensmm.jpg" width="398" height="80" style="vertical-align:top; margin-top:6px"/></a></div>
+
+    {% if messages %}
+    <ul class="messagelist">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    
     <div id="navigation">
       {% if user.is_authenticated %}
       <b><a href="{% url notation.views.profil %}">{{ user.get_full_name }}</a></b> /

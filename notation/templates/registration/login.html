@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
+<h1>Connexion</h1>
   <form style="margin-left: 30%;" action="" method="post">{% csrf_token %}
     <p>Vous devez vous identifier pour utiliser cette application</p>
     <table>
     {{ form.as_table }}
-    <tr><th></th><td><input type="submit" value="connexion" /></td></tr>
+    <tr><th></th><td><input type="submit" value="Connexion" /></td></tr>
     </table>
     <input type="hidden" name="next" value="{{ next|escape }}" />
   </form>
