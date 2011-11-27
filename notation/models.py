@@ -13,7 +13,7 @@ TYPES = (('e', u'Apprenti'),
 class ProfilUtilisateur(models.Model):
     user = models.OneToOneField(User, unique=True)
     user_type = models.CharField(u'Type', max_length=1, default='e', choices=TYPES)
-    password_modified = models.BooleanField(default=False, editable=False)
+    password_modified = models.BooleanField(default=False, editable=True)
                                             
     def __unicode__(self):
         return u'%s - %s' % (self.nom_complet, self.get_user_type_display())

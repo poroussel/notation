@@ -44,6 +44,9 @@ def index_eleve(request):
 @login_required
 def index(request):
     profile = request.user.get_profile()
+    if not profile.password_modified:
+        messages.warning(request, u'Vous devez modifier votre mot de passe !')
+
     if profile.is_tuteur():
         return HttpResponseRedirect(reverse(index_tuteur))
     if profile.is_administratif():
@@ -191,9 +194,10 @@ def motdepasse(request):
     if request.method == 'POST':
         password_form = PasswordChangeForm(request.user, request.POST)
         if password_form.is_valid():
-            user = password_form.save(commit=False)
-            user.password_modified = True
-            user.save()
+            user = password_form.save()
+            profile = user.get_profile()
+            profile.password_modified = True
+            profile.save()
             messages.success(request, u'Votre mot de passe a été mis à jour.')
             logout(request)
             return HttpResponseRedirect(reverse(index))
