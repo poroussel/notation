@@ -192,7 +192,9 @@ def motdepasse(request):
     if request.method == 'POST':
         password_form = PasswordChangeForm(request.user, request.POST)
         if password_form.is_valid():
-            password_form.save()
+            user = password_form.save(commit=False)
+            user.password_modified = True
+            user.save()
             logout(request)
             return HttpResponseRedirect(reverse(index))
     else:
