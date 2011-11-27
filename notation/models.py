@@ -83,6 +83,7 @@ class Bulletin(models.Model):
     entreprise = models.ForeignKey(Entreprise)
     tuteur = models.ForeignKey(User, related_name='tuteur', verbose_name=u'Tuteur entreprise')
     formateur = models.ForeignKey(User, related_name='formateur', verbose_name=u'Tuteur académique')
+    commentaires_generaux = models.TextField(u'Commentaires généraux')
 
     def __unicode__(self):
         return u'Bulletin de %s (%s - %s)' % (self.eleve.get_full_name(), self.grille, self.entreprise)

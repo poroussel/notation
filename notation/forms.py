@@ -96,3 +96,13 @@ class NotationForm(forms.Form):
         if profile.is_formateur():
             self.fields['commentaire'].widget.attrs['disabled'] = True
         
+class BulletinForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user')
+        commentaire = kwargs.pop('commentaire')
+        profile = user.get_profile()
+        super(BulletinForm, self).__init__(*args, **kwargs)
+        
+        self.fields['commentaires_generaux'] = forms.CharField(widget=forms.Textarea, required=False, initial=commentaire)
+        if profile.is_eleve():
+            self.fields['commentaires_generaux'].widget.attrs['disabled'] = True

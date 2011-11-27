@@ -7,4 +7,13 @@
   <li><a href="{% url notation.views.ensemble_bulletin bulletin.id annee ensemble.id %}">{{ ensemble }} ({{ ensemble.capacite_set.count }})</a></li>
 {% endfor %}
 </ul>
+
+<form action="" method="post">{% csrf_token %}
+  <table>
+  {{ form }}
+  <tr><th></th><td>
+    <input type="submit" value="Enregistrer" />
+  </td></tr>
+  </table>
+</form>
 {% endblock %}

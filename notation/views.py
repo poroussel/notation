@@ -113,7 +113,8 @@ def bulletin(request, blt_id):
 def annee_bulletin(request, blt_id, annee):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = EnsembleCapacite.objects.filter(grille=blt.grille)
-    return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'ens' : ens}))
+    form = BulletinForm(commentaire=blt.commentaires_generaux, user=request.user)
+    return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'ens' : ens, 'form' : form}))
 
 @login_required
 def ensemble_bulletin(request, blt_id, annee, ens_id):
