@@ -49,7 +49,7 @@ table {width: 100%; text-align: left; border-spacing: 0px}
  margin-bottom: 2em;
 }
 
-textarea[readonly="True"] { 
+input[readonly="True"], textarea[readonly="True"] { 
   moz-user-focus: ignore;
   moz-user-input: disabled;
   background-color: threedface;

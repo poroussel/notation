@@ -68,7 +68,15 @@ class EntrepriseForm(forms.ModelForm):
     fax = FRPhoneNumberField(required=False)
 
 
-class NotationForm(forms.Form):
+class ReadOnly(object):
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        for field in self.fields:
+            if self.fields[field].widget.attrs and 'readonly' in self.fields[field].widget.attrs:
+                del cleaned_data[field]
+        return cleaned_data
+    
+class NotationForm(forms.Form, ReadOnly):
     def __init__(self, *args, **kwargs):
         if 'notes' in kwargs:
             notes = kwargs.pop('notes')
@@ -90,13 +98,13 @@ class NotationForm(forms.Form):
                 note = None
             self.fields[str(id)] = forms.IntegerField(label=question, help_text=cours and u'Cours associé : %s' % cours or None, min_value=0, max_value=5, required=False, initial=note and int(note[0].valeur) or None)
             if profile.is_eleve() or profile.is_formateur():
-                self.fields[str(id)].widget.attrs['disabled'] = True
+                self.fields[str(id)].widget.attrs['readonly'] = True
 
         self.fields['commentaire'] = forms.CharField(widget=forms.Textarea, required=False, initial=commentaire)
         if profile.is_formateur():
-            self.fields['commentaire'].widget.attrs['disabled'] = True
-        
-class BulletinForm(forms.Form):
+            self.fields['commentaire'].widget.attrs['readonly'] = True
+
+class BulletinForm(forms.Form, ReadOnly):
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user')
         commentaire = kwargs.pop('commentaire')
@@ -112,10 +120,3 @@ class BulletinForm(forms.Form):
         self.fields['commentaires_generaux'] = forms.CharField(label=u'Commentaires généraux', widget=forms.Textarea, required=False, initial=commentaire)
         if profile.is_eleve():
             self.fields['commentaires_generaux'].widget.attrs['readonly'] = True
-
-    def clean(self):
-        cleaned_data = self.cleaned_data
-        for field in self.fields:
-            if self.fields[field].widget.attrs and 'readonly' in self.fields[field].widget.attrs:
-                del cleaned_data[field]
-        return cleaned_data
