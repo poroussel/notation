@@ -93,6 +93,10 @@ class Bulletin(models.Model):
     moyenne_sav = models.DecimalField(max_digits=4, decimal_places=2, default=4, editable=False)
     date_modification = models.DateTimeField(auto_now=True)
 
+    def _moyenne_generale(self):
+        return (self.moyenne_cap * self.grille.poids_capacite + self.moyenne_sav * self.grille.poids_savoir_etre) / (self.grille.poids_capacite + self.grille.poids_savoir_etre)
+    moyenne_generale = property(_moyenne_generale)
+
     def __unicode__(self):
         return u'Bulletin de %s (%s - %s)' % (self.eleve.get_full_name(), self.grille, self.entreprise)
 
@@ -104,8 +108,6 @@ class Bulletin(models.Model):
         pass
     
 class EnsembleCapacite(models.Model):
-    """
-    """
     class Meta:
         verbose_name = u'Ensemble de capacités'
         verbose_name_plural = u'Ensembles de capacités'

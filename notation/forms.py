@@ -100,8 +100,15 @@ class BulletinForm(forms.Form):
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user')
         commentaire = kwargs.pop('commentaire')
+        savoirs = kwargs.pop('savoirs')
         profile = user.get_profile()
         super(BulletinForm, self).__init__(*args, **kwargs)
+
+        for sv in savoirs:
+            self.fields[str(sv.id)] = forms.IntegerField(label=sv.libelle, min_value=0, max_value=5, required=False)
+            if profile.is_eleve():
+                self.fields[str(sv.id)].widget.attrs['readonly'] = True
+            
         self.fields['commentaires_generaux'] = forms.CharField(label=u'Commentaires généraux', widget=forms.Textarea, required=False, initial=commentaire)
         if profile.is_eleve():
             self.fields['commentaires_generaux'].widget.attrs['readonly'] = True

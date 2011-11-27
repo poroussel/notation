@@ -113,9 +113,12 @@ def bulletin(request, blt_id):
 def annee_bulletin(request, blt_id, annee):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = EnsembleCapacite.objects.filter(grille=blt.grille)
-    form = BulletinForm(commentaire=blt.commentaires_generaux, user=request.user)
+    setre = SavoirEtre.objects.filter(grille=blt.grille)
+    setre = [se for se in setre if se.valide(annee)]
+    
+    form = BulletinForm(commentaire=blt.commentaires_generaux, savoirs=setre, user=request.user)
     if request.method == 'POST':
-        form = BulletinForm(request.POST, commentaire=blt.commentaires_generaux, user=request.user)
+        form = BulletinForm(request.POST, commentaire=blt.commentaires_generaux, savoirs=setre, user=request.user)
         if form.is_valid():
             if 'commentaires_generaux' in form.cleaned_data:
                 blt.commentaires_generaux = form.cleaned_data['commentaires_generaux']

@@ -8,6 +8,7 @@
 {% endfor %}
 </ul>
 
+<h1>Les savoirs êtres</h1>
 <form action="" method="post">{% csrf_token %}
   <table>
   {{ form }}
@@ -16,4 +17,11 @@
   </td></tr>
   </table>
 </form>
+
+<h1>Résultats à ce jour</h1>
+  <table style="width:300px">
+  <tr><th>Moyenne qualité : </th><td>{{ bulletin.moyenne_cap }}</td></tr>
+  <tr><th>Moyenne savoir être : </th><td>{{ bulletin.moyenne_sav }}</td></tr>
+  <tr><th>Moyenne générale : </th><td>{{ bulletin.moyenne_generale }}</td></tr>
+  </table>
 {% endblock %}
