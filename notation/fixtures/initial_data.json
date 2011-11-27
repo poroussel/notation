@@ -216,30 +216,30 @@
     }
   }, 
   {
-    "pk": 46, 
+    "pk": 49, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "add_commentaire", 
-      "name": "Can add Commentaire", 
-      "content_type": 16
+      "codename": "add_savoiretre", 
+      "name": "Can add Savoir \u00eatre", 
+      "content_type": 17
     }
   }, 
   {
-    "pk": 47, 
+    "pk": 50, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "change_commentaire", 
-      "name": "Can change Commentaire", 
-      "content_type": 16
+      "codename": "change_savoiretre", 
+      "name": "Can change Savoir \u00eatre", 
+      "content_type": 17
     }
   }, 
   {
-    "pk": 48, 
+    "pk": 51, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "delete_commentaire", 
-      "name": "Can delete Commentaire", 
-      "content_type": 16
+      "codename": "delete_savoiretre", 
+      "name": "Can delete Savoir \u00eatre", 
+      "content_type": 17
     }
   }, 
   {
@@ -324,30 +324,30 @@
     }
   }, 
   {
-    "pk": 43, 
+    "pk": 46, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "add_note", 
-      "name": "Can add note", 
-      "content_type": 15
+      "codename": "add_commentaire", 
+      "name": "Can add Commentaire", 
+      "content_type": 16
     }
   }, 
   {
-    "pk": 44, 
+    "pk": 47, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "change_note", 
-      "name": "Can change note", 
-      "content_type": 15
+      "codename": "change_commentaire", 
+      "name": "Can change Commentaire", 
+      "content_type": 16
     }
   }, 
   {
-    "pk": 45, 
+    "pk": 48, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "delete_note", 
-      "name": "Can delete note", 
-      "content_type": 15
+      "codename": "delete_commentaire", 
+      "name": "Can delete Commentaire", 
+      "content_type": 16
     }
   }, 
   {
@@ -378,30 +378,30 @@
     }
   }, 
   {
-    "pk": 49, 
+    "pk": 43, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "add_savoiretre", 
-      "name": "Can add Savoir \u00eatre", 
-      "content_type": 17
+      "codename": "add_note", 
+      "name": "Can add note", 
+      "content_type": 15
     }
   }, 
   {
-    "pk": 50, 
+    "pk": 44, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "change_savoiretre", 
-      "name": "Can change Savoir \u00eatre", 
-      "content_type": 17
+      "codename": "change_note", 
+      "name": "Can change note", 
+      "content_type": 15
     }
   }, 
   {
-    "pk": 51, 
+    "pk": 45, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "delete_savoiretre", 
-      "name": "Can delete Savoir \u00eatre", 
-      "content_type": 17
+      "codename": "delete_note", 
+      "name": "Can delete note", 
+      "content_type": 15
     }
   }, 
   {
@@ -542,6 +542,7 @@
     "pk": 1, 
     "model": "notation.profilutilisateur", 
     "fields": {
+      "password_modified": false, 
       "user": 1, 
       "user_type": "a"
     }
@@ -550,6 +551,7 @@
     "pk": 2, 
     "model": "notation.profilutilisateur", 
     "fields": {
+      "password_modified": false, 
       "user": 2, 
       "user_type": "e"
     }
@@ -558,6 +560,7 @@
     "pk": 3, 
     "model": "notation.profilutilisateur", 
     "fields": {
+      "password_modified": false, 
       "user": 3, 
       "user_type": "t"
     }
@@ -566,6 +569,7 @@
     "pk": 4, 
     "model": "notation.profilutilisateur", 
     "fields": {
+      "password_modified": false, 
       "user": 4, 
       "user_type": "f"
     }
@@ -605,11 +609,15 @@
     "pk": 1, 
     "model": "notation.bulletin", 
     "fields": {
+      "moyenne_cap": "4", 
+      "moyenne_sav": "4", 
       "formateur": 4, 
+      "grille": 2, 
       "tuteur": 3, 
       "entreprise": 2, 
       "eleve": 2, 
-      "grille": 2
+      "date_modification": "2011-11-27 18:20:43", 
+      "commentaires_generaux": ""
     }
   }, 
   {
