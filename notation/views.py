@@ -114,6 +114,12 @@ def annee_bulletin(request, blt_id, annee):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = EnsembleCapacite.objects.filter(grille=blt.grille)
     form = BulletinForm(commentaire=blt.commentaires_generaux, user=request.user)
+    if request.method == 'POST':
+        form = BulletinForm(request.POST, commentaire=blt.commentaires_generaux, user=request.user)
+        if form.is_valid():
+            if 'commentaires_generaux' in form.cleaned_data:
+                blt.commentaires_generaux = form.cleaned_data['commentaires_generaux']
+                blt.save()
     return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'ens' : ens, 'form' : form}))
 
 @login_required

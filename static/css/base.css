@@ -49,11 +49,18 @@ table {width: 100%; text-align: left; border-spacing: 0px}
  margin-bottom: 2em;
 }
 
+textarea[readonly="True"] { 
+  moz-user-focus: ignore;
+  moz-user-input: disabled;
+  background-color: threedface;
+  color: graytext;
+  cursor: inherit;
+}
+
 input[type="submit"] {padding: 1px}
+input[type="date"] {border: 1px solid #CCC;}
 
 img.tooltip {vertical-align:baseline}
-
-input[type="date"] {border: 1px solid #CCC;}
 
 /* the input field */
 .date {
