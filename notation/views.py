@@ -139,8 +139,14 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
     else:
         commentaire = None
 
+    # Code relativement gore et inefficace mais qui permet de naviguer
+    # dans les ensembles en évitant les ensembles vides (dépendant de l'année)
     suivant = ens.suivant()
+    while suivant and len([cap for cap in Capacite.objects.filter(ensemble=suivant) if cap.valide(annee)]) == 0:
+        suivant = suivant.suivant()
     precedent = ens.precedent()
+    while precedent and len([cap for cap in Capacite.objects.filter(ensemble=precedent) if cap.valide(annee)]) == 0:
+        precedent = precedent.precedent()
 
     if request.method == 'POST':
         form = NotationForm(request.POST, questions=questions, user=request.user)
