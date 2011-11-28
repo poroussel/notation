@@ -13,6 +13,7 @@ from django.core.urlresolvers import reverse
 from cfai.notation.models import *
 from cfai.notation.forms import *
 from xlwt import *
+from datetime import date
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_tuteur())
 def index_tuteur(request):
@@ -29,6 +30,11 @@ def index_gestion(request):
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def index_assistance(request):
+    """
+    Liste les formations ayant au moins une session en cours et pour
+    chacune les sessions en cours.
+    """
+    annee = date.today().year
     return render_to_response('index_assistance.html', RequestContext(request))
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_formateur())

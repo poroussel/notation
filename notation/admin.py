@@ -5,6 +5,7 @@ admin.site.register(ProfilUtilisateur)
 admin.site.register(Bulletin)
 admin.site.register(Entreprise)
 admin.site.register(GrilleNotation)
+admin.site.register(Formation)
 
 class EnsembleCapaciteAdmin(admin.ModelAdmin):
     list_display = ('__unicode__', 'grille')

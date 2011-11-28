@@ -40,6 +40,13 @@ def create_user_profile(sender, instance, created, **kwargs):
 post_save.connect(create_user_profile, sender=User)
 
 
+class Formation(models.Model):
+    libelle = models.CharField(u'Libellé', max_length=80)
+    duree = models.PositiveIntegerField(u'Durée en années de la formation')
+
+    def __unicode__(self):
+        return self.libelle
+
 class GrilleNotation(models.Model):
     """
     Une grille de notation existe pour une formation et une promotion.

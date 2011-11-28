@@ -216,6 +216,15 @@
     }
   }, 
   {
+    "pk": 61, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_commentaire", 
+      "name": "Can add Commentaire", 
+      "content_type": 17
+    }
+  }, 
+  {
     "pk": 49, 
     "model": "auth.permission", 
     "fields": {
@@ -225,11 +234,29 @@
     }
   }, 
   {
+    "pk": 62, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_commentaire", 
+      "name": "Can change Commentaire", 
+      "content_type": 17
+    }
+  }, 
+  {
     "pk": 50, 
     "model": "auth.permission", 
     "fields": {
       "codename": "change_savoiretre", 
       "name": "Can change Savoir \u00eatre", 
+      "content_type": 17
+    }
+  }, 
+  {
+    "pk": 63, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_commentaire", 
+      "name": "Can delete Commentaire", 
       "content_type": 17
     }
   }, 
@@ -297,6 +324,33 @@
     }
   }, 
   {
+    "pk": 52, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_formation", 
+      "name": "Can add formation", 
+      "content_type": 18
+    }
+  }, 
+  {
+    "pk": 53, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_formation", 
+      "name": "Can change formation", 
+      "content_type": 18
+    }
+  }, 
+  {
+    "pk": 54, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_formation", 
+      "name": "Can delete formation", 
+      "content_type": 18
+    }
+  }, 
+  {
     "pk": 28, 
     "model": "auth.permission", 
     "fields": {
@@ -333,6 +387,15 @@
     }
   }, 
   {
+    "pk": 58, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_note", 
+      "name": "Can add note", 
+      "content_type": 16
+    }
+  }, 
+  {
     "pk": 47, 
     "model": "auth.permission", 
     "fields": {
@@ -342,11 +405,29 @@
     }
   }, 
   {
+    "pk": 59, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_note", 
+      "name": "Can change note", 
+      "content_type": 16
+    }
+  }, 
+  {
     "pk": 48, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_commentaire", 
       "name": "Can delete Commentaire", 
+      "content_type": 16
+    }
+  }, 
+  {
+    "pk": 60, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_note", 
+      "name": "Can delete note", 
       "content_type": 16
     }
   }, 
@@ -387,6 +468,15 @@
     }
   }, 
   {
+    "pk": 55, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_savoiretre", 
+      "name": "Can add Savoir \u00eatre", 
+      "content_type": 15
+    }
+  }, 
+  {
     "pk": 44, 
     "model": "auth.permission", 
     "fields": {
@@ -396,11 +486,29 @@
     }
   }, 
   {
+    "pk": 56, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_savoiretre", 
+      "name": "Can change Savoir \u00eatre", 
+      "content_type": 15
+    }
+  }, 
+  {
     "pk": 45, 
     "model": "auth.permission", 
     "fields": {
       "codename": "delete_note", 
       "name": "Can delete note", 
+      "content_type": 15
+    }
+  }, 
+  {
+    "pk": 57, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_savoiretre", 
+      "name": "Can delete Savoir \u00eatre", 
       "content_type": 15
     }
   }, 
@@ -531,6 +639,24 @@
     }
   }, 
   {
+    "pk": 5, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "croussel", 
+      "first_name": "Cyril", 
+      "last_name": "Roussel", 
+      "is_active": true, 
+      "is_superuser": false, 
+      "is_staff": false, 
+      "last_login": "2011-11-27 23:21:51", 
+      "groups": [], 
+      "user_permissions": [], 
+      "password": "", 
+      "email": "p.o.roussel@free.fr", 
+      "date_joined": "2011-11-27 23:21:51"
+    }
+  }, 
+  {
     "pk": 1, 
     "model": "sites.site", 
     "fields": {
@@ -542,6 +668,7 @@
     "pk": 1, 
     "model": "notation.profilutilisateur", 
     "fields": {
+      "phone_number": "", 
       "password_modified": false, 
       "user": 1, 
       "user_type": "a"
@@ -551,6 +678,7 @@
     "pk": 2, 
     "model": "notation.profilutilisateur", 
     "fields": {
+      "phone_number": "", 
       "password_modified": false, 
       "user": 2, 
       "user_type": "e"
@@ -560,6 +688,7 @@
     "pk": 3, 
     "model": "notation.profilutilisateur", 
     "fields": {
+      "phone_number": "", 
       "password_modified": false, 
       "user": 3, 
       "user_type": "t"
@@ -569,9 +698,36 @@
     "pk": 4, 
     "model": "notation.profilutilisateur", 
     "fields": {
+      "phone_number": "", 
       "password_modified": false, 
       "user": 4, 
       "user_type": "f"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "notation.profilutilisateur", 
+    "fields": {
+      "phone_number": "06 89 99 60 27", 
+      "password_modified": false, 
+      "user": 5, 
+      "user_type": "t"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "notation.formation", 
+    "fields": {
+      "duree": 3, 
+      "libelle": "M\u00e9canique"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "notation.formation", 
+    "fields": {
+      "duree": 3, 
+      "libelle": "Microtechnique et design"
     }
   }, 
   {
