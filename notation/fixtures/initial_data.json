@@ -162,30 +162,111 @@
     }
   }, 
   {
-    "pk": 34, 
+    "pk": 37, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "add_bulletin", 
-      "name": "Can add Bulletin", 
-      "content_type": 12
+      "codename": "add_ensemblecapacite", 
+      "name": "Can add Ensemble de capacit\u00e9s", 
+      "content_type": 13
     }
   }, 
   {
-    "pk": 35, 
+    "pk": 38, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "change_bulletin", 
-      "name": "Can change Bulletin", 
-      "content_type": 12
+      "codename": "change_ensemblecapacite", 
+      "name": "Can change Ensemble de capacit\u00e9s", 
+      "content_type": 13
     }
   }, 
   {
-    "pk": 36, 
+    "pk": 39, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "delete_bulletin", 
-      "name": "Can delete Bulletin", 
-      "content_type": 12
+      "codename": "delete_ensemblecapacite", 
+      "name": "Can delete Ensemble de capacit\u00e9s", 
+      "content_type": 13
+    }
+  }, 
+  {
+    "pk": 43, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_note", 
+      "name": "Can add note", 
+      "content_type": 15
+    }
+  }, 
+  {
+    "pk": 55, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_savoiretre", 
+      "name": "Can add Savoir \u00eatre", 
+      "content_type": 15
+    }
+  }, 
+  {
+    "pk": 44, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_note", 
+      "name": "Can change note", 
+      "content_type": 15
+    }
+  }, 
+  {
+    "pk": 56, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_savoiretre", 
+      "name": "Can change Savoir \u00eatre", 
+      "content_type": 15
+    }
+  }, 
+  {
+    "pk": 45, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_note", 
+      "name": "Can delete note", 
+      "content_type": 15
+    }
+  }, 
+  {
+    "pk": 57, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_savoiretre", 
+      "name": "Can delete Savoir \u00eatre", 
+      "content_type": 15
+    }
+  }, 
+  {
+    "pk": 52, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_formation", 
+      "name": "Can add formation", 
+      "content_type": 18
+    }
+  }, 
+  {
+    "pk": 53, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_formation", 
+      "name": "Can change formation", 
+      "content_type": 18
+    }
+  }, 
+  {
+    "pk": 54, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_formation", 
+      "name": "Can delete formation", 
+      "content_type": 18
     }
   }, 
   {
@@ -213,6 +294,87 @@
       "codename": "delete_capacite", 
       "name": "Can delete Capacit\u00e9", 
       "content_type": 14
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_bulletin", 
+      "name": "Can add Bulletin", 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_bulletin", 
+      "name": "Can change Bulletin", 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_bulletin", 
+      "name": "Can delete Bulletin", 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_grillenotation", 
+      "name": "Can add Grille de notation", 
+      "content_type": 10
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_grillenotation", 
+      "name": "Can change Grille de notation", 
+      "content_type": 10
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_grillenotation", 
+      "name": "Can delete Grille de notation", 
+      "content_type": 10
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_entreprise", 
+      "name": "Can add entreprise", 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_entreprise", 
+      "name": "Can change entreprise", 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_entreprise", 
+      "name": "Can delete entreprise", 
+      "content_type": 11
     }
   }, 
   {
@@ -270,111 +432,30 @@
     }
   }, 
   {
-    "pk": 37, 
+    "pk": 25, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "add_ensemblecapacite", 
-      "name": "Can add Ensemble de capacit\u00e9s", 
-      "content_type": 13
+      "codename": "add_profilutilisateur", 
+      "name": "Can add profil utilisateur", 
+      "content_type": 9
     }
   }, 
   {
-    "pk": 38, 
+    "pk": 26, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "change_ensemblecapacite", 
-      "name": "Can change Ensemble de capacit\u00e9s", 
-      "content_type": 13
+      "codename": "change_profilutilisateur", 
+      "name": "Can change profil utilisateur", 
+      "content_type": 9
     }
   }, 
   {
-    "pk": 39, 
+    "pk": 27, 
     "model": "auth.permission", 
     "fields": {
-      "codename": "delete_ensemblecapacite", 
-      "name": "Can delete Ensemble de capacit\u00e9s", 
-      "content_type": 13
-    }
-  }, 
-  {
-    "pk": 31, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "add_entreprise", 
-      "name": "Can add entreprise", 
-      "content_type": 11
-    }
-  }, 
-  {
-    "pk": 32, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "change_entreprise", 
-      "name": "Can change entreprise", 
-      "content_type": 11
-    }
-  }, 
-  {
-    "pk": 33, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "delete_entreprise", 
-      "name": "Can delete entreprise", 
-      "content_type": 11
-    }
-  }, 
-  {
-    "pk": 52, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "add_formation", 
-      "name": "Can add formation", 
-      "content_type": 18
-    }
-  }, 
-  {
-    "pk": 53, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "change_formation", 
-      "name": "Can change formation", 
-      "content_type": 18
-    }
-  }, 
-  {
-    "pk": 54, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "delete_formation", 
-      "name": "Can delete formation", 
-      "content_type": 18
-    }
-  }, 
-  {
-    "pk": 28, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "add_grillenotation", 
-      "name": "Can add Grille de notation", 
-      "content_type": 10
-    }
-  }, 
-  {
-    "pk": 29, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "change_grillenotation", 
-      "name": "Can change Grille de notation", 
-      "content_type": 10
-    }
-  }, 
-  {
-    "pk": 30, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "delete_grillenotation", 
-      "name": "Can delete Grille de notation", 
-      "content_type": 10
+      "codename": "delete_profilutilisateur", 
+      "name": "Can delete profil utilisateur", 
+      "content_type": 9
     }
   }, 
   {
@@ -429,87 +510,6 @@
       "codename": "delete_note", 
       "name": "Can delete note", 
       "content_type": 16
-    }
-  }, 
-  {
-    "pk": 25, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "add_profilutilisateur", 
-      "name": "Can add profil utilisateur", 
-      "content_type": 9
-    }
-  }, 
-  {
-    "pk": 26, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "change_profilutilisateur", 
-      "name": "Can change profil utilisateur", 
-      "content_type": 9
-    }
-  }, 
-  {
-    "pk": 27, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "delete_profilutilisateur", 
-      "name": "Can delete profil utilisateur", 
-      "content_type": 9
-    }
-  }, 
-  {
-    "pk": 43, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "add_note", 
-      "name": "Can add note", 
-      "content_type": 15
-    }
-  }, 
-  {
-    "pk": 55, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "add_savoiretre", 
-      "name": "Can add Savoir \u00eatre", 
-      "content_type": 15
-    }
-  }, 
-  {
-    "pk": 44, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "change_note", 
-      "name": "Can change note", 
-      "content_type": 15
-    }
-  }, 
-  {
-    "pk": 56, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "change_savoiretre", 
-      "name": "Can change Savoir \u00eatre", 
-      "content_type": 15
-    }
-  }, 
-  {
-    "pk": 45, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "delete_note", 
-      "name": "Can delete note", 
-      "content_type": 15
-    }
-  }, 
-  {
-    "pk": 57, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "delete_savoiretre", 
-      "name": "Can delete Savoir \u00eatre", 
-      "content_type": 15
     }
   }, 
   {
@@ -576,7 +576,7 @@
       "is_active": true, 
       "is_superuser": true, 
       "is_staff": true, 
-      "last_login": "2011-11-26 22:27:36", 
+      "last_login": "2011-11-28 09:50:06", 
       "groups": [], 
       "user_permissions": [], 
       "password": "sha1$8bf10$6e35b04951bac7c1268c76efcbb9dff29c2b806f", 
@@ -734,11 +734,11 @@
     "pk": 2, 
     "model": "notation.grillenotation", 
     "fields": {
-      "poids_capacite": 1, 
       "poids_savoir_etre": 1, 
-      "promotion": 2011, 
-      "formation": "ITII M\u00e9canique", 
-      "duree": 3
+      "duree": 3, 
+      "frm": 2, 
+      "poids_capacite": 1, 
+      "promotion": 2011
     }
   }, 
   {
