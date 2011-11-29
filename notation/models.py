@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.conf import settings
+from datetime import date
 
 TYPES = (('e', u'Apprenti'),
          ('t', u'Tuteur entreprise'),
@@ -65,6 +66,16 @@ class GrilleNotation(models.Model):
     def __unicode__(self):
         return u'%s / %d - %d' % (self.frm.libelle, self.promotion, self.promotion + self.duree - 1)
 
+    def annee_promotion(self, date):
+        """
+        Retourne l'annee de la promotion (1, 2, 3) correspondant à la date
+        passée en paramètre. Les années scolaires vont de septembre à août.
+
+        Retourne 0 si la date est en dehors de la promotion.
+        """
+        debut_annee = date(self.promotion, 9, 1)
+        fin_annee = date(self.promotion + 1, 8, 30)
+    
 class Entreprise(models.Model):
     nom = models.CharField(u'Nom', max_length=80)
     description = models.TextField(u'Description', blank=True)

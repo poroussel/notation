@@ -2,4 +2,8 @@
 {% block content %}
 
 <h1>Assistance</h1>
+
+{% for frm in formations %}
+<h2>Formation {{ frm }}</h2>
+{% endfor %}
 {% endblock %}

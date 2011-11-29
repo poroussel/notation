@@ -35,7 +35,8 @@ def index_assistance(request):
     chacune les sessions en cours.
     """
     annee = date.today().year
-    return render_to_response('index_assistance.html', RequestContext(request))
+    formations = Formation.objects.all()
+    return render_to_response('index_assistance.html', RequestContext(request, {'formations' : formations}))
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_formateur())
 def index_formateur(request):
