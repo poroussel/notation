@@ -13,9 +13,9 @@
 <tbody>
 {% for blt in bulletins %}
 <tr>
-<td>{{ blt.eleve.last_name }}</td>
-<td>{{ blt.eleve.first_name }}</td>
-<td>{{ blt.entreprise.nom }}</td>
+<td><a href="{{ blt.get_absolute_url }}">{{ blt.eleve.last_name }}</a></td>
+<td><a href="{{ blt.get_absolute_url }}">{{ blt.eleve.first_name }}</a></td>
+<td><a href="{{ blt.entreprise.get_absolute_url }}">{{ blt.entreprise.nom }}</a></td>
 <td>{{ blt.moyenne_cap }}</td>
 <td>{{ blt.moyenne_sav }}</td>
 <td>{{ blt.moyenne_generale }}</td>
