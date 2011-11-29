@@ -1,0 +1,6 @@
+@import url('base.css');
+
+body { min-height: 0; height: auto; }
+#navigation, #entete, #pied, #soustitre, .actions { display: none; }
+#contenu { width: 100%; }
+a, a:link, a:visited { color: black; text-decoration: none; }
