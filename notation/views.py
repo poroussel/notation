@@ -103,7 +103,7 @@ def bulletin_xls(request, blt):
     return response
 
 @login_required
-def resume_grille(request, object_id):
+def resume_grille(request, object_id, annee):
     """
     Affiche les résultats des apprentis de la grille dans un tableau récapitulatif
     """

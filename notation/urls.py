@@ -30,7 +30,7 @@ urlpatterns = patterns('',
     (r'^bulletins/(?P<blt_id>\d+)/annees/(?P<annee>\d+)/$', annee_bulletin),
     (r'^bulletins/(?P<blt_id>\d+)/annees/(?P<annee>\d+)/groupes/(?P<ens_id>\d+)/$', ensemble_bulletin),
 
-    (r'^grilles/(?P<object_id>\d+)/resume/$', resume_grille, None, 'resume_grille'),
+    (r'^grilles/(?P<object_id>\d+)/annee/(?P<annee>\d+)/$', resume_grille, None, 'resume_grille'),
 
     (r'^entreprises/$', object_list, liste_entreprises_dict, 'liste_entreprise'),
     (r'^entreprises/ajouter/$', detail_entreprise, None, 'ajouter_entreprise'),
