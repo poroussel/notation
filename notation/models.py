@@ -56,6 +56,7 @@ class GrilleNotation(models.Model):
     class Meta:
         verbose_name = u'Grille de notation'
         verbose_name_plural = u'Grilles de notation'
+        ordering = ['frm', '-promotion']
 
     frm = models.ForeignKey(Formation, verbose_name='Formation')
     promotion = models.PositiveIntegerField(u'Première année de la promotion')
@@ -66,16 +67,27 @@ class GrilleNotation(models.Model):
     def __unicode__(self):
         return u'%s / %d - %d' % (self.frm.libelle, self.promotion, self.promotion + self.duree - 1)
 
-    def annee_promotion(self, date):
+    def annee_promotion_courante(self):
         """
-        Retourne l'annee de la promotion (1, 2, 3) correspondant à la date
-        passée en paramètre. Les années scolaires vont de septembre à août.
+        Retourne l'annee en cours de la promotion (0, 1, 2) pour la date
+        du jour. Les années scolaires vont de septembre à août.
 
-        Retourne 0 si la date est en dehors de la promotion.
+        Retourne -1 si la date est en dehors de la promotion.
         """
-        debut_annee = date(self.promotion, 9, 1)
-        fin_annee = date(self.promotion + 1, 8, 30)
-    
+        ajd = date.today()
+        for inc in range(0, self.duree):
+            debut_annee = date(self.promotion + inc, 9, 1)
+            fin_annee = date(self.promotion + inc + 1, 8, 30)
+            if debut_annee <= ajd and ajd <= fin_annee:
+                return inc
+        return -1
+
+    def nom_promotion_courante(self):
+        annee = self.annee_promotion_courante()
+        if annee == -1:
+            return None
+        return [u'1ère année', u'2ème année', u'3ème année'][annee]
+        
 class Entreprise(models.Model):
     nom = models.CharField(u'Nom', max_length=80)
     description = models.TextField(u'Description', blank=True)

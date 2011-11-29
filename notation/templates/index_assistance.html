@@ -5,5 +5,12 @@
 
 {% for frm in formations %}
 <h2>Formation {{ frm }}</h2>
+{% for grille in frm.grillenotation_set.all %}
+{% if grille.nom_promotion_courante  %}
+<div class="actions" style="margin-left: 5%;">
+<a href="">Apprentis {{ grille.nom_promotion_courante }}</a>
+</div>
+{% endif %}
+{% endfor %}
 {% endfor %}
 {% endblock %}
