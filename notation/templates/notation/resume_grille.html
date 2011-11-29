@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ grille.nom_promotion_courante }} {{ grille }}</h1>
+<div id="soustitre">
+<a href="{% url index_assistance %}">retour au menu assistance</a>
+</div>
+
+<table id="result_list">
+<thead>
+<th>Nom</th><th>Prénom</th><th>Entreprise</th><th>Note Compétence</th><th>Note Savoir être</th><th>Moyenne</th><th>Item absent</th>
+</thead>
+<tbody>
+{% for blt in bulletins %}
+<tr>
+<td>{{ blt.eleve.last_name }}</td>
+<td>{{ blt.eleve.first_name }}</td>
+<td>{{ blt.entreprise.nom }}</td>
+<td>{{ blt.moyenne_cap }}</td>
+<td>{{ blt.moyenne_sav }}</td>
+<td>{{ blt.moyenne_generale }}</td>
+</tr>
+{% endfor %}
+</tr>
+</tbody>
+</table>
+{% endblock %}

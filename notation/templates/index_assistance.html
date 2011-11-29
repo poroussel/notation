@@ -8,7 +8,7 @@
 {% for grille in frm.grillenotation_set.all %}
 {% if grille.nom_promotion_courante  %}
 <div class="actions" style="margin-left: 5%;">
-<a href="">Apprentis {{ grille.nom_promotion_courante }}</a>
+<a href="{% url resume_grille grille.id %}">Apprentis {{ grille.nom_promotion_courante }}</a>
 </div>
 {% endif %}
 {% endfor %}

@@ -29,10 +29,6 @@ def index_gestion(request):
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def index_assistance(request):
-    """
-    Liste les formations ayant au moins une session en cours et pour
-    chacune les sessions en cours.
-    """
     formations = Formation.objects.all()
     return render_to_response('index_assistance.html', RequestContext(request, {'formations' : formations}))
 
@@ -105,6 +101,15 @@ def bulletin_xls(request, blt):
         
     book.save(response)
     return response
+
+@login_required
+def resume_grille(request, object_id):
+    """
+    Affiche les résultats des apprentis de la grille dans un tableau récapitulatif
+    """
+    grille = get_object_or_404(GrilleNotation, pk=object_id)
+    bulletins = Bulletin.objects.filter(grille=grille).order_by('eleve__last_name')
+    return render_to_response('notation/resume_grille.html', RequestContext(request, {'grille' : grille, 'bulletins' : bulletins}))
 
 @login_required
 def bulletin(request, blt_id):
