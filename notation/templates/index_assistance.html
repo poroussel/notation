@@ -2,6 +2,9 @@
 {% block content %}
 
 <h1>Assistance</h1>
+<div id="soustitre">
+<a href="{% url notation.views.index_admin %}">retour à l'accueil</a>
+</div>
 
 {% for frm in formations %}
 <h2>Formation {{ frm }}</h2>
