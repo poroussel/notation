@@ -122,13 +122,10 @@ def resume_grille(request, object_id, annee):
 @login_required
 def bulletin(request, blt_id):
     blt = get_object_or_404(Bulletin, pk=blt_id)
-    # annees = [0, 1, 2] pour une formation de 3 ans
-    annees = range(blt.grille.duree)
-    ens = EnsembleCapacite.objects.filter(grille=blt.grille)
-    
     if request.GET.get('format', None) == 'xls':
         return bulletin_xls(request, blt)
-    
+    annees = range(blt.grille.duree)
+    ens = EnsembleCapacite.objects.filter(grille=blt.grille)
     return render_to_response('notation/bulletin.html', RequestContext(request, {'bulletin' : blt, 'ens' : ens, 'annees' : annees}))
 
 @login_required
@@ -138,6 +135,11 @@ def annee_bulletin(request, blt_id, annee):
     setre = SavoirEtre.objects.filter(grille=blt.grille)
     setre = [se for se in setre if se.valide(annee)]
     
+    moyenne = Moyenne.objects.filter(annee=annee, bulletin=blt)
+    moyenne_cp = moyenne.count() and moyenne[0].valeur or 0
+    moyenne_sv = 0
+    moyenne_ng = (moyenne_cp * blt.grille.poids_capacite + moyenne_sv * blt.grille.poids_savoir_etre) / (blt.grille.poids_capacite + blt.grille.poids_savoir_etre)
+
     form = BulletinForm(commentaire=blt.commentaires_generaux, savoirs=setre, user=request.user)
     if request.method == 'POST':
         form = BulletinForm(request.POST, commentaire=blt.commentaires_generaux, savoirs=setre, user=request.user)
@@ -145,7 +147,7 @@ def annee_bulletin(request, blt_id, annee):
             if 'commentaires_generaux' in form.cleaned_data:
                 blt.commentaires_generaux = form.cleaned_data['commentaires_generaux']
                 blt.save()
-    return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'ens' : ens, 'form' : form}))
+    return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'ens' : ens, 'form' : form, 'moyenne_cp' : moyenne_cp, 'moyenne_sv' : moyenne_sv, 'moyenne_ng' : moyenne_ng}))
 
 @login_required
 def ensemble_bulletin(request, blt_id, annee, ens_id):
