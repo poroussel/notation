@@ -2,7 +2,7 @@
 
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save
+from django.db.models.signals import pre_save, post_save
 from django.conf import settings
 from datetime import date
 
@@ -159,9 +159,9 @@ class Bulletin(models.Model):
                 total += moyenne_ensemble
                 poids += ens.poids
         moyenne = total * 4 / poids
-        moy, created = Moyenne.objects.get_or_create(bulletin=self, annee=annee, defaults={'valeur' : moyenne})
+        moy, created = Moyenne.objects.get_or_create(bulletin=self, annee=annee, defaults={'valeur_cp' : moyenne})
         if not created:
-            moy.valeur = moyenne
+            moy.valeur_cp = moyenne
             moy.save()
 
 
@@ -251,10 +251,16 @@ class Moyenne(models.Model):
         
     bulletin = models.ForeignKey(Bulletin)
     annee = models.PositiveIntegerField()
-    valeur = models.DecimalField(max_digits=4, decimal_places=2)
+    valeur_cp = models.DecimalField(u'Moyenne compétence', max_digits=4, decimal_places=2, default=0)
+    valeur_sv = models.DecimalField(u'Moyenne savoir être', max_digits=4, decimal_places=2, default=0)
+    valeur_gn = models.DecimalField(u'Moyenne générale', max_digits=4, decimal_places=2, default=0)
 
     def __unicode__(self):
         return u'Moyenne de %s pour la %s' % (self.bulletin.eleve.get_full_name(), NOMS_ANNEES[self.annee])
+
+def maj_moyenne_generale(sender, instance, **kwargs):
+    instance.valeur_gn = (instance.valeur_cp * instance.bulletin.grille.poids_capacite + instance.valeur_sv * instance.bulletin.grille.poids_savoir_etre) / (instance.bulletin.grille.poids_capacite + instance.bulletin.grille.poids_savoir_etre)
+pre_save.connect(maj_moyenne_generale, sender=Moyenne)
 
 class Note(models.Model):
     bulletin = models.ForeignKey(Bulletin)

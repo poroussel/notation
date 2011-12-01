@@ -113,10 +113,10 @@ def resume_grille(request, object_id, annee):
     lignes = list()
     for bulletin in bulletins:
         moyenne = moyennes_annee.filter(bulletin=bulletin)
-        moyenne_cp = moyenne.count() and moyenne[0].valeur or 0
-        moyenne_sv = 0
-        moyenne_ng = (moyenne_cp * grille.poids_capacite + moyenne_sv * grille.poids_savoir_etre) / (grille.poids_capacite + grille.poids_savoir_etre)
-        lignes.append((bulletin, moyenne_cp, moyenne_sv, moyenne_ng))
+        if moyenne.count():
+            lignes.append((bulletin, moyenne[0].valeur_cp, moyenne[0].valeur_sv, moyenne[0].valeur_gn))
+        else:
+            lignes.append((bulletin, 0, 0, 0))            
     return render_to_response('notation/resume_grille.html', RequestContext(request, {'grille' : grille, 'lignes' : lignes, 'annee' : annee}))
 
 @login_required
@@ -133,13 +133,9 @@ def annee_bulletin(request, blt_id, annee):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = EnsembleCapacite.objects.filter(grille=blt.grille)
     setre = SavoirEtre.objects.filter(grille=blt.grille)
-    setre = [se for se in setre if se.valide(annee)]
-    
+    setre = [se for se in setre if se.valide(annee)]    
     moyenne = Moyenne.objects.filter(annee=annee, bulletin=blt)
-    moyenne_cp = moyenne.count() and moyenne[0].valeur or 0
-    moyenne_sv = 0
-    moyenne_ng = (moyenne_cp * blt.grille.poids_capacite + moyenne_sv * blt.grille.poids_savoir_etre) / (blt.grille.poids_capacite + blt.grille.poids_savoir_etre)
-
+    print moyenne
     form = BulletinForm(commentaire=blt.commentaires_generaux, savoirs=setre, user=request.user)
     if request.method == 'POST':
         form = BulletinForm(request.POST, commentaire=blt.commentaires_generaux, savoirs=setre, user=request.user)
@@ -147,7 +143,7 @@ def annee_bulletin(request, blt_id, annee):
             if 'commentaires_generaux' in form.cleaned_data:
                 blt.commentaires_generaux = form.cleaned_data['commentaires_generaux']
                 blt.save()
-    return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'ens' : ens, 'form' : form, 'moyenne_cp' : moyenne_cp, 'moyenne_sv' : moyenne_sv, 'moyenne_ng' : moyenne_ng}))
+    return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'ens' : ens, 'form' : form, 'moyenne' : moyenne}))
 
 @login_required
 def ensemble_bulletin(request, blt_id, annee, ens_id):

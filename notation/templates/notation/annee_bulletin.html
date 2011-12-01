@@ -24,8 +24,8 @@
 
 <h1>Résultats à ce jour</h1>
   <table style="width:300px">
-  <tr><th>Moyenne qualité : </th><td>{{ moyenne_cp }}</td></tr>
-  <tr><th>Moyenne savoir être : </th><td>{{ moyenne_sv }}</td></tr>
-  <tr><th>Moyenne générale : </th><td>{{ moyenne_ng|floatformat:2 }}</td></tr>
+  <tr><th>Moyenne qualité : </th><td>{{ moyenne.0.valeur_cp|floatformat:2 }}</td></tr>
+  <tr><th>Moyenne savoir être : </th><td>{{ moyenne.0.valeur_sv|floatformat:2 }}</td></tr>
+  <tr><th>Moyenne générale : </th><td>{{ moyenne.0.valeur_gn|floatformat:2 }}</td></tr>
   </table>
 {% endblock %}

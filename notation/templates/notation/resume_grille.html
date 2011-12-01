@@ -16,8 +16,8 @@
 <td><a href="{% url notation.views.annee_bulletin blt.id annee %}">{{ blt.eleve.last_name }}</a></td>
 <td><a href="{% url notation.views.annee_bulletin blt.id annee %}">{{ blt.eleve.first_name }}</a></td>
 <td><a href="{{ blt.entreprise.get_absolute_url }}">{{ blt.entreprise.nom }}</a></td>
-<td>{{ moyenne_cp }}</td>
-<td>{{ moyenne_sv }}</td>
+<td>{{ moyenne_cp|floatformat:2 }}</td>
+<td>{{ moyenne_sv|floatformat:2 }}</td>
 <td>{{ moyenne_gn|floatformat:2 }}</td>
 </tr>
 {% endfor %}
