@@ -364,7 +364,7 @@ def recherche(request):
     if search == '':
         search = 'rien'
     ol = list(Entreprise.objects.filter(nom__istartswith=search))
-    ol += list(Bulletin.objects.filter(grille__formation__istartswith=search))
+    ol += list(Bulletin.objects.filter(grille__frm__libelle__istartswith=search))
     # Liste des bulletins qui référencent l'entreprise
     ol += list(Bulletin.objects.filter(entreprise__nom__istartswith=search))
     # Liste des bulletins qui référencent l'eleve
