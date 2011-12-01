@@ -11,14 +11,14 @@
 <th>Nom</th><th>Prénom</th><th>Entreprise</th><th>Note Compétence</th><th>Note Savoir être</th><th>Moyenne</th><th>Item absent</th>
 </thead>
 <tbody>
-{% for blt in bulletins %}
+{% for blt,moyenne_cp,moyenne_sv,moyenne_gn in lignes %}
 <tr>
-<td><a href="{{ blt.get_absolute_url }}">{{ blt.eleve.last_name }}</a></td>
-<td><a href="{{ blt.get_absolute_url }}">{{ blt.eleve.first_name }}</a></td>
+<td><a href="{% url notation.views.annee_bulletin blt.id annee %}">{{ blt.eleve.last_name }}</a></td>
+<td><a href="{% url notation.views.annee_bulletin blt.id annee %}">{{ blt.eleve.first_name }}</a></td>
 <td><a href="{{ blt.entreprise.get_absolute_url }}">{{ blt.entreprise.nom }}</a></td>
-<td>{{ blt.moyenne_cap }}</td>
-<td>{{ blt.moyenne_sav }}</td>
-<td>{{ blt.moyenne_generale }}</td>
+<td>{{ moyenne_cp }}</td>
+<td>{{ moyenne_sv }}</td>
+<td>{{ moyenne_gn }}</td>
 </tr>
 {% endfor %}
 </tr>

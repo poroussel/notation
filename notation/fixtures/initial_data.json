@@ -765,8 +765,6 @@
     "pk": 1, 
     "model": "notation.bulletin", 
     "fields": {
-      "moyenne_cap": "4", 
-      "moyenne_sav": "4", 
       "formateur": 4, 
       "grille": 2, 
       "tuteur": 3, 

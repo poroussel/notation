@@ -108,8 +108,16 @@ def resume_grille(request, object_id, annee):
     Affiche les résultats des apprentis de la grille dans un tableau récapitulatif
     """
     grille = get_object_or_404(GrilleNotation, pk=object_id)
-    bulletins = Bulletin.objects.filter(grille=grille).order_by('eleve__last_name')
-    return render_to_response('notation/resume_grille.html', RequestContext(request, {'grille' : grille, 'bulletins' : bulletins}))
+    bulletins = Bulletin.objects.select_related().filter(grille=grille).order_by('eleve__last_name')
+    moyennes_annee = Moyenne.objects.filter(annee=annee)
+    lignes = list()
+    for bulletin in bulletins:
+        moyenne = moyennes_annee.filter(bulletin=bulletin)
+        moyenne_cp = moyenne.count() and moyenne[0].valeur or 0
+        moyenne_sv = 0
+        moyenne_ng = (moyenne_cp * grille.poids_capacite + moyenne_sv * grille.poids_savoir_etre) / (grille.poids_capacite + grille.poids_savoir_etre)
+        lignes.append((bulletin, moyenne_cp, moyenne_sv, moyenne_ng))
+    return render_to_response('notation/resume_grille.html', RequestContext(request, {'grille' : grille, 'lignes' : lignes, 'annee' : annee}))
 
 @login_required
 def bulletin(request, blt_id):
@@ -185,8 +193,8 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                             note.save()
                     else:
                         Note.objects.filter(bulletin=blt, capacite=cap).delete()
-                        
-            blt.maj_moyennes()
+
+            blt.calcul_moyenne_competence(annee)
             if suivant:
                 return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, annee, suivant.id]))
             return HttpResponseRedirect(reverse(bulletin, args=[blt_id]))

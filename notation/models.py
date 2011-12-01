@@ -11,6 +11,8 @@ TYPES = (('e', u'Apprenti'),
          ('f', u'Chargé de promotion'),
          ('a', u'Administratif'))
 
+NOMS_ANNEES = [u'1ère année', u'2ème année', u'3ème année']
+
 class ProfilUtilisateur(models.Model):
     user = models.OneToOneField(User, unique=True)
     user_type = models.CharField(u'Type', max_length=1, default='e', choices=TYPES)
@@ -51,7 +53,7 @@ class Formation(models.Model):
 class GrilleNotation(models.Model):
     """
     Une grille de notation existe pour une formation et une promotion.
-    Chaque élève est lié à une et une seule grille.
+    Chaque eleve est lie a une et une seule grille.
     """
     class Meta:
         verbose_name = u'Grille de notation'
@@ -86,7 +88,7 @@ class GrilleNotation(models.Model):
         annee = self.annee_promotion_courante()
         if annee == -1:
             return None
-        return [u'1ère année', u'2ème année', u'3ème année'][annee]
+        return NOMS_ANNEES[annee]
         
 class Entreprise(models.Model):
     nom = models.CharField(u'Nom', max_length=80)
@@ -104,11 +106,12 @@ class Entreprise(models.Model):
     
 class Bulletin(models.Model):
     """
-    Bulletin de notes d'un élève pour une formation
+    Bulletin de notes d'un eleve pour une formation
 
-    Les moyennes des notes de capacités et de savoir être sont stockées
-    afin d'éviter les calculs lors des affichages. Le recalcul d'effectue
-    lors de l'enregistrement du formulaire d'un ensemble
+    Il serait preferable point de vue structure et acces
+    aux donnees de stocker un bulletin par annee. Cela
+    permettrait d'acceder aux notes et aux moyennes tres
+    facilement.
     """
     class Meta:
         verbose_name = u'Bulletin'
@@ -120,13 +123,7 @@ class Bulletin(models.Model):
     tuteur = models.ForeignKey(User, related_name='tuteur', verbose_name=u'Tuteur entreprise')
     formateur = models.ForeignKey(User, related_name='formateur', verbose_name=u'Tuteur académique')
     commentaires_generaux = models.TextField(u'Commentaires généraux')
-    moyenne_cap = models.DecimalField(max_digits=4, decimal_places=2, default=4, editable=False)
-    moyenne_sav = models.DecimalField(max_digits=4, decimal_places=2, default=4, editable=False)
     date_modification = models.DateTimeField(auto_now=True)
-
-    def _moyenne_generale(self):
-        return (self.moyenne_cap * self.grille.poids_capacite + self.moyenne_sav * self.grille.poids_savoir_etre) / (self.grille.poids_capacite + self.grille.poids_savoir_etre)
-    moyenne_generale = property(_moyenne_generale)
 
     def __unicode__(self):
         return u'Bulletin de %s (%s - %s)' % (self.eleve.get_full_name(), self.grille, self.entreprise)
@@ -135,9 +132,39 @@ class Bulletin(models.Model):
     def get_absolute_url(self):
         return ('bulletin', [self.id])
 
-    def maj_moyennes(self):
-        pass
-    
+    def moyenne_ensemble(self, ens, annee):
+        """
+        Calcul de la moyenne pour un ensemble de capacités pour une année.
+        Les notes manquantes (non saisies) sont considérées comme valant 1
+        """
+        capacites = Capacite.objects.filter(ensemble=ens)
+        capacites = [cap for cap in capacites if cap.valide(annee)]
+        if len(capacites) == 0:
+            return None
+        notes = Note.objects.filter(bulletin=self, annee=annee, capacite__in=capacites)
+        somme = sum([note.valeur for note in notes])
+        somme += len(capacites) - len(notes)
+        return somme / len(capacites)
+
+    def calcul_moyenne_competence(self, annee):
+        """
+        Calcul la moyenne compétence de ce bulletin pour une année
+        """
+        ensembles = EnsembleCapacite.objects.filter(grille=self.grille)
+        total = 0
+        poids = 0
+        for ens in ensembles:
+            moyenne_ensemble = self.moyenne_ensemble(ens, annee)
+            if moyenne_ensemble:
+                total += moyenne_ensemble
+                poids += ens.poids
+        moyenne = total * 4 / poids
+        moy, created = Moyenne.objects.get_or_create(bulletin=self, annee=annee, defaults={'valeur' : moyenne})
+        if not created:
+            moy.valeur = moyenne
+            moy.save()
+
+
 class EnsembleCapacite(models.Model):
     class Meta:
         verbose_name = u'Ensemble de capacités'
@@ -218,6 +245,17 @@ class SavoirEtre(models.Model):
     def __unicode__(self):
         return self.libelle
 
+class Moyenne(models.Model):
+    class Meta:
+        ordering = ['annee']
+        
+    bulletin = models.ForeignKey(Bulletin)
+    annee = models.PositiveIntegerField()
+    valeur = models.DecimalField(max_digits=4, decimal_places=2)
+
+    def __unicode__(self):
+        return u'Moyenne de %s pour la %s' % (self.bulletin.eleve.get_full_name(), NOMS_ANNEES[self.annee])
+
 class Note(models.Model):
     bulletin = models.ForeignKey(Bulletin)
     capacite = models.ForeignKey(Capacite)
@@ -239,9 +277,9 @@ class Note(models.Model):
 class Commentaire(models.Model):
     """
     Permet le stockage d'un commentaire libre pour un bulletin et un
-    ensemble de capacités
+    ensemble de capacites
     
-    Doit être modifiable par l'élève ce qui nécessite un login/password pour les élèves
+    Doit etre modifiable par l'eleve ce qui necessite un login/password pour les eleves
     """
     class Meta:
         verbose_name = u'Commentaire'
