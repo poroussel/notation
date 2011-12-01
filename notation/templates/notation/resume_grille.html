@@ -18,7 +18,7 @@
 <td><a href="{{ blt.entreprise.get_absolute_url }}">{{ blt.entreprise.nom }}</a></td>
 <td>{{ moyenne_cp }}</td>
 <td>{{ moyenne_sv }}</td>
-<td>{{ moyenne_gn }}</td>
+<td>{{ moyenne_gn|floatformat:2 }}</td>
 </tr>
 {% endfor %}
 </tr>
