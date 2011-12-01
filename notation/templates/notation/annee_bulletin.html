@@ -2,6 +2,10 @@
 {% block content %}
 
 <h1>{{ bulletin }} / {{ bulletin.grille.promotion|add:annee }} - {{ bulletin.grille.promotion|add:annee|add:1 }}</h1>
+<div id="soustitre">
+<a href="{% url notation.views.bulletin bulletin.id %}">retour au choix de l'année</a>
+</div>
+
 <ul>
 {% for ensemble in ens %}
   <li><a href="{% url notation.views.ensemble_bulletin bulletin.id annee ensemble.id %}">{{ ensemble }} ({{ ensemble.capacite_set.count }})</a></li>
