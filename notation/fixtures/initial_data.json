@@ -243,33 +243,6 @@
     }
   }, 
   {
-    "pk": 52, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "add_formation", 
-      "name": "Can add formation", 
-      "content_type": 18
-    }
-  }, 
-  {
-    "pk": 53, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "change_formation", 
-      "name": "Can change formation", 
-      "content_type": 18
-    }
-  }, 
-  {
-    "pk": 54, 
-    "model": "auth.permission", 
-    "fields": {
-      "codename": "delete_formation", 
-      "name": "Can delete formation", 
-      "content_type": 18
-    }
-  }, 
-  {
     "pk": 40, 
     "model": "auth.permission", 
     "fields": {
@@ -432,6 +405,33 @@
     }
   }, 
   {
+    "pk": 52, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "add_formation", 
+      "name": "Can add formation", 
+      "content_type": 18
+    }
+  }, 
+  {
+    "pk": 53, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "change_formation", 
+      "name": "Can change formation", 
+      "content_type": 18
+    }
+  }, 
+  {
+    "pk": 54, 
+    "model": "auth.permission", 
+    "fields": {
+      "codename": "delete_formation", 
+      "name": "Can delete formation", 
+      "content_type": 18
+    }
+  }, 
+  {
     "pk": 25, 
     "model": "auth.permission", 
     "fields": {
@@ -576,7 +576,7 @@
       "is_active": true, 
       "is_superuser": true, 
       "is_staff": true, 
-      "last_login": "2011-11-28 09:50:06", 
+      "last_login": "2011-12-01 17:23:59", 
       "groups": [], 
       "user_permissions": [], 
       "password": "sha1$8bf10$6e35b04951bac7c1268c76efcbb9dff29c2b806f", 
@@ -636,24 +636,6 @@
       "password": "sha1$651ae$4b531717bc5f052e19b6dc5a5bec1e8dca26a944", 
       "email": "p.o.roussel@free.fr", 
       "date_joined": "2011-10-28 10:51:19"
-    }
-  }, 
-  {
-    "pk": 5, 
-    "model": "auth.user", 
-    "fields": {
-      "username": "croussel", 
-      "first_name": "Cyril", 
-      "last_name": "Roussel", 
-      "is_active": true, 
-      "is_superuser": false, 
-      "is_staff": false, 
-      "last_login": "2011-11-27 23:21:51", 
-      "groups": [], 
-      "user_permissions": [], 
-      "password": "", 
-      "email": "p.o.roussel@free.fr", 
-      "date_joined": "2011-11-27 23:21:51"
     }
   }, 
   {
@@ -731,14 +713,25 @@
     }
   }, 
   {
+    "pk": 3, 
+    "model": "notation.grillenotation", 
+    "fields": {
+      "poids_capacite": 1, 
+      "poids_savoir_etre": 1, 
+      "promotion": 2011, 
+      "duree": 3, 
+      "frm": 1
+    }
+  }, 
+  {
     "pk": 2, 
     "model": "notation.grillenotation", 
     "fields": {
-      "poids_savoir_etre": 1, 
-      "duree": 3, 
-      "frm": 2, 
       "poids_capacite": 1, 
-      "promotion": 2011
+      "poids_savoir_etre": 1, 
+      "promotion": 2011, 
+      "duree": 3, 
+      "frm": 2
     }
   }, 
   {
