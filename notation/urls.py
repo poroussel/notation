@@ -2,8 +2,8 @@ from django.conf.urls.defaults import patterns
 from django.views.generic.list_detail import object_list, object_detail
 from django.views.generic.create_update import update_object, create_object
 from django.contrib.auth.models import User
-from notation.views import *
-from notation.models import Entreprise, ProfilUtilisateur, Bulletin
+from cfai.notation.views import *
+from cfai.notation.models import Entreprise, ProfilUtilisateur, Bulletin
 
 liste_entreprises_dict = {'queryset' : Entreprise.objects.all()}
 

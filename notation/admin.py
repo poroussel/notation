@@ -1,5 +1,5 @@
 from django.contrib import admin
-from notation.models import *
+from cfai.notation.models import *
 
 admin.site.register(ProfilUtilisateur)
 admin.site.register(Bulletin)

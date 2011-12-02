@@ -4,7 +4,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.localflavor.fr.forms import FRPhoneNumberField
 from django.forms.util import ErrorList
-from notation.models import *
+from cfai.notation.models import *
 
 class UserChoiceField(forms.ModelChoiceField):
     def label_from_instance(self, obj):

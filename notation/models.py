@@ -89,7 +89,20 @@ class GrilleNotation(models.Model):
         if annee == -1:
             return None
         return NOMS_ANNEES[annee]
-        
+
+def maj_bulletins_de_grille(sender, instance, created, **kwargs):
+    """
+    Lorsqu'une grille est modifiee les moyennes des bulletins associes
+    doivent etre recalculees pour prendre en compte la modification
+    eventuelle des poids.
+    """
+    if not created:
+        moyennes = Moyenne.objects.filter(bulletin__grille=instance)
+        for moyenne in moyennes:
+            moyenne.save()
+post_save.connect(maj_bulletins_de_grille, sender=GrilleNotation)
+
+
 class Entreprise(models.Model):
     nom = models.CharField(u'Nom', max_length=80)
     description = models.TextField(u'Description', blank=True)
@@ -150,6 +163,7 @@ class Bulletin(models.Model):
         """
         Calcul la moyenne compétence de ce bulletin pour une année
         """
+        annee = int(annee)
         ensembles = EnsembleCapacite.objects.filter(grille=self.grille)
         total = 0
         poids = 0
