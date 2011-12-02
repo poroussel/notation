@@ -223,14 +223,17 @@ def motdepasse(request):
 
 @login_required
 def profil(request):
+    profil = request.user.get_profile()
     if request.method == 'POST':
         form = ProfilUtilisateurForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
+            profil.phone_number = form.cleaned_data['phone_number']
+            profil.save()
             messages.success(request, u'Votre profil a été mis à jour.')
             return HttpResponseRedirect(reverse(index))
     else:
-        form = ProfilUtilisateurForm(instance=request.user)
+        form = ProfilUtilisateurForm(instance=request.user, initial={'phone_number' : profil.phone_number})
     return render_to_response('notation/profil.html', RequestContext(request, {'password_form' : form}))
 
 
