@@ -251,6 +251,9 @@ def ajouter_eleve(request):
             eleve.is_active = True
             eleve.save()
             # Le profil par défaut est élève, pas besoin de le spécifier
+            profil = eleve.get_profile()
+            profil.phone_number = form.cleaned_data['telephone']
+            profil.save()
             bulletin = Bulletin()
             bulletin.eleve = eleve
             bulletin.grille = form.cleaned_data['formation']
@@ -273,6 +276,7 @@ def modifier_eleve(request, object_id):
     un élève, si cela s'avère utile il faudra modifier l'interface de saisie.
     """
     elv = get_object_or_404(User, pk=object_id)
+    profil = elv.get_profile()
     blt = Bulletin.objects.get(eleve=elv)
     if request.method == 'POST':
         form = EditionEleveForm(request.POST)
@@ -281,6 +285,8 @@ def modifier_eleve(request, object_id):
             elv.last_name = form.cleaned_data['nom']
             elv.email = form.cleaned_data['email']
             elv.save()
+            profil.phone_number = form.cleaned_data['telephone']
+            profil.save()
             blt.entreprise = form.cleaned_data['entreprise']
             blt.tuteur = form.cleaned_data['tuteur']
             blt.formateur = form.cleaned_data['formateur']
@@ -293,7 +299,8 @@ def modifier_eleve(request, object_id):
                                          'email' : elv.email,
                                          'entreprise' : blt.entreprise,
                                          'tuteur' : blt.tuteur,
-                                         'formateur' : blt.formateur})
+                                         'formateur' : blt.formateur,
+                                         'telephone' : profil.phone_number})
     return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blt}))
 
 @login_required
@@ -304,6 +311,7 @@ def ajouter_tuteur(request):
             tuteur = form.save()
             profil = ProfilUtilisateur.objects.get(user=tuteur)
             profil.user_type = 't'
+            profil.phone_number = form.cleaned_data['phone_number']
             profil.save()
             if '_continuer' in request.POST:
                 return HttpResponseRedirect(reverse('ajouter_tuteur'))
@@ -320,6 +328,7 @@ def ajouter_formateur(request):
             formateur = form.save()
             profil = ProfilUtilisateur.objects.get(user=formateur)
             profil.user_type = 'f'
+            profil.phone_number = form.cleaned_data['phone_number']
             profil.save()
             if '_continuer' in request.POST:
                 return HttpResponseRedirect(reverse('ajouter_formateur'))
