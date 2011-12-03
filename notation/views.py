@@ -133,16 +133,31 @@ def annee_bulletin(request, blt_id, annee):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = EnsembleCapacite.objects.filter(grille=blt.grille)
     setre = SavoirEtre.objects.filter(grille=blt.grille)
-    setre = [se for se in setre if se.valide(annee)]    
+    setre = [se for se in setre if se.valide(annee)]
+    notes = Note.objects.filter(bulletin=blt, savoir__in=setre, annee=annee)
+    
     moyenne = Moyenne.objects.filter(annee=annee, bulletin=blt)
-    print moyenne
-    form = BulletinForm(commentaire=blt.commentaires_generaux, savoirs=setre, user=request.user)
+    
+    form = BulletinForm(commentaire=blt.commentaires_generaux, notes=notes, savoirs=setre, user=request.user)
     if request.method == 'POST':
         form = BulletinForm(request.POST, commentaire=blt.commentaires_generaux, savoirs=setre, user=request.user)
         if form.is_valid():
             if 'commentaires_generaux' in form.cleaned_data:
                 blt.commentaires_generaux = form.cleaned_data['commentaires_generaux']
                 blt.save()
+
+            for sv in setre:
+                if str(sv.id) in form.cleaned_data:
+                    value = form.cleaned_data[str(sv.id)]
+                    savoir = SavoirEtre.objects.get(id=sv.id)
+                    if value:
+                        note, created = Note.objects.get_or_create(bulletin=blt, savoir=savoir, defaults={'valeur' : value, 'annee' : annee, 'auteur_modification' : request.user})
+                        if not created:
+                            note.valeur = value
+                            note.save()
+                    else:
+                        Note.objects.filter(bulletin=blt, savoir=savoir).delete()
+                    
     return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'ens' : ens, 'form' : form, 'moyenne' : moyenne}))
 
 @login_required
@@ -151,7 +166,6 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
     capacites = Capacite.objects.filter(ensemble=ens)
     questions = [(x.id, x.libelle, x.cours) for x in capacites if x.valide(annee)]
-    
     # L'utilisation de list() n'est pas nécessaire mais force l'exécution
     # du QuerySet afin déviter une requête imbriquée
     notes = Note.objects.filter(bulletin=blt, capacite__in=list(capacites), annee=annee)

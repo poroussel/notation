@@ -278,12 +278,21 @@ pre_save.connect(maj_moyenne_generale, sender=Moyenne)
 
 class Note(models.Model):
     bulletin = models.ForeignKey(Bulletin)
-    capacite = models.ForeignKey(Capacite)
+    capacite = models.ForeignKey(Capacite, null=True, blank=True)
+    savoir = models.ForeignKey(SavoirEtre, null=True, blank=True)
     valeur = models.DecimalField(max_digits=3, decimal_places=1)
     # Indice dans la liste des annees (0, 1 etc) 
     annee = models.PositiveIntegerField(u'Année')
     date_modification = models.DateTimeField(auto_now=True)
     auteur_modification = models.ForeignKey(User)
+
+    def sujet(self):
+        """
+        Méthode utilisée dans le vue liste admin
+        """
+        if self.capacite:
+            return self.capacite.libelle
+        return self.savoir.libelle
     
     def eleve(self):
         """

@@ -110,6 +110,10 @@ class NotationForm(forms.Form, ReadOnly):
 
 class BulletinForm(forms.Form, ReadOnly):
     def __init__(self, *args, **kwargs):
+        if 'notes' in kwargs:
+            notes = kwargs.pop('notes')
+        else:
+            notes = None
         user = kwargs.pop('user')
         commentaire = kwargs.pop('commentaire')
         savoirs = kwargs.pop('savoirs')
@@ -117,7 +121,11 @@ class BulletinForm(forms.Form, ReadOnly):
         super(BulletinForm, self).__init__(*args, **kwargs)
 
         for sv in savoirs:
-            self.fields[str(sv.id)] = forms.IntegerField(label=sv.libelle, min_value=0, max_value=5, required=False)
+            if notes:
+                note = notes.filter(savoir=sv)
+            else:
+                note = None
+            self.fields[str(sv.id)] = forms.IntegerField(label=sv.libelle, min_value=0, max_value=5, required=False, initial=note and int(note[0].valeur) or None)
             if profile.is_eleve():
                 self.fields[str(sv.id)].widget.attrs['readonly'] = True
             

@@ -27,12 +27,12 @@ admin.site.register(SavoirEtre, SavoirEtreAdmin)
 
 class NoteAdmin(admin.ModelAdmin):
     list_display = ('eleve',
-                    'capacite',
+                    'sujet',
                     'annee',
                     'valeur',
                     'auteur_modification',
                     'date_modification')
-    list_display_links = ('capacite',)
+    list_display_links = ('sujet',)
 admin.site.register(Note, NoteAdmin)
 
 class CommentaireAdmin(admin.ModelAdmin):
