@@ -346,27 +346,37 @@ def detail_entreprise(request, object_id=None):
         psr = reverse('ajouter_entreprise')
     return create_object(request, form_class=EntrepriseForm, post_save_redirect=psr)
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def detail_formateur(request, object_id):
     frm = get_object_or_404(User, pk=object_id)
+    profil = frm.get_profile()
     bulletins = Bulletin.objects.filter(formateur=frm)
-    return update_object(request,
-                         form_class=UtilisateurForm,
-                         object_id=object_id,
-                         post_save_redirect=reverse('liste_formateur'),
-                         template_name='notation/formateur_form.html',
-                         extra_context={'bulletins' : bulletins})
+    if request.method == 'POST':
+        form = ProfilUtilisateurForm(request.POST, instance=frm)
+        if form.is_valid():
+            form.save()
+            profil.phone_number = form.cleaned_data['phone_number']
+            profil.save()
+            return HttpResponseRedirect(reverse('liste_formateur'))
+    else:
+        form = ProfilUtilisateurForm(instance=frm, initial={'phone_number' : profil.phone_number})
+    return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : frm}))
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def detail_tuteur(request, object_id):
-    frm = get_object_or_404(User, pk=object_id)
-    bulletins = Bulletin.objects.filter(tuteur=frm)
-    return update_object(request,
-                         form_class=UtilisateurForm,
-                         object_id=object_id,
-                         post_save_redirect=reverse('liste_tuteur'),
-                         template_name='notation/tuteur_form.html',
-                         extra_context={'bulletins' : bulletins})
+    tuteur = get_object_or_404(User, pk=object_id)
+    profil = tuteur.get_profile()
+    bulletins = Bulletin.objects.filter(tuteur=tuteur)
+    if request.method == 'POST':
+        form = ProfilUtilisateurForm(request.POST, instance=tuteur)
+        if form.is_valid():
+            form.save()
+            profil.phone_number = form.cleaned_data['phone_number']
+            profil.save()
+            return HttpResponseRedirect(reverse('liste_tuteur'))
+    else:
+        form = ProfilUtilisateurForm(instance=tuteur, initial={'phone_number' : profil.phone_number})
+    return render_to_response('notation/tuteur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : tuteur}))
 
 
 @login_required
