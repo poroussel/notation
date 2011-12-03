@@ -28,10 +28,12 @@
       <a href="{% url notation.views.motdepasse %}">modifier votre mot de passe</a> /
       <a href="{% url notation.views.index %}">page d'accueil</a> / 
       <a href="{% url django.contrib.auth.views.logout %}">déconnexion</a>
+      {% if user.get_profile.is_administratif %}
       <form id="recherche" action="" method="post">{% csrf_token %}
       <input type="text" maxlength="40" name="chaine" id="chaine"/>
       <input type="hidden" name="_search" value="Aller" />
       </form>
+      {% endif %}
       {% endif %}
     </div>
     <div id="contenu">{% block content %}{% endblock %}</div>

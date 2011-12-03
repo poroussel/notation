@@ -303,7 +303,7 @@ def modifier_eleve(request, object_id):
                                          'telephone' : profil.phone_number})
     return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blt}))
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def ajouter_tuteur(request):
     if request.method == 'POST':
         form = UtilisateurForm(request.POST)
@@ -320,7 +320,7 @@ def ajouter_tuteur(request):
         form = UtilisateurForm()
     return render_to_response('notation/tuteur_form.html', RequestContext(request, {'form' : form}))
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def ajouter_formateur(request):
     if request.method == 'POST':
         form = UtilisateurForm(request.POST)
@@ -337,7 +337,7 @@ def ajouter_formateur(request):
         form = UtilisateurForm()
     return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form}))
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def detail_entreprise(request, object_id=None):
     psr = reverse('liste_entreprise')
     if object_id:
@@ -379,9 +379,8 @@ def detail_tuteur(request, object_id):
     return render_to_response('notation/tuteur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : tuteur}))
 
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def recherche(request):
-    # FIXME : les résultats doivent dépendrent de l'utilisateur courant
     search = request.GET.get('search', '')
     if search == '':
         search = 'rien'
