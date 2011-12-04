@@ -412,5 +412,5 @@ class SearchMiddleware(object):
     def process_request(self, request):
         if request.method == 'POST' and '_search' in request.POST:
             chaine =  urlquote(request.POST['chaine'])
-            return HttpResponseRedirect(reverse(recherche) + '?search=%s' % chaine)
+            return HttpResponseRedirect(reverse('cfai.notation.views.recherche') + '?search=%s' % chaine)
         return None
