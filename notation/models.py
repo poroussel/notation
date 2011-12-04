@@ -164,13 +164,13 @@ class Bulletin(models.Model):
         Calcul la moyenne compétence de ce bulletin pour une année
         """
         annee = int(annee)
-        ensembles = EnsembleCapacite.objects.filter(grille=self.grille)
         total = 0
         poids = 0
+        ensembles = self.grille.ensemblecapacite_set.all()
         for ens in ensembles:
             moyenne_ensemble = self.moyenne_ensemble(ens, annee)
             if moyenne_ensemble:
-                total += moyenne_ensemble
+                total += moyenne_ensemble * ens.poids
                 poids += ens.poids
         moyenne = total * 4 / poids
         moy, created = Moyenne.objects.get_or_create(bulletin=self, annee=annee, defaults={'valeur_cp' : moyenne})
@@ -178,6 +178,22 @@ class Bulletin(models.Model):
             moy.valeur_cp = moyenne
             moy.save()
 
+    def calcul_moyenne_savoir(self, annee):
+        """
+        Calcul la moyenne savoir être de ce bulletin pour une année
+        """
+        annee = int(annee)
+        savoirs = [sv for sv in self.grille.savoiretre_set.all() if sv.valide(annee)]
+
+        notes = Note.objects.filter(bulletin=self, annee=annee, savoir__in=savoirs).values_list('valeur', flat=True)
+        somme = sum(notes)
+        somme += len(savoirs) - len(notes)
+        moyenne = somme / len(savoirs)
+
+        moy, created = Moyenne.objects.get_or_create(bulletin=self, annee=annee, defaults={'valeur_sv' : moyenne})
+        if not created:
+            moy.valeur_sv = moyenne
+            moy.save()
 
 class EnsembleCapacite(models.Model):
     class Meta:
