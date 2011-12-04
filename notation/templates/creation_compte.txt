@@ -1,0 +1,10 @@
+Bonjour {{ profil.nom_complet }},
+
+Un compte a été créé à votre attention sur le site http://{{ site.domain }}.
+
+Vous pourrez vous y connecter en utilisant les identifiants suivants :
+
+ - nom d'utilisateur : {{ profil.user.username }}
+ - mot de passe : {{ profil.user.username }}
+
+Veuillez modifier votre mot de passe lors de votre première connexion.

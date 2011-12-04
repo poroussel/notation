@@ -4,6 +4,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import pre_save, post_save
 from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.contrib.sites.models import Site
 from datetime import date
 
 TYPES = (('e', u'Apprenti'),
@@ -37,9 +40,13 @@ class ProfilUtilisateur(models.Model):
 
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
-        profile, created = ProfilUtilisateur.objects.get_or_create(user=instance)
+        profil, created = ProfilUtilisateur.objects.get_or_create(user=instance)
         if settings.DEBUG:
             print u"Création de l'utilisateur %s et envoi d'un email à l'adresse %s" % (instance.username, instance.email)
+        current_site = Site.objects.get_current()
+        body = render_to_string('creation_compte.txt', {'profil' : profil, 'site' : current_site})
+        print body
+        send_mail(u'Création de votre compte', body, 'admnistrateur@%s' % current_site.domain, list(instance.email), fail_silently=True)
 post_save.connect(create_user_profile, sender=User)
 
 
