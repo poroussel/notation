@@ -150,12 +150,11 @@ class Bulletin(models.Model):
         Calcul de la moyenne pour un ensemble de capacités pour une année.
         Les notes manquantes (non saisies) sont considérées comme valant 1
         """
-        capacites = Capacite.objects.filter(ensemble=ens)
-        capacites = [cap for cap in capacites if cap.valide(annee)]
+        capacites = [cap for cap in ens.capacite_set.all() if cap.valide(annee)]
         if len(capacites) == 0:
             return None
-        notes = Note.objects.filter(bulletin=self, annee=annee, capacite__in=capacites)
-        somme = sum([note.valeur for note in notes])
+        notes = Note.objects.filter(bulletin=self, annee=annee, capacite__in=capacites).values_list('valeur', flat=True)
+        somme = sum(notes)
         somme += len(capacites) - len(notes)
         return somme / len(capacites)
 
