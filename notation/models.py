@@ -242,16 +242,16 @@ class Capacite(models.Model):
     class Meta:
         verbose_name = u'Capacité'
         verbose_name_plural = u'Capacités'
-        ordering = ['numero']
+        ordering = ['ensemble', 'numero']
         unique_together = ('ensemble', 'numero')
 
     ensemble = models.ForeignKey(EnsembleCapacite)
     numero = models.PositiveIntegerField()
     libelle = models.CharField(u'Libellé', max_length=200)
     cours = models.CharField(u'Cours associé', max_length=80, blank=True)
-    an_1 = models.BooleanField(u'Valide pour la première année')
-    an_2 = models.BooleanField(u'Valide pour la deuxième année')
-    an_3 = models.BooleanField(u'Valide pour la troisième année')
+    an_1 = models.BooleanField(NOMS_ANNEES[0])
+    an_2 = models.BooleanField(NOMS_ANNEES[1])
+    an_3 = models.BooleanField(NOMS_ANNEES[2])
 
     def valide(self, annee):
         if int(annee) < self.ensemble.grille.duree:
@@ -268,9 +268,9 @@ class SavoirEtre(models.Model):
 
     grille = models.ForeignKey(GrilleNotation)
     libelle = models.CharField(u'Libellé', max_length=200)
-    an_1 = models.BooleanField(u'Valide pour la première année')
-    an_2 = models.BooleanField(u'Valide pour la deuxième année')
-    an_3 = models.BooleanField(u'Valide pour la troisième année')
+    an_1 = models.BooleanField(NOMS_ANNEES[0])
+    an_2 = models.BooleanField(NOMS_ANNEES[1])
+    an_3 = models.BooleanField(NOMS_ANNEES[2])
 
     def valide(self, annee):
         if int(annee) < self.grille.duree:

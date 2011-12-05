@@ -15,8 +15,8 @@ class EnsembleCapaciteAdmin(admin.ModelAdmin):
 admin.site.register(EnsembleCapacite, EnsembleCapaciteAdmin)
 
 class CapaciteAdmin(admin.ModelAdmin):
+    list_display = ('__unicode__', 'cours', 'an_1', 'an_2', 'an_3')
     list_filter = ('ensemble',)
-    ordering = ['ensemble']
 admin.site.register(Capacite, CapaciteAdmin)
 
 class SavoirEtreAdmin(admin.ModelAdmin):
