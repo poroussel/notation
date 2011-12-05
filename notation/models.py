@@ -207,7 +207,6 @@ class EnsembleCapacite(models.Model):
     class Meta:
         verbose_name = u'Ensemble de capacités'
         verbose_name_plural = u'Ensembles de capacités'
-        order_with_respect_to = 'grille'
         ordering = ['partie', 'numero']
         unique_together = ('grille', 'partie', 'numero')
 
@@ -243,8 +242,6 @@ class Capacite(models.Model):
     class Meta:
         verbose_name = u'Capacité'
         verbose_name_plural = u'Capacités'
-        # FIXME : pas sur que les lignes suivantes servent à qq chose
-        order_with_respect_to = 'ensemble'
         ordering = ['numero']
         unique_together = ('ensemble', 'numero')
 
