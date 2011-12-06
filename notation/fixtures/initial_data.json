@@ -576,10 +576,10 @@
       "is_active": true, 
       "is_superuser": true, 
       "is_staff": true, 
-      "last_login": "2011-12-01 17:23:59", 
+      "last_login": "2011-12-05 13:06:13", 
       "groups": [], 
       "user_permissions": [], 
-      "password": "sha1$8bf10$6e35b04951bac7c1268c76efcbb9dff29c2b806f", 
+      "password": "sha1$917d4$da02975a3d7a08b87cb3bedca8e56a286db6b751", 
       "email": "p.o.roussel@free.fr", 
       "date_joined": "2011-10-28 10:43:04"
     }
@@ -651,7 +651,7 @@
     "model": "notation.profilutilisateur", 
     "fields": {
       "phone_number": "", 
-      "password_modified": false, 
+      "password_modified": true, 
       "user": 1, 
       "user_type": "a"
     }
@@ -684,16 +684,6 @@
       "password_modified": false, 
       "user": 4, 
       "user_type": "f"
-    }
-  }, 
-  {
-    "pk": 5, 
-    "model": "notation.profilutilisateur", 
-    "fields": {
-      "phone_number": "06 89 99 60 27", 
-      "password_modified": false, 
-      "user": 5, 
-      "user_type": "t"
     }
   }, 
   {
@@ -771,458 +761,470 @@
     "pk": 1, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 0, 
       "partie": "A", 
       "libelle": "D\u00e9velopper une d\u00e9marche strat\u00e9gique", 
+      "poids": 1, 
       "numero": 1, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 2, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 1, 
       "partie": "A", 
       "libelle": "Ecouter le march\u00e9 et anticiper la demande", 
+      "poids": 1, 
       "numero": 2, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 3, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 2, 
       "partie": "A", 
       "libelle": "Faire \u00e9merger de nouvelles id\u00e9es", 
+      "poids": 1, 
       "numero": 3, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 4, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 3, 
       "partie": "B", 
       "libelle": "Evaluer l'avant projet", 
+      "poids": 1, 
       "numero": 1, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 5, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 4, 
       "partie": "B", 
       "libelle": "Valider la faisabilit\u00e9 du projet", 
+      "poids": 1, 
       "numero": 2, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 6, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 5, 
       "partie": "B", 
       "libelle": "Lancer le projet", 
+      "poids": 1, 
       "numero": 3, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 7, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 6, 
       "partie": "B", 
       "libelle": "Conduire le projet", 
+      "poids": 1, 
       "numero": 4, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 8, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 7, 
       "partie": "B", 
       "libelle": "Cl\u00f4turer le projet", 
+      "poids": 1, 
       "numero": 5, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 9, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 8, 
       "partie": "B", 
       "libelle": "Elaborer et suivre le budget du projet", 
+      "poids": 1, 
       "numero": 6, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 10, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 9, 
       "partie": "B", 
       "libelle": "Industrialiser", 
+      "poids": 1, 
       "numero": 7, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 11, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 10, 
       "partie": "C", 
       "libelle": "Ma\u00eetriser les techniques", 
+      "poids": 1, 
       "numero": 1, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 12, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 11, 
       "partie": "C", 
       "libelle": "Utiliser l'optique et l'\u00e9lectronique", 
+      "poids": 1, 
       "numero": 2, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 13, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 12, 
       "partie": "C", 
       "libelle": "Int\u00e9grer l'automatisme", 
+      "poids": 1, 
       "numero": 3, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 14, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 13, 
       "partie": "C", 
       "libelle": "Conna\u00eetre les diff\u00e9rents mat\u00e9riaux", 
+      "poids": 1, 
       "numero": 4, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 15, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 14, 
       "partie": "C", 
       "libelle": "Conna\u00eetre les traitements de surface", 
+      "poids": 1, 
       "numero": 5, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 16, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 15, 
       "partie": "D", 
       "libelle": "D\u00e9ployer la politique Qualit\u00e9", 
+      "poids": 1, 
       "numero": 1, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 17, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 16, 
       "partie": "D", 
       "libelle": "D\u00e9ployer la politique S\u00e9curit\u00e9 des personnes", 
+      "poids": 1, 
       "numero": 2, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 18, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 17, 
       "partie": "D", 
       "libelle": "Assurer la S\u00e9curit\u00e9 des marchandises", 
+      "poids": 1, 
       "numero": 3, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 19, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 18, 
       "partie": "D", 
       "libelle": "D\u00e9ployer la politique Environnement", 
+      "poids": 1, 
       "numero": 4, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "D", 
+      "libelle": "Assurer le traitement des d\u00e9chets", 
+      "poids": 1, 
+      "numero": 5, 
+      "grille": 2
     }
   }, 
   {
     "pk": 20, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 19, 
       "partie": "E", 
       "libelle": "Manager les \u00e9quipes", 
+      "poids": 1, 
       "numero": 1, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 21, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 20, 
       "partie": "E", 
       "libelle": "Maintenir et d\u00e9velopper les comp\u00e9tences", 
+      "poids": 1, 
       "numero": 2, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 22, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 21, 
       "partie": "E", 
       "libelle": "N\u00e9gocier et faire respecter les r\u00e8gles", 
+      "poids": 1, 
       "numero": 3, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 23, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 22, 
       "partie": "E", 
       "libelle": "Conduire une r\u00e9union", 
+      "poids": 1, 
       "numero": 4, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 24, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 23, 
       "partie": "E", 
       "libelle": "Conna\u00eetre le droit et la r\u00e9glementation", 
+      "poids": 1, 
       "numero": 5, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 25, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 24, 
       "partie": "F", 
       "libelle": "Pr\u00e9parer la production", 
+      "poids": 1, 
       "numero": 1, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 26, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 25, 
       "partie": "F", 
       "libelle": "Conduire un processus de production", 
+      "poids": 1, 
       "numero": 2, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 27, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 26, 
       "partie": "F", 
       "libelle": "Am\u00e9liorer un processus de production", 
+      "poids": 1, 
       "numero": 3, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 28, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 27, 
       "partie": "G", 
       "libelle": "Situer l\u2019entreprise dans son environnement macro\u00e9conomique", 
+      "poids": 1, 
       "numero": 1, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 29, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 28, 
       "partie": "G", 
       "libelle": "Elaborer et suivre le budget de fonctionnement de son service", 
+      "poids": 1, 
       "numero": 2, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 30, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 29, 
       "partie": "G", 
       "libelle": "D\u00e9finir le co\u00fbt d\u2019un produit", 
+      "poids": 1, 
       "numero": 3, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 31, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 30, 
       "partie": "G", 
       "libelle": "D\u00e9cider fabrication ou sous-traitance", 
+      "poids": 1, 
       "numero": 4, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 32, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 31, 
       "partie": "H", 
       "libelle": "Transmettre une information compr\u00e9hensible \u00e0 tous", 
+      "poids": 1, 
       "numero": 1, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 33, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 32, 
       "partie": "H", 
       "libelle": "Recevoir une information ", 
+      "poids": 1, 
       "numero": 2, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 34, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 33, 
       "partie": "I", 
       "libelle": "Evoluer dans un contexte international", 
+      "poids": 1, 
       "numero": 1, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 35, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 34, 
       "partie": "J", 
       "libelle": "Maitriser les bases du syst\u00e8me informatique", 
+      "poids": 1, 
       "numero": 1, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 36, 
     "model": "notation.ensemblecapacite", 
     "fields": {
-      "_order": 35, 
       "partie": "J", 
       "libelle": "Maitriser les outils informatiques", 
+      "poids": 1, 
       "numero": 2, 
-      "grille": 2, 
-      "poids": 1
+      "grille": 2
     }
   }, 
   {
     "pk": 1, 
     "model": "notation.capacite", 
     "fields": {
-      "cours": "", 
+      "cours": "MCGI1L/A1", 
       "libelle": "Analyser le march\u00e9 et la concurrence", 
       "numero": 1, 
       "an_1": true, 
-      "_order": 0, 
       "ensemble": 1, 
       "an_2": false, 
       "an_3": false
     }
   }, 
   {
-    "pk": 2, 
+    "pk": 4, 
     "model": "notation.capacite", 
     "fields": {
-      "cours": "", 
-      "libelle": "Pr\u00e9ciser les objectifs du projet", 
-      "numero": 1, 
+      "cours": "MCGI1L/A1", 
+      "libelle": "Participer au plan strat\u00e9gique", 
+      "numero": 2, 
       "an_1": true, 
-      "_order": 0, 
-      "ensemble": 4, 
+      "ensemble": 1, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INNOV/A3", 
+      "libelle": "Diagnostiquer les savoir faire et les savoir", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 1, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1/A1", 
+      "libelle": "Evaluer les besoins et risques", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 1, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1/A1", 
+      "libelle": "R\u00e9unir les \u00e9l\u00e9ments d'aide \u00e0 la d\u00e9cision", 
+      "numero": 5, 
+      "an_1": true, 
+      "ensemble": 1, 
       "an_2": false, 
       "an_3": false
     }
@@ -1235,7 +1237,71 @@
       "libelle": "Assurer la veille technologique", 
       "numero": 1, 
       "an_1": false, 
-      "_order": 0, 
+      "ensemble": 2, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INNOV/A3", 
+      "libelle": "R\u00e9aliser le benchmarking", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 2, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INNOV/A3", 
+      "libelle": "Anticiper les \u00e9volutions de son secteur", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 2, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INNOV/A3", 
+      "libelle": "D\u00e9finir des besoins en terme d'\u00e9volution", 
+      "numero": 4, 
+      "an_1": false, 
+      "ensemble": 2, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "COART/A2", 
+      "libelle": "Apprendre les r\u00e8gles de l'art", 
+      "numero": 5, 
+      "an_1": false, 
+      "ensemble": 2, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "COART/A2", 
+      "libelle": "Conna\u00eetre les r\u00e8gles esth\u00e9tiques", 
+      "numero": 6, 
+      "an_1": false, 
       "ensemble": 2, 
       "an_2": true, 
       "an_3": false
@@ -1246,13 +1312,90 @@
     "model": "notation.capacite", 
     "fields": {
       "cours": "INNOV/A3", 
-      "libelle": "Cr\u00e9er les conditions pour faire g\u00e9n\u00e9rer de nouvelles id\u00e9es dans l\u2019entrep", 
+      "libelle": "Cr\u00e9er les conditions pour faire g\u00e9n\u00e9rer de nouvelles id\u00e9es dans l\u2019entreprise", 
       "numero": 1, 
       "an_1": false, 
-      "_order": 0, 
       "ensemble": 3, 
       "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INNOV/A3", 
+      "libelle": "Animer le processus d\u2019innovation", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 3, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1/A1", 
+      "libelle": "Pr\u00e9ciser les objectifs du projet", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 4, 
+      "an_2": false, 
       "an_3": false
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1/A1", 
+      "libelle": "Analyser un cahier des charges client", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 4, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1/A1", 
+      "libelle": "R\u00e9aliser un cahier des charges \u00e0 partir de donn\u00e9es issues client ou march\u00e9", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 4, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1/A1", 
+      "libelle": "Evaluer le projet dans son contexte", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 4, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "COART/A3", 
+      "libelle": "Rep\u00e9rer les contraintes artistiques", 
+      "numero": 5, 
+      "an_1": false, 
+      "ensemble": 4, 
+      "an_2": true, 
+      "an_3": true
     }
   }, 
   {
@@ -1263,10 +1406,87 @@
       "libelle": "Valider la faisabilit\u00e9 technique", 
       "numero": 1, 
       "an_1": true, 
-      "_order": 0, 
       "ensemble": 5, 
       "an_2": false, 
       "an_3": false
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "Etablir le planning pr\u00e9visionnel ", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 5, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "Valider l\u2019aspect financier (co\u00fbts produit et investissements n\u00e9cessaires)", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 5, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "Etablir la fiche technique/co\u00fbt (innovation)", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 5, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "Etablir et valider l\u2019offre (demande client)", 
+      "numero": 5, 
+      "an_1": true, 
+      "ensemble": 5, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "R\u00e9aliser des prototypes", 
+      "numero": 6, 
+      "an_1": false, 
+      "ensemble": 5, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Int\u00e9grer les sp\u00e9cificit\u00e9s des m\u00e9tiers", 
+      "numero": 7, 
+      "an_1": false, 
+      "ensemble": 5, 
+      "an_2": true, 
+      "an_3": true
     }
   }, 
   {
@@ -1277,7 +1497,58 @@
       "libelle": "Consolider le planning des affaires", 
       "numero": 1, 
       "an_1": true, 
-      "_order": 0, 
+      "ensemble": 6, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "Nommer l\u2019\u00e9quipe projet", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 6, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "G\u00e9rer plusieurs projets \u00e0 la fois ", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 6, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "D\u00e9finir des indicateurs", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 6, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "Communiquer sur un projet", 
+      "numero": 5, 
+      "an_1": true, 
       "ensemble": 6, 
       "an_2": false, 
       "an_3": false
@@ -1291,7 +1562,58 @@
       "libelle": "Traiter les risques", 
       "numero": 1, 
       "an_1": true, 
-      "_order": 0, 
+      "ensemble": 7, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "Valider les revues de conception", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 7, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "Etablir le plan de tests et de contr\u00f4le", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 7, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "Conduire des essais et v\u00e9rifications", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 7, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "Suivre le projet (ERP) et indicateurs ", 
+      "numero": 5, 
+      "an_1": true, 
       "ensemble": 7, 
       "an_2": false, 
       "an_3": false
@@ -1305,7 +1627,45 @@
       "libelle": "Comparer les r\u00e9sultats et objectifs", 
       "numero": 1, 
       "an_1": true, 
-      "_order": 0, 
+      "ensemble": 8, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "Etablir le bilan financier du projet", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 8, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "Evaluer la satisfaction de l\u2019\u00e9quipe", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 8, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "Capitaliser les exp\u00e9riences", 
+      "numero": 4, 
+      "an_1": true, 
       "ensemble": 8, 
       "an_2": false, 
       "an_3": false
@@ -1319,7 +1679,58 @@
       "libelle": "Evaluer les co\u00fbts du projet", 
       "numero": 1, 
       "an_1": true, 
-      "_order": 0, 
+      "ensemble": 9, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 41, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1L/A1", 
+      "libelle": "Evaluer les gains du projet", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 9, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 42, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGIL/A3", 
+      "libelle": "Elaborer le dossier d\u2019investissement", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 9, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 43, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGIL/A3", 
+      "libelle": "Evaluer le retour sur investissement", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 9, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 44, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGIL/A3", 
+      "libelle": "Suivre le budget du projet ", 
+      "numero": 5, 
+      "an_1": true, 
       "ensemble": 9, 
       "an_2": false, 
       "an_3": false
@@ -1333,261 +1744,8 @@
       "libelle": "L\u2019organisation industrielle", 
       "numero": 1, 
       "an_1": true, 
-      "_order": 0, 
       "ensemble": 10, 
       "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 56, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MECAL/A1", 
-      "libelle": "Connaitre les outils et les bases de conception", 
-      "numero": 1, 
-      "an_1": true, 
-      "_order": 0, 
-      "ensemble": 11, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 63, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "OPTI/A1-A2", 
-      "libelle": "Caract\u00e9riser les crit\u00e8res visuels ", 
-      "numero": 1, 
-      "an_1": true, 
-      "_order": 0, 
-      "ensemble": 12, 
-      "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 68, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "PROD/A2", 
-      "libelle": "Connaitre la robotique", 
-      "numero": 1, 
-      "an_1": false, 
-      "_order": 0, 
-      "ensemble": 13, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 71, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MATE/A2", 
-      "libelle": "Connaitre les propri\u00e9t\u00e9s des mat\u00e9riaux", 
-      "numero": 1, 
-      "an_1": true, 
-      "_order": 0, 
-      "ensemble": 14, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 78, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MATE/A2", 
-      "libelle": "Connaitre les techniques de pr\u00e9paration de surface et de polissage", 
-      "numero": 1, 
-      "an_1": true, 
-      "_order": 0, 
-      "ensemble": 15, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 81, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "QUAL1/A1", 
-      "libelle": "Assurer la satisfaction du Client", 
-      "numero": 1, 
-      "an_1": true, 
-      "_order": 0, 
-      "ensemble": 16, 
-      "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 86, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MSEE/A2", 
-      "libelle": "Connaitre la r\u00e9glementation et les moyens de pr\u00e9vention", 
-      "numero": 1, 
-      "an_1": false, 
-      "_order": 0, 
-      "ensemble": 17, 
-      "an_2": false, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 89, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MSEE?", 
-      "libelle": "Etablir les r\u00e8gles d\u2019achat des pr\u00e9cieux", 
-      "numero": 1, 
-      "an_1": true, 
-      "_order": 0, 
-      "ensemble": 18, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 93, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MSEE?", 
-      "libelle": "Veiller \u00e0 l\u2019application des r\u00e8gles environnementales", 
-      "numero": 1, 
-      "an_1": true, 
-      "_order": 0, 
-      "ensemble": 19, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 3, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "", 
-      "libelle": "Analyser un cahier des charges client", 
-      "numero": 2, 
-      "an_1": true, 
-      "_order": 1, 
-      "ensemble": 4, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 4, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MCGI1L/A1", 
-      "libelle": "Participer au plan strat\u00e9gique", 
-      "numero": 2, 
-      "an_1": true, 
-      "_order": 1, 
-      "ensemble": 1, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 9, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "INNOV/A3", 
-      "libelle": "R\u00e9aliser le benchmarking", 
-      "numero": 2, 
-      "an_1": false, 
-      "_order": 1, 
-      "ensemble": 2, 
-      "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 15, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "INNOV/A3", 
-      "libelle": "Animer le processus d\u2019innovation", 
-      "numero": 2, 
-      "an_1": false, 
-      "_order": 1, 
-      "ensemble": 3, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 20, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "Etablir le planning pr\u00e9visionnel ", 
-      "numero": 2, 
-      "an_1": true, 
-      "_order": 1, 
-      "ensemble": 5, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 27, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "Nommer l\u2019\u00e9quipe projet", 
-      "numero": 2, 
-      "an_1": true, 
-      "_order": 1, 
-      "ensemble": 6, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 32, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "Valider les revues de conception", 
-      "numero": 2, 
-      "an_1": true, 
-      "_order": 1, 
-      "ensemble": 7, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 37, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "Etablir le bilan financier du projet", 
-      "numero": 2, 
-      "an_1": true, 
-      "_order": 1, 
-      "ensemble": 8, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 41, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "Evaluer les gains du projet", 
-      "numero": 2, 
-      "an_1": true, 
-      "_order": 1, 
-      "ensemble": 9, 
-      "an_2": false, 
       "an_3": false
     }
   }, 
@@ -1599,246 +1757,7 @@
       "libelle": "Etudier l\u2019impact sur le co\u00fbt du produit", 
       "numero": 2, 
       "an_1": true, 
-      "_order": 1, 
       "ensemble": 10, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 57, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MICROTEC/A1-A2", 
-      "libelle": "Connaitre les m\u00e9thodes de fabrication li\u00e9e aux domaines de la pr\u00e9cision et", 
-      "numero": 2, 
-      "an_1": true, 
-      "_order": 1, 
-      "ensemble": 11, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 64, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "OPTI/A1-A2", 
-      "libelle": "Connaitre les possibilit\u00e9s de contr\u00f4le", 
-      "numero": 2, 
-      "an_1": true, 
-      "_order": 1, 
-      "ensemble": 12, 
-      "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 69, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "PROD/A2", 
-      "libelle": "Connaitre la micro robotique", 
-      "numero": 2, 
-      "an_1": false, 
-      "_order": 1, 
-      "ensemble": 13, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 72, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MATE/A2", 
-      "libelle": "Connaitre les diff\u00e9rents m\u00e9taux", 
-      "numero": 2, 
-      "an_1": true, 
-      "_order": 1, 
-      "ensemble": 14, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 79, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MATE/A2", 
-      "libelle": "Connaitre les diff\u00e9rents types de traitements de surface ", 
-      "numero": 2, 
-      "an_1": true, 
-      "_order": 1, 
-      "ensemble": 15, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 82, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "QUAL1/A1", 
-      "libelle": "Expliquer et faire appliquer les proc\u00e9dures ", 
-      "numero": 2, 
-      "an_1": true, 
-      "_order": 1, 
-      "ensemble": 16, 
-      "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 87, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MSEE/A2", 
-      "libelle": "Appliquer et faire appliquer les r\u00e8gles de s\u00e9curit\u00e9", 
-      "numero": 2, 
-      "an_1": false, 
-      "_order": 1, 
-      "ensemble": 17, 
-      "an_2": false, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 90, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MSEE?", 
-      "libelle": "Etablir les r\u00e8gles d\u2019inventaire (stocks)", 
-      "numero": 2, 
-      "an_1": true, 
-      "_order": 1, 
-      "ensemble": 18, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 94, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MSEE?", 
-      "libelle": "Etablir un suivi r\u00e9gulier des points significatifs", 
-      "numero": 2, 
-      "an_1": true, 
-      "_order": 1, 
-      "ensemble": 19, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 5, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1/A1", 
-      "libelle": "Evaluer les besoins et risques", 
-      "numero": 4, 
-      "an_1": true, 
-      "_order": 2, 
-      "ensemble": 1, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 10, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "INNOV/A3", 
-      "libelle": "Anticiper les \u00e9volutions de son secteur", 
-      "numero": 3, 
-      "an_1": false, 
-      "_order": 2, 
-      "ensemble": 2, 
-      "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 16, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1/A1", 
-      "libelle": "R\u00e9aliser un cahier des charges \u00e0 partir de donn\u00e9es issues client ou march\u00e9", 
-      "numero": 3, 
-      "an_1": true, 
-      "_order": 2, 
-      "ensemble": 4, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 21, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "Valider l\u2019aspect financier (co\u00fbts produit et investissements n\u00e9cessaires)", 
-      "numero": 3, 
-      "an_1": true, 
-      "_order": 2, 
-      "ensemble": 5, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 28, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "G\u00e9rer plusieurs projets \u00e0 la fois ", 
-      "numero": 3, 
-      "an_1": true, 
-      "_order": 2, 
-      "ensemble": 6, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 33, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "Etablir le plan de tests et de contr\u00f4le", 
-      "numero": 3, 
-      "an_1": true, 
-      "_order": 2, 
-      "ensemble": 7, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 38, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "Evaluer la satisfaction de l\u2019\u00e9quipe", 
-      "numero": 3, 
-      "an_1": true, 
-      "_order": 2, 
-      "ensemble": 8, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 42, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MCGIL/A3", 
-      "libelle": "Elaborer le dossier d\u2019investissement", 
-      "numero": 3, 
-      "an_1": true, 
-      "_order": 2, 
-      "ensemble": 9, 
       "an_2": false, 
       "an_3": false
     }
@@ -1851,232 +1770,7 @@
       "libelle": "D\u00e9composer la r\u00e9alisation du produit  en gammes de fabrication", 
       "numero": 3, 
       "an_1": true, 
-      "_order": 2, 
       "ensemble": 10, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 58, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MATE/A2", 
-      "libelle": "Caract\u00e9riser les surfaces", 
-      "numero": 3, 
-      "an_1": true, 
-      "_order": 2, 
-      "ensemble": 11, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 65, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MATE/A2", 
-      "libelle": "Connaitre l\u2019analyse sensorielle", 
-      "numero": 3, 
-      "an_1": true, 
-      "_order": 2, 
-      "ensemble": 12, 
-      "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 70, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "PROD/A2", 
-      "libelle": "Connaitre la productique", 
-      "numero": 3, 
-      "an_1": false, 
-      "_order": 2, 
-      "ensemble": 13, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 73, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GEMM/A2", 
-      "libelle": "Connaitre les pierres (gemmologie)", 
-      "numero": 3, 
-      "an_1": false, 
-      "_order": 2, 
-      "ensemble": 14, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 80, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MATE/A2", 
-      "libelle": "Connaitre les diff\u00e9rents rev\u00eatements de surface", 
-      "numero": 3, 
-      "an_1": true, 
-      "_order": 2, 
-      "ensemble": 15, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 83, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "QUAL1/A1", 
-      "libelle": "V\u00e9rifier l\u2019application des plans de contr\u00f4le ", 
-      "numero": 3, 
-      "an_1": true, 
-      "_order": 2, 
-      "ensemble": 16, 
-      "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 88, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MSEE/A2", 
-      "libelle": "Am\u00e9liorer les conditions de travail ", 
-      "numero": 3, 
-      "an_1": false, 
-      "_order": 2, 
-      "ensemble": 17, 
-      "an_2": false, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 91, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MSEE?", 
-      "libelle": "D\u00e9finir des r\u00e8gles de protection de marchandises pr\u00e9cieuses", 
-      "numero": 3, 
-      "an_1": true, 
-      "_order": 2, 
-      "ensemble": 18, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 6, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "INNOV/A3", 
-      "libelle": "Diagnostiquer les savoir faire et les savoir", 
-      "numero": 3, 
-      "an_1": false, 
-      "_order": 3, 
-      "ensemble": 1, 
-      "an_2": false, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 11, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "INNOV/A3", 
-      "libelle": "D\u00e9finir des besoins en terme d'\u00e9volution", 
-      "numero": 4, 
-      "an_1": false, 
-      "_order": 3, 
-      "ensemble": 2, 
-      "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 17, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1/A1", 
-      "libelle": "Evaluer le projet dans son contexte", 
-      "numero": 4, 
-      "an_1": true, 
-      "_order": 3, 
-      "ensemble": 4, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 22, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "Etablir la fiche technique/co\u00fbt (innovation)", 
-      "numero": 4, 
-      "an_1": true, 
-      "_order": 3, 
-      "ensemble": 5, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 29, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "D\u00e9finir des indicateurs", 
-      "numero": 4, 
-      "an_1": true, 
-      "_order": 3, 
-      "ensemble": 6, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 34, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "Conduire des essais et v\u00e9rifications", 
-      "numero": 4, 
-      "an_1": true, 
-      "_order": 3, 
-      "ensemble": 7, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 39, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "Capitaliser les exp\u00e9riences", 
-      "numero": 4, 
-      "an_1": true, 
-      "_order": 3, 
-      "ensemble": 8, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 43, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MCGIL/A3", 
-      "libelle": "Evaluer le retour sur investissement", 
-      "numero": 4, 
-      "an_1": true, 
-      "_order": 3, 
-      "ensemble": 9, 
       "an_2": false, 
       "an_3": false
     }
@@ -2089,176 +1783,7 @@
       "libelle": "Int\u00e9grer les savoirs faire dans l\u2019enchainement des gammes de fabrication", 
       "numero": 4, 
       "an_1": true, 
-      "_order": 3, 
       "ensemble": 10, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 59, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MECAL/A2", 
-      "libelle": "Maitriser les techniques de mesures dimensionnelles", 
-      "numero": 4, 
-      "an_1": true, 
-      "_order": 3, 
-      "ensemble": 11, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 66, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MATE/A2", 
-      "libelle": "Reconnaitre le niveau d\u2019exigence sur des pi\u00e8ces t\u00e9moins haut de gamme", 
-      "numero": 4, 
-      "an_1": true, 
-      "_order": 3, 
-      "ensemble": 12, 
-      "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 74, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MATE/A2", 
-      "libelle": "Connaitre les composites et c\u00e9ramiques", 
-      "numero": 4, 
-      "an_1": true, 
-      "_order": 3, 
-      "ensemble": 14, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 84, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "QUAL1/A1", 
-      "libelle": "Participer \u00e0 la r\u00e9solution des probl\u00e8mes qualit\u00e9 internes et externes", 
-      "numero": 4, 
-      "an_1": true, 
-      "_order": 3, 
-      "ensemble": 16, 
-      "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 92, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MSEE?", 
-      "libelle": "Appliquer des consignes de contr\u00f4le et de droit d\u2019acc\u00e8s", 
-      "numero": 4, 
-      "an_1": true, 
-      "_order": 3, 
-      "ensemble": 18, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 7, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1/A1", 
-      "libelle": "R\u00e9unir les \u00e9l\u00e9ments d'aide \u00e0 la d\u00e9cision", 
-      "numero": 5, 
-      "an_1": true, 
-      "_order": 4, 
-      "ensemble": 1, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 12, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "COART/A2", 
-      "libelle": "Apprendre les r\u00e8gles de l'art", 
-      "numero": 5, 
-      "an_1": false, 
-      "_order": 4, 
-      "ensemble": 2, 
-      "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 18, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "COART/A3", 
-      "libelle": "Rep\u00e9rer les contraintes artistiques", 
-      "numero": 5, 
-      "an_1": false, 
-      "_order": 4, 
-      "ensemble": 4, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 23, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "Etablir et valider l\u2019offre (demande client)", 
-      "numero": 5, 
-      "an_1": true, 
-      "_order": 4, 
-      "ensemble": 5, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 30, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "Communiquer sur un projet", 
-      "numero": 5, 
-      "an_1": true, 
-      "_order": 4, 
-      "ensemble": 6, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 35, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "GP1L/A1", 
-      "libelle": "Suivre le projet (ERP) et indicateurs ", 
-      "numero": 5, 
-      "an_1": true, 
-      "_order": 4, 
-      "ensemble": 7, 
-      "an_2": false, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 44, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MCGIL/A3", 
-      "libelle": "Suivre le budget du projet ", 
-      "numero": 5, 
-      "an_1": true, 
-      "_order": 4, 
-      "ensemble": 9, 
       "an_2": false, 
       "an_3": false
     }
@@ -2271,94 +1796,9 @@
       "libelle": "Etudier la gestion des flux", 
       "numero": 5, 
       "an_1": true, 
-      "_order": 4, 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
-    }
-  }, 
-  {
-    "pk": 60, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MATE/A2", 
-      "libelle": "Connaitre les proc\u00e9d\u00e9s de finition", 
-      "numero": 5, 
-      "an_1": true, 
-      "_order": 4, 
-      "ensemble": 11, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 67, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MATE/A2", 
-      "libelle": "Rechercher et adapter les moyens de contr\u00f4le aux exigences", 
-      "numero": 5, 
-      "an_1": true, 
-      "_order": 4, 
-      "ensemble": 12, 
-      "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 75, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MATE/A2", 
-      "libelle": "Connaitre les caract\u00e9ristiques des mat\u00e9riaux \u00ab\u00a0vivants\u00a0\u00bb (cuir)", 
-      "numero": 5, 
-      "an_1": true, 
-      "_order": 4, 
-      "ensemble": 14, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 85, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "QUAL1/A1", 
-      "libelle": "Pratiquer l\u2019audit interne", 
-      "numero": 5, 
-      "an_1": true, 
-      "_order": 4, 
-      "ensemble": 16, 
-      "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 13, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "COART/A2", 
-      "libelle": "Conna\u00eetre les r\u00e8gles esth\u00e9tiques", 
-      "numero": 6, 
-      "an_1": false, 
-      "_order": 5, 
-      "ensemble": 2, 
-      "an_2": true, 
-      "an_3": false
-    }
-  }, 
-  {
-    "pk": 24, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "", 
-      "libelle": "R\u00e9aliser des prototypes", 
-      "numero": 6, 
-      "an_1": false, 
-      "_order": 5, 
-      "ensemble": 5, 
-      "an_2": true, 
-      "an_3": true
     }
   }, 
   {
@@ -2369,52 +1809,9 @@
       "libelle": "Etudier l\u2019impact sur les comp\u00e9tences", 
       "numero": 6, 
       "an_1": true, 
-      "_order": 5, 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
-    }
-  }, 
-  {
-    "pk": 61, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MECA/A2", 
-      "libelle": "Connaitre les m\u00e9thodologies de mesure", 
-      "numero": 6, 
-      "an_1": true, 
-      "_order": 5, 
-      "ensemble": 11, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 76, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MATE/A2", 
-      "libelle": "Connaitre les principes de traitements", 
-      "numero": 6, 
-      "an_1": true, 
-      "_order": 5, 
-      "ensemble": 14, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 25, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "", 
-      "libelle": "Int\u00e9grer les sp\u00e9cificit\u00e9s des m\u00e9tiers", 
-      "numero": 7, 
-      "an_1": false, 
-      "_order": 6, 
-      "ensemble": 5, 
-      "an_2": true, 
-      "an_3": true
     }
   }, 
   {
@@ -2425,38 +1822,9 @@
       "libelle": "Etudier l\u2019impact sur le poste de travail", 
       "numero": 7, 
       "an_1": true, 
-      "_order": 6, 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
-    }
-  }, 
-  {
-    "pk": 62, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MECA/A2", 
-      "libelle": "Connaitre le prototypage rapide", 
-      "numero": 7, 
-      "an_1": true, 
-      "_order": 6, 
-      "ensemble": 11, 
-      "an_2": true, 
-      "an_3": true
-    }
-  }, 
-  {
-    "pk": 77, 
-    "model": "notation.capacite", 
-    "fields": {
-      "cours": "MATE/A2", 
-      "libelle": "Connaitre les principes de la d\u00e9gradation des mat\u00e9riaux (vieillissement)", 
-      "numero": 7, 
-      "an_1": true, 
-      "_order": 6, 
-      "ensemble": 14, 
-      "an_2": true, 
-      "an_3": true
     }
   }, 
   {
@@ -2467,7 +1835,6 @@
       "libelle": "Int\u00e9grer des op\u00e9rations automatis\u00e9es", 
       "numero": 8, 
       "an_1": true, 
-      "_order": 7, 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
@@ -2481,7 +1848,6 @@
       "libelle": "R\u00e9diger un cahier des charges (achat)", 
       "numero": 9, 
       "an_1": true, 
-      "_order": 8, 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
@@ -2495,7 +1861,6 @@
       "libelle": "Participer \u00e0 la mise au point de l\u2019\u00e9quipement", 
       "numero": 10, 
       "an_1": true, 
-      "_order": 9, 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
@@ -2509,10 +1874,1465 @@
       "libelle": "Qualifier le nouvel \u00e9quipement", 
       "numero": 11, 
       "an_1": true, 
-      "_order": 10, 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
+    }
+  }, 
+  {
+    "pk": 56, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MECAL/A1", 
+      "libelle": "Connaitre les outils et les bases de conception", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 11, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 57, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MICROTEC/A1-A2", 
+      "libelle": "Connaitre les m\u00e9thodes de fabrication li\u00e9e aux domaines de la pr\u00e9cision et des m\u00e9tiers du Luxe", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 11, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 58, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MATE/A2", 
+      "libelle": "Caract\u00e9riser les surfaces", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 11, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 59, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MECAL/A2", 
+      "libelle": "Maitriser les techniques de mesures dimensionnelles", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 11, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 60, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MATE/A2", 
+      "libelle": "Connaitre les proc\u00e9d\u00e9s de finition", 
+      "numero": 5, 
+      "an_1": true, 
+      "ensemble": 11, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 61, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MECA/A2", 
+      "libelle": "Connaitre les m\u00e9thodologies de mesure", 
+      "numero": 6, 
+      "an_1": true, 
+      "ensemble": 11, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 62, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MECA/A2", 
+      "libelle": "Connaitre le prototypage rapide", 
+      "numero": 7, 
+      "an_1": true, 
+      "ensemble": 11, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 63, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "OPTI/A1-A2", 
+      "libelle": "Caract\u00e9riser les crit\u00e8res visuels ", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 12, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 64, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "OPTI/A1-A2", 
+      "libelle": "Connaitre les possibilit\u00e9s de contr\u00f4le", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 12, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 65, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MATE/A2", 
+      "libelle": "Connaitre l\u2019analyse sensorielle", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 12, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 66, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MATE/A2", 
+      "libelle": "Reconnaitre le niveau d\u2019exigence sur des pi\u00e8ces t\u00e9moins haut de gamme", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 12, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 67, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MATE/A2", 
+      "libelle": "Rechercher et adapter les moyens de contr\u00f4le aux exigences", 
+      "numero": 5, 
+      "an_1": true, 
+      "ensemble": 12, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 68, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD/A2", 
+      "libelle": "Connaitre la robotique", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 13, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 69, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD/A2", 
+      "libelle": "Connaitre la micro robotique", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 13, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 70, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD/A2", 
+      "libelle": "Connaitre la productique", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 13, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 71, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MATE/A2", 
+      "libelle": "Connaitre les propri\u00e9t\u00e9s des mat\u00e9riaux", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 14, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 72, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MATE/A2", 
+      "libelle": "Connaitre les diff\u00e9rents m\u00e9taux", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 14, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 73, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GEMM/A2", 
+      "libelle": "Connaitre les pierres (gemmologie)", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 14, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 74, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MATE/A2", 
+      "libelle": "Connaitre les composites et c\u00e9ramiques", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 14, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 75, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MATE/A2", 
+      "libelle": "Connaitre les caract\u00e9ristiques des mat\u00e9riaux \u00ab\u00a0vivants\u00a0\u00bb (cuir)", 
+      "numero": 5, 
+      "an_1": true, 
+      "ensemble": 14, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 76, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MATE/A2", 
+      "libelle": "Connaitre les principes de traitements", 
+      "numero": 6, 
+      "an_1": true, 
+      "ensemble": 14, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 77, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MATE/A2", 
+      "libelle": "Connaitre les principes de la d\u00e9gradation des mat\u00e9riaux (vieillissement)", 
+      "numero": 7, 
+      "an_1": true, 
+      "ensemble": 14, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 78, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MATE/A2", 
+      "libelle": "Connaitre les techniques de pr\u00e9paration de surface et de polissage", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 15, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 79, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MATE/A2", 
+      "libelle": "Connaitre les diff\u00e9rents types de traitements de surface ", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 15, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 80, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MATE/A2", 
+      "libelle": "Connaitre les diff\u00e9rents rev\u00eatements de surface", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 15, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 81, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL1/A1", 
+      "libelle": "Assurer la satisfaction du Client", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 16, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 82, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL1/A1", 
+      "libelle": "Expliquer et faire appliquer les proc\u00e9dures ", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 16, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 83, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL1/A1", 
+      "libelle": "V\u00e9rifier l\u2019application des plans de contr\u00f4le ", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 16, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 84, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL1/A1", 
+      "libelle": "Participer \u00e0 la r\u00e9solution des probl\u00e8mes qualit\u00e9 internes et externes", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 16, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 85, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL1/A1", 
+      "libelle": "Pratiquer l\u2019audit interne", 
+      "numero": 5, 
+      "an_1": true, 
+      "ensemble": 16, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 86, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE/A2", 
+      "libelle": "Connaitre la r\u00e9glementation et les moyens de pr\u00e9vention", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 17, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 87, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE/A2", 
+      "libelle": "Appliquer et faire appliquer les r\u00e8gles de s\u00e9curit\u00e9", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 17, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 88, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE/A2", 
+      "libelle": "Am\u00e9liorer les conditions de travail ", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 17, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 89, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE", 
+      "libelle": "Etablir les r\u00e8gles d\u2019achat des pr\u00e9cieux", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 18, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 90, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE", 
+      "libelle": "Etablir les r\u00e8gles d\u2019inventaire (stocks)", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 18, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 91, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE", 
+      "libelle": "D\u00e9finir des r\u00e8gles de protection de marchandises pr\u00e9cieuses", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 18, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 92, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE", 
+      "libelle": "Appliquer des consignes de contr\u00f4le et de droit d\u2019acc\u00e8s", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 18, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 93, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE", 
+      "libelle": "Veiller \u00e0 l\u2019application des r\u00e8gles environnementales", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 19, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 94, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE", 
+      "libelle": "Etablir un suivi r\u00e9gulier des points significatifs", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 19, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 95, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "D\u00e9finir le circuit d'achat", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 37, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 96, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Assurer le processus de retraitement des d\u00e9chets et de valorisation", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 37, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 97, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "G\u00e9rer entr\u00e9es et sorties des achats", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 37, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 98, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Connaitre les aptitudes, les comp\u00e9tences, les r\u00f4les du manager", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 20, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 99, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Manager un collaborateur, adapter son mode de management", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 20, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 100, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Communiquer efficacement", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 20, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 101, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "D\u00e9finir une strat\u00e9gie individuelle et collective pour atteindre un objectif", 
+      "numero": 4, 
+      "an_1": false, 
+      "ensemble": 20, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 102, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Manager par objectifs, d\u00e9l\u00e9guer", 
+      "numero": 5, 
+      "an_1": false, 
+      "ensemble": 20, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 103, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Responsabiliser son \u00e9quipe, assurer la coh\u00e9rence et la coh\u00e9sion d\u2019\u00e9quipe", 
+      "numero": 6, 
+      "an_1": false, 
+      "ensemble": 20, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 104, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Assurer le r\u00f4le central de leader et mettre en \u0153uvre des m\u00e9thodes de pilotage et d\u2019action en tant que leader", 
+      "numero": 7, 
+      "an_1": false, 
+      "ensemble": 20, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 105, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Promouvoir l\u2019\u00e9thique au travail", 
+      "numero": 8, 
+      "an_1": false, 
+      "ensemble": 20, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 106, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Int\u00e9grer la gestion des comp\u00e9tences en tant que facteur essentiel de la performance globale", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 21, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 107, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Conduire l'\u00e9volution des emplois et des comp\u00e9tences de sa structure", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 21, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 108, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "G\u00e9rer les stades de d\u00e9veloppement et de performance des \u00e9quipes", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 21, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 109, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Connaitre la classification", 
+      "numero": 4, 
+      "an_1": false, 
+      "ensemble": 21, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 110, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Savoir recruter", 
+      "numero": 5, 
+      "an_1": false, 
+      "ensemble": 21, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 111, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Conduire une n\u00e9gociation", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 22, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 112, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Assurer le respect des \u00e9l\u00e9ments de discipline et des r\u00e8gles", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 22, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 113, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Red\u00e9finir, recadrer les pratiques d\u2019un individu, d\u2019un groupe", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 22, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 114, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "G\u00e9rer un changement de r\u00e8glement", 
+      "numero": 4, 
+      "an_1": false, 
+      "ensemble": 22, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 115, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "G\u00e9rer les situations conflictuelles individuelles et collectives", 
+      "numero": 5, 
+      "an_1": false, 
+      "ensemble": 22, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 116, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Mettre en \u0153uvre une approche m\u00e9thodologique de conduite de r\u00e9union", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 23, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 117, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "D\u00e9finir et appliquer les \u00e9l\u00e9ments concourants \u00e0 l\u2019efficacit\u00e9 de r\u00e9unions ", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 23, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 118, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Accompagner un groupe de travail au cours d\u2019une r\u00e9union", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 23, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 119, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Garantir le respect des r\u00e9glementations en mati\u00e8re de droit du travail, sant\u00e9 et s\u00e9curit\u00e9 au Travail", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 24, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 120, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Connaitre la fonction RH dans l\u2019entreprise", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 24, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 121, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Calculer une charge-capacit\u00e9 et r\u00e9pondre r\u00e9guli\u00e8rement aux pr\u00e9visions de commandes", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 25, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 122, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Attribuer des objectifs de production (ad\u00e9quation/ demande)", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 25, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 123, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Organise le travail des \u00e9quipes de production", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 25, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 124, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Veiller \u00e0 l\u2019application des r\u00e8gles ", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 26, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 125, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Suivre les r\u00e9sultats de performance", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 26, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 126, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Contr\u00f4ler la gestion des flux", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 26, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 127, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Elaborer et entretenir les \u00e9quipements", 
+      "numero": 4, 
+      "an_1": false, 
+      "ensemble": 26, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 128, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Etablir des indicateurs pertinents", 
+      "numero": 5, 
+      "an_1": false, 
+      "ensemble": 26, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 129, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Animer le suivi des r\u00e9sultats", 
+      "numero": 6, 
+      "an_1": false, 
+      "ensemble": 26, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 130, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Communiquer sur les r\u00e9sultats", 
+      "numero": 7, 
+      "an_1": false, 
+      "ensemble": 26, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 131, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "D\u00e9ployer les orientations strat\u00e9giques", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 27, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 132, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Cr\u00e9er un plan d\u2019am\u00e9lioration continue", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 27, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 133, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Conduire des r\u00e9ductions de co\u00fbts", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 27, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 134, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Rep\u00e9rer les dysfonctionnements", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 27, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 135, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Favoriser la r\u00e9solution des probl\u00e8mes techniques", 
+      "numero": 5, 
+      "an_1": true, 
+      "ensemble": 27, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 136, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Eliminer les pertes", 
+      "numero": 6, 
+      "an_1": true, 
+      "ensemble": 27, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 137, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Comprendre la place de l\u2019entreprise dans le monde \u00e9conomique", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 28, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 138, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Appr\u00e9hender le contexte international", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 28, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 139, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Participer \u00e0 la construction du budget de l\u2019entreprise", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 29, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 140, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Identifier et classer les charges", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 29, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 141, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Evaluer les co\u00fbts mati\u00e8res", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 29, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 142, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "D\u00e9finir le budget du service ", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 29, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 143, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Analyser les \u00e9carts pr\u00e9visions/r\u00e9alisations", 
+      "numero": 5, 
+      "an_1": true, 
+      "ensemble": 29, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 144, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "D\u00e9duire les cons\u00e9quences dans son champ d\u2019activit\u00e9s (d\u00e9tection des anomalies)", 
+      "numero": 6, 
+      "an_1": true, 
+      "ensemble": 29, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 145, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Comprendre la constitution d\u2019un co\u00fbt produit", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 30, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 146, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "D\u00e9finir les charges directes et indirectes li\u00e9es \u00e0 un produit", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 30, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 147, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "D\u00e9finir les investissements n\u00e9cessaires", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 30, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 148, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Etablir une demande d\u2019offre", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 31, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 149, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Comparer co\u00fbts interne et co\u00fbts externes", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 31, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 150, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "D\u00e9cider de la sous-traitance", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 31, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 151, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Organisation et suivi de la sous-traitance", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 31, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 152, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "D\u00e9finir l\u2019objectif et le support", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 32, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 153, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Maitriser la communication orale et \u00e9crite", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 32, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 154, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Utiliser un syst\u00e8me de gestion de l\u2019information", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 32, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 155, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Echanger des informations en anglais", 
+      "numero": 4, 
+      "an_1": false, 
+      "ensemble": 32, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 156, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Ecouter ses collaborateurs", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 33, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 157, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Rechercher de l\u2019information", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 33, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 158, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "V\u00e9rifier les informations", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 33, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 159, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "Angl", 
+      "libelle": "Comprendre les relations de march\u00e9s, le contexte international et les relations entre pays", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 34, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 160, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "Angl", 
+      "libelle": "Lire et r\u00e9aliser des documents en anglais", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 34, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 161, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "Angl", 
+      "libelle": "S\u2019exprimer avec aisance en anglais", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 34, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 162, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "Info", 
+      "libelle": "Comprendre les syst\u00e8mes informatiques", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 35, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 163, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "Info", 
+      "libelle": "Assurer la s\u00e9curit\u00e9 des syst\u00e8mes", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 35, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 164, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "Info", 
+      "libelle": "R\u00e9aliser ou faire r\u00e9aliser les sauvegardes", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 35, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 165, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "Info", 
+      "libelle": "Utiliser les outils de bureautique", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 36, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 166, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "Info", 
+      "libelle": "Utiliser les logiciels de GPAO", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 36, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 167, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "Info", 
+      "libelle": "Comprendre les grands principes des autres logiciels", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 36, 
+      "an_2": true, 
+      "an_3": true
     }
   }, 
   {

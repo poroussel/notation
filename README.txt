@@ -7,7 +7,7 @@ Développé avec :
 
 Mise à jour de la base de données :
 
-python manage.py dumpdata --indent=2 notation > notation/fixtures/dump.json
+python manage.py dumpdata --indent=2 auth sites notation > notation/fixtures/dump.json
 rm cfai.db
 python manage.py syncdb
 python manage.py loaddata dump
