@@ -196,7 +196,7 @@ class Bulletin(models.Model):
         notes = Note.objects.filter(bulletin=self, annee=annee, savoir__in=savoirs).values_list('valeur', flat=True)
         somme = sum(notes)
         somme += len(savoirs) - len(notes)
-        moyenne = somme / len(savoirs)
+        moyenne = somme * 4 / len(savoirs)
 
         moy, created = Moyenne.objects.get_or_create(bulletin=self, annee=annee, defaults={'valeur_sv' : moyenne})
         if not created:
