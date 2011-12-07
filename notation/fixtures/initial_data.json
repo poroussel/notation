@@ -576,7 +576,7 @@
       "is_active": true, 
       "is_superuser": true, 
       "is_staff": true, 
-      "last_login": "2011-12-05 13:06:13", 
+      "last_login": "2011-12-07 12:38:06", 
       "groups": [], 
       "user_permissions": [], 
       "password": "sha1$917d4$da02975a3d7a08b87cb3bedca8e56a286db6b751", 
@@ -3833,6 +3833,83 @@
       "an_1": true, 
       "an_2": true, 
       "grille": 2
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "notation.savoiretre", 
+    "fields": {
+      "an_3": true, 
+      "libelle": "Comprendre et mettre en application les directives", 
+      "an_1": true, 
+      "an_2": true, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "notation.savoiretre", 
+    "fields": {
+      "an_3": true, 
+      "libelle": "D\u00e9montrer son int\u00e9r\u00eat et sa motivation", 
+      "an_1": true, 
+      "an_2": true, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "notation.savoiretre", 
+    "fields": {
+      "an_3": true, 
+      "libelle": "Etre poli et courtois", 
+      "an_1": true, 
+      "an_2": true, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "notation.savoiretre", 
+    "fields": {
+      "an_3": true, 
+      "libelle": "Accepter des critiques constructives et apporter des correctifs demand\u00e9s", 
+      "an_1": true, 
+      "an_2": true, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "notation.savoiretre", 
+    "fields": {
+      "an_3": true, 
+      "libelle": "Etre ponctuel et assidu", 
+      "an_1": true, 
+      "an_2": true, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "notation.savoiretre", 
+    "fields": {
+      "an_3": true, 
+      "libelle": "Mettre \u00e0 profit ses comp\u00e9tences", 
+      "an_1": true, 
+      "an_2": true, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "notation.savoiretre", 
+    "fields": {
+      "an_3": true, 
+      "libelle": "Effectuer son travail avec dilligence et efficacit\u00e9", 
+      "an_1": true, 
+      "an_2": true, 
+      "grille": 3
     }
   }
 ]
