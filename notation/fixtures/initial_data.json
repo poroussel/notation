@@ -758,6 +758,325 @@
     }
   }, 
   {
+    "pk": 38, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "D\u00e9velopper une d\u00e9marche strat\u00e9gique", 
+      "poids": 1, 
+      "numero": 1, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Ecouter le march\u00e9 et anticiper la demande", 
+      "poids": 1, 
+      "numero": 2, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 40, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Faire \u00e9merger de nouvelles id\u00e9es", 
+      "poids": 3, 
+      "numero": 3, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 41, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Manager des \u00e9quipes", 
+      "poids": 5, 
+      "numero": 4, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 42, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "N\u00e9gocier et faire respecter des r\u00e8gles", 
+      "poids": 5, 
+      "numero": 5, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 43, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Conduire une r\u00e9union", 
+      "poids": 5, 
+      "numero": 6, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 44, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Conna\u00eetre le droit et la r\u00e9glementation", 
+      "poids": 3, 
+      "numero": 7, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 45, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Evaluer l'avant projet", 
+      "poids": 3, 
+      "numero": 8, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 46, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Valider la faisabilit\u00e9 du projet", 
+      "poids": 3, 
+      "numero": 9, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 47, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Lancer le projet", 
+      "poids": 3, 
+      "numero": 10, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 48, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Conduire le projet", 
+      "poids": 3, 
+      "numero": 11, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 49, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Cl\u00f4turer le projet", 
+      "poids": 3, 
+      "numero": 12, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 50, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Elaborer et suivre le budget du projet", 
+      "poids": 3, 
+      "numero": 13, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 51, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Industrialiser", 
+      "poids": 5, 
+      "numero": 14, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 52, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Pr\u00e9parer la production", 
+      "poids": 5, 
+      "numero": 15, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 53, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Conduire un processus de production", 
+      "poids": 5, 
+      "numero": 16, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 54, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Am\u00e9liorer un processus de production", 
+      "poids": 5, 
+      "numero": 17, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 55, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "D\u00e9ployer la politique Qualit\u00e9", 
+      "poids": 1, 
+      "numero": 18, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 56, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "D\u00e9ployer la politique S\u00e9curit\u00e9", 
+      "poids": 3, 
+      "numero": 19, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 57, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "D\u00e9ployer la politique Environnement", 
+      "poids": 3, 
+      "numero": 20, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 58, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Situer l'entreprise dans son environnement macro\u00e9conomique", 
+      "poids": 1, 
+      "numero": 21, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 59, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Elaborer et suivre le budget de fonctionnement de son service", 
+      "poids": 1, 
+      "numero": 22, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 60, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "D\u00e9finir le co\u00fbt d'un produit", 
+      "poids": 1, 
+      "numero": 23, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 61, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "D\u00e9cider fabrication ou sous-traitance", 
+      "poids": 1, 
+      "numero": 24, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 62, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Transmettre une information compr\u00e9hensible \u00e0 tous", 
+      "poids": 3, 
+      "numero": 25, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 63, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Recevoir une information de tous", 
+      "poids": 3, 
+      "numero": 26, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 64, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Evoluer dans un contexte international", 
+      "poids": 1, 
+      "numero": 27, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 65, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Ma\u00eetriser les bases du syst\u00e8me informatique", 
+      "poids": 3, 
+      "numero": 28, 
+      "grille": 3
+    }
+  }, 
+  {
+    "pk": 66, 
+    "model": "notation.ensemblecapacite", 
+    "fields": {
+      "partie": "", 
+      "libelle": "Ma\u00eetriser les outils informatiques", 
+      "poids": 3, 
+      "numero": 29, 
+      "grille": 3
+    }
+  }, 
+  {
     "pk": 1, 
     "model": "notation.ensemblecapacite", 
     "fields": {
@@ -1162,6 +1481,110 @@
       "poids": 1, 
       "numero": 2, 
       "grille": 2
+    }
+  }, 
+  {
+    "pk": 168, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI1/A3", 
+      "libelle": "Analyser le march\u00e9 et les attentes clients", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 38, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 169, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI1/A3", 
+      "libelle": "Positionner la concurrence", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 38, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 170, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI1/A3", 
+      "libelle": "D\u00e9velopper des strat\u00e9gies", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 38, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 171, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "RH/A3", 
+      "libelle": "Etablir le diagnostic technique et humain", 
+      "numero": 4, 
+      "an_1": false, 
+      "ensemble": 38, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 172, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1/A1", 
+      "libelle": "Evaluer les besoins et risques", 
+      "numero": 5, 
+      "an_1": true, 
+      "ensemble": 38, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 173, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1/A1", 
+      "libelle": "R\u00e9unir les \u00e9l\u00e9ments d'aide \u00e0 la d\u00e9cision", 
+      "numero": 6, 
+      "an_1": true, 
+      "ensemble": 38, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 174, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP", 
+      "libelle": "Construire un plan strat\u00e9gique pour mettre en oeuvre l'innovation", 
+      "numero": 7, 
+      "an_1": false, 
+      "ensemble": 38, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 175, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP", 
+      "libelle": "Lancer le plan strat\u00e9gique", 
+      "numero": 8, 
+      "an_1": false, 
+      "ensemble": 38, 
+      "an_2": false, 
+      "an_3": false
     }
   }, 
   {
