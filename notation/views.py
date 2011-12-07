@@ -87,9 +87,8 @@ def bulletin(request, blt_id):
 @login_required
 def annee_bulletin(request, blt_id, annee):
     blt = get_object_or_404(Bulletin, pk=blt_id)
-    ens = EnsembleCapacite.objects.filter(grille=blt.grille)
-    setre = SavoirEtre.objects.filter(grille=blt.grille)
-    setre = [se for se in setre if se.valide(annee)]
+    ens = blt.grille.ensemblecapacite_set.all()
+    setre = [se for se in blt.grille.savoiretre_set.all() if se.valide(annee)]
     notes = Note.objects.filter(bulletin=blt, savoir__in=setre, annee=annee)
     
     moyenne = Moyenne.objects.filter(annee=annee, bulletin=blt)
@@ -120,11 +119,9 @@ def annee_bulletin(request, blt_id, annee):
 def ensemble_bulletin(request, blt_id, annee, ens_id):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
-    capacites = Capacite.objects.filter(ensemble=ens)
+    capacites = ens.capacite_set.all()
     questions = [(x.id, x.libelle, x.cours) for x in capacites if x.valide(annee)]
-    # L'utilisation de list() n'est pas nécessaire mais force l'exécution
-    # du QuerySet afin déviter une requête imbriquée
-    notes = Note.objects.filter(bulletin=blt, capacite__in=list(capacites), annee=annee)
+    notes = Note.objects.filter(bulletin=blt, capacite__in=capacites, annee=annee)
     
     commentaires = Commentaire.objects.filter(bulletin=blt, ensemble=ens)
     if commentaires.count() > 0:
