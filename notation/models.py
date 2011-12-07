@@ -271,7 +271,9 @@ class Capacite(models.Model):
         return False
         
     def __unicode__(self):
-        return u'%c.%d.%d %s'% (self.ensemble.partie, self.ensemble.numero, self.numero, self.libelle)
+        if self.ensemble.partie:
+            return u'%c.%d.%d %s'% (self.ensemble.partie, self.ensemble.numero, self.numero, self.libelle)
+        return u'%d.%d %s'% (self.ensemble.numero, self.numero, self.libelle)
 
 class SavoirEtre(models.Model):
     class Meta:
