@@ -148,7 +148,7 @@ class Bulletin(models.Model):
     date_modification = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
-        return u'Bulletin de %s (%s - %s)' % (self.eleve.get_full_name(), self.grille, self.entreprise)
+        return u'Bulletin de %s (%s / %s)' % (self.eleve.get_full_name(), self.grille, self.entreprise)
 
     @models.permalink
     def get_absolute_url(self):
@@ -212,31 +212,43 @@ class EnsembleCapacite(models.Model):
 
     grille = models.ForeignKey(GrilleNotation)
     # Relie plusieurs ensembles dans une catégorie
-    partie = models.CharField(max_length=1)
+    partie = models.CharField(max_length=1, blank=True)
     numero = models.PositiveIntegerField()
     libelle = models.CharField(u'Libellé', max_length=200)
     poids = models.PositiveIntegerField(default=1)
 
     def precedent(self):
-        precedents = EnsembleCapacite.objects.filter(grille=self.grille, partie=self.partie, numero=self.numero - 1)
-        if precedents.count() > 0:
-            return precedents[0]
-        precedents = EnsembleCapacite.objects.filter(grille=self.grille, partie=chr(ord(self.partie) - 1)).reverse()
-        if precedents.count() > 0:
-            return precedents[0]
+        if self.partie:
+            precedents = EnsembleCapacite.objects.filter(grille=self.grille, partie=self.partie, numero=self.numero - 1)
+            if precedents.count() > 0:
+                return precedents[0]
+            precedents = EnsembleCapacite.objects.filter(grille=self.grille, partie=chr(ord(self.partie) - 1)).reverse()
+            if precedents.count() > 0:
+                return precedents[0]
+        else:
+            precedents = EnsembleCapacite.objects.filter(grille=self.grille, numero=self.numero - 1)
+            if precedents.count() > 0:
+                return precedents[0]
         return None
     
     def suivant(self):
-        suivants = EnsembleCapacite.objects.filter(grille=self.grille, partie=self.partie, numero=self.numero + 1)
-        if suivants.count() > 0:
-            return suivants[0]
-        suivants = EnsembleCapacite.objects.filter(grille=self.grille, partie=chr(ord(self.partie) + 1), numero=1)
-        if suivants.count() > 0:
-            return suivants[0]
+        if self.partie:
+            suivants = EnsembleCapacite.objects.filter(grille=self.grille, partie=self.partie, numero=self.numero + 1)
+            if suivants.count() > 0:
+                return suivants[0]
+            suivants = EnsembleCapacite.objects.filter(grille=self.grille, partie=chr(ord(self.partie) + 1), numero=1)
+            if suivants.count() > 0:
+                return suivants[0]
+        else:
+            suivants = EnsembleCapacite.objects.filter(grille=self.grille, numero=self.numero + 1)
+            if suivants.count() > 0:
+                return suivants[0]
         return None
     
     def __unicode__(self):
-        return u'%c.%d %s'% (self.partie, self.numero, self.libelle)
+        if self.partie:
+            return u'%c.%d %s'% (self.partie, self.numero, self.libelle)
+        return u'%d %s'% (self.numero, self.libelle)
 
 class Capacite(models.Model):
     class Meta:
