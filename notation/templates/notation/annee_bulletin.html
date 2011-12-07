@@ -28,4 +28,7 @@
   <tr><th>Moyenne savoir être : </th><td>{{ moyenne.0.valeur_sv|floatformat:2 }}</td></tr>
   <tr><th>Moyenne générale : </th><td>{{ moyenne.0.valeur_gn|floatformat:2 }}</td></tr>
   </table>
+{% if bulletin.auteur_modification %}
+  <p>Dernière modification du bulletin par {{ bulletin.auteur_modification.get_full_name }} le {{ bulletin.date_modification }}.</p>
+{% endif %}
 {% endblock %}

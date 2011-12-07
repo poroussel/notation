@@ -7,4 +7,7 @@
   <li><a href="{% url notation.views.annee_bulletin bulletin.id annee %}">Année {{ bulletin.grille.promotion|add:annee }} - {{ bulletin.grille.promotion|add:annee|add:1 }}</a></li>
   {% endfor %}
 </ul>
+{% if bulletin.auteur_modification %}
+  <p>Dernière modification du bulletin par {{ bulletin.auteur_modification.get_full_name }} le {{ bulletin.date_modification }}.</p>
+{% endif %}
 {% endblock %}

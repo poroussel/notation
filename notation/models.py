@@ -146,6 +146,7 @@ class Bulletin(models.Model):
     formateur = models.ForeignKey(User, related_name='formateur', verbose_name=u'Tuteur académique')
     commentaires_generaux = models.TextField(u'Commentaires généraux')
     date_modification = models.DateTimeField(auto_now=True)
+    auteur_modification = models.ForeignKey(User, related_name='auteur', null=True)
 
     def __unicode__(self):
         return u'Bulletin de %s (%s / %s)' % (self.eleve.get_full_name(), self.grille, self.entreprise)
@@ -167,7 +168,7 @@ class Bulletin(models.Model):
         somme += len(capacites) - len(notes)
         return somme / len(capacites)
 
-    def calcul_moyenne_competence(self, annee):
+    def calcul_moyenne_competence(self, annee, user):
         """
         Calcul la moyenne compétence de ce bulletin pour une année
         """
@@ -185,8 +186,10 @@ class Bulletin(models.Model):
         if not created:
             moy.valeur_cp = moyenne
             moy.save()
-
-    def calcul_moyenne_savoir(self, annee):
+        self.auteur_modification = user
+        self.save()
+        
+    def calcul_moyenne_savoir(self, annee, user):
         """
         Calcul la moyenne savoir être de ce bulletin pour une année
         """
@@ -202,6 +205,8 @@ class Bulletin(models.Model):
         if not created:
             moy.valeur_sv = moyenne
             moy.save()
+        self.auteur_modification = user
+        self.save()
 
 class EnsembleCapacite(models.Model):
     class Meta:

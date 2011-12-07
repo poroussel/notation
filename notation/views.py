@@ -112,7 +112,7 @@ def annee_bulletin(request, blt_id, annee):
                             note.save()
                     else:
                         Note.objects.filter(bulletin=blt, savoir=savoir).delete()
-            blt.calcul_moyenne_savoir(annee)
+            blt.calcul_moyenne_savoir(annee, request.user)
     return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'ens' : ens, 'form' : form, 'moyenne' : moyenne}))
 
 @login_required
@@ -159,7 +159,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                     else:
                         Note.objects.filter(bulletin=blt, capacite=cap).delete()
 
-            blt.calcul_moyenne_competence(annee)
+            blt.calcul_moyenne_competence(annee, request.user)
             if suivant:
                 return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, annee, suivant.id]))
             return HttpResponseRedirect(reverse(bulletin, args=[blt_id]))
