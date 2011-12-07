@@ -336,7 +336,9 @@ class Note(models.Model):
         return self.bulletin.eleve.get_full_name()
     
     def __unicode__(self):
-        return u'Note de %s pour la capacité %s'% (self.bulletin.eleve.get_full_name(), self.capacite)
+        if self.capacite:
+            return u'Note de %s pour la capacité %s'% (self.bulletin.eleve.get_full_name(), self.capacite)
+        return u'Note de %s pour le savoir être %s'% (self.bulletin.eleve.get_full_name(), self.savoir)
 
 class Commentaire(models.Model):
     """
