@@ -10,6 +10,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.utils.http import urlquote
 from django.views.generic.create_update import update_object, create_object
 from django.core.urlresolvers import reverse
+from django.db.models import Count
 from cfai.notation.models import *
 from cfai.notation.forms import *
 from cfai.notation.excel import *
@@ -87,7 +88,7 @@ def bulletin(request, blt_id):
 @login_required
 def annee_bulletin(request, blt_id, annee):
     blt = get_object_or_404(Bulletin, pk=blt_id)
-    ens = blt.grille.ensemblecapacite_set.all()
+    ens = blt.grille.ensemblecapacite_set.annotate(nbre_capacite=Count('capacite'))
     setre = [se for se in blt.grille.savoiretre_set.all() if se.valide(annee)]
     notes = Note.objects.filter(bulletin=blt, savoir__in=setre, annee=annee)
     

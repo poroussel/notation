@@ -8,7 +8,9 @@
 
 <ul>
 {% for ensemble in ens %}
-  <li><a href="{% url notation.views.ensemble_bulletin bulletin.id annee ensemble.id %}">{{ ensemble }} ({{ ensemble.capacite_set.count }})</a></li>
+  {% if ensemble.nbre_capacite %}
+  <li><a href="{% url notation.views.ensemble_bulletin bulletin.id annee ensemble.id %}">{{ ensemble }} ({{ ensemble.nbre_capacite }})</a></li>
+  {% endif %}
 {% endfor %}
 </ul>
 
