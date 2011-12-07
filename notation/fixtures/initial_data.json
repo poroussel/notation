@@ -1588,6 +1588,591 @@
     }
   }, 
   {
+    "pk": 176, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INNOV/A2", 
+      "libelle": "Assurer la veille technologique de fa\u00e7on permanente", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 39, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 177, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INNOV/A2", 
+      "libelle": "Analyser la concurrence", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 39, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 178, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "COM/A1", 
+      "libelle": "D\u00e9velopper des \u00e9changes en externe", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 39, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 179, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INNOV/A2", 
+      "libelle": "Anticiper les \u00e9volutions de son secteur d'activit\u00e9", 
+      "numero": 4, 
+      "an_1": false, 
+      "ensemble": 39, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 180, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INNOV/A2", 
+      "libelle": "D\u00e9finir des besoins en terme d'\u00e9volution", 
+      "numero": 5, 
+      "an_1": false, 
+      "ensemble": 39, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 181, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INNOV/A2", 
+      "libelle": "D\u00e9velopper un processus de g\u00e9n\u00e9ration d'id\u00e9es nouvelles", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 40, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 182, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INNOV/A2", 
+      "libelle": "Mettre en oeuvre et animer ce processus", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 40, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 183, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Valider le projet sur le plan commercial et technique (plan strat\u00e9gique)", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 40, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 184, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML1/A1;ML1/A3", 
+      "libelle": "Connaitre les aptitudes, les comp\u00e9tences, les r\u00f4les du manager", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 41, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 185, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML1/A1", 
+      "libelle": "Manager un collaborateur, adapter son mode de management", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 41, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 186, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML1/A1", 
+      "libelle": "Communiquer efficacement", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 41, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 187, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML2/A1", 
+      "libelle": "D\u00e9finir une strat\u00e9gie individuelle et collective pour atteindre un objectif", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 41, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 188, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML3/A3", 
+      "libelle": "Manager par objectifs, d\u00e9l\u00e9guer", 
+      "numero": 5, 
+      "an_1": false, 
+      "ensemble": 41, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 189, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML2/A1", 
+      "libelle": "Responsabiliser son \u00e9quipe, assurer la coh\u00e9rence et la coh\u00e9sion d\u2019\u00e9quipe", 
+      "numero": 6, 
+      "an_1": false, 
+      "ensemble": 41, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 190, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML3/A3", 
+      "libelle": "Assurer le r\u00f4le central de leader et mettre en \u0153uvre des m\u00e9thodes de pilotage et d\u2019action en tant que leader", 
+      "numero": 7, 
+      "an_1": false, 
+      "ensemble": 41, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 191, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML", 
+      "libelle": "Conduire une n\u00e9gociation", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 42, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 192, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML", 
+      "libelle": "Assurer le respect des \u00e9l\u00e9ments de discipline et des r\u00e8gles", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 42, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 193, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML", 
+      "libelle": "Red\u00e9finir, recadrer les pratiques d\u2019un individu, d\u2019un groupe", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 42, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 194, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML", 
+      "libelle": "G\u00e9rer un changement de r\u00e8glement", 
+      "numero": 4, 
+      "an_1": false, 
+      "ensemble": 42, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 195, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML", 
+      "libelle": "G\u00e9rer les situations conflictuelles individuelles et collectives", 
+      "numero": 5, 
+      "an_1": false, 
+      "ensemble": 42, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 196, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML", 
+      "libelle": "Mettre en oeuvre une approche m\u00e9thodologique de conduite de r\u00e9union", 
+      "numero": 1, 
+      "an_1": false, 
+      "ensemble": 43, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 197, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML", 
+      "libelle": "D\u00e9finir et appliquer les \u00e9l\u00e9ments concourants \u00e0 l\u2019efficacit\u00e9 de r\u00e9unions", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 43, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 198, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML", 
+      "libelle": "Accompagner un groupe de travail au cours d\u2019une r\u00e9union", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 43, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 199, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE1/A1", 
+      "libelle": "Garantir le respect des r\u00e9glementations en mati\u00e8re de droit du travail, sant\u00e9 et s\u00e9curit\u00e9 au Travail", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 44, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 200, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GRH/A3", 
+      "libelle": "Conna\u00eetre la fonction RH dans l'entreprise", 
+      "numero": 2, 
+      "an_1": false, 
+      "ensemble": 44, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 201, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1/GP2/A1", 
+      "libelle": "D\u00e9finir le projet (contexte, situation souhait\u00e9e, acteurs, forces, faiblesses, gains attendus, dates cl\u00e9s)", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 45, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 202, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1/GP2/A1", 
+      "libelle": "Analyser un cahier des charges client", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 45, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 203, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1/GP2/A1", 
+      "libelle": "Evaluer le projet dans son environnement", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 45, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 204, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1/GP2/A1", 
+      "libelle": "Analyser les risques", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 45, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 205, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1/A1", 
+      "libelle": "Valider la faisabilit\u00e9 technique", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 46, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 206, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1/A1", 
+      "libelle": "Etablir le planning pr\u00e9visionnel (valider les ressources)", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 46, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 207, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI2-3/A3", 
+      "libelle": "Valider l\u2019aspect financier (co\u00fbts produit et investissements n\u00e9cessaires)", 
+      "numero": 3, 
+      "an_1": false, 
+      "ensemble": 46, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 208, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP2/MCGI2-3/A3", 
+      "libelle": "Etablir la fiche technique/co\u00fbt (innovation)", 
+      "numero": 4, 
+      "an_1": false, 
+      "ensemble": 46, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 209, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI2-3/A3", 
+      "libelle": "Etablir et valider l\u2019offre (demande client)", 
+      "numero": 5, 
+      "an_1": false, 
+      "ensemble": 46, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 210, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1-2/A1", 
+      "libelle": "Construire le planning du projet", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 47, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 211, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Nommer l'\u00e9quipe projet", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 47, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 212, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1-2/A1", 
+      "libelle": "Animer la revue de lancement", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 47, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 213, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1-2/A1", 
+      "libelle": "D\u00e9finir des indicateurs", 
+      "numero": 4, 
+      "an_1": true, 
+      "ensemble": 47, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 214, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1-2/A1", 
+      "libelle": "Communiquer sur un projet", 
+      "numero": 5, 
+      "an_1": true, 
+      "ensemble": 47, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 215, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL1/A1", 
+      "libelle": "Mettre en oeuvre une d\u00e9marche qualit\u00e9", 
+      "numero": 1, 
+      "an_1": true, 
+      "ensemble": 48, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 216, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1-2/A1", 
+      "libelle": "Analyser et traiter les risques", 
+      "numero": 2, 
+      "an_1": true, 
+      "ensemble": 48, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 217, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1-2/A1", 
+      "libelle": "Valider les revues de conception", 
+      "numero": 3, 
+      "an_1": true, 
+      "ensemble": 48, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 218, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Valider les demandes client", 
+      "numero": 4, 
+      "an_1": false, 
+      "ensemble": 48, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 219, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI", 
+      "libelle": "Etablir une demande d'investissement", 
+      "numero": 5, 
+      "an_1": false, 
+      "ensemble": 48, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 220, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL2/A1", 
+      "libelle": "Conduire des essais et v\u00e9rifications", 
+      "numero": 6, 
+      "an_1": true, 
+      "ensemble": 48, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
     "pk": 1, 
     "model": "notation.capacite", 
     "fields": {
