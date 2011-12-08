@@ -160,7 +160,7 @@ class Bulletin(models.Model):
         Calcul de la moyenne pour un ensemble de capacités pour une année.
         Les notes manquantes (non saisies) sont considérées comme valant 1
         """
-        capacites = [cap for cap in ens.capacite_set.all() if cap.valide(annee)]
+        capacites = ens.capacite_set.filter(code_annee__contains=str(annee))
         if len(capacites) == 0:
             return None
         notes = Note.objects.filter(bulletin=self, annee=annee, capacite__in=capacites).values_list('valeur', flat=True)
@@ -194,8 +194,7 @@ class Bulletin(models.Model):
         Calcul la moyenne savoir être de ce bulletin pour une année
         """
         annee = int(annee)
-        savoirs = [sv for sv in self.grille.savoiretre_set.all() if sv.valide(annee)]
-
+        savoirs = self.grille.savoiretre_set.filter(code_annee__contains=str(annee))
         notes = Note.objects.filter(bulletin=self, annee=annee, savoir__in=savoirs).values_list('valeur', flat=True)
         somme = sum(notes)
         somme += len(savoirs) - len(notes)
@@ -269,16 +268,23 @@ class Capacite(models.Model):
     an_1 = models.BooleanField(NOMS_ANNEES[0])
     an_2 = models.BooleanField(NOMS_ANNEES[1])
     an_3 = models.BooleanField(NOMS_ANNEES[2])
-
-    def valide(self, annee):
-        if int(annee) < self.ensemble.grille.duree:
-            return self.__dict__['an_%d' % (int(annee) + 1)]
-        return False
-        
+    code_annee = models.CharField(max_length=3, editable=False)
+    
     def __unicode__(self):
         if self.ensemble.partie:
             return u'%c.%d.%d %s'% (self.ensemble.partie, self.ensemble.numero, self.numero, self.libelle)
         return u'%d.%d %s'% (self.ensemble.numero, self.numero, self.libelle)
+    
+def calcul_code_annee(sender, instance, **kwargs):
+    code = ''
+    if instance.an_1:
+        code += '0'
+    if instance.an_2:
+        code += '1'
+    if instance.an_3:
+        code += '2'
+    instance.code_annee = code
+pre_save.connect(calcul_code_annee, sender=Capacite)
 
 class SavoirEtre(models.Model):
     class Meta:
@@ -290,14 +296,11 @@ class SavoirEtre(models.Model):
     an_1 = models.BooleanField(NOMS_ANNEES[0])
     an_2 = models.BooleanField(NOMS_ANNEES[1])
     an_3 = models.BooleanField(NOMS_ANNEES[2])
+    code_annee = models.CharField(max_length=3, editable=False)
 
-    def valide(self, annee):
-        if int(annee) < self.grille.duree:
-            return self.__dict__['an_%d' % (int(annee) + 1)]
-        return False
-        
     def __unicode__(self):
         return self.libelle
+pre_save.connect(calcul_code_annee, sender=SavoirEtre)
 
 class Moyenne(models.Model):
     class Meta:

@@ -88,9 +88,9 @@ def bulletin(request, blt_id):
 @login_required
 def annee_bulletin(request, blt_id, annee):
     blt = get_object_or_404(Bulletin, pk=blt_id)
-    ens = blt.grille.ensemblecapacite_set.annotate(nbre_capacite=Count('capacite'))
-    setre = [se for se in blt.grille.savoiretre_set.all() if se.valide(annee)]
-    notes = Note.objects.filter(bulletin=blt, savoir__in=setre, annee=annee)
+    ens = blt.grille.ensemblecapacite_set.filter(capacite__code_annee__contains=str(annee)).annotate(nbre_capacite=Count('capacite'))
+    setre = blt.grille.savoiretre_set.filter(code_annee__contains=str(annee))
+    notes = Note.objects.filter(bulletin=blt, savoir__in=list(setre), annee=annee)
     
     moyenne = Moyenne.objects.filter(annee=annee, bulletin=blt)
     
@@ -120,8 +120,8 @@ def annee_bulletin(request, blt_id, annee):
 def ensemble_bulletin(request, blt_id, annee, ens_id):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
-    capacites = ens.capacite_set.all()
-    questions = [(x.id, x.libelle, x.cours) for x in capacites if x.valide(annee)]
+    capacites = ens.capacite_set.filter(code_annee__contains=str(annee))
+    questions = [(x.id, x.libelle, x.cours) for x in capacites]
     notes = Note.objects.filter(bulletin=blt, capacite__in=capacites, annee=annee)
     
     commentaires = Commentaire.objects.filter(bulletin=blt, ensemble=ens)
@@ -130,13 +130,11 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
     else:
         commentaire = None
 
-    # Code relativement gore et inefficace mais qui permet de naviguer
-    # dans les ensembles en évitant les ensembles vides (dépendant de l'année)
     suivant = ens.suivant()
-    while suivant and len([cap for cap in Capacite.objects.filter(ensemble=suivant) if cap.valide(annee)]) == 0:
+    while suivant and suivant.capacite_set.filter(code_annee__contains=str(annee)).count() == 0:
         suivant = suivant.suivant()
     precedent = ens.precedent()
-    while precedent and len([cap for cap in Capacite.objects.filter(ensemble=precedent) if cap.valide(annee)]) == 0:
+    while precedent and precedent.capacite_set.filter(code_annee__contains=str(annee)).count() == 0:
         precedent = precedent.precedent()
 
     if request.method == 'POST':
