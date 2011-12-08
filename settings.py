@@ -10,6 +10,12 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+EMAIL_HOST = 'bipbip'
+EMAIL_PORT = '25'
+EMAIL_SUBJECT_PREFIX = '[Notation]'
+SERVER_EMAIL = 'webmaster@notation.octets.fr'
+DEFAULT_FROM_EMAIL = SERVER_EMAIL
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
