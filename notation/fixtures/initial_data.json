@@ -576,7 +576,7 @@
       "is_active": true, 
       "is_superuser": true, 
       "is_staff": true, 
-      "last_login": "2011-12-07 12:38:06", 
+      "last_login": "2011-12-08 09:43:43", 
       "groups": [], 
       "user_permissions": [], 
       "password": "sha1$917d4$da02975a3d7a08b87cb3bedca8e56a286db6b751", 
@@ -750,6 +750,7 @@
     "fields": {
       "formateur": 4, 
       "grille": 2, 
+      "auteur_modification": null, 
       "tuteur": 3, 
       "entreprise": 2, 
       "eleve": 2, 
@@ -1491,6 +1492,7 @@
       "libelle": "Analyser le march\u00e9 et les attentes clients", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 38, 
       "an_2": false, 
       "an_3": true
@@ -1504,6 +1506,7 @@
       "libelle": "Positionner la concurrence", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 38, 
       "an_2": false, 
       "an_3": true
@@ -1517,6 +1520,7 @@
       "libelle": "D\u00e9velopper des strat\u00e9gies", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 38, 
       "an_2": false, 
       "an_3": true
@@ -1530,6 +1534,7 @@
       "libelle": "Etablir le diagnostic technique et humain", 
       "numero": 4, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 38, 
       "an_2": false, 
       "an_3": true
@@ -1543,6 +1548,7 @@
       "libelle": "Evaluer les besoins et risques", 
       "numero": 5, 
       "an_1": true, 
+      "code_annee": "02", 
       "ensemble": 38, 
       "an_2": false, 
       "an_3": true
@@ -1556,6 +1562,7 @@
       "libelle": "R\u00e9unir les \u00e9l\u00e9ments d'aide \u00e0 la d\u00e9cision", 
       "numero": 6, 
       "an_1": true, 
+      "code_annee": "02", 
       "ensemble": 38, 
       "an_2": false, 
       "an_3": true
@@ -1569,6 +1576,7 @@
       "libelle": "Construire un plan strat\u00e9gique pour mettre en oeuvre l'innovation", 
       "numero": 7, 
       "an_1": false, 
+      "code_annee": "", 
       "ensemble": 38, 
       "an_2": false, 
       "an_3": false
@@ -1582,6 +1590,7 @@
       "libelle": "Lancer le plan strat\u00e9gique", 
       "numero": 8, 
       "an_1": false, 
+      "code_annee": "", 
       "ensemble": 38, 
       "an_2": false, 
       "an_3": false
@@ -1595,6 +1604,7 @@
       "libelle": "Assurer la veille technologique de fa\u00e7on permanente", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "1", 
       "ensemble": 39, 
       "an_2": true, 
       "an_3": false
@@ -1608,6 +1618,7 @@
       "libelle": "Analyser la concurrence", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "1", 
       "ensemble": 39, 
       "an_2": true, 
       "an_3": false
@@ -1621,6 +1632,7 @@
       "libelle": "D\u00e9velopper des \u00e9changes en externe", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "1", 
       "ensemble": 39, 
       "an_2": true, 
       "an_3": false
@@ -1634,6 +1646,7 @@
       "libelle": "Anticiper les \u00e9volutions de son secteur d'activit\u00e9", 
       "numero": 4, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 39, 
       "an_2": false, 
       "an_3": true
@@ -1647,6 +1660,7 @@
       "libelle": "D\u00e9finir des besoins en terme d'\u00e9volution", 
       "numero": 5, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 39, 
       "an_2": false, 
       "an_3": true
@@ -1660,6 +1674,7 @@
       "libelle": "D\u00e9velopper un processus de g\u00e9n\u00e9ration d'id\u00e9es nouvelles", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "1", 
       "ensemble": 40, 
       "an_2": true, 
       "an_3": false
@@ -1673,6 +1688,7 @@
       "libelle": "Mettre en oeuvre et animer ce processus", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "1", 
       "ensemble": 40, 
       "an_2": true, 
       "an_3": false
@@ -1686,6 +1702,7 @@
       "libelle": "Valider le projet sur le plan commercial et technique (plan strat\u00e9gique)", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "1", 
       "ensemble": 40, 
       "an_2": true, 
       "an_3": false
@@ -1699,6 +1716,7 @@
       "libelle": "Connaitre les aptitudes, les comp\u00e9tences, les r\u00f4les du manager", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 41, 
       "an_2": false, 
       "an_3": true
@@ -1712,6 +1730,7 @@
       "libelle": "Manager un collaborateur, adapter son mode de management", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 41, 
       "an_2": false, 
       "an_3": false
@@ -1725,6 +1744,7 @@
       "libelle": "Communiquer efficacement", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "1", 
       "ensemble": 41, 
       "an_2": true, 
       "an_3": false
@@ -1738,6 +1758,7 @@
       "libelle": "D\u00e9finir une strat\u00e9gie individuelle et collective pour atteindre un objectif", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 41, 
       "an_2": false, 
       "an_3": false
@@ -1751,6 +1772,7 @@
       "libelle": "Manager par objectifs, d\u00e9l\u00e9guer", 
       "numero": 5, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 41, 
       "an_2": false, 
       "an_3": true
@@ -1764,6 +1786,7 @@
       "libelle": "Responsabiliser son \u00e9quipe, assurer la coh\u00e9rence et la coh\u00e9sion d\u2019\u00e9quipe", 
       "numero": 6, 
       "an_1": false, 
+      "code_annee": "1", 
       "ensemble": 41, 
       "an_2": true, 
       "an_3": false
@@ -1777,6 +1800,7 @@
       "libelle": "Assurer le r\u00f4le central de leader et mettre en \u0153uvre des m\u00e9thodes de pilotage et d\u2019action en tant que leader", 
       "numero": 7, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 41, 
       "an_2": false, 
       "an_3": true
@@ -1790,6 +1814,7 @@
       "libelle": "Conduire une n\u00e9gociation", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 42, 
       "an_2": true, 
       "an_3": true
@@ -1803,6 +1828,7 @@
       "libelle": "Assurer le respect des \u00e9l\u00e9ments de discipline et des r\u00e8gles", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 42, 
       "an_2": true, 
       "an_3": true
@@ -1816,6 +1842,7 @@
       "libelle": "Red\u00e9finir, recadrer les pratiques d\u2019un individu, d\u2019un groupe", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 42, 
       "an_2": true, 
       "an_3": true
@@ -1829,6 +1856,7 @@
       "libelle": "G\u00e9rer un changement de r\u00e8glement", 
       "numero": 4, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 42, 
       "an_2": true, 
       "an_3": true
@@ -1842,6 +1870,7 @@
       "libelle": "G\u00e9rer les situations conflictuelles individuelles et collectives", 
       "numero": 5, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 42, 
       "an_2": true, 
       "an_3": true
@@ -1855,6 +1884,7 @@
       "libelle": "Mettre en oeuvre une approche m\u00e9thodologique de conduite de r\u00e9union", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 43, 
       "an_2": false, 
       "an_3": true
@@ -1868,6 +1898,7 @@
       "libelle": "D\u00e9finir et appliquer les \u00e9l\u00e9ments concourants \u00e0 l\u2019efficacit\u00e9 de r\u00e9unions", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 43, 
       "an_2": false, 
       "an_3": true
@@ -1881,6 +1912,7 @@
       "libelle": "Accompagner un groupe de travail au cours d\u2019une r\u00e9union", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 43, 
       "an_2": false, 
       "an_3": true
@@ -1894,6 +1926,7 @@
       "libelle": "Garantir le respect des r\u00e9glementations en mati\u00e8re de droit du travail, sant\u00e9 et s\u00e9curit\u00e9 au Travail", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 44, 
       "an_2": false, 
       "an_3": false
@@ -1907,6 +1940,7 @@
       "libelle": "Conna\u00eetre la fonction RH dans l'entreprise", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 44, 
       "an_2": false, 
       "an_3": true
@@ -1920,6 +1954,7 @@
       "libelle": "D\u00e9finir le projet (contexte, situation souhait\u00e9e, acteurs, forces, faiblesses, gains attendus, dates cl\u00e9s)", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 45, 
       "an_2": false, 
       "an_3": false
@@ -1933,6 +1968,7 @@
       "libelle": "Analyser un cahier des charges client", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 45, 
       "an_2": false, 
       "an_3": false
@@ -1946,6 +1982,7 @@
       "libelle": "Evaluer le projet dans son environnement", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 45, 
       "an_2": false, 
       "an_3": false
@@ -1959,6 +1996,7 @@
       "libelle": "Analyser les risques", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 45, 
       "an_2": false, 
       "an_3": false
@@ -1972,6 +2010,7 @@
       "libelle": "Valider la faisabilit\u00e9 technique", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "02", 
       "ensemble": 46, 
       "an_2": false, 
       "an_3": true
@@ -1985,6 +2024,7 @@
       "libelle": "Etablir le planning pr\u00e9visionnel (valider les ressources)", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 46, 
       "an_2": false, 
       "an_3": false
@@ -1998,6 +2038,7 @@
       "libelle": "Valider l\u2019aspect financier (co\u00fbts produit et investissements n\u00e9cessaires)", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 46, 
       "an_2": false, 
       "an_3": true
@@ -2011,6 +2052,7 @@
       "libelle": "Etablir la fiche technique/co\u00fbt (innovation)", 
       "numero": 4, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 46, 
       "an_2": false, 
       "an_3": true
@@ -2024,6 +2066,7 @@
       "libelle": "Etablir et valider l\u2019offre (demande client)", 
       "numero": 5, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 46, 
       "an_2": false, 
       "an_3": true
@@ -2037,6 +2080,7 @@
       "libelle": "Construire le planning du projet", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 47, 
       "an_2": false, 
       "an_3": false
@@ -2050,6 +2094,7 @@
       "libelle": "Nommer l'\u00e9quipe projet", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 47, 
       "an_2": false, 
       "an_3": false
@@ -2063,6 +2108,7 @@
       "libelle": "Animer la revue de lancement", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 47, 
       "an_2": false, 
       "an_3": false
@@ -2076,6 +2122,7 @@
       "libelle": "D\u00e9finir des indicateurs", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 47, 
       "an_2": false, 
       "an_3": false
@@ -2089,6 +2136,7 @@
       "libelle": "Communiquer sur un projet", 
       "numero": 5, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 47, 
       "an_2": false, 
       "an_3": false
@@ -2102,6 +2150,7 @@
       "libelle": "Mettre en oeuvre une d\u00e9marche qualit\u00e9", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 48, 
       "an_2": false, 
       "an_3": false
@@ -2115,6 +2164,7 @@
       "libelle": "Analyser et traiter les risques", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 48, 
       "an_2": false, 
       "an_3": false
@@ -2128,6 +2178,7 @@
       "libelle": "Valider les revues de conception", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 48, 
       "an_2": false, 
       "an_3": false
@@ -2141,6 +2192,7 @@
       "libelle": "Valider les demandes client", 
       "numero": 4, 
       "an_1": false, 
+      "code_annee": "", 
       "ensemble": 48, 
       "an_2": false, 
       "an_3": false
@@ -2154,6 +2206,7 @@
       "libelle": "Etablir une demande d'investissement", 
       "numero": 5, 
       "an_1": false, 
+      "code_annee": "1", 
       "ensemble": 48, 
       "an_2": true, 
       "an_3": false
@@ -2167,8 +2220,1171 @@
       "libelle": "Conduire des essais et v\u00e9rifications", 
       "numero": 6, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 48, 
       "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 221, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1-2/A1", 
+      "libelle": "Comparer les r\u00e9sultats et les objectifs", 
+      "numero": 1, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 49, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 222, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1-2/A1", 
+      "libelle": "Etablir le bilan financier du projet", 
+      "numero": 2, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 49, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 223, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML", 
+      "libelle": "Evaluer la satisfaction de l'\u00e9quipe", 
+      "numero": 3, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 49, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 224, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "GP1-2/A1", 
+      "libelle": "Capitaliser les exp\u00e9riences", 
+      "numero": 4, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 49, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 225, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI2/A3", 
+      "libelle": "D\u00e9finir les co\u00fbts induits li\u00e9s \u00e0 cet investissement", 
+      "numero": 1, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 50, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 226, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI2/A3", 
+      "libelle": "D\u00e9finir le co\u00fbt du projet et l'\u00e9talement des d\u00e9penses", 
+      "numero": 2, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 50, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 227, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI2/A3", 
+      "libelle": "Evaluer le retour sur investissement des retomb\u00e9es du projet", 
+      "numero": 3, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 50, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 228, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI2/A3", 
+      "libelle": "Suivre le budget du projet", 
+      "numero": 4, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 50, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 229, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ORGA1/A2", 
+      "libelle": "L'organisation industrielle", 
+      "numero": 1, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 51, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 230, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ORGA1/A2", 
+      "libelle": "Participer \u00e0 la d\u00e9finition du produit", 
+      "numero": 2, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 51, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 231, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ORGA1/A2", 
+      "libelle": "Etudier l'impact sur le co\u00fbt du produit", 
+      "numero": 3, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 51, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 232, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ORGA1/A2", 
+      "libelle": "Evaluer l'impact sur la gestion des flux", 
+      "numero": 4, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 51, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 233, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ORGA1/A2", 
+      "libelle": "Evaluer l'impact sur les comp\u00e9tences", 
+      "numero": 5, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 51, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 234, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ORGA1/A2", 
+      "libelle": "Evaluer l'impact sur les \u00e9quipements", 
+      "numero": 6, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 51, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 235, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ORGA1/A2", 
+      "libelle": "Evaluer les risques d'un nouvel \u00e9quipement", 
+      "numero": 7, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 51, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 236, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ORGA1/A2", 
+      "libelle": "R\u00e9diger un cahier des charges (achat)", 
+      "numero": 8, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 51, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 237, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ORGA1/A2", 
+      "libelle": "Participer \u00e0 la mise au point de l'\u00e9quipement", 
+      "numero": 9, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 51, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 238, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ORGA1/A2", 
+      "libelle": "Qualifier le nouvel \u00e9quipement", 
+      "numero": 10, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 51, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 239, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD2/A2", 
+      "libelle": "Calculer une charge-capacit\u00e9 et r\u00e9pondre r\u00e9guli\u00e8rement aux pr\u00e9visions de commandes", 
+      "numero": 1, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 52, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 240, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD2/A2", 
+      "libelle": "Attribuer des objectifs de production (ad\u00e9quation/ demande)", 
+      "numero": 2, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 52, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 241, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD2/A2", 
+      "libelle": "Organise le travail des \u00e9quipes de production", 
+      "numero": 3, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 52, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 242, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD2/A2", 
+      "libelle": "Contr\u00f4ler la r\u00e9alisation des objectifs (quantit\u00e9, livraison \u00e0 temps, co\u00fbts de non qualit\u00e9, incidents qualit\u00e9, s\u00e9curit\u00e9, pr\u00e9sence au poste de travail)", 
+      "numero": 1, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 53, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 243, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD2/A2", 
+      "libelle": "Veiller \u00e0 l'application des r\u00e8gles qualit\u00e9, s\u00e9curit\u00e9 et environnement (cf Management QSE)", 
+      "numero": 2, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 53, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 244, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD2/A2", 
+      "libelle": "Suivre les r\u00e9sultats de performance", 
+      "numero": 3, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 53, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 245, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD2/A2", 
+      "libelle": "Contr\u00f4ler la gestion des flux de mati\u00e8res, composants et de produits", 
+      "numero": 4, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 53, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 246, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD2/A2", 
+      "libelle": "Elaborer et entretenir la maintenance des \u00e9quipements", 
+      "numero": 5, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 53, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 247, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD2/A2", 
+      "libelle": "Etablir des indicateurs pertinents", 
+      "numero": 6, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 53, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 248, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD2/A2", 
+      "libelle": "Animer le suivi des r\u00e9sultats et des performances pour une d\u00e9marche p\u00e9renne", 
+      "numero": 7, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 53, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 249, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD2/A2", 
+      "libelle": "Etablir une synth\u00e8se des r\u00e9sultats", 
+      "numero": 8, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 53, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 250, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD2/A2", 
+      "libelle": "Communiquer sur les r\u00e9sultats", 
+      "numero": 9, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 53, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 251, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD2/A2", 
+      "libelle": "Rendre compte \u00e0 son sup\u00e9rieur", 
+      "numero": 10, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 53, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 252, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL", 
+      "libelle": "D\u00e9ployer les orientations strat\u00e9giques", 
+      "numero": 1, 
+      "an_1": false, 
+      "code_annee": "12", 
+      "ensemble": 54, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 253, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL", 
+      "libelle": "Cr\u00e9er un plan d\u2019am\u00e9lioration continue", 
+      "numero": 2, 
+      "an_1": false, 
+      "code_annee": "12", 
+      "ensemble": 54, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 254, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL", 
+      "libelle": "Conduire des r\u00e9ductions de co\u00fbts", 
+      "numero": 3, 
+      "an_1": false, 
+      "code_annee": "12", 
+      "ensemble": 54, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 255, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL", 
+      "libelle": "Rep\u00e9rer les dysfonctionnements", 
+      "numero": 4, 
+      "an_1": false, 
+      "code_annee": "12", 
+      "ensemble": 54, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 256, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL", 
+      "libelle": "Favoriser la r\u00e9solution des probl\u00e8mes techniques", 
+      "numero": 5, 
+      "an_1": false, 
+      "code_annee": "12", 
+      "ensemble": 54, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 257, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL", 
+      "libelle": "Prioriser et prendre des d\u00e9cisions", 
+      "numero": 6, 
+      "an_1": false, 
+      "code_annee": "12", 
+      "ensemble": 54, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 258, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL", 
+      "libelle": "Pr\u00e9voir les risques d'arr\u00eat d'activit\u00e9", 
+      "numero": 7, 
+      "an_1": false, 
+      "code_annee": "12", 
+      "ensemble": 54, 
+      "an_2": true, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 259, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL2/A1", 
+      "libelle": "Assurer la satisfaction du client", 
+      "numero": 1, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 55, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 260, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL2/A1", 
+      "libelle": "Expliquer et faire appliquer les proc\u00e9dures qualit\u00e9", 
+      "numero": 2, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 55, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 261, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL2/A1", 
+      "libelle": "V\u00e9rifier l'application des plans de contr\u00f4le et des instructions", 
+      "numero": 3, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 55, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 262, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "QUAL2/A1", 
+      "libelle": "Participer \u00e0 la r\u00e9solution des probl\u00e8mes qualit\u00e9 interne et extrenes", 
+      "numero": 4, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 55, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 263, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE1/A1", 
+      "libelle": "Conna\u00eetre la r\u00e9glementation et les moyens de pr\u00e9vention", 
+      "numero": 1, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 56, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 264, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE1/A1", 
+      "libelle": "Appliquer et faire appliquer les r\u00e8gles de s\u00e9curit\u00e9", 
+      "numero": 2, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 56, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 265, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE1/A1", 
+      "libelle": "Motiver pour am\u00e9liorer les conditions de s\u00e9curit\u00e9", 
+      "numero": 3, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 56, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 266, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE1/A1", 
+      "libelle": "Veiller aux principes d'ergonomie", 
+      "numero": 4, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 56, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 267, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE2/A2", 
+      "libelle": "Veiller \u00e0 l'application des r\u00e8gles environnementales", 
+      "numero": 1, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 57, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 268, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE2/A2", 
+      "libelle": "Veiller au respect du tri des d\u00e9chets", 
+      "numero": 2, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 57, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 269, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE2/A2", 
+      "libelle": "Etablir un suivi r\u00e9gulier des points significatifs", 
+      "numero": 3, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 57, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 270, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MSEE2/A2", 
+      "libelle": "Pratiquer l'audit des pratiques environnementales", 
+      "numero": 4, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 57, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 271, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI1/A1", 
+      "libelle": "Comprendre la place de l\u2019entreprise dans le monde \u00e9conomique", 
+      "numero": 1, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 58, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 272, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI1/A1", 
+      "libelle": "Appr\u00e9hender le contexte international", 
+      "numero": 2, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 58, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 273, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI3/A3", 
+      "libelle": "Participer \u00e0 la construction du budget de l\u2019entreprise", 
+      "numero": 1, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 59, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 274, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI3/A3", 
+      "libelle": "Identifier et classer les charges", 
+      "numero": 2, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 59, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 275, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI3/A3", 
+      "libelle": "Evaluer les co\u00fbts mati\u00e8res (consommables, \u00e9nergie...) li\u00e9s \u00e0 son activit\u00e9", 
+      "numero": 3, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 59, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 276, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI3/A3", 
+      "libelle": "D\u00e9finir le budget du service (objectifs financiers entreprise/pr\u00e9visions d'activit\u00e9 du service)", 
+      "numero": 4, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 59, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 277, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI3/A3", 
+      "libelle": "Analyser les \u00e9carts pr\u00e9visions/r\u00e9alisations", 
+      "numero": 5, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 59, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 278, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI3/A3", 
+      "libelle": "D\u00e9duire les cons\u00e9quences dans son champ d\u2019activit\u00e9s (d\u00e9tection des anomalies)", 
+      "numero": 6, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 59, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 279, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI2/A3", 
+      "libelle": "Comprendre la constitution d\u2019un co\u00fbt produit", 
+      "numero": 1, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 60, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 280, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI2/A3", 
+      "libelle": "D\u00e9finir les charges directes et indirectes li\u00e9es \u00e0 un produit", 
+      "numero": 2, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 60, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 281, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI2/A3", 
+      "libelle": "D\u00e9finir les investissements n\u00e9cessaires", 
+      "numero": 3, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 60, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 282, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Etablir une demande d\u2019offre", 
+      "numero": 1, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 61, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 283, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI2/A3", 
+      "libelle": "Comparer co\u00fbts internes et co\u00fbts externes", 
+      "numero": 2, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 61, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 284, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI2/A3", 
+      "libelle": "D\u00e9cider de la sous-traitance (make or buy)", 
+      "numero": 3, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 61, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 285, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "MCGI2/A3", 
+      "libelle": "Organisation et suivi de la sous-traitance", 
+      "numero": 4, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 61, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 286, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML1/A1", 
+      "libelle": "D\u00e9finir l'objectif et le support", 
+      "numero": 1, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 62, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 287, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML1/A1", 
+      "libelle": "Ma\u00eetriser la communication \u00e9crite", 
+      "numero": 2, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 62, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 288, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD2/A2", 
+      "libelle": "Utiliser un syst\u00e8me de gestion de l\u2019information", 
+      "numero": 3, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 62, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 289, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ANGLAIS", 
+      "libelle": "Echanger des informations en anglais", 
+      "numero": 4, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 62, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 290, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML1/A1", 
+      "libelle": "Pr\u00e9senter un projet \u00e0 une assembl\u00e9e", 
+      "numero": 5, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 62, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 291, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML2/A1", 
+      "libelle": "Ecouter ses collaborateurs", 
+      "numero": 1, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 63, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 292, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML2/A1", 
+      "libelle": "Rechercher de l\u2019information", 
+      "numero": 2, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 63, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 293, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ML2/A1", 
+      "libelle": "V\u00e9rifier les informations", 
+      "numero": 3, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 63, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 294, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "", 
+      "libelle": "Comprendre les relations de march\u00e9s, le contexte international et les relations entre pays", 
+      "numero": 1, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 64, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 295, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ANGLAIS", 
+      "libelle": "Lire et r\u00e9aliser des documents en anglais", 
+      "numero": 2, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 64, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 296, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ANGLAIS", 
+      "libelle": "Maintenir une conversation t\u00e9l\u00e9phonique en anglais", 
+      "numero": 3, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 64, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 297, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "ANGLAIS", 
+      "libelle": "S'exprimer avec aisance en anglais", 
+      "numero": 4, 
+      "an_1": false, 
+      "code_annee": "2", 
+      "ensemble": 64, 
+      "an_2": false, 
+      "an_3": true
+    }
+  }, 
+  {
+    "pk": 298, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INFO1/A2", 
+      "libelle": "Comprendre les syst\u00e8mes informatiques", 
+      "numero": 1, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 65, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 299, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INFO1/A2", 
+      "libelle": "Assurer la s\u00e9curit\u00e9 des syst\u00e8mes informatiques", 
+      "numero": 2, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 65, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 300, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INFO1/A2", 
+      "libelle": "R\u00e9aliser ou faire r\u00e9aliser les sauvegardes", 
+      "numero": 3, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 65, 
+      "an_2": true, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 301, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INFO1/A2", 
+      "libelle": "Utiliser les outils de bureautique (lecture et cr\u00e9ation)", 
+      "numero": 1, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 66, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 302, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "PROD1/A2", 
+      "libelle": "Utiliser les logiciels de GPAO", 
+      "numero": 2, 
+      "an_1": true, 
+      "code_annee": "0", 
+      "ensemble": 66, 
+      "an_2": false, 
+      "an_3": false
+    }
+  }, 
+  {
+    "pk": 303, 
+    "model": "notation.capacite", 
+    "fields": {
+      "cours": "INFO1/A2", 
+      "libelle": "Comprendre les grands principes des autres logiciels", 
+      "numero": 3, 
+      "an_1": false, 
+      "code_annee": "1", 
+      "ensemble": 66, 
+      "an_2": true, 
       "an_3": false
     }
   }, 
@@ -2180,6 +3396,7 @@
       "libelle": "Analyser le march\u00e9 et la concurrence", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 1, 
       "an_2": false, 
       "an_3": false
@@ -2193,6 +3410,7 @@
       "libelle": "Participer au plan strat\u00e9gique", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 1, 
       "an_2": false, 
       "an_3": false
@@ -2206,6 +3424,7 @@
       "libelle": "Diagnostiquer les savoir faire et les savoir", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 1, 
       "an_2": false, 
       "an_3": true
@@ -2219,6 +3438,7 @@
       "libelle": "Evaluer les besoins et risques", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 1, 
       "an_2": false, 
       "an_3": false
@@ -2232,6 +3452,7 @@
       "libelle": "R\u00e9unir les \u00e9l\u00e9ments d'aide \u00e0 la d\u00e9cision", 
       "numero": 5, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 1, 
       "an_2": false, 
       "an_3": false
@@ -2245,6 +3466,7 @@
       "libelle": "Assurer la veille technologique", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "1", 
       "ensemble": 2, 
       "an_2": true, 
       "an_3": false
@@ -2258,6 +3480,7 @@
       "libelle": "R\u00e9aliser le benchmarking", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "1", 
       "ensemble": 2, 
       "an_2": true, 
       "an_3": false
@@ -2271,6 +3494,7 @@
       "libelle": "Anticiper les \u00e9volutions de son secteur", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "1", 
       "ensemble": 2, 
       "an_2": true, 
       "an_3": false
@@ -2284,6 +3508,7 @@
       "libelle": "D\u00e9finir des besoins en terme d'\u00e9volution", 
       "numero": 4, 
       "an_1": false, 
+      "code_annee": "1", 
       "ensemble": 2, 
       "an_2": true, 
       "an_3": false
@@ -2297,6 +3522,7 @@
       "libelle": "Apprendre les r\u00e8gles de l'art", 
       "numero": 5, 
       "an_1": false, 
+      "code_annee": "1", 
       "ensemble": 2, 
       "an_2": true, 
       "an_3": false
@@ -2310,6 +3536,7 @@
       "libelle": "Conna\u00eetre les r\u00e8gles esth\u00e9tiques", 
       "numero": 6, 
       "an_1": false, 
+      "code_annee": "1", 
       "ensemble": 2, 
       "an_2": true, 
       "an_3": false
@@ -2323,6 +3550,7 @@
       "libelle": "Cr\u00e9er les conditions pour faire g\u00e9n\u00e9rer de nouvelles id\u00e9es dans l\u2019entreprise", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 3, 
       "an_2": false, 
       "an_3": true
@@ -2336,6 +3564,7 @@
       "libelle": "Animer le processus d\u2019innovation", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 3, 
       "an_2": false, 
       "an_3": true
@@ -2349,6 +3578,7 @@
       "libelle": "Pr\u00e9ciser les objectifs du projet", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 4, 
       "an_2": false, 
       "an_3": false
@@ -2362,6 +3592,7 @@
       "libelle": "Analyser un cahier des charges client", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 4, 
       "an_2": false, 
       "an_3": false
@@ -2375,6 +3606,7 @@
       "libelle": "R\u00e9aliser un cahier des charges \u00e0 partir de donn\u00e9es issues client ou march\u00e9", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 4, 
       "an_2": false, 
       "an_3": false
@@ -2388,6 +3620,7 @@
       "libelle": "Evaluer le projet dans son contexte", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 4, 
       "an_2": false, 
       "an_3": false
@@ -2401,6 +3634,7 @@
       "libelle": "Rep\u00e9rer les contraintes artistiques", 
       "numero": 5, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 4, 
       "an_2": true, 
       "an_3": true
@@ -2414,6 +3648,7 @@
       "libelle": "Valider la faisabilit\u00e9 technique", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 5, 
       "an_2": false, 
       "an_3": false
@@ -2427,6 +3662,7 @@
       "libelle": "Etablir le planning pr\u00e9visionnel ", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 5, 
       "an_2": false, 
       "an_3": false
@@ -2440,6 +3676,7 @@
       "libelle": "Valider l\u2019aspect financier (co\u00fbts produit et investissements n\u00e9cessaires)", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 5, 
       "an_2": false, 
       "an_3": false
@@ -2453,6 +3690,7 @@
       "libelle": "Etablir la fiche technique/co\u00fbt (innovation)", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 5, 
       "an_2": false, 
       "an_3": false
@@ -2466,6 +3704,7 @@
       "libelle": "Etablir et valider l\u2019offre (demande client)", 
       "numero": 5, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 5, 
       "an_2": false, 
       "an_3": false
@@ -2479,6 +3718,7 @@
       "libelle": "R\u00e9aliser des prototypes", 
       "numero": 6, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 5, 
       "an_2": true, 
       "an_3": true
@@ -2492,6 +3732,7 @@
       "libelle": "Int\u00e9grer les sp\u00e9cificit\u00e9s des m\u00e9tiers", 
       "numero": 7, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 5, 
       "an_2": true, 
       "an_3": true
@@ -2505,6 +3746,7 @@
       "libelle": "Consolider le planning des affaires", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 6, 
       "an_2": false, 
       "an_3": false
@@ -2518,6 +3760,7 @@
       "libelle": "Nommer l\u2019\u00e9quipe projet", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 6, 
       "an_2": false, 
       "an_3": false
@@ -2531,6 +3774,7 @@
       "libelle": "G\u00e9rer plusieurs projets \u00e0 la fois ", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 6, 
       "an_2": false, 
       "an_3": false
@@ -2544,6 +3788,7 @@
       "libelle": "D\u00e9finir des indicateurs", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 6, 
       "an_2": false, 
       "an_3": false
@@ -2557,6 +3802,7 @@
       "libelle": "Communiquer sur un projet", 
       "numero": 5, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 6, 
       "an_2": false, 
       "an_3": false
@@ -2570,6 +3816,7 @@
       "libelle": "Traiter les risques", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 7, 
       "an_2": false, 
       "an_3": false
@@ -2583,6 +3830,7 @@
       "libelle": "Valider les revues de conception", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 7, 
       "an_2": false, 
       "an_3": false
@@ -2596,6 +3844,7 @@
       "libelle": "Etablir le plan de tests et de contr\u00f4le", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 7, 
       "an_2": false, 
       "an_3": false
@@ -2609,6 +3858,7 @@
       "libelle": "Conduire des essais et v\u00e9rifications", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 7, 
       "an_2": false, 
       "an_3": false
@@ -2622,6 +3872,7 @@
       "libelle": "Suivre le projet (ERP) et indicateurs ", 
       "numero": 5, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 7, 
       "an_2": false, 
       "an_3": false
@@ -2635,6 +3886,7 @@
       "libelle": "Comparer les r\u00e9sultats et objectifs", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 8, 
       "an_2": false, 
       "an_3": false
@@ -2648,6 +3900,7 @@
       "libelle": "Etablir le bilan financier du projet", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 8, 
       "an_2": false, 
       "an_3": false
@@ -2661,6 +3914,7 @@
       "libelle": "Evaluer la satisfaction de l\u2019\u00e9quipe", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 8, 
       "an_2": false, 
       "an_3": false
@@ -2674,6 +3928,7 @@
       "libelle": "Capitaliser les exp\u00e9riences", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 8, 
       "an_2": false, 
       "an_3": false
@@ -2687,6 +3942,7 @@
       "libelle": "Evaluer les co\u00fbts du projet", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 9, 
       "an_2": false, 
       "an_3": false
@@ -2700,6 +3956,7 @@
       "libelle": "Evaluer les gains du projet", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 9, 
       "an_2": false, 
       "an_3": false
@@ -2713,6 +3970,7 @@
       "libelle": "Elaborer le dossier d\u2019investissement", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 9, 
       "an_2": false, 
       "an_3": false
@@ -2726,6 +3984,7 @@
       "libelle": "Evaluer le retour sur investissement", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 9, 
       "an_2": false, 
       "an_3": false
@@ -2739,6 +3998,7 @@
       "libelle": "Suivre le budget du projet ", 
       "numero": 5, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 9, 
       "an_2": false, 
       "an_3": false
@@ -2752,6 +4012,7 @@
       "libelle": "L\u2019organisation industrielle", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "01", 
       "ensemble": 10, 
       "an_2": true, 
       "an_3": false
@@ -2765,6 +4026,7 @@
       "libelle": "Etudier l\u2019impact sur le co\u00fbt du produit", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
@@ -2778,6 +4040,7 @@
       "libelle": "D\u00e9composer la r\u00e9alisation du produit  en gammes de fabrication", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
@@ -2791,6 +4054,7 @@
       "libelle": "Int\u00e9grer les savoirs faire dans l\u2019enchainement des gammes de fabrication", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
@@ -2804,6 +4068,7 @@
       "libelle": "Etudier la gestion des flux", 
       "numero": 5, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
@@ -2817,6 +4082,7 @@
       "libelle": "Etudier l\u2019impact sur les comp\u00e9tences", 
       "numero": 6, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
@@ -2830,6 +4096,7 @@
       "libelle": "Etudier l\u2019impact sur le poste de travail", 
       "numero": 7, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
@@ -2843,6 +4110,7 @@
       "libelle": "Int\u00e9grer des op\u00e9rations automatis\u00e9es", 
       "numero": 8, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
@@ -2856,6 +4124,7 @@
       "libelle": "R\u00e9diger un cahier des charges (achat)", 
       "numero": 9, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
@@ -2869,6 +4138,7 @@
       "libelle": "Participer \u00e0 la mise au point de l\u2019\u00e9quipement", 
       "numero": 10, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
@@ -2882,6 +4152,7 @@
       "libelle": "Qualifier le nouvel \u00e9quipement", 
       "numero": 11, 
       "an_1": true, 
+      "code_annee": "0", 
       "ensemble": 10, 
       "an_2": false, 
       "an_3": false
@@ -2895,6 +4166,7 @@
       "libelle": "Connaitre les outils et les bases de conception", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 11, 
       "an_2": true, 
       "an_3": true
@@ -2908,6 +4180,7 @@
       "libelle": "Connaitre les m\u00e9thodes de fabrication li\u00e9e aux domaines de la pr\u00e9cision et des m\u00e9tiers du Luxe", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 11, 
       "an_2": true, 
       "an_3": true
@@ -2921,6 +4194,7 @@
       "libelle": "Caract\u00e9riser les surfaces", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 11, 
       "an_2": true, 
       "an_3": true
@@ -2934,6 +4208,7 @@
       "libelle": "Maitriser les techniques de mesures dimensionnelles", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 11, 
       "an_2": true, 
       "an_3": true
@@ -2947,6 +4222,7 @@
       "libelle": "Connaitre les proc\u00e9d\u00e9s de finition", 
       "numero": 5, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 11, 
       "an_2": true, 
       "an_3": true
@@ -2960,6 +4236,7 @@
       "libelle": "Connaitre les m\u00e9thodologies de mesure", 
       "numero": 6, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 11, 
       "an_2": true, 
       "an_3": true
@@ -2973,6 +4250,7 @@
       "libelle": "Connaitre le prototypage rapide", 
       "numero": 7, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 11, 
       "an_2": true, 
       "an_3": true
@@ -2986,6 +4264,7 @@
       "libelle": "Caract\u00e9riser les crit\u00e8res visuels ", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "01", 
       "ensemble": 12, 
       "an_2": true, 
       "an_3": false
@@ -2999,6 +4278,7 @@
       "libelle": "Connaitre les possibilit\u00e9s de contr\u00f4le", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "01", 
       "ensemble": 12, 
       "an_2": true, 
       "an_3": false
@@ -3012,6 +4292,7 @@
       "libelle": "Connaitre l\u2019analyse sensorielle", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "01", 
       "ensemble": 12, 
       "an_2": true, 
       "an_3": false
@@ -3025,6 +4306,7 @@
       "libelle": "Reconnaitre le niveau d\u2019exigence sur des pi\u00e8ces t\u00e9moins haut de gamme", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "01", 
       "ensemble": 12, 
       "an_2": true, 
       "an_3": false
@@ -3038,6 +4320,7 @@
       "libelle": "Rechercher et adapter les moyens de contr\u00f4le aux exigences", 
       "numero": 5, 
       "an_1": true, 
+      "code_annee": "01", 
       "ensemble": 12, 
       "an_2": true, 
       "an_3": false
@@ -3051,6 +4334,7 @@
       "libelle": "Connaitre la robotique", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 13, 
       "an_2": true, 
       "an_3": true
@@ -3064,6 +4348,7 @@
       "libelle": "Connaitre la micro robotique", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 13, 
       "an_2": true, 
       "an_3": true
@@ -3077,6 +4362,7 @@
       "libelle": "Connaitre la productique", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 13, 
       "an_2": true, 
       "an_3": true
@@ -3090,6 +4376,7 @@
       "libelle": "Connaitre les propri\u00e9t\u00e9s des mat\u00e9riaux", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 14, 
       "an_2": true, 
       "an_3": true
@@ -3103,6 +4390,7 @@
       "libelle": "Connaitre les diff\u00e9rents m\u00e9taux", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 14, 
       "an_2": true, 
       "an_3": true
@@ -3116,6 +4404,7 @@
       "libelle": "Connaitre les pierres (gemmologie)", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 14, 
       "an_2": true, 
       "an_3": true
@@ -3129,6 +4418,7 @@
       "libelle": "Connaitre les composites et c\u00e9ramiques", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 14, 
       "an_2": true, 
       "an_3": true
@@ -3142,6 +4432,7 @@
       "libelle": "Connaitre les caract\u00e9ristiques des mat\u00e9riaux \u00ab\u00a0vivants\u00a0\u00bb (cuir)", 
       "numero": 5, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 14, 
       "an_2": true, 
       "an_3": true
@@ -3155,6 +4446,7 @@
       "libelle": "Connaitre les principes de traitements", 
       "numero": 6, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 14, 
       "an_2": true, 
       "an_3": true
@@ -3168,6 +4460,7 @@
       "libelle": "Connaitre les principes de la d\u00e9gradation des mat\u00e9riaux (vieillissement)", 
       "numero": 7, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 14, 
       "an_2": true, 
       "an_3": true
@@ -3181,6 +4474,7 @@
       "libelle": "Connaitre les techniques de pr\u00e9paration de surface et de polissage", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 15, 
       "an_2": true, 
       "an_3": true
@@ -3194,6 +4488,7 @@
       "libelle": "Connaitre les diff\u00e9rents types de traitements de surface ", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 15, 
       "an_2": true, 
       "an_3": true
@@ -3207,6 +4502,7 @@
       "libelle": "Connaitre les diff\u00e9rents rev\u00eatements de surface", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 15, 
       "an_2": true, 
       "an_3": true
@@ -3220,6 +4516,7 @@
       "libelle": "Assurer la satisfaction du Client", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "01", 
       "ensemble": 16, 
       "an_2": true, 
       "an_3": false
@@ -3233,6 +4530,7 @@
       "libelle": "Expliquer et faire appliquer les proc\u00e9dures ", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "01", 
       "ensemble": 16, 
       "an_2": true, 
       "an_3": false
@@ -3246,6 +4544,7 @@
       "libelle": "V\u00e9rifier l\u2019application des plans de contr\u00f4le ", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "01", 
       "ensemble": 16, 
       "an_2": true, 
       "an_3": false
@@ -3259,6 +4558,7 @@
       "libelle": "Participer \u00e0 la r\u00e9solution des probl\u00e8mes qualit\u00e9 internes et externes", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "01", 
       "ensemble": 16, 
       "an_2": true, 
       "an_3": false
@@ -3272,6 +4572,7 @@
       "libelle": "Pratiquer l\u2019audit interne", 
       "numero": 5, 
       "an_1": true, 
+      "code_annee": "01", 
       "ensemble": 16, 
       "an_2": true, 
       "an_3": false
@@ -3285,6 +4586,7 @@
       "libelle": "Connaitre la r\u00e9glementation et les moyens de pr\u00e9vention", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 17, 
       "an_2": false, 
       "an_3": true
@@ -3298,6 +4600,7 @@
       "libelle": "Appliquer et faire appliquer les r\u00e8gles de s\u00e9curit\u00e9", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 17, 
       "an_2": false, 
       "an_3": true
@@ -3311,6 +4614,7 @@
       "libelle": "Am\u00e9liorer les conditions de travail ", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 17, 
       "an_2": false, 
       "an_3": true
@@ -3324,6 +4628,7 @@
       "libelle": "Etablir les r\u00e8gles d\u2019achat des pr\u00e9cieux", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 18, 
       "an_2": true, 
       "an_3": true
@@ -3337,6 +4642,7 @@
       "libelle": "Etablir les r\u00e8gles d\u2019inventaire (stocks)", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 18, 
       "an_2": true, 
       "an_3": true
@@ -3350,6 +4656,7 @@
       "libelle": "D\u00e9finir des r\u00e8gles de protection de marchandises pr\u00e9cieuses", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 18, 
       "an_2": true, 
       "an_3": true
@@ -3363,6 +4670,7 @@
       "libelle": "Appliquer des consignes de contr\u00f4le et de droit d\u2019acc\u00e8s", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 18, 
       "an_2": true, 
       "an_3": true
@@ -3376,6 +4684,7 @@
       "libelle": "Veiller \u00e0 l\u2019application des r\u00e8gles environnementales", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 19, 
       "an_2": true, 
       "an_3": true
@@ -3389,6 +4698,7 @@
       "libelle": "Etablir un suivi r\u00e9gulier des points significatifs", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 19, 
       "an_2": true, 
       "an_3": true
@@ -3402,6 +4712,7 @@
       "libelle": "D\u00e9finir le circuit d'achat", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 37, 
       "an_2": true, 
       "an_3": true
@@ -3415,6 +4726,7 @@
       "libelle": "Assurer le processus de retraitement des d\u00e9chets et de valorisation", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 37, 
       "an_2": true, 
       "an_3": true
@@ -3428,6 +4740,7 @@
       "libelle": "G\u00e9rer entr\u00e9es et sorties des achats", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 37, 
       "an_2": true, 
       "an_3": true
@@ -3441,6 +4754,7 @@
       "libelle": "Connaitre les aptitudes, les comp\u00e9tences, les r\u00f4les du manager", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 20, 
       "an_2": false, 
       "an_3": true
@@ -3454,6 +4768,7 @@
       "libelle": "Manager un collaborateur, adapter son mode de management", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 20, 
       "an_2": false, 
       "an_3": true
@@ -3467,6 +4782,7 @@
       "libelle": "Communiquer efficacement", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 20, 
       "an_2": false, 
       "an_3": true
@@ -3480,6 +4796,7 @@
       "libelle": "D\u00e9finir une strat\u00e9gie individuelle et collective pour atteindre un objectif", 
       "numero": 4, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 20, 
       "an_2": false, 
       "an_3": true
@@ -3493,6 +4810,7 @@
       "libelle": "Manager par objectifs, d\u00e9l\u00e9guer", 
       "numero": 5, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 20, 
       "an_2": false, 
       "an_3": true
@@ -3506,6 +4824,7 @@
       "libelle": "Responsabiliser son \u00e9quipe, assurer la coh\u00e9rence et la coh\u00e9sion d\u2019\u00e9quipe", 
       "numero": 6, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 20, 
       "an_2": false, 
       "an_3": true
@@ -3519,6 +4838,7 @@
       "libelle": "Assurer le r\u00f4le central de leader et mettre en \u0153uvre des m\u00e9thodes de pilotage et d\u2019action en tant que leader", 
       "numero": 7, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 20, 
       "an_2": false, 
       "an_3": true
@@ -3532,6 +4852,7 @@
       "libelle": "Promouvoir l\u2019\u00e9thique au travail", 
       "numero": 8, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 20, 
       "an_2": false, 
       "an_3": true
@@ -3545,6 +4866,7 @@
       "libelle": "Int\u00e9grer la gestion des comp\u00e9tences en tant que facteur essentiel de la performance globale", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 21, 
       "an_2": false, 
       "an_3": true
@@ -3558,6 +4880,7 @@
       "libelle": "Conduire l'\u00e9volution des emplois et des comp\u00e9tences de sa structure", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 21, 
       "an_2": false, 
       "an_3": true
@@ -3571,6 +4894,7 @@
       "libelle": "G\u00e9rer les stades de d\u00e9veloppement et de performance des \u00e9quipes", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 21, 
       "an_2": false, 
       "an_3": true
@@ -3584,6 +4908,7 @@
       "libelle": "Connaitre la classification", 
       "numero": 4, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 21, 
       "an_2": false, 
       "an_3": true
@@ -3597,6 +4922,7 @@
       "libelle": "Savoir recruter", 
       "numero": 5, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 21, 
       "an_2": false, 
       "an_3": true
@@ -3610,6 +4936,7 @@
       "libelle": "Conduire une n\u00e9gociation", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 22, 
       "an_2": false, 
       "an_3": true
@@ -3623,6 +4950,7 @@
       "libelle": "Assurer le respect des \u00e9l\u00e9ments de discipline et des r\u00e8gles", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 22, 
       "an_2": false, 
       "an_3": true
@@ -3636,6 +4964,7 @@
       "libelle": "Red\u00e9finir, recadrer les pratiques d\u2019un individu, d\u2019un groupe", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 22, 
       "an_2": false, 
       "an_3": true
@@ -3649,6 +4978,7 @@
       "libelle": "G\u00e9rer un changement de r\u00e8glement", 
       "numero": 4, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 22, 
       "an_2": false, 
       "an_3": true
@@ -3662,6 +4992,7 @@
       "libelle": "G\u00e9rer les situations conflictuelles individuelles et collectives", 
       "numero": 5, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 22, 
       "an_2": false, 
       "an_3": true
@@ -3675,6 +5006,7 @@
       "libelle": "Mettre en \u0153uvre une approche m\u00e9thodologique de conduite de r\u00e9union", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 23, 
       "an_2": false, 
       "an_3": true
@@ -3688,6 +5020,7 @@
       "libelle": "D\u00e9finir et appliquer les \u00e9l\u00e9ments concourants \u00e0 l\u2019efficacit\u00e9 de r\u00e9unions ", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 23, 
       "an_2": false, 
       "an_3": true
@@ -3701,6 +5034,7 @@
       "libelle": "Accompagner un groupe de travail au cours d\u2019une r\u00e9union", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 23, 
       "an_2": false, 
       "an_3": true
@@ -3714,6 +5048,7 @@
       "libelle": "Garantir le respect des r\u00e9glementations en mati\u00e8re de droit du travail, sant\u00e9 et s\u00e9curit\u00e9 au Travail", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 24, 
       "an_2": false, 
       "an_3": true
@@ -3727,6 +5062,7 @@
       "libelle": "Connaitre la fonction RH dans l\u2019entreprise", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 24, 
       "an_2": false, 
       "an_3": true
@@ -3740,6 +5076,7 @@
       "libelle": "Calculer une charge-capacit\u00e9 et r\u00e9pondre r\u00e9guli\u00e8rement aux pr\u00e9visions de commandes", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 25, 
       "an_2": true, 
       "an_3": true
@@ -3753,6 +5090,7 @@
       "libelle": "Attribuer des objectifs de production (ad\u00e9quation/ demande)", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 25, 
       "an_2": true, 
       "an_3": true
@@ -3766,6 +5104,7 @@
       "libelle": "Organise le travail des \u00e9quipes de production", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 25, 
       "an_2": true, 
       "an_3": true
@@ -3779,6 +5118,7 @@
       "libelle": "Veiller \u00e0 l\u2019application des r\u00e8gles ", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 26, 
       "an_2": true, 
       "an_3": true
@@ -3792,6 +5132,7 @@
       "libelle": "Suivre les r\u00e9sultats de performance", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 26, 
       "an_2": true, 
       "an_3": true
@@ -3805,6 +5146,7 @@
       "libelle": "Contr\u00f4ler la gestion des flux", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 26, 
       "an_2": true, 
       "an_3": true
@@ -3818,6 +5160,7 @@
       "libelle": "Elaborer et entretenir les \u00e9quipements", 
       "numero": 4, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 26, 
       "an_2": true, 
       "an_3": true
@@ -3831,6 +5174,7 @@
       "libelle": "Etablir des indicateurs pertinents", 
       "numero": 5, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 26, 
       "an_2": true, 
       "an_3": true
@@ -3844,6 +5188,7 @@
       "libelle": "Animer le suivi des r\u00e9sultats", 
       "numero": 6, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 26, 
       "an_2": true, 
       "an_3": true
@@ -3857,6 +5202,7 @@
       "libelle": "Communiquer sur les r\u00e9sultats", 
       "numero": 7, 
       "an_1": false, 
+      "code_annee": "12", 
       "ensemble": 26, 
       "an_2": true, 
       "an_3": true
@@ -3870,6 +5216,7 @@
       "libelle": "D\u00e9ployer les orientations strat\u00e9giques", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 27, 
       "an_2": true, 
       "an_3": true
@@ -3883,6 +5230,7 @@
       "libelle": "Cr\u00e9er un plan d\u2019am\u00e9lioration continue", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 27, 
       "an_2": true, 
       "an_3": true
@@ -3896,6 +5244,7 @@
       "libelle": "Conduire des r\u00e9ductions de co\u00fbts", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 27, 
       "an_2": true, 
       "an_3": true
@@ -3909,6 +5258,7 @@
       "libelle": "Rep\u00e9rer les dysfonctionnements", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 27, 
       "an_2": true, 
       "an_3": true
@@ -3922,6 +5272,7 @@
       "libelle": "Favoriser la r\u00e9solution des probl\u00e8mes techniques", 
       "numero": 5, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 27, 
       "an_2": true, 
       "an_3": true
@@ -3935,6 +5286,7 @@
       "libelle": "Eliminer les pertes", 
       "numero": 6, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 27, 
       "an_2": true, 
       "an_3": true
@@ -3948,6 +5300,7 @@
       "libelle": "Comprendre la place de l\u2019entreprise dans le monde \u00e9conomique", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 28, 
       "an_2": true, 
       "an_3": true
@@ -3961,6 +5314,7 @@
       "libelle": "Appr\u00e9hender le contexte international", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 28, 
       "an_2": true, 
       "an_3": true
@@ -3974,6 +5328,7 @@
       "libelle": "Participer \u00e0 la construction du budget de l\u2019entreprise", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 29, 
       "an_2": true, 
       "an_3": true
@@ -3987,6 +5342,7 @@
       "libelle": "Identifier et classer les charges", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 29, 
       "an_2": true, 
       "an_3": true
@@ -4000,6 +5356,7 @@
       "libelle": "Evaluer les co\u00fbts mati\u00e8res", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 29, 
       "an_2": true, 
       "an_3": true
@@ -4013,6 +5370,7 @@
       "libelle": "D\u00e9finir le budget du service ", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 29, 
       "an_2": true, 
       "an_3": true
@@ -4026,6 +5384,7 @@
       "libelle": "Analyser les \u00e9carts pr\u00e9visions/r\u00e9alisations", 
       "numero": 5, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 29, 
       "an_2": true, 
       "an_3": true
@@ -4039,6 +5398,7 @@
       "libelle": "D\u00e9duire les cons\u00e9quences dans son champ d\u2019activit\u00e9s (d\u00e9tection des anomalies)", 
       "numero": 6, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 29, 
       "an_2": true, 
       "an_3": true
@@ -4052,6 +5412,7 @@
       "libelle": "Comprendre la constitution d\u2019un co\u00fbt produit", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 30, 
       "an_2": true, 
       "an_3": true
@@ -4065,6 +5426,7 @@
       "libelle": "D\u00e9finir les charges directes et indirectes li\u00e9es \u00e0 un produit", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 30, 
       "an_2": true, 
       "an_3": true
@@ -4078,6 +5440,7 @@
       "libelle": "D\u00e9finir les investissements n\u00e9cessaires", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 30, 
       "an_2": true, 
       "an_3": true
@@ -4091,6 +5454,7 @@
       "libelle": "Etablir une demande d\u2019offre", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 31, 
       "an_2": true, 
       "an_3": true
@@ -4104,6 +5468,7 @@
       "libelle": "Comparer co\u00fbts interne et co\u00fbts externes", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 31, 
       "an_2": true, 
       "an_3": true
@@ -4117,6 +5482,7 @@
       "libelle": "D\u00e9cider de la sous-traitance", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 31, 
       "an_2": true, 
       "an_3": true
@@ -4130,6 +5496,7 @@
       "libelle": "Organisation et suivi de la sous-traitance", 
       "numero": 4, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 31, 
       "an_2": true, 
       "an_3": true
@@ -4143,6 +5510,7 @@
       "libelle": "D\u00e9finir l\u2019objectif et le support", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 32, 
       "an_2": false, 
       "an_3": true
@@ -4156,6 +5524,7 @@
       "libelle": "Maitriser la communication orale et \u00e9crite", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 32, 
       "an_2": false, 
       "an_3": true
@@ -4169,6 +5538,7 @@
       "libelle": "Utiliser un syst\u00e8me de gestion de l\u2019information", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 32, 
       "an_2": false, 
       "an_3": true
@@ -4182,6 +5552,7 @@
       "libelle": "Echanger des informations en anglais", 
       "numero": 4, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 32, 
       "an_2": false, 
       "an_3": true
@@ -4195,6 +5566,7 @@
       "libelle": "Ecouter ses collaborateurs", 
       "numero": 1, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 33, 
       "an_2": false, 
       "an_3": true
@@ -4208,6 +5580,7 @@
       "libelle": "Rechercher de l\u2019information", 
       "numero": 2, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 33, 
       "an_2": false, 
       "an_3": true
@@ -4221,6 +5594,7 @@
       "libelle": "V\u00e9rifier les informations", 
       "numero": 3, 
       "an_1": false, 
+      "code_annee": "2", 
       "ensemble": 33, 
       "an_2": false, 
       "an_3": true
@@ -4234,6 +5608,7 @@
       "libelle": "Comprendre les relations de march\u00e9s, le contexte international et les relations entre pays", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 34, 
       "an_2": true, 
       "an_3": true
@@ -4247,6 +5622,7 @@
       "libelle": "Lire et r\u00e9aliser des documents en anglais", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 34, 
       "an_2": true, 
       "an_3": true
@@ -4260,6 +5636,7 @@
       "libelle": "S\u2019exprimer avec aisance en anglais", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 34, 
       "an_2": true, 
       "an_3": true
@@ -4273,6 +5650,7 @@
       "libelle": "Comprendre les syst\u00e8mes informatiques", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 35, 
       "an_2": true, 
       "an_3": true
@@ -4286,6 +5664,7 @@
       "libelle": "Assurer la s\u00e9curit\u00e9 des syst\u00e8mes", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 35, 
       "an_2": true, 
       "an_3": true
@@ -4299,6 +5678,7 @@
       "libelle": "R\u00e9aliser ou faire r\u00e9aliser les sauvegardes", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 35, 
       "an_2": true, 
       "an_3": true
@@ -4312,6 +5692,7 @@
       "libelle": "Utiliser les outils de bureautique", 
       "numero": 1, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 36, 
       "an_2": true, 
       "an_3": true
@@ -4325,6 +5706,7 @@
       "libelle": "Utiliser les logiciels de GPAO", 
       "numero": 2, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 36, 
       "an_2": true, 
       "an_3": true
@@ -4338,6 +5720,7 @@
       "libelle": "Comprendre les grands principes des autres logiciels", 
       "numero": 3, 
       "an_1": true, 
+      "code_annee": "012", 
       "ensemble": 36, 
       "an_2": true, 
       "an_3": true
@@ -4347,154 +5730,168 @@
     "pk": 1, 
     "model": "notation.savoiretre", 
     "fields": {
-      "an_3": true, 
       "libelle": "Comprendre et mettre en application les directives", 
+      "code_annee": "012", 
+      "grille": 2, 
       "an_1": true, 
       "an_2": true, 
-      "grille": 2
+      "an_3": true
     }
   }, 
   {
     "pk": 2, 
     "model": "notation.savoiretre", 
     "fields": {
-      "an_3": true, 
       "libelle": "D\u00e9montrer son int\u00e9r\u00eat et sa motivation", 
+      "code_annee": "012", 
+      "grille": 2, 
       "an_1": true, 
       "an_2": true, 
-      "grille": 2
+      "an_3": true
     }
   }, 
   {
     "pk": 3, 
     "model": "notation.savoiretre", 
     "fields": {
-      "an_3": true, 
       "libelle": "Etre poli et courtois", 
+      "code_annee": "012", 
+      "grille": 2, 
       "an_1": true, 
       "an_2": true, 
-      "grille": 2
+      "an_3": true
     }
   }, 
   {
     "pk": 4, 
     "model": "notation.savoiretre", 
     "fields": {
-      "an_3": true, 
       "libelle": "Accepter des critiques constructives et apporter des correctifs demand\u00e9s", 
+      "code_annee": "012", 
+      "grille": 2, 
       "an_1": true, 
       "an_2": true, 
-      "grille": 2
+      "an_3": true
     }
   }, 
   {
     "pk": 5, 
     "model": "notation.savoiretre", 
     "fields": {
-      "an_3": true, 
       "libelle": "Etre ponctuel et assidu", 
+      "code_annee": "012", 
+      "grille": 2, 
       "an_1": true, 
       "an_2": true, 
-      "grille": 2
+      "an_3": true
     }
   }, 
   {
     "pk": 6, 
     "model": "notation.savoiretre", 
     "fields": {
-      "an_3": true, 
       "libelle": "Mettre \u00e0 profit ses comp\u00e9tences", 
+      "code_annee": "012", 
+      "grille": 2, 
       "an_1": true, 
       "an_2": true, 
-      "grille": 2
+      "an_3": true
     }
   }, 
   {
     "pk": 7, 
     "model": "notation.savoiretre", 
     "fields": {
-      "an_3": true, 
       "libelle": "Effectuer son travail avec dilligence et efficacit\u00e9", 
+      "code_annee": "012", 
+      "grille": 2, 
       "an_1": true, 
       "an_2": true, 
-      "grille": 2
+      "an_3": true
     }
   }, 
   {
     "pk": 8, 
     "model": "notation.savoiretre", 
     "fields": {
-      "an_3": true, 
       "libelle": "Comprendre et mettre en application les directives", 
+      "code_annee": "012", 
+      "grille": 3, 
       "an_1": true, 
       "an_2": true, 
-      "grille": 3
+      "an_3": true
     }
   }, 
   {
     "pk": 9, 
     "model": "notation.savoiretre", 
     "fields": {
-      "an_3": true, 
       "libelle": "D\u00e9montrer son int\u00e9r\u00eat et sa motivation", 
+      "code_annee": "012", 
+      "grille": 3, 
       "an_1": true, 
       "an_2": true, 
-      "grille": 3
+      "an_3": true
     }
   }, 
   {
     "pk": 10, 
     "model": "notation.savoiretre", 
     "fields": {
-      "an_3": true, 
       "libelle": "Etre poli et courtois", 
+      "code_annee": "012", 
+      "grille": 3, 
       "an_1": true, 
       "an_2": true, 
-      "grille": 3
+      "an_3": true
     }
   }, 
   {
     "pk": 11, 
     "model": "notation.savoiretre", 
     "fields": {
-      "an_3": true, 
       "libelle": "Accepter des critiques constructives et apporter des correctifs demand\u00e9s", 
+      "code_annee": "012", 
+      "grille": 3, 
       "an_1": true, 
       "an_2": true, 
-      "grille": 3
+      "an_3": true
     }
   }, 
   {
     "pk": 12, 
     "model": "notation.savoiretre", 
     "fields": {
-      "an_3": true, 
       "libelle": "Etre ponctuel et assidu", 
+      "code_annee": "012", 
+      "grille": 3, 
       "an_1": true, 
       "an_2": true, 
-      "grille": 3
+      "an_3": true
     }
   }, 
   {
     "pk": 13, 
     "model": "notation.savoiretre", 
     "fields": {
-      "an_3": true, 
       "libelle": "Mettre \u00e0 profit ses comp\u00e9tences", 
+      "code_annee": "012", 
+      "grille": 3, 
       "an_1": true, 
       "an_2": true, 
-      "grille": 3
+      "an_3": true
     }
   }, 
   {
     "pk": 14, 
     "model": "notation.savoiretre", 
     "fields": {
-      "an_3": true, 
       "libelle": "Effectuer son travail avec dilligence et efficacit\u00e9", 
+      "code_annee": "012", 
+      "grille": 3, 
       "an_1": true, 
       "an_2": true, 
-      "grille": 3
+      "an_3": true
     }
   }
 ]
