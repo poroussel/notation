@@ -46,7 +46,7 @@ def create_user_profile(sender, instance, created, **kwargs):
             if settings.DEBUG:
                 print u"Création de l'utilisateur %s et envoi d'un email à l'adresse %s" % (instance.username, instance.email)
             body = render_to_string('creation_compte.txt', {'profil' : profil, 'site' : current_site})
-            send_mail(u'Création de votre compte', body, 'admnistrateur@%s' % current_site.domain, [instance.email], fail_silently=True)
+            send_mail(u'Création de votre compte', body, 'webmaster@%s' % current_site.domain, [instance.email], fail_silently=True)
         except:
             pass
 post_save.connect(create_user_profile, sender=User)
