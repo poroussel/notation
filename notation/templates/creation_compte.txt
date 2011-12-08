@@ -1,6 +1,8 @@
 Bonjour {{ profil.nom_complet }},
 
 Un compte a été créé à votre attention sur le site http://{{ site.domain }}.
+Ce site géré par le CFAI et l'ENSMM est destiné à la gestion des bulletins 
+de notes des apprentis.
 
 Vous pourrez vous y connecter en utilisant les identifiants suivants :
 

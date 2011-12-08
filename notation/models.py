@@ -41,14 +41,15 @@ class ProfilUtilisateur(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         profil, created = ProfilUtilisateur.objects.get_or_create(user=instance)
-        try:
-            current_site = Site.objects.get_current()
+        current_site = Site.objects.get_current()
+        if len(instance.email) > 0:
             if settings.DEBUG:
                 print u"Création de l'utilisateur %s et envoi d'un email à l'adresse %s" % (instance.username, instance.email)
-            body = render_to_string('creation_compte.txt', {'profil' : profil, 'site' : current_site})
-            send_mail(u'Création de votre compte', body, settings.SERVER_EMAIL, [instance.email], fail_silently=True)
-        except:
-            pass
+            try:
+                body = render_to_string('creation_compte.txt', {'profil' : profil, 'site' : current_site})
+                send_mail(u'Création de votre compte', body, settings.SERVER_EMAIL, [instance.email], fail_silently=True)
+            except:
+                pass
 post_save.connect(create_user_profile, sender=User)
 
 
