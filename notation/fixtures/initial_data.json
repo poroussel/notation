@@ -1,5 +1,13 @@
 [
   {
+    "pk": 1, 
+    "model": "sites.site", 
+    "fields": {
+      "domain": "notation.octets.fr", 
+      "name": "Notation des apprentis"
+    }
+  }, 
+  {
     "pk": 22, 
     "model": "auth.permission", 
     "fields": {
@@ -636,14 +644,6 @@
       "password": "sha1$651ae$4b531717bc5f052e19b6dc5a5bec1e8dca26a944", 
       "email": "philippe.roussel@octets.fr", 
       "date_joined": "2011-10-28 10:51:19"
-    }
-  }, 
-  {
-    "pk": 1, 
-    "model": "sites.site", 
-    "fields": {
-      "domain": "notation.octets.fr", 
-      "name": "Notation des apprentis"
     }
   }, 
   {
