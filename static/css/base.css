@@ -27,8 +27,8 @@ table {width: 100%; text-align: left; border-spacing: 0px}
 .contenugauche {width:48%; float:left}
 .contenudroit {width:48%; float:right}
 
-#pied {color:#AAAAAA; padding-top:32px; padding-bottom:16px; text-align:center; clear:both}
-#pied a {color: lightblue;text-decoration: none;}
+#pied {color:#888888; padding-top:32px; padding-bottom:16px; text-align:center; clear:both}
+#pied a {text-decoration: none;}
 
 .errorlist li {background:red;}
 
