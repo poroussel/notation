@@ -121,7 +121,6 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
     capacites = ens.capacite_set.filter(code_annee__contains=str(annee))
-    questions = [(x.id, x.libelle, x.cours) for x in capacites]
     notes = Note.objects.filter(bulletin=blt, capacite__in=capacites, annee=annee)
     
     commentaires = Commentaire.objects.filter(bulletin=blt, ensemble=ens)
@@ -138,7 +137,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
         precedent = precedent.precedent()
 
     if request.method == 'POST':
-        form = NotationForm(request.POST, questions=questions, user=request.user)
+        form = NotationForm(request.POST, questions=capacites, user=request.user)
         if form.is_valid():
             if 'commentaire' in form.cleaned_data:
                 com, created = Commentaire.objects.get_or_create(bulletin=blt, ensemble=ens, defaults={'texte' : form.cleaned_data['commentaire'], 'auteur_modification' : request.user})
@@ -146,10 +145,9 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                     com.texte = form.cleaned_data['commentaire']
                     com.save()
                         
-            for (capid, libelle, cours) in questions:
-                if str(capid) in form.cleaned_data:
-                    value = form.cleaned_data[str(capid)]
-                    cap = Capacite.objects.get(id=capid)
+            for cap in capacites:
+                if str(cap.id) in form.cleaned_data:
+                    value = form.cleaned_data[str(cap.id)]
                     if value:
                         note, created = Note.objects.get_or_create(bulletin=blt, capacite=cap, defaults={'valeur' : value, 'annee' : annee, 'auteur_modification' : request.user})
                         if not created:
@@ -163,7 +161,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                 return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, annee, suivant.id]))
             return HttpResponseRedirect(reverse(bulletin, args=[blt_id]))
     else:
-        form = NotationForm(questions=questions, notes=notes, commentaire=commentaire, user=request.user)
+        form = NotationForm(questions=capacites, notes=notes, commentaire=commentaire, user=request.user)
     return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens,
                                                                                  'annee' : annee,
                                                                                  'bulletin' : blt,
