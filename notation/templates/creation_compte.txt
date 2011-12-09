@@ -1,4 +1,4 @@
-Bonjour {{ profil.nom_complet }},
+Bonjour {{ profil.user.get_full_name }},
 
 Un compte a été créé à votre attention sur le site http://{{ site.domain }}.
 Ce site géré par le CFAI et l'ENSMM est destiné à la gestion des bulletins 

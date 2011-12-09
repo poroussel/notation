@@ -23,7 +23,7 @@ class ProfilUtilisateur(models.Model):
     phone_number = models.CharField(u'N° de téléphone', max_length=15, blank=True)
                                             
     def __unicode__(self):
-        return u'%s - %s' % (self.nom_complet, self.get_user_type_display())
+        return u'%s - %s' % (self.user.get_full_name(), self.get_user_type_display())
 
     def is_tuteur(self):
         return self.user_type == 't'
@@ -33,10 +33,6 @@ class ProfilUtilisateur(models.Model):
         return self.user_type == 'f'
     def is_administratif(self):
         return self.user_type == 'a'
-
-    def _nom_complet(self):
-        return '%s %s' % (self.user.first_name, self.user.last_name)
-    nom_complet = property(_nom_complet)
 
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
