@@ -97,7 +97,7 @@ class NotationForm(forms.Form, ReadOnly):
         
         for cap in questions:
             if notes:
-                note = notes.filter(capacite__id=cap.id)
+                note = notes.filter(capacite=cap)
             else:
                 note = None
             self.fields[str(cap.id)] = forms.IntegerField(label=cap.libelle, help_text=cap.cours and u'Cours associé : %s' % cap.cours or None, min_value=0, max_value=5, required=False, initial=note and int(note[0].valeur) or None)

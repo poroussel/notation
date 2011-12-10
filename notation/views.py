@@ -70,7 +70,7 @@ def resume_grille(request, object_id, annee):
     lignes = list()
     for bulletin in bulletins:
         moyenne = moyennes_annee.filter(bulletin=bulletin)
-        if moyenne.count():
+        if moyenne:
             lignes.append((bulletin, moyenne[0].valeur_cp, moyenne[0].valeur_sv, moyenne[0].valeur_gn))
         else:
             lignes.append((bulletin, 0, 0, 0))            
@@ -82,8 +82,7 @@ def bulletin(request, blt_id):
     if request.GET.get('format', None) == 'xls':
         return bulletin_xls(request, blt)
     annees = range(blt.grille.duree)
-    ens = EnsembleCapacite.objects.filter(grille=blt.grille)
-    return render_to_response('notation/bulletin.html', RequestContext(request, {'bulletin' : blt, 'ens' : ens, 'annees' : annees}))
+    return render_to_response('notation/bulletin.html', RequestContext(request, {'bulletin' : blt, 'annees' : annees}))
 
 @login_required
 def annee_bulletin(request, blt_id, annee):
@@ -123,10 +122,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
     notes = Note.objects.filter(bulletin=blt, capacite__in=list(capacites), annee=annee)
     
     commentaires = Commentaire.objects.filter(bulletin=blt, ensemble=ens)
-    if commentaires.count() > 0:
-        commentaire = commentaires[0].texte
-    else:
-        commentaire = None
+    commentaire = commentaires and commentaires[0].texte or None
 
     suivant = ens.suivant()
     while suivant and suivant.capacite_set.filter(code_annee__contains=annee).count() == 0:

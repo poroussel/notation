@@ -221,28 +221,28 @@ class EnsembleCapacite(models.Model):
     def precedent(self):
         if self.partie:
             precedents = EnsembleCapacite.objects.filter(grille=self.grille, partie=self.partie, numero=self.numero - 1)
-            if precedents.count() > 0:
+            if precedents:
                 return precedents[0]
             precedents = EnsembleCapacite.objects.filter(grille=self.grille, partie=chr(ord(self.partie) - 1)).reverse()
-            if precedents.count() > 0:
+            if precedents:
                 return precedents[0]
         else:
             precedents = EnsembleCapacite.objects.filter(grille=self.grille, numero=self.numero - 1)
-            if precedents.count() > 0:
+            if precedents:
                 return precedents[0]
         return None
     
     def suivant(self):
         if self.partie:
             suivants = EnsembleCapacite.objects.filter(grille=self.grille, partie=self.partie, numero=self.numero + 1)
-            if suivants.count() > 0:
+            if suivants:
                 return suivants[0]
             suivants = EnsembleCapacite.objects.filter(grille=self.grille, partie=chr(ord(self.partie) + 1), numero=1)
-            if suivants.count() > 0:
+            if suivants:
                 return suivants[0]
         else:
             suivants = EnsembleCapacite.objects.filter(grille=self.grille, numero=self.numero + 1)
-            if suivants.count() > 0:
+            if suivants:
                 return suivants[0]
         return None
     
