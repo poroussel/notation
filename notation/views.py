@@ -88,8 +88,8 @@ def bulletin(request, blt_id):
 @login_required
 def annee_bulletin(request, blt_id, annee):
     blt = get_object_or_404(Bulletin, pk=blt_id)
-    ens = blt.grille.ensemblecapacite_set.filter(capacite__code_annee__contains=str(annee)).annotate(nbre_capacite=Count('capacite'))
-    setre = blt.grille.savoiretre_set.filter(code_annee__contains=str(annee))
+    ens = blt.grille.ensemblecapacite_set.filter(capacite__code_annee__contains=annee).annotate(nbre_capacite=Count('capacite'))
+    setre = blt.grille.savoiretre_set.filter(code_annee__contains=annee)
     notes = Note.objects.filter(bulletin=blt, savoir__in=list(setre), annee=annee)
     
     moyenne = Moyenne.objects.filter(annee=annee, bulletin=blt)
@@ -105,14 +105,13 @@ def annee_bulletin(request, blt_id, annee):
             for sv in setre:
                 if str(sv.id) in form.cleaned_data:
                     value = form.cleaned_data[str(sv.id)]
-                    savoir = SavoirEtre.objects.get(id=sv.id)
                     if value:
-                        note, created = Note.objects.get_or_create(bulletin=blt, savoir=savoir, defaults={'valeur' : value, 'annee' : annee, 'auteur_modification' : request.user})
+                        note, created = Note.objects.get_or_create(bulletin=blt, savoir=sv, defaults={'valeur' : value, 'annee' : annee, 'auteur_modification' : request.user})
                         if not created:
                             note.valeur = value
                             note.save()
                     else:
-                        Note.objects.filter(bulletin=blt, savoir=savoir).delete()
+                        Note.objects.filter(bulletin=blt, savoir=sv).delete()
             blt.calcul_moyenne_savoir(annee, request.user)
     return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'ens' : ens, 'form' : form, 'moyenne' : moyenne}))
 
@@ -120,8 +119,8 @@ def annee_bulletin(request, blt_id, annee):
 def ensemble_bulletin(request, blt_id, annee, ens_id):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
-    capacites = ens.capacite_set.filter(code_annee__contains=str(annee))
-    notes = Note.objects.filter(bulletin=blt, capacite__in=capacites, annee=annee)
+    capacites = ens.capacite_set.filter(code_annee__contains=annee)
+    notes = Note.objects.filter(bulletin=blt, capacite__in=list(capacites), annee=annee)
     
     commentaires = Commentaire.objects.filter(bulletin=blt, ensemble=ens)
     if commentaires.count() > 0:
@@ -130,10 +129,10 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
         commentaire = None
 
     suivant = ens.suivant()
-    while suivant and suivant.capacite_set.filter(code_annee__contains=str(annee)).count() == 0:
+    while suivant and suivant.capacite_set.filter(code_annee__contains=annee).count() == 0:
         suivant = suivant.suivant()
     precedent = ens.precedent()
-    while precedent and precedent.capacite_set.filter(code_annee__contains=str(annee)).count() == 0:
+    while precedent and precedent.capacite_set.filter(code_annee__contains=annee).count() == 0:
         precedent = precedent.precedent()
 
     if request.method == 'POST':
