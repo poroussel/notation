@@ -27,7 +27,7 @@ table {width: 100%; text-align: left; border-spacing: 0px}
 .contenugauche {width:48%; float:left}
 .contenudroit {width:48%; float:right}
 
-#pied {color:#888888; padding-top:32px; padding-bottom:16px; text-align:center; clear:both}
+#pied {color:#888888; padding-top:32px; padding-bottom:16px; text-align:center; clear:both; font-size: 11px;}
 #pied a {text-decoration: none;}
 
 .errorlist li {background:red;}
