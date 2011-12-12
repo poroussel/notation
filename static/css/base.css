@@ -28,7 +28,7 @@ table {width: 100%; text-align: left; border-spacing: 0px}
 .contenudroit {width:48%; float:right}
 
 .table {width:75%; float:left}
-.filtre {width:23%; float:right; font-size:10px; border-left: solid thin #AAA;}
+.filtre {width:23%; float:right; font-size:10px; border-left: solid thin #CCC;}
 .filtre ul {padding-left:20px}
 .filtre h3 {padding-left:10px}
 .filtre li {list-style-type: disc;}
