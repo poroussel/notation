@@ -4,9 +4,26 @@
 <div class="actions">
 <a href="{% url notation.views.ajouter_eleve %}">Ajouter un apprenti</a>
 </div>
-<ul>
-{% for elv in object_list %}
-  <li><a href="{% url detail_eleve elv.id %}">{{ elv.get_full_name }}</a></li>
+
+<table class="table">
+<thead><th>Apprenti</th><th>Formation</th><th>Entreprise</th></thead>
+<tbody>
+{% for blt in object_list %}
+<tr>
+  <td><a href="{% url detail_eleve blt.eleve.id %}">{{ blt.eleve.get_full_name }}</a></td>
+  <td>{{ blt.grille }}</td>
+  <td><a href="{{ blt.entreprise.get_absolute_url }}">{{ blt.entreprise }}</a></td>
+</tr>
 {% endfor %}
+</table>
+
+<div class="filtre">
+<h3>Filtre par formation</h3>
+<ul>
+  <li><a href="?">Tout</a></li>
+  {% for grille in grilles %}
+  <li><a href="?grille__id__exact={{ grille.id }}">{{ grille }}</a></li>
+  {% endfor %}
 </ul>
+</div>
 {% endblock %}

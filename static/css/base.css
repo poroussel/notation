@@ -27,6 +27,12 @@ table {width: 100%; text-align: left; border-spacing: 0px}
 .contenugauche {width:48%; float:left}
 .contenudroit {width:48%; float:right}
 
+.table {width:75%; float:left}
+.filtre {width:23%; float:right; font-size:10px; border-left: solid thin #AAA;}
+.filtre ul {padding-left:20px}
+.filtre h3 {padding-left:10px}
+.filtre li {list-style-type: disc;}
+
 #pied {color:#888888; padding-top:32px; padding-bottom:16px; text-align:center; clear:both; font-size: 11px;}
 #pied a {text-decoration: none;}
 

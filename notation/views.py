@@ -86,6 +86,11 @@ def bulletin(request, blt_id):
 
 @login_required
 def annee_bulletin(request, blt_id, annee):
+    """
+    Affiche la liste des ensembles de capacités d'un bulletin
+    pour une annnée, le formulaire de saisie des savoirs être
+    ainsi que les moyennes actuelles pour l'année.
+    """
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = blt.grille.ensemblecapacite_set.filter(capacite__code_annee__contains=annee).annotate(nbre_capacite=Count('capacite'))
     setre = blt.grille.savoiretre_set.filter(code_annee__contains=annee)
@@ -359,3 +364,11 @@ class SearchMiddleware(object):
             chaine =  urlquote(request.POST['chaine'])
             return HttpResponseRedirect(reverse('cfai.notation.views.recherche') + '?search=%s' % chaine)
         return None
+
+def liste_eleve(request):
+    grilles = GrilleNotation.objects.all().order_by('frm__libelle', 'promotion')
+    object_list = Bulletin.objects
+    for k in request.GET:
+        object_list = object_list.filter(**{k: request.GET[k]})
+    object_list = object_list.order_by('eleve__last_name')
+    return render_to_response('notation/eleve_list.html', RequestContext(request, {'object_list' : object_list, 'grilles' : grilles}))

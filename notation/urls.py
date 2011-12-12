@@ -9,9 +9,6 @@ liste_entreprises_dict = {'queryset' : Entreprise.objects.all()}
 
 liste_bulletins_dict = {'queryset' : Bulletin.objects.all()}
 
-liste_eleves_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='e').order_by('last_name'),
-                     'template_name' : 'notation/eleve_list.html'}
-
 liste_tuteurs_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='t').order_by('last_name'),
                       'template_name' : 'notation/tuteur_list.html'}
 
@@ -36,7 +33,7 @@ urlpatterns = patterns('',
     (r'^entreprises/ajouter/$', detail_entreprise, None, 'ajouter_entreprise'),
     (r'^entreprises/(?P<object_id>\d+)/$', detail_entreprise, None, 'detail_entreprise'),
 
-    (r'^eleves/$', object_list, liste_eleves_dict, 'liste_eleve'),
+    (r'^eleves/$', liste_eleve, None, 'liste_eleve'),
     (r'^eleves/ajouter/$', ajouter_eleve, None, 'ajouter_eleve'),
     (r'^eleves/(?P<object_id>\d+)/$', modifier_eleve, None, 'detail_eleve'),
 
