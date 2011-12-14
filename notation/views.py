@@ -369,6 +369,9 @@ def liste_eleve(request):
     grilles = GrilleNotation.objects.all().order_by('frm__libelle', 'promotion')
     object_list = Bulletin.objects
     for k in request.GET:
-        object_list = object_list.filter(**{k: request.GET[k]})
+        try:
+            object_list = object_list.filter(**{str(k): str(request.GET[k])})
+        except:
+            pass
     object_list = object_list.order_by('eleve__last_name')
     return render_to_response('notation/eleve_list.html', RequestContext(request, {'object_list' : object_list, 'grilles' : grilles}))
