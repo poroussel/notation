@@ -74,7 +74,7 @@ class GrilleNotation(models.Model):
     poids_savoir_etre = models.PositiveIntegerField(u'Poids de la moyenne des savoirs être dans la moyenne générale', default=1)
 
     def __unicode__(self):
-        return u'%s / %d - %d' % (self.frm.libelle, self.promotion, self.promotion + self.duree - 1)
+        return u'%s / %d - %d' % (self.frm.libelle, self.promotion, self.promotion + self.duree)
 
     def annee_promotion_courante(self):
         """
