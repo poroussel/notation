@@ -43,7 +43,8 @@ def create_user_profile(sender, instance, created, **kwargs):
                 print u"Création de l'utilisateur %s et envoi d'un email à l'adresse %s" % (instance.username, instance.email)
             try:
                 body = render_to_string('creation_compte.txt', {'profil' : profil, 'site' : current_site})
-                send_mail(u'Création de votre compte', body, settings.SERVER_EMAIL, [instance.email], fail_silently=True)
+                # FIXME : il faudrait utiliser fail_silently=False et gerer les exceptions et donc les problemes d'envoi d'email
+                send_mail(u'[CFAI/ENSMM] Création de votre compte', body, settings.SERVER_EMAIL, [instance.email], fail_silently=True)
             except:
                 pass
 post_save.connect(create_user_profile, sender=User)
