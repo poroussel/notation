@@ -273,6 +273,8 @@ def ajouter_tuteur(request):
         form = UtilisateurForm(request.POST)
         if form.is_valid():
             tuteur = form.save()
+            tuteur.set_password(tuteur.username)
+            tuteur.save()
             profil = ProfilUtilisateur.objects.get(user=tuteur)
             profil.user_type = 't'
             profil.phone_number = form.cleaned_data['phone_number']
@@ -290,6 +292,8 @@ def ajouter_formateur(request):
         form = UtilisateurForm(request.POST)
         if form.is_valid():
             formateur = form.save()
+            formateur.set_password(formateur.username)
+            formateur.save()
             profil = ProfilUtilisateur.objects.get(user=formateur)
             profil.user_type = 'f'
             profil.phone_number = form.cleaned_data['phone_number']
