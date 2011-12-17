@@ -23,7 +23,7 @@
 <h1>Les bulletins de ce tuteur</h1>
 <ul>
 {% for blt in bulletins %}
-    <li><a href="{% url detail_eleve blt.eleve.id %}">{{ blt.eleve.get_full_name }} ({{ blt.grille }})</a></li>
+    <li><a href="{% url detail_eleve blt.eleve.id %}">{{ blt.eleve.get_profile.nom_complet }} ({{ blt.grille }})</a></li>
 {% endfor %}
 </ul>
 {% endif %}

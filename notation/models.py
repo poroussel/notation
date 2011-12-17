@@ -34,6 +34,10 @@ class ProfilUtilisateur(models.Model):
     def is_administratif(self):
         return self.user_type == 'a'
 
+    def _nom_complet(self):
+        return '%s %s' % (self.user.last_name, self.user.first_name)
+    nom_complet = property(_nom_complet)
+                
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         profil, created = ProfilUtilisateur.objects.get_or_create(user=instance)
@@ -147,7 +151,7 @@ class Bulletin(models.Model):
     auteur_modification = models.ForeignKey(User, related_name='auteur', null=True)
 
     def __unicode__(self):
-        return u'Bulletin de %s (%s / %s)' % (self.eleve.get_full_name(), self.grille, self.entreprise)
+        return u'Bulletin de %s (%s / %s)' % (self.eleve.get_profile().nom_complet, self.grille, self.entreprise)
 
     @models.permalink
     def get_absolute_url(self):
@@ -311,7 +315,7 @@ class Moyenne(models.Model):
     valeur_gn = models.DecimalField(u'Moyenne générale', max_digits=4, decimal_places=2, default=0)
 
     def __unicode__(self):
-        return u'Moyenne de %s pour la %s' % (self.bulletin.eleve.get_full_name(), NOMS_ANNEES[self.annee])
+        return u'Moyenne de %s pour la %s' % (self.bulletin.eleve.get_profile().nom_complet, NOMS_ANNEES[self.annee])
 
 def maj_moyenne_generale(sender, instance, **kwargs):
     instance.valeur_gn = (instance.valeur_cp * instance.bulletin.grille.poids_capacite + instance.valeur_sv * instance.bulletin.grille.poids_savoir_etre) / (instance.bulletin.grille.poids_capacite + instance.bulletin.grille.poids_savoir_etre)
@@ -339,12 +343,12 @@ class Note(models.Model):
         """
         Méthode utilisée dans le vue liste admin
         """
-        return self.bulletin.eleve.get_full_name()
+        return self.bulletin.eleve.get_profile().nom_complet
     
     def __unicode__(self):
         if self.capacite:
-            return u'Note de %s pour la capacité %s'% (self.bulletin.eleve.get_full_name(), self.capacite)
-        return u'Note de %s pour le savoir être %s'% (self.bulletin.eleve.get_full_name(), self.savoir)
+            return u'Note de %s pour la capacité %s'% (self.bulletin.eleve.get_profile().nom_complet, self.capacite)
+        return u'Note de %s pour le savoir être %s'% (self.bulletin.eleve.get_profile().nom_complet, self.savoir)
 
 class Commentaire(models.Model):
     """
@@ -367,7 +371,7 @@ class Commentaire(models.Model):
         """
         Méthode utilisée dans le vue liste admin
         """
-        return self.bulletin.eleve.get_full_name()
+        return self.bulletin.eleve.get_profile().nom_complet
 
     def __unicode__(self):
         return u'Commentaire de %s pour le groupe %s'% (self.bulletin.eleve.get_full_name(), self.ensemble)

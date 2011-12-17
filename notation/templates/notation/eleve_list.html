@@ -10,7 +10,7 @@
 <tbody>
 {% for blt in object_list %}
 <tr>
-  <td><a href="{% url detail_eleve blt.eleve.id %}">{{ blt.eleve.get_full_name }}</a></td>
+  <td><a href="{% url detail_eleve blt.eleve.id %}">{{ blt.eleve.get_profile.nom_complet }}</a></td>
   <td>{{ blt.grille }}</td>
   <td><a href="{{ blt.get_absolute_url }}">Détail</a>
   <td><a href="{{ blt.entreprise.get_absolute_url }}">{{ blt.entreprise }}</a></td>

@@ -6,7 +6,7 @@
 </div>
 <ul>
 {% for obj in object_list %}
-  <li><a href="{% url detail_tuteur obj.id %}">{{ obj.get_full_name }}</a></li>
+  <li><a href="{% url detail_tuteur obj.id %}">{{ obj.get_profile.nom_complet }}</a></li>
 {% endfor %}
 </ul>
 {% endblock %}
