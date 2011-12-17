@@ -3,14 +3,18 @@
 from django.http import HttpResponse
 from cfai.notation.models import *
 from xlwt import *
+import unicodedata
 
+chaine = u"éèêäûôü"
 def bulletin_xls(request, blt):
+    # Suppression des caractères accentués du nom de l'apprenti
+    nom = unicodedata.normalize('NFKD', blt.eleve.get_full_name()).encode('ASCII', 'ignore')
     response = HttpResponse(mimetype='application/xls')
-    response['Content-Disposition'] = 'attachment; filename="%s.xls"' % blt.eleve.get_full_name()
+    response['Content-Disposition'] = 'attachment; filename="%s.xls"' % nom
 
     # Creation d'un workbook en Unicode
     book = Workbook(encoding='cp1251')
-    sheet = book.add_sheet('Bulletin %d-%d' % (blt.grille.promotion, blt.grille.promotion + blt.grille.duree - 1))
+    sheet = book.add_sheet('Bulletin %d-%d' % (blt.grille.promotion, blt.grille.promotion + blt.grille.duree))
 
     # Les entêtes de colonnes sur la deuxième ligne
     sheet.write(2, 0, u'Partie spécifique')
