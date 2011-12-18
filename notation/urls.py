@@ -7,7 +7,7 @@ from cfai.notation.models import Entreprise, ProfilUtilisateur, Bulletin
 
 liste_entreprises_dict = {'queryset' : Entreprise.objects.all()}
 
-liste_bulletins_dict = {'queryset' : Bulletin.objects.all()}
+liste_bulletins_dict = {'queryset' : Bulletin.objects.order_by('grille', 'eleve__last_name', 'eleve__first_name')}
 
 liste_tuteurs_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='t').order_by('last_name'),
                       'template_name' : 'notation/tuteur_list.html'}
