@@ -318,7 +318,7 @@ def detail_entreprise(request, object_id=None):
 def detail_formateur(request, object_id):
     frm = get_object_or_404(User, pk=object_id)
     profil = frm.get_profile()
-    bulletins = Bulletin.objects.filter(formateur=frm)
+    bulletins = Bulletin.objects.filter(formateur=frm).order_by('grille', 'eleve__last_name', 'eleve__first_name')
     if request.method == 'POST':
         form = ProfilUtilisateurForm(request.POST, instance=frm)
         if form.is_valid():
@@ -334,7 +334,7 @@ def detail_formateur(request, object_id):
 def detail_tuteur(request, object_id):
     tuteur = get_object_or_404(User, pk=object_id)
     profil = tuteur.get_profile()
-    bulletins = Bulletin.objects.filter(tuteur=tuteur)
+    bulletins = Bulletin.objects.filter(tuteur=tuteur).order_by('grille', 'eleve__last_name', 'eleve__first_name')
     if request.method == 'POST':
         form = ProfilUtilisateurForm(request.POST, instance=tuteur)
         if form.is_valid():
