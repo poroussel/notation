@@ -21,12 +21,19 @@ class Command(BaseCommand):
 
         grille = GrilleNotation.objects.get(id=id_grille)        
         ensembles = EnsembleCapacite.objects.filter(grille=grille)
-
+        savoirs = SavoirEtre.objects.filter(grille=grille)
+        
         ngrille = copy(grille)
         ngrille.id = None
         ngrille.promotion = promotion
         ngrille.save()
 
+        for sv in savoirs:
+            nsv = copy(sv)
+            nsv.id = None
+            nsv.grille = ngrille
+            nsv.save()
+            
         for ens in ensembles:
             capacites = Capacite.objects.filter(ensemble=ens)
             nens = copy(ens)
