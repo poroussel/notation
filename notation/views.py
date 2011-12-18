@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from django.conf import settings
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import logout
@@ -11,6 +12,8 @@ from django.utils.http import urlquote
 from django.views.generic.create_update import update_object, create_object
 from django.core.urlresolvers import reverse
 from django.db.models import Count
+from django.template.loader import render_to_string
+from django.contrib.sites.models import Site
 from cfai.notation.models import *
 from cfai.notation.forms import *
 from cfai.notation.excel import *
@@ -225,6 +228,15 @@ def ajouter_eleve(request):
             bulletin.tuteur = form.cleaned_data['tuteur']
             bulletin.formateur = form.cleaned_data['formateur']
             bulletin.save()
+
+            body = render_to_string('creation_compte.txt', {'profil' : eleve.get_profile(), 'site' : Site.objects.get_current()})
+            try:
+                eleve.email_user(u'[CFAI/ENSMM] Création de votre compte', body, from_email=settings.SERVER_EMAIL)
+                messages.success(request, u'Un email a été envoyé à %s.' % eleve.get_full_name())
+            except:
+                messages.error(request, u'Une erreur s\'est produite lors de l\'envoi d\'un email à %s, veuillez vérifier l\'adresse.' % eleve.email)
+                return HttpResponseRedirect(reverse('detail_eleve', args=[eleve.id]))
+
             if '_continuer' in request.POST:
                 return HttpResponseRedirect(reverse('ajouter_eleve'))
             return HttpResponseRedirect(reverse('liste_eleve'))
@@ -292,6 +304,15 @@ def ajouter_tuteur(request):
             profil.user_type = 't'
             profil.phone_number = form.cleaned_data['phone_number']
             profil.save()
+
+            body = render_to_string('creation_compte.txt', {'profil' : tuteur.get_profile(), 'site' : Site.objects.get_current()})
+            try:
+                tuteur.email_user(u'[CFAI/ENSMM] Création de votre compte', body, from_email=settings.SERVER_EMAIL)
+                messages.success(request, u'Un email a été envoyé à %s.' % tuteur.get_full_name())
+            except:
+                messages.error(request, u'Une erreur s\'est produite lors de l\'envoi d\'un email à %s, veuillez vérifier l\'adresse.' % tuteur.email)
+                return HttpResponseRedirect(reverse('detail_tuteur', args=[tuteur.id]))
+
             if '_continuer' in request.POST:
                 return HttpResponseRedirect(reverse('ajouter_tuteur'))
             return HttpResponseRedirect(reverse('liste_tuteur'))
@@ -311,6 +332,15 @@ def ajouter_formateur(request):
             profil.user_type = 'f'
             profil.phone_number = form.cleaned_data['phone_number']
             profil.save()
+
+            body = render_to_string('creation_compte.txt', {'profil' : formateur.get_profile(), 'site' : Site.objects.get_current()})
+            try:
+                formateur.email_user(u'[CFAI/ENSMM] Création de votre compte', body, from_email=settings.SERVER_EMAIL)
+                messages.success(request, u'Un email a été envoyé à %s.' % formateur.get_full_name())
+            except:
+                messages.error(request, u'Une erreur s\'est produite lors de l\'envoi d\'un email à %s, veuillez vérifier l\'adresse.' % formateur.email)
+                return HttpResponseRedirect(reverse('detail_formateur', args=[formateur.id]))
+
             if '_continuer' in request.POST:
                 return HttpResponseRedirect(reverse('ajouter_formateur'))
             return HttpResponseRedirect(reverse('liste_formateur'))

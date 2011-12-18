@@ -3,10 +3,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import pre_save, post_save
-from django.conf import settings
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
-from django.contrib.sites.models import Site
 from datetime import date
 
 TYPES = (('e', u'Apprenti'),
@@ -41,16 +37,6 @@ class ProfilUtilisateur(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         profil, created = ProfilUtilisateur.objects.get_or_create(user=instance)
-        current_site = Site.objects.get_current()
-        if len(instance.email) > 0:
-            if settings.DEBUG:
-                print u"Création de l'utilisateur %s et envoi d'un email à l'adresse %s" % (instance.username, instance.email)
-            try:
-                body = render_to_string('creation_compte.txt', {'profil' : profil, 'site' : current_site})
-                # FIXME : il faudrait utiliser fail_silently=False et gerer les exceptions et donc les problemes d'envoi d'email
-                send_mail(u'[CFAI/ENSMM] Création de votre compte', body, settings.SERVER_EMAIL, [instance.email], fail_silently=True)
-            except:
-                pass
 post_save.connect(create_user_profile, sender=User)
 
 
