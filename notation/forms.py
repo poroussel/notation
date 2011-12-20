@@ -8,7 +8,7 @@ from cfai.notation.models import *
 
 class UserChoiceField(forms.ModelChoiceField):
     def label_from_instance(self, obj):
-        return obj.get_full_name()
+        return obj.get_profile().nom_complet
             
 class CreationEleveForm(forms.Form):
     identifiant = forms.CharField(label=u'Nom d\'utilisateur', max_length=30, help_text=u'Lors de la création du compte, le mot de passe sera initialisé avec la même valeur.')
@@ -18,8 +18,8 @@ class CreationEleveForm(forms.Form):
     telephone = FRPhoneNumberField(label=u'N° de téléphone', required=False)
     formation = forms.ModelChoiceField(queryset=GrilleNotation.objects.all())
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
-    tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t'))
-    formateur = UserChoiceField(label=u'Chargé de promotion', queryset=User.objects.filter(profilutilisateur__user_type='f'))
+    tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t').order_by('last_name', 'first_name'))
+    formateur = UserChoiceField(label=u'Chargé de promotion', queryset=User.objects.filter(profilutilisateur__user_type='f').order_by('last_name', 'first_name'))
 
     def clean(self):
       """
@@ -38,8 +38,8 @@ class EditionEleveForm(forms.Form):
     email = forms.EmailField(label = u'Adresse électronique', required=True)
     telephone = FRPhoneNumberField(label=u'N° de téléphone', required=False)
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
-    tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t'))
-    formateur = UserChoiceField(label=u'Chargé de promotion', queryset=User.objects.filter(profilutilisateur__user_type='f'))
+    tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t').order_by('last_name', 'first_name'))
+    formateur = UserChoiceField(label=u'Chargé de promotion', queryset=User.objects.filter(profilutilisateur__user_type='f').order_by('last_name', 'first_name'))
 
 class UtilisateurForm(forms.ModelForm):
     """
