@@ -11,7 +11,7 @@
 {% for etpr in object_list %}
 <tr>
   <td><a href="{% url detail_entreprise etpr.id %}">{{ etpr.nom }}</a></td>
-  <td>{{ etpr.commentaire }}</td>
+  <td>{{ etpr.description }}</td>
   <td>{{ etpr.telephone }}</td>
   <td>{{ etpr.fax }}</td>
   <td>
