@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+{% if object %}
 <h1>Détails d'un apprenti {{ object.get_full_name }}</h1>
+{% else %}
+<h1>Création d'un apprenti</h1>
+{% endif %}
 <div id="soustitre">
 <a href="{% url notation.views.liste_eleve %}">retour à la liste</a>
 </div>
