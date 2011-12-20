@@ -101,6 +101,9 @@ post_save.connect(maj_bulletins_de_grille, sender=GrilleNotation)
 
 
 class Entreprise(models.Model):
+    class Meta:
+        ordering = ['nom']
+        
     nom = models.CharField(u'Nom', max_length=80)
     description = models.TextField(u'Description', blank=True)
     telephone = models.CharField(u'N° de téléphone', max_length=15, blank=True)
