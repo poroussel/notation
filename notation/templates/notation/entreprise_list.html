@@ -4,9 +4,23 @@
 <div class="actions">
 <a href="{% url ajouter_entreprise %}">Ajouter une entreprise</a>
 </div>
-<ul>
+
+<table>
+<thead><th>Nom</th><th>Adresse</th><th>Tél</th><th>Fax</th><th>Apprenti(s)</th></thead>
+<tbody>
 {% for etpr in object_list %}
-  <li><a href="{% url detail_entreprise etpr.id %}">{{ etpr }}</a></li>
+<tr>
+  <td><a href="{% url detail_entreprise etpr.id %}">{{ etpr.nom }}</a></td>
+  <td>{{ etpr.commentaire }}</td>
+  <td>{{ etpr.telephone }}</td>
+  <td>{{ etpr.fax }}</td>
+  <td>
+    {% for blt in etpr.bulletin_set.all %}
+    <div><a href="{% url detail_eleve blt.eleve.id %}">{{ blt.eleve.get_profile.nom_complet }}</a></div>
+    {% endfor %}
+  <tr>
+</tr>
 {% endfor %}
-</ul>
+</table>
+
 {% endblock %}
