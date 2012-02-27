@@ -16,9 +16,13 @@ def bulletin_xls(request, blt):
     book = Workbook(encoding='cp1251')
     sheet = book.add_sheet('Bulletin %d-%d' % (blt.grille.promotion, blt.grille.promotion + blt.grille.duree))
 
+    # Largeur des colonnes
+    sheet.col(1).width = 15000
+    sheet.col(5).width += 400
+    sheet.col(6).width = 7000
+    
     # Entête globale
     gras = easyxf('font: name Arial, color-index black, bold on; pattern: pattern solid, fore-colour light-green')
-    sheet.col(1).width = 15000
     lig = 0
     sheet.write_merge(lig, lig, 1, 4, u'Diplôme d\'ingénieur ENSMM Intitulé : ', gras)
     lig += 1
@@ -48,16 +52,18 @@ def bulletin_xls(request, blt):
     lig += 1
     sheet.write(lig, 1, u'Chargé de promotion : ', normal)
     
+    titre = easyxf('font: name Arial, color-index black, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: horiz centre')
     lig = 13
-    # Les entêtes de colonnes sur la deuxième ligne
-    sheet.write(lig, 0, u'Partie spécifique')
-    sheet.write(lig, 1, u'Capacités professionnelles et Tâches professionnelles (Etre capable de…)')
-    sheet.write(lig, 2, u'1ère année')
-    sheet.write(lig, 3, u'2ème année')
-    sheet.write(lig, 4, u'3ème année')
-    sheet.write(lig, 5, u'Cours associé')
-    sheet.write(lig, 6, u'Résultats - indicateurs de performance - validation (Actions réalisées ou initiées en entreprise)')
+    sheet.write(lig, 2, u'1ère année', titre)
+    sheet.write(lig, 3, u'2ème année', titre)
+    sheet.write(lig, 4, u'3ème année', titre)
+    sheet.write(lig, 5, u'Cours associé', titre)
+    sheet.write(lig, 6, u'Actions réalisées ou initiées', titre)
 
+    titre = easyxf('font: name Arial, color-index black, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour grey25')
+    titreg = easyxf('font: name Arial, color-index black, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour grey25')
+    normal = easyxf('font: name Arial, color-index black, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre')
+    centre = easyxf('font: name Arial, color-index black, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre')
     lig += 1
     ensembles = EnsembleCapacite.objects.filter(grille = blt.grille)
     for ens in ensembles:
@@ -66,21 +72,26 @@ def bulletin_xls(request, blt):
             continue
         
         sheet.write(lig, 0, ens.partie)
-        sheet.write(lig, 1, u'%d %s' % (ens.numero, ens.libelle))
+        sheet.write_merge(lig, lig, 1, 6, u'%d %s' % (ens.numero, ens.libelle), titreg)
         lig += 1
 
         for cap in capacites:
-            sheet.write(lig, 1, u'%d.%d %s' % (ens.numero, cap.numero, cap.libelle))
-            sheet.write(lig, 5, cap.cours)
+            # Création des cellules même vides pour la bordure
+            sheet.write(lig, 1, u'%d.%d %s' % (ens.numero, cap.numero, cap.libelle), normal)
+            sheet.write(lig, 2, '', centre)
+            sheet.write(lig, 3, '', centre)
+            sheet.write(lig, 4, '', centre)
+            sheet.write(lig, 5, cap.cours, centre)
+            sheet.write(lig, 6, '', centre)
 
             notes = Note.objects.filter(bulletin=blt, capacite=cap)
             for note in notes:
-                sheet.write(lig, 2 + note.annee, note.valeur)
+                sheet.write(lig, 2 + note.annee, note.valeur, centre)
                 
             lig = lig + 1
             
         sheet.write(lig, 1, u'Note sur 5')
-        lig = lig + 1
+        lig = lig + 2
         
     book.save(response)
     return response
