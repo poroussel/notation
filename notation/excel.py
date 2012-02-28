@@ -108,13 +108,13 @@ def bulletin_xls(request, blt):
         else:
             sheet.merge(start, lig - 1, 6, 6, commentaire)
         
-        sheet.write(lig, 1, u'Note sur 5', note)
+        sheet.write(lig, 1, u'Note sur %s' % (5 * ens.poids), note)
         moy = blt.moyenne_ensemble(ens, 0)
-        sheet.write(lig, 2, moy, notec)
+        sheet.write(lig, 2, moy and moy * ens.poids or None, notec)
         moy = blt.moyenne_ensemble(ens, 1)
-        sheet.write(lig, 3, moy, notec)
+        sheet.write(lig, 3, moy and moy * ens.poids or None, notec)
         moy = blt.moyenne_ensemble(ens, 2)
-        sheet.write(lig, 4, moy, notec)
+        sheet.write(lig, 4, moy and moy * ens.poids or None, notec)
         
         lig = lig + 2
         
