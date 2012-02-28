@@ -65,6 +65,7 @@ def bulletin_xls(request, blt):
     titre = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour grey25')
     titreg = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour grey25')
     normal = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre')
+    commentaire = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert top')
     centre = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre')
     note = easyxf('font: name Arial, height 160, bold on; align: vert centre')
     notec = easyxf('font: name Arial, height 160, bold on; align: vert centre, horiz centre')
@@ -100,7 +101,11 @@ def bulletin_xls(request, blt):
 
             lig = lig + 1
 
-        sheet.merge(start, lig - 1, 6, 6, normal)
+        comm = Commentaire.objects.filter(ensemble=ens)
+        if comm:
+            sheet.write_merge(start, lig - 1, 6, 6, comm[0].texte, commentaire)
+        else:
+            sheet.merge(start, lig - 1, 6, 6, commentaire)
         
         sheet.write(lig, 1, u'Note sur 5', note)
         moy = blt.moyenne_ensemble(ens, 0)
