@@ -84,6 +84,7 @@ def bulletin_xls(request, blt):
         sheet.write_merge(lig, lig, 1, 6, u'%d %s' % (ens.numero, ens.libelle), titreg)
         lig += 1
 
+        start = lig
         for cap in capacites:
             # Création des cellules même vides pour la bordure
             sheet.write(lig, 1, u'%d.%d %s' % (ens.numero, cap.numero, cap.libelle), normal)
@@ -96,10 +97,11 @@ def bulletin_xls(request, blt):
             n = notes.filter(annee=1)
             sheet.write(lig, 4, n and n[0].valeur or '', cap.an_3 and centreb or centre)
             sheet.write(lig, 5, cap.cours, centre)
-            sheet.write(lig, 6, '', centre)
 
             lig = lig + 1
-            
+
+        sheet.merge(start, lig - 1, 6, 6, normal)
+        
         sheet.write(lig, 1, u'Note sur 5', note)
         moy = blt.moyenne_ensemble(ens, 0)
         sheet.write(lig, 2, moy, notec)
