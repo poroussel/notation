@@ -62,10 +62,15 @@ def bulletin_xls(request, blt):
     sheet.write(lig, 5, u'Cours associé', titre)
     sheet.write(lig, 6, u'Actions réalisées ou initiées', titre)
 
-    titre = easyxf('font: name Arial, color-index black, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour grey25')
-    titreg = easyxf('font: name Arial, color-index black, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour grey25')
-    normal = easyxf('font: name Arial, color-index black, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre')
-    centre = easyxf('font: name Arial, color-index black, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre')
+    titre = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour grey25')
+    titreg = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour grey25')
+    normal = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre')
+    centre = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre')
+    
+    centrer = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour red')
+    centrev = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour green')
+    centreb = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour blue')
+    
     lig += 1
     ensembles = EnsembleCapacite.objects.filter(grille = blt.grille)
     for ens in ensembles:
@@ -80,16 +85,17 @@ def bulletin_xls(request, blt):
         for cap in capacites:
             # Création des cellules même vides pour la bordure
             sheet.write(lig, 1, u'%d.%d %s' % (ens.numero, cap.numero, cap.libelle), normal)
-            sheet.write(lig, 2, '', centre)
-            sheet.write(lig, 3, '', centre)
-            sheet.write(lig, 4, '', centre)
+            
+            notes = Note.objects.filter(bulletin=blt, capacite=cap)
+            n = notes.filter(annee=0)
+            sheet.write(lig, 2, n and n[0].valeur or '', cap.an_1 and centrer or centre)
+            n = notes.filter(annee=1)
+            sheet.write(lig, 3, n and n[0].valeur or '', cap.an_2 and centrev or centre)
+            n = notes.filter(annee=1)
+            sheet.write(lig, 4, n and n[0].valeur or '', cap.an_3 and centreb or centre)
             sheet.write(lig, 5, cap.cours, centre)
             sheet.write(lig, 6, '', centre)
 
-            notes = Note.objects.filter(bulletin=blt, capacite=cap)
-            for note in notes:
-                sheet.write(lig, 2 + note.annee, note.valeur, centre)
-                
             lig = lig + 1
             
         sheet.write(lig, 1, u'Note sur 5')
