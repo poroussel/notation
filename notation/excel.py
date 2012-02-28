@@ -66,6 +66,8 @@ def bulletin_xls(request, blt):
     titreg = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour grey25')
     normal = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre')
     centre = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre')
+    note = easyxf('font: name Arial, height 160, bold on; align: vert centre')
+    notec = easyxf('font: name Arial, height 160, bold on; align: vert centre, horiz centre')
     
     centrer = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour red')
     centrev = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour green')
@@ -98,7 +100,14 @@ def bulletin_xls(request, blt):
 
             lig = lig + 1
             
-        sheet.write(lig, 1, u'Note sur 5')
+        sheet.write(lig, 1, u'Note sur 5', note)
+        moy = blt.moyenne_ensemble(ens, 0)
+        sheet.write(lig, 2, moy, notec)
+        moy = blt.moyenne_ensemble(ens, 1)
+        sheet.write(lig, 3, moy, notec)
+        moy = blt.moyenne_ensemble(ens, 2)
+        sheet.write(lig, 4, moy, notec)
+        
         lig = lig + 2
         
     book.save(response)
