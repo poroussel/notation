@@ -22,35 +22,37 @@ def bulletin_xls(request, blt):
     sheet.col(6).width = 7000
     
     # Entête globale
-    gras = easyxf('font: name Arial, color-index black, bold on; pattern: pattern solid, fore-colour light-green')
     lig = 0
+    gras = easyxf('font: name Arial, bold on; pattern: pattern solid, fore-colour bright_green; borders: left medium, top medium, right medium')
     sheet.write_merge(lig, lig, 1, 4, u'Diplôme d\'ingénieur ENSMM Intitulé : ', gras)
     lig += 1
+    gras = easyxf('font: name Arial, bold on; pattern: pattern solid, fore-colour bright_green; borders: left medium, right medium')
     sheet.write_merge(lig, lig, 1, 4, u'Filière ITII, Organisme coordinateur CFAI Sud Franche-Comté; Branche Professionnelle UIMM', gras)
     lig += 1
 
-    gros = easyxf('font: name Arial, color-index black, bold on, height 240')
-    normal = easyxf('font: name Arial, color-index black, bold on, height 180')
-    sheet.write(lig, 1, u'Apprenti : ', gros)
+    gros = easyxf('font: name Arial, bold on, height 240; borders: left medium, right medium')
+    normal = easyxf('font: name Arial, bold on, height 180; borders: left medium, right medium')
+    sheet.write_merge(lig, lig, 1, 4, u'Apprenti : ', gros)
     sheet.row(lig).height = sheet.row(lig).height * 3 / 2
     lig += 1
-    sheet.write(lig, 1, u'Année de formation : ', normal)
+    sheet.write_merge(lig, lig, 1, 4, u'Année de formation : ', normal)
     lig += 1
-    sheet.write(lig, 1, u'N° de tél portable : Adresse email : ', normal)
+    sheet.write_merge(lig, lig, 1, 4, u'N° de tél portable : Adresse email : ', normal)
     lig += 1
     
-    sheet.write(lig, 1, u'Entreprise : ', gros)
+    sheet.write_merge(lig, lig, 1, 4, u'Entreprise : ', gros)
     sheet.row(lig).height = sheet.row(lig).height * 3 / 2
     lig += 1
-    sheet.write(lig, 1, u'Adresse : ', normal)
+    sheet.write_merge(lig, lig, 1, 4, u'Adresse : ', normal)
     lig += 1
     
-    sheet.write(lig, 1, u'Tuteur : ', gros)
+    sheet.write_merge(lig, lig, 1, 4, u'Tuteur : ', gros)
     sheet.row(lig).height = sheet.row(lig).height * 3 / 2
     lig += 1
-    sheet.write(lig, 1, u'N° de tél portable : Adresse email : ', normal)
+    sheet.write_merge(lig, lig, 1, 4, u'N° de tél portable : Adresse email : ', normal)
     lig += 1
-    sheet.write(lig, 1, u'Chargé de promotion : ', normal)
+    normal = easyxf('font: name Arial, bold on, height 180; borders: left medium, right medium, bottom medium')
+    sheet.write_merge(lig, lig, 1, 4, u'Chargé de promotion : ', normal)
     
     titre = easyxf('font: name Arial, color-index black, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: horiz centre')
     lig = 13
