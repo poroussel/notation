@@ -100,7 +100,7 @@ def bulletin_xls(request, blt):
             sheet.write(lig, 4, n and n[0].valeur or '', cap.an_3 and centreb or centre)
             sheet.write(lig, 5, cap.cours, centre)
 
-            lig = lig + 1
+            lig += 1
 
         comm = Commentaire.objects.filter(ensemble=ens)
         if comm:
@@ -116,7 +116,19 @@ def bulletin_xls(request, blt):
         moy = blt.moyenne_ensemble(ens, 2)
         sheet.write(lig, 4, moy and moy * ens.poids or None, notec)
         
-        lig = lig + 2
-        
+        lig += 2
+
+    # Fin de tableau avec les moyennes et les savoirs etre
+    lig += 1
+    titreg = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour sea_green')
+    sheet.write(lig, 1, u'Note globale "compétence" sur 20 (sera entre 4 et 20)', titreg)
+    gras = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour sea_green')
+    moyenne = Moyenne.objects.filter(bulletin=blt, annee=0)
+    sheet.write(lig, 2, moyenne and moyenne[0].valeur_cp or 4, gras)
+    moyenne = Moyenne.objects.filter(bulletin=blt, annee=1)
+    sheet.write(lig, 3, moyenne and moyenne[0].valeur_cp or 4, gras)
+    moyenne = Moyenne.objects.filter(bulletin=blt, annee=2)
+    sheet.write(lig, 4, moyenne and moyenne[0].valeur_cp or 4, gras)
+
     book.save(response)
     return response
