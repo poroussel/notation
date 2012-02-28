@@ -64,8 +64,8 @@ def bulletin_xls(request, blt):
 
     titre = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour grey25')
     titreg = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour grey25')
-    normal = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre')
-    commentaire = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert top')
+    normal = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, wrap true')
+    commentaire = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert top, wrap true')
     centre = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre')
     note = easyxf('font: name Arial, height 160, bold on; align: vert centre')
     notec = easyxf('font: name Arial, height 160, bold on; align: vert centre, horiz centre')
@@ -87,6 +87,7 @@ def bulletin_xls(request, blt):
 
         start = lig
         for cap in capacites:
+            sheet.row(lig).height = sheet.row(lig).height * 3 / 2
             # Création des cellules même vides pour la bordure
             sheet.write(lig, 1, u'%d.%d %s' % (ens.numero, cap.numero, cap.libelle), normal)
             
