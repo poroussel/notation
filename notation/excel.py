@@ -54,7 +54,7 @@ def bulletin_xls(request, blt):
     normal = easyxf('font: name Arial, bold on, height 180; borders: left medium, right medium, bottom medium')
     sheet.write_merge(lig, lig, 1, 4, u'Chargé de promotion : ', normal)
     
-    titre = easyxf('font: name Arial, color-index black, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: horiz centre')
+    titre = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: horiz centre')
     lig = 13
     sheet.write(lig, 2, u'1ère année', titre)
     sheet.write(lig, 3, u'2ème année', titre)
@@ -69,7 +69,7 @@ def bulletin_xls(request, blt):
     centre = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre')
     note = easyxf('font: name Arial, height 160, bold on; align: vert centre')
     notec = easyxf('font: name Arial, height 160, bold on; align: vert centre, horiz centre')
-    
+
     centrer = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour red')
     centrev = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour green')
     centreb = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour blue')
@@ -130,5 +130,20 @@ def bulletin_xls(request, blt):
     moyenne = Moyenne.objects.filter(bulletin=blt, annee=2)
     sheet.write(lig, 4, moyenne and moyenne[0].valeur_cp or 4, gras)
 
+    lig += 2
+    titre = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: horiz centre, vert centre; pattern: pattern solid, fore-colour pink')
+    normal = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour pink')
+    sheet.write(lig, 1, u'Savoir être', titre)
+    sheet.write(lig, 2, u'', centrer)
+    sheet.write(lig, 3, u'', centrev)
+    sheet.write(lig, 4, u'', centreb)
+
+    lig += 1
+    savoirs = SavoirEtre.objects.filter(grille=blt.grille)
+    for sv in savoirs:
+        sheet.row(lig).height = sheet.row(lig).height * 3 / 2
+        sheet.write(lig, 1, sv.libelle, normal)
+        lig += 1
+    
     book.save(response)
     return response
