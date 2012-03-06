@@ -139,11 +139,45 @@ def bulletin_xls(request, blt):
     sheet.write(lig, 4, u'', centreb)
 
     lig += 1
+    centrer = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour red')
+    centrev = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour green')
+    centreb = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour blue')
     savoirs = SavoirEtre.objects.filter(grille=blt.grille)
     for sv in savoirs:
         sheet.row(lig).height = sheet.row(lig).height * 3 / 2
         sheet.write(lig, 1, sv.libelle, normal)
+        notes = Note.objects.filter(bulletin=blt, savoir=sv)
+        n = notes.filter(annee=0)
+        sheet.write(lig, 2, n and n[0].valeur or '', centrer)
+        n = notes.filter(annee=1)
+        sheet.write(lig, 3, n and n[0].valeur or '', centrev)
+        n = notes.filter(annee=2)
+        sheet.write(lig, 4, n and n[0].valeur or '', centreb)
         lig += 1
+
+    lig += 1
+    titreg = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour light_blue')
+    sheet.write(lig, 1, u'Moyenne "savoir être" (sur 20)', titreg)
+    moyenne = Moyenne.objects.filter(bulletin=blt, annee=0)
+    sheet.write(lig, 2, moyenne and moyenne[0].valeur_sv or 4, centrer)
+    moyenne = Moyenne.objects.filter(bulletin=blt, annee=1)
+    sheet.write(lig, 3, moyenne and moyenne[0].valeur_sv or 4, centrev)
+    moyenne = Moyenne.objects.filter(bulletin=blt, annee=2)
+    sheet.write(lig, 4, moyenne and moyenne[0].valeur_sv or 4, centreb)
+    
+    lig += 1
+    titreg = easyxf('font: name Arial, bold on, height 200; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour light_blue')
+    centrer = easyxf('font: name Arial, bold on, height 200; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour red')
+    centrev = easyxf('font: name Arial, bold on, height 200; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour green')
+    centreb = easyxf('font: name Arial, bold on, height 200; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour blue')
+    sheet.row(lig).height = sheet.row(lig).height * 3 / 2
+    sheet.write(lig, 1, u'Note entreprise (sur 20)', titreg)
+    moyenne = Moyenne.objects.filter(bulletin=blt, annee=0)
+    sheet.write(lig, 2, moyenne and moyenne[0].valeur_gn or 4, centrer)
+    moyenne = Moyenne.objects.filter(bulletin=blt, annee=1)
+    sheet.write(lig, 3, moyenne and moyenne[0].valeur_gn or 4, centrev)
+    moyenne = Moyenne.objects.filter(bulletin=blt, annee=2)
+    sheet.write(lig, 4, moyenne and moyenne[0].valeur_gn or 4, centreb)
     
     book.save(response)
     return response
