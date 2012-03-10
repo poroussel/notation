@@ -105,6 +105,7 @@ class Entreprise(models.Model):
         ordering = ['nom']
         
     nom = models.CharField(u'Nom', max_length=80)
+    # Adresse
     description = models.TextField(u'Description', blank=True)
     telephone = models.CharField(u'N° de téléphone', max_length=15, blank=True)
     fax = models.CharField(u'N° de fax', max_length=15, blank=True)

@@ -24,7 +24,7 @@ def bulletin_xls(request, blt):
     # Entête globale
     lig = 0
     gras = easyxf('font: name Arial, bold on; pattern: pattern solid, fore-colour bright_green; borders: left medium, top medium, right medium')
-    sheet.write_merge(lig, lig, 1, 4, u'Diplôme d\'ingénieur ENSMM Intitulé : ', gras)
+    sheet.write_merge(lig, lig, 1, 4, u'Diplôme d\'ingénieur ENSMM Intitulé : %s' % (blt.grille.frm), gras)
     lig += 1
     gras = easyxf('font: name Arial, bold on; pattern: pattern solid, fore-colour bright_green; borders: left medium, right medium')
     sheet.write_merge(lig, lig, 1, 4, u'Filière ITII, Organisme coordinateur CFAI Sud Franche-Comté; Branche Professionnelle UIMM', gras)
@@ -32,27 +32,27 @@ def bulletin_xls(request, blt):
 
     gros = easyxf('font: name Arial, bold on, height 240; borders: left medium, right medium')
     normal = easyxf('font: name Arial, bold on, height 180; borders: left medium, right medium')
-    sheet.write_merge(lig, lig, 1, 4, u'Apprenti : ', gros)
+    sheet.write_merge(lig, lig, 1, 4, u'Apprenti : %s' % (blt.eleve.get_profile().nom_complet), gros)
     sheet.row(lig).height = sheet.row(lig).height * 3 / 2
     lig += 1
-    sheet.write_merge(lig, lig, 1, 4, u'Année de formation : ', normal)
+    sheet.write_merge(lig, lig, 1, 4, u'Années de formation : %s / %s' % (blt.grille.promotion, blt.grille.promotion + blt.grille.duree), normal)
     lig += 1
-    sheet.write_merge(lig, lig, 1, 4, u'N° de tél portable : Adresse email : ', normal)
+    sheet.write_merge(lig, lig, 1, 4, u'N° de tél portable %s : Adresse email : %s' % (blt.eleve.get_profile().phone_number, blt.eleve.email), normal)
     lig += 1
     
-    sheet.write_merge(lig, lig, 1, 4, u'Entreprise : ', gros)
+    sheet.write_merge(lig, lig, 1, 4, u'Entreprise : %s' % (blt.entreprise), gros)
     sheet.row(lig).height = sheet.row(lig).height * 3 / 2
     lig += 1
-    sheet.write_merge(lig, lig, 1, 4, u'Adresse : ', normal)
+    sheet.write_merge(lig, lig, 1, 4, u'Adresse : %s' % (blt.entreprise.description), normal)
     lig += 1
     
-    sheet.write_merge(lig, lig, 1, 4, u'Tuteur : ', gros)
+    sheet.write_merge(lig, lig, 1, 4, u'Tuteur : %s' % (blt.tuteur.get_profile().nom_complet), gros)
     sheet.row(lig).height = sheet.row(lig).height * 3 / 2
     lig += 1
-    sheet.write_merge(lig, lig, 1, 4, u'N° de tél portable : Adresse email : ', normal)
+    sheet.write_merge(lig, lig, 1, 4, u'N° de tél portable : %s Adresse email : %s' % (blt.tuteur.get_profile().phone_number, blt.tuteur.email), normal)
     lig += 1
     normal = easyxf('font: name Arial, bold on, height 180; borders: left medium, right medium, bottom medium')
-    sheet.write_merge(lig, lig, 1, 4, u'Chargé de promotion : ', normal)
+    sheet.write_merge(lig, lig, 1, 4, u'Chargé de promotion : %s' % (blt.formateur.get_profile().nom_complet), normal)
     
     titre = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: horiz centre')
     lig = 13
@@ -139,6 +139,7 @@ def bulletin_xls(request, blt):
     sheet.write(lig, 4, u'', centreb)
 
     lig += 1
+    start = lig
     centrer = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour red')
     centrev = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour green')
     centreb = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour blue')
@@ -154,6 +155,9 @@ def bulletin_xls(request, blt):
         n = notes.filter(annee=2)
         sheet.write(lig, 4, n and n[0].valeur or '', centreb)
         lig += 1
+
+    normal = easyxf('font: name Arial, bold on, height 180; borders: left medium, right medium, bottom medium, top medium; align: vert top, wrap true')
+    sheet.write_merge(start, lig - 1, 5, 6, u'Commentaires généraux :\r\n%s' % blt.commentaires_generaux, normal)
 
     lig += 1
     titreg = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour light_blue')
@@ -178,6 +182,6 @@ def bulletin_xls(request, blt):
     sheet.write(lig, 3, moyenne and moyenne[0].valeur_gn or 4, centrev)
     moyenne = Moyenne.objects.filter(bulletin=blt, annee=2)
     sheet.write(lig, 4, moyenne and moyenne[0].valeur_gn or 4, centreb)
-    
+
     book.save(response)
     return response
