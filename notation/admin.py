@@ -1,7 +1,6 @@
 from django.contrib import admin
 from cfai.notation.models import *
 
-admin.site.register(ProfilUtilisateur)
 admin.site.register(Bulletin)
 admin.site.register(Entreprise)
 admin.site.register(GrilleNotation)
@@ -42,4 +41,9 @@ class CommentaireAdmin(admin.ModelAdmin):
                     'auteur_modification',
                     'date_modification')
     list_display_links = ('ensemble',)
+    list_filter = ('bulletin', )
 admin.site.register(Commentaire, CommentaireAdmin)
+
+class PUAdmin(admin.ModelAdmin):
+    list_filter = ('user_type', )
+admin.site.register(ProfilUtilisateur, PUAdmin)
