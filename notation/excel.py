@@ -102,7 +102,7 @@ def bulletin_xls(request, blt):
 
             lig += 1
 
-        comm = Commentaire.objects.filter(ensemble=ens)
+        comm = Commentaire.objects.filter(bulletin=blt, ensemble=ens)
         if comm:
             sheet.write_merge(start, lig - 1, 6, 6, comm[0].texte, commentaire)
         else:
