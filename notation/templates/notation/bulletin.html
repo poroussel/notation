@@ -10,6 +10,8 @@
 </ul>
 {% if bulletin.auteur_modification %}
   <p>Dernière modification du bulletin par {{ bulletin.auteur_modification.get_full_name }} le {{ bulletin.date_modification }}.</p>
+{% else %}
+  <p>Aucune saisie n'a été faite sur ce bulletin</p>
 {% endif %}
 </br>
 <h1>{{ bulletin.eleve.get_profile.nom_complet }}</h1>
