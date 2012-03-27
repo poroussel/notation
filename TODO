@@ -1,3 +1,22 @@
 Mis à jour le 27/03/2012
 
  * Prévoir la génération du fichier excel pour une année
+
+ * Les commentaires sur les ensembles devraient être liés à une année,
+   pas seulement à un bulletin. Voir comment récupérer les données
+   saisies lors du changement
+
+ * Menu déroulant 1-5 pour la saisie des notes, c'est rapide et
+   indique directement que les choix sont limités
+
+ * Ajouter un accès à la liste des entreprises pour les chargés de
+   promotion ?
+
+ * Possibilité de supprimer un apprenti des listes (après démission
+   par exemple)
+
+ * A étudier : la note 0 signifie que l'item ne correspond à rien dans
+   l'entreprise donc la note n'est pas prise en compte dans la moyenne
+
+ * Pour la fin d'année scolaire : outil de manipulation des grilles de
+   notation et autre outils pour transférer la gestion au CFAI
