@@ -11,4 +11,19 @@
 {% if bulletin.auteur_modification %}
   <p>Dernière modification du bulletin par {{ bulletin.auteur_modification.get_full_name }} le {{ bulletin.date_modification }}.</p>
 {% endif %}
+</br>
+<h1>{{ bulletin.eleve.get_profile.nom_complet }}</h1>
+<table>
+    <tr><td><b>Adresse électronique</b></td><td>{{ bulletin.eleve.email }}</td></tr>
+    <tr><td><b>N° de téléphone</b></td><td>{{ bulletin.eleve.get_profile.phone_number }}</td></tr>
+    <tr><td><b>Tuteur</b></td><td>{{ bulletin.tuteur.get_profile.nom_complet }}</td></tr>
+    <tr><td><b>Chargé de promotion</b></td><td>{{ bulletin.formateur.get_profile.nom_complet }}</td></tr>
+</table>
+</br>
+<h1>{{ bulletin.entreprise }}</h1>
+<table>
+    <tr><td><b>Adresse</b></td><td>{{ bulletin.entreprise.description }}</td></tr>
+    <tr><td><b>N° de téléphone</b></td><td>{{ bulletin.entreprise.telephone }}</td></tr>
+    <tr><td><b>N° de fax</b></td><td>{{ bulletin.entreprise.fax }}</td></tr>
+</table>
 {% endblock %}
