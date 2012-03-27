@@ -96,7 +96,7 @@ def bulletin_xls(request, blt):
             sheet.write(lig, 2, n and n[0].valeur or '', cap.an_1 and centrer or centre)
             n = notes.filter(annee=1)
             sheet.write(lig, 3, n and n[0].valeur or '', cap.an_2 and centrev or centre)
-            n = notes.filter(annee=1)
+            n = notes.filter(annee=2)
             sheet.write(lig, 4, n and n[0].valeur or '', cap.an_3 and centreb or centre)
             sheet.write(lig, 5, cap.cours, centre)
 
