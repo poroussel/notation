@@ -8,7 +8,7 @@
 
 <table id="result_list">
 <thead>
-<th>Nom</th><th>Prénom</th><th>Entreprise</th><th>Note Compétence</th><th>Note Savoir être</th><th>Moyenne</th><th>Item absent</th>
+<th>Nom</th><th>Prénom</th><th>Entreprise</th><th>Note Compétence</th><th>Note Savoir être</th><th>Moyenne</th><th>Dernière modification</th>
 </thead>
 <tbody>
 {% for blt,moyenne_cp,moyenne_sv,moyenne_gn in lignes %}
@@ -19,6 +19,11 @@
 <td>{{ moyenne_cp|floatformat:2 }}</td>
 <td>{{ moyenne_sv|floatformat:2 }}</td>
 <td>{{ moyenne_gn|floatformat:2 }}</td>
+{% if blt.auteur_modification %}
+<td>{{ blt.date_modification }}</td>
+{% else %}
+<td>-</td>
+{% endif %}
 </tr>
 {% endfor %}
 </tr>
