@@ -1,4 +1,4 @@
-Mis à jour le 27/03/2012
+Mis à jour le 21/04/2012
 
  * Prévoir la génération du fichier excel pour une année
 
@@ -20,3 +20,5 @@ Mis à jour le 27/03/2012
 
  * Pour la fin d'année scolaire : outil de manipulation des grilles de
    notation et autre outils pour transférer la gestion au CFAI
+
+ * Générer des mots de passes aléatoires lors de la création des comptes
