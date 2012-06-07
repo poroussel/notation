@@ -152,9 +152,10 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                 if str(cap.id) in form.cleaned_data:
                     value = form.cleaned_data[str(cap.id)]
                     if value:
-                        note, created = Note.objects.get_or_create(bulletin=blt, capacite=cap, defaults={'valeur' : value, 'annee' : annee, 'auteur_modification' : request.user})
+                        note, created = Note.objects.get_or_create(bulletin=blt, capacite=cap, annee=annee, defaults={'valeur' : value, 'auteur_modification' : request.user})
                         if not created:
                             note.valeur = value
+                            note.auteur_modification = request.user
                             note.save()
                     else:
                         Note.objects.filter(bulletin=blt, capacite=cap, annee=annee).delete()
