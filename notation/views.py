@@ -98,7 +98,6 @@ def annee_bulletin(request, blt_id, annee):
     ens = blt.grille.ensemblecapacite_set.filter(capacite__code_annee__contains=annee).annotate(nbre_capacite=Count('capacite'))
     setre = blt.grille.savoiretre_set.filter(code_annee__contains=annee)
     notes = Note.objects.filter(bulletin=blt, savoir__in=list(setre), annee=annee)
-    
     moyenne = Moyenne.objects.filter(annee=annee, bulletin=blt)
     
     form = BulletinForm(commentaire=blt.commentaires_generaux, notes=notes, savoirs=setre, user=request.user)
@@ -113,12 +112,13 @@ def annee_bulletin(request, blt_id, annee):
                 if str(sv.id) in form.cleaned_data:
                     value = form.cleaned_data[str(sv.id)]
                     if value:
-                        note, created = Note.objects.get_or_create(bulletin=blt, savoir=sv, defaults={'valeur' : value, 'annee' : annee, 'auteur_modification' : request.user})
+                        note, created = Note.objects.get_or_create(bulletin=blt, savoir=sv, annee=annee, defaults={'valeur' : value, 'auteur_modification' : request.user})
                         if not created:
                             note.valeur = value
+                            note.auteur_modification = request.user
                             note.save()
                     else:
-                        Note.objects.filter(bulletin=blt, savoir=sv).delete()
+                        Note.objects.filter(bulletin=blt, savoir=sv, annee=annee).delete()
             blt.calcul_moyenne_savoir(annee, request.user)
     return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'ens' : ens, 'form' : form, 'moyenne' : moyenne}))
 
@@ -157,7 +157,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                             note.valeur = value
                             note.save()
                     else:
-                        Note.objects.filter(bulletin=blt, capacite=cap).delete()
+                        Note.objects.filter(bulletin=blt, capacite=cap, annee=annee).delete()
 
             blt.calcul_moyenne_competence(annee, request.user)
             if suivant:
