@@ -110,11 +110,11 @@ def bulletin_xls(request, blt):
         
         sheet.write(lig, 1, u'Note sur %s' % (5 * ens.poids), note)
         moy = blt.moyenne_ensemble(ens, 0)
-        sheet.write(lig, 2, moy and ("%.2f" % moy * ens.poids) or None, notec)
+        sheet.write(lig, 2, moy and ("%.2f" % (moy * ens.poids)) or None, notec)
         moy = blt.moyenne_ensemble(ens, 1)
-        sheet.write(lig, 3, moy and ("%.2f" % moy * ens.poids) or None, notec)
+        sheet.write(lig, 3, moy and ("%.2f" % (moy * ens.poids)) or None, notec)
         moy = blt.moyenne_ensemble(ens, 2)
-        sheet.write(lig, 4, moy and ("%.2f" % moy * ens.poids) or None, notec)
+        sheet.write(lig, 4, moy and ("%.2f" % (moy * ens.poids)) or None, notec)
         
         lig += 2
 
