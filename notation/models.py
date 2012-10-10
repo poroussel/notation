@@ -8,7 +8,8 @@ from datetime import date
 TYPES = (('e', u'Apprenti'),
          ('t', u'Tuteur entreprise'),
          ('f', u'Chargé de promotion'),
-         ('a', u'Administratif'))
+         ('a', u'Administratif'),
+         ('p', u'Pilotage'))
 
 NOMS_ANNEES = [u'1ère année', u'2ème année', u'3ème année']
 
@@ -29,6 +30,8 @@ class ProfilUtilisateur(models.Model):
         return self.user_type == 'f'
     def is_administratif(self):
         return self.user_type == 'a'
+    def is_pilote(self):
+        return self.user_type == 'p'
 
     def _nom_complet(self):
         return '%s %s' % (self.user.last_name, self.user.first_name)
