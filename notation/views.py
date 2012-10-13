@@ -458,9 +458,10 @@ class SearchMiddleware(object):
             return HttpResponseRedirect(reverse('cfai.notation.views.recherche') + '?search=%s' % chaine)
         return None
 
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def liste_eleve(request):
     grilles = GrilleNotation.objects.all().order_by('frm__libelle', 'promotion')
-    object_list = Bulletin.objects
+    object_list = Bulletin.objects.select_related()
     for k in request.GET:
         try:
             object_list = object_list.filter(**{str(k): str(request.GET[k])})
@@ -469,13 +470,14 @@ def liste_eleve(request):
     object_list = object_list.order_by('eleve__last_name')
     return render_to_response('notation/eleve_list.html', RequestContext(request, {'object_list' : object_list, 'grilles' : grilles}))
 
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def liste_bulletin(request):
     grilles = GrilleNotation.objects.all().order_by('frm__libelle', 'promotion')
-    object_list = Bulletin.objects
+    object_list = Bulletin.objects.select_related()
     for k in request.GET:
         try:
             object_list = object_list.filter(**{str(k): str(request.GET[k])})
         except:
             pass
-    object_list = object_list.order_by('grille', 'eleve__last_name', 'eleve__first_name')
+    object_list = object_list.order_by('grille', 'eleve__last_name')
     return render_to_response('notation/bulletin_list.html', RequestContext(request, {'object_list' : object_list, 'grilles' : grilles}))
