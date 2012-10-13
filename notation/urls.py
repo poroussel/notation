@@ -7,8 +7,6 @@ from cfai.notation.models import Entreprise, ProfilUtilisateur, Bulletin
 
 liste_entreprises_dict = {'queryset' : Entreprise.objects.all()}
 
-liste_bulletins_dict = {'queryset' : Bulletin.objects.order_by('grille', 'eleve__last_name', 'eleve__first_name')}
-
 liste_tuteurs_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='t').order_by('last_name'),
                       'template_name' : 'notation/tuteur_list.html'}
 
@@ -22,7 +20,7 @@ urlpatterns = patterns('',
     (r'^utilisateur/motdepasse/$', motdepasse),
     (r'^utilisateur/profil/$', profil),
                        
-    (r'^bulletins/$', object_list, liste_bulletins_dict, 'liste_bulletin'),
+    (r'^bulletins/$', liste_bulletin, None, 'liste_bulletin'),
     (r'^bulletins/(?P<blt_id>\d+)/$', bulletin, None, 'bulletin'),
     (r'^bulletins/(?P<blt_id>\d+)/annees/(?P<annee>\d+)/$', annee_bulletin),
     (r'^bulletins/(?P<blt_id>\d+)/annees/(?P<annee>\d+)/groupes/(?P<ens_id>\d+)/$', ensemble_bulletin),

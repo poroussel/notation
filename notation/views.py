@@ -447,3 +447,14 @@ def liste_eleve(request):
             pass
     object_list = object_list.order_by('eleve__last_name')
     return render_to_response('notation/eleve_list.html', RequestContext(request, {'object_list' : object_list, 'grilles' : grilles}))
+
+def liste_bulletin(request):
+    grilles = GrilleNotation.objects.all().order_by('frm__libelle', 'promotion')
+    object_list = Bulletin.objects
+    for k in request.GET:
+        try:
+            object_list = object_list.filter(**{str(k): str(request.GET[k])})
+        except:
+            pass
+    object_list = object_list.order_by('grille', 'eleve__last_name', 'eleve__first_name')
+    return render_to_response('notation/bulletin_list.html', RequestContext(request, {'object_list' : object_list, 'grilles' : grilles}))
