@@ -3,6 +3,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import pre_save, post_save
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes import generic
 from datetime import date
 
 class Suppression(models.Model):
@@ -15,9 +17,15 @@ class Suppression(models.Model):
     createur = models.ForeignKey(User, editable=False)
     date_creation = models.DateField(u'Date de la suppression', auto_now_add=True)
     raison = models.TextField('Motif de la suppression')
+    content_type = models.ForeignKey(ContentType, editable=False)
+    object_id = models.PositiveIntegerField(editable=False)
+    content_object = generic.GenericForeignKey('content_type', 'object_id')
 
+    def __unicode__(self):
+        return u'Suppression de %s par %s le %s' % (self.content_object, self.createur.get_full_name(), self.date_creation)
+    
 def supprimer_objet(obj, user, reason):
-    obj.suppression = Suppression.objects.create(createur = user, raison = reason)
+    obj.suppression = Suppression.objects.create(createur = user, raison = reason, content_object = obj)
     obj.save()
 
 TYPES = (('e', u'Apprenti'),
