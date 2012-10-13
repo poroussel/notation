@@ -5,6 +5,21 @@ from django.contrib.auth.models import User
 from django.db.models.signals import pre_save, post_save
 from datetime import date
 
+class Suppression(models.Model):
+    """
+    On pourrait utiliser quelque chose comme
+    file:///usr/share/doc/python-django-doc/html/ref/contrib/contenttypes.html#generic-relations
+    pour avoir un lien vers l'objet supprimé et donc acceder facilement
+    a ses attributes et methodes
+    """
+    createur = models.ForeignKey(User, editable=False)
+    date_creation = models.DateField(u'Date de la suppression', auto_now_add=True)
+    raison = models.TextField('Motif de la suppression')
+
+def supprimer_objet(obj, user, reason):
+    obj.suppression = Suppression.objects.create(createur = user, raison = reason)
+    obj.save()
+
 TYPES = (('e', u'Apprenti'),
          ('t', u'Tuteur entreprise'),
          ('f', u'Chargé de promotion'),
@@ -18,6 +33,7 @@ class ProfilUtilisateur(models.Model):
     user_type = models.CharField(u'Type', max_length=1, default='e', choices=TYPES)
     password_modified = models.BooleanField(default=False, editable=True)
     phone_number = models.CharField(u'N° de téléphone', max_length=15, blank=True)
+    suppression = models.OneToOneField(Suppression, null=True, blank=True, editable=False)
                                             
     def __unicode__(self):
         return u'%s - %s' % (self.user.get_full_name(), self.get_user_type_display())
@@ -120,7 +136,11 @@ class Entreprise(models.Model):
     def get_absolute_url(self):
         return ('detail_entreprise', [self.id])
         
-    
+
+class BulletinApprentiNonSupprime(models.Manager):
+    def get_query_set(self):
+        return super(BulletinApprentiNonSupprime, self).get_query_set().filter(eleve__profilutilisateur__suppression=None)
+
 class Bulletin(models.Model):
     """
     Bulletin de notes d'un eleve pour une formation
@@ -143,6 +163,8 @@ class Bulletin(models.Model):
     date_modification = models.DateTimeField(auto_now=True)
     auteur_modification = models.ForeignKey(User, related_name='auteur', null=True)
 
+    objects = BulletinApprentiNonSupprime()
+    
     def __unicode__(self):
         return u'Bulletin de %s (%s / %s)' % (self.eleve.get_profile().nom_complet, self.grille, self.entreprise)
 

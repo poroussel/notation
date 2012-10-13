@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.conf import settings
+from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import logout
@@ -17,6 +18,24 @@ from django.contrib.sites.models import Site
 from cfai.notation.models import *
 from cfai.notation.forms import *
 from cfai.notation.excel import *
+
+@login_required
+def suppression_objet(request, model, object_id):
+    """
+    model est une chaîne de caractères représentant le nom
+    du modèle, par exemple CommandeClient.
+    """
+    user_type = ContentType.objects.get(model=model.lower())
+    obj = user_type.get_object_for_this_type(pk=object_id)
+    form = SuppressionForm()
+    if request.method == 'POST':
+        form = SuppressionForm(request.POST)
+        if form.is_valid():
+            supprimer_objet(obj, request.user, form.cleaned_data['raison'])
+            if 'next' in request.GET:
+                return HttpResponseRedirect(request.GET['next'])
+            return HttpResponseRedirect(reverse(index))
+    return render_to_response('notation/suppression_form.html', RequestContext(request, {'object': obj, 'classe': user_type, 'form': form}))
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_tuteur())
 def index_tuteur(request):
@@ -256,6 +275,8 @@ def modifier_eleve(request, object_id):
     profil = elv.get_profile()
     blt = Bulletin.objects.get(eleve=elv)
     if request.method == 'POST':
+        if '_supprimer' in request.POST:
+            return HttpResponseRedirect(reverse(suppression_objet, args=['ProfilUtilisateur', profil.id]))
         form = EditionEleveForm(request.POST)
         if form.is_valid():
             elv.first_name = form.cleaned_data['prenom']

@@ -6,6 +6,10 @@ from django.contrib.localflavor.fr.forms import FRPhoneNumberField
 from django.forms.util import ErrorList
 from cfai.notation.models import *
 
+class SuppressionForm(forms.ModelForm):
+    class Meta:
+        model = Suppression
+
 class UserChoiceField(forms.ModelChoiceField):
     def label_from_instance(self, obj):
         return obj.get_profile().nom_complet

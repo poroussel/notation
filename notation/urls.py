@@ -20,6 +20,8 @@ urlpatterns = patterns('',
     (r'^utilisateur/motdepasse/$', motdepasse),
     (r'^utilisateur/profil/$', profil),
                        
+    (r'^suppression/(?P<model>[a-zA-Z]+)/(?P<object_id>\d+)/$', suppression_objet),
+
     (r'^bulletins/$', liste_bulletin, None, 'liste_bulletin'),
     (r'^bulletins/(?P<blt_id>\d+)/$', bulletin, None, 'bulletin'),
     (r'^bulletins/(?P<blt_id>\d+)/annees/(?P<annee>\d+)/$', annee_bulletin),

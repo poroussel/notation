@@ -1,7 +1,7 @@
 Développé avec :
 
  - python 2.7.1
- - django 1.2.5
+ - django 1.3.3
  - xlwt 0.7.2
 
 
