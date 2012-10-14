@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 
+from datetime import date
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import pre_save, post_save
+from django.contrib.auth.signals import user_logged_in
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
-from datetime import date
+from django.contrib import messages
 
 class Suppression(models.Model):
     """
@@ -64,8 +67,13 @@ class ProfilUtilisateur(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         profil, created = ProfilUtilisateur.objects.get_or_create(user=instance)
-post_save.connect(create_user_profile, sender=User)
+post_save.connect(create_user_profile, sender=User, dispatch_uid='create_user_profile')
 
+def check_user(sender, request, user, **kwargs):
+    profile = user.get_profile()
+    if not profile.password_modified:
+        messages.warning(request, u'Vous devez modifier votre mot de passe !')
+user_logged_in.connect(check_user, sender=User, dispatch_uid='user_logged_in')
 
 class Formation(models.Model):
     libelle = models.CharField(u'Libellé', max_length=80)

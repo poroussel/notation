@@ -68,9 +68,6 @@ def index_eleve(request):
 @login_required
 def index(request):
     profile = request.user.get_profile()
-    if not profile.password_modified:
-        messages.warning(request, u'Vous devez modifier votre mot de passe !')
-
     if profile.is_tuteur():
         return HttpResponseRedirect(reverse(index_tuteur))
     if profile.is_administratif():
