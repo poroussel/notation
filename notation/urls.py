@@ -1,17 +1,20 @@
 from django.conf.urls.defaults import patterns
-from django.views.generic.list_detail import object_list, object_detail
-from django.views.generic.create_update import update_object, create_object
+from django.views.generic.list_detail import object_list
 from django.contrib.auth.models import User
 from cfai.notation.views import *
-from cfai.notation.models import Entreprise, ProfilUtilisateur, Bulletin
+from cfai.notation.models import Entreprise, ProfilUtilisateur
 
 liste_entreprises_dict = {'queryset' : Entreprise.objects.all()}
 
-liste_tuteurs_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='t').order_by('last_name'),
-                      'template_name' : 'notation/tuteur_list.html'}
+liste_tuteurs_dict = {
+    'queryset' : User.objects.filter(profilutilisateur__user_type='t').order_by('last_name'),
+    'template_name' : 'notation/tuteur_list.html'
+    }
 
-liste_formateurs_dict = {'queryset' : User.objects.filter(profilutilisateur__user_type='f').order_by('last_name'),
-                        'template_name' : 'notation/formateur_list.html'}
+liste_formateurs_dict = {
+    'queryset' : User.objects.filter(profilutilisateur__user_type='f').order_by('last_name'),
+    'template_name' : 'notation/formateur_list.html'
+    }
 
 urlpatterns = patterns('',
     (r'^accounts/login/$',  'django.contrib.auth.views.login'),
