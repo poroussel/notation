@@ -38,9 +38,9 @@ table {width: 100%; text-align: left; border-spacing: 0px}
 
 .errorlist li {background:red;}
 
-.important {color:darkred;font-weight:bold;}
-.important a:link {color:darkred;font-weight:bold;}
-.important a:visited {color:darkred;font-weight:bold;}
+.important {color:darkred;}
+.important a:link {color:darkred}
+.important a:visited {color:darkred}
 
 .actions a {
  display: inline-block;
