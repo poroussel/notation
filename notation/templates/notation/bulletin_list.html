@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Les bulletins</h1>
+<h1>Les bulletins de {{ gr }}</h1>
 <div class="table">
 <ul>
 {% for blt in object_list %}
@@ -15,9 +15,8 @@
 <div class="filtre">
 <h3>Filtrer par formation</h3>
 <ul>
-  <li><a href="?">Tout</a></li>
   {% for grille in grilles %}
-  <li><a href="?grille__id__exact={{ grille.id }}">{{ grille }}</a></li>
+  <li {% if grille = gr %}class="important"{% endif %}><a href="?id={{ grille.id }}">{{ grille }}</a></li>
   {% endfor %}
 </ul>
 </div>
