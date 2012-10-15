@@ -11,7 +11,7 @@
 {% for grille in frm.grillenotation_set.all %}
 {% if grille.nom_promotion_courante  %}
 <div class="actions" style="margin-left: 5%;">
-<a href="{% url resume_grille grille.id grille.annee_promotion_courante %}">Apprentis {{ grille.nom_promotion_courante }}</a>
+<a class="button" href="{% url resume_grille grille.id grille.annee_promotion_courante %}">Apprentis {{ grille.nom_promotion_courante }}</a>
 </div>
 {% endif %}
 {% endfor %}

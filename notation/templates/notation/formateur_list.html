@@ -2,7 +2,7 @@
 {% block content %}
 <h1>Les chargés de promotion</h1>
 <div class="actions">
-<a href="{% url notation.views.ajouter_formateur %}">Ajouter un chargé de promotion</a>
+<a class="button" href="{% url notation.views.ajouter_formateur %}">Ajouter un chargé de promotion</a>
 </div>
 <ul>
 {% for obj in object_list %}
