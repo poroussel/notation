@@ -15,7 +15,7 @@ class UserChoiceField(forms.ModelChoiceField):
         return obj.get_profile().nom_complet
             
 class CreationEleveForm(forms.Form):
-    identifiant = forms.CharField(label=u'Nom d\'utilisateur', max_length=30, help_text=u'Lors de la création du compte, le mot de passe sera initialisé avec la même valeur.')
+    identifiant = forms.CharField(label=u'Nom d\'utilisateur', max_length=30, help_text=u'Lors de la création du compte, un mot de passe aléatoire sera généré.')
     prenom = forms.CharField(label=u'Prénom', max_length=30)
     nom = forms.CharField(label=u'Nom', max_length=30)
     email = forms.EmailField(label=u'Adresse électronique', required=True)

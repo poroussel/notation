@@ -220,6 +220,15 @@ def profil(request):
         form = ProfilUtilisateurForm(instance=request.user, initial={'phone_number' : profil.phone_number})
     return render_to_response('notation/profil.html', RequestContext(request, {'password_form' : form}))
 
+def mail_new_user(request, user):
+    body = render_to_string('creation_compte.txt', {'profil' : user.get_profile(), 'site' : Site.objects.get_current()})
+    try:
+        eleve.email_user(u'[CFAI/ENSMM] Création de votre compte', body, from_email=settings.SERVER_EMAIL)
+        messages.success(request, u'Un email a été envoyé à %s.' % user.get_full_name())
+    except:
+        messages.error(request, u'Une erreur s\'est produite lors de l\'envoi d\'un email à %s, veuillez vérifier l\'adresse.' % user.email)
+        return False
+    return True
 
 @login_required
 def ajouter_eleve(request):
@@ -228,7 +237,7 @@ def ajouter_eleve(request):
         if form.is_valid():
             eleve = User()
             eleve.username = form.cleaned_data['identifiant']
-            eleve.set_password(form.cleaned_data['identifiant'])
+            eleve.password = User.objects.make_random_password()
             eleve.first_name = form.cleaned_data['prenom']
             eleve.last_name = form.cleaned_data['nom']
             eleve.email = form.cleaned_data['email']
@@ -246,12 +255,7 @@ def ajouter_eleve(request):
             bulletin.formateur = form.cleaned_data['formateur']
             bulletin.save()
 
-            body = render_to_string('creation_compte.txt', {'profil' : eleve.get_profile(), 'site' : Site.objects.get_current()})
-            try:
-                eleve.email_user(u'[CFAI/ENSMM] Création de votre compte', body, from_email=settings.SERVER_EMAIL)
-                messages.success(request, u'Un email a été envoyé à %s.' % eleve.get_full_name())
-            except:
-                messages.error(request, u'Une erreur s\'est produite lors de l\'envoi d\'un email à %s, veuillez vérifier l\'adresse.' % eleve.email)
+            if not mail_new_user(request, eleve):
                 return HttpResponseRedirect(reverse('detail_eleve', args=[eleve.id]))
 
             if '_continuer' in request.POST:
@@ -289,7 +293,7 @@ def modifier_eleve(request, object_id):
 
             
             if '_reinit' in request.POST:
-                elv.set_password(elv.username)
+                elv.password = User.objects.make_random_password()
                 elv.save()
                 body = render_to_string('creation_compte.txt', {'profil' : elv.get_profile(), 'site' : Site.objects.get_current()})
                 try:
@@ -317,19 +321,14 @@ def ajouter_tuteur(request):
         form = UtilisateurForm(request.POST)
         if form.is_valid():
             tuteur = form.save()
-            tuteur.set_password(tuteur.username)
+            tuteur.password = User.objects.make_random_password()
             tuteur.save()
             profil = ProfilUtilisateur.objects.get(user=tuteur)
             profil.user_type = 't'
             profil.phone_number = form.cleaned_data['phone_number']
             profil.save()
 
-            body = render_to_string('creation_compte.txt', {'profil' : tuteur.get_profile(), 'site' : Site.objects.get_current()})
-            try:
-                tuteur.email_user(u'[CFAI/ENSMM] Création de votre compte', body, from_email=settings.SERVER_EMAIL)
-                messages.success(request, u'Un email a été envoyé à %s.' % tuteur.get_full_name())
-            except:
-                messages.error(request, u'Une erreur s\'est produite lors de l\'envoi d\'un email à %s, veuillez vérifier l\'adresse.' % tuteur.email)
+            if not mail_new_user(request, tuteur):
                 return HttpResponseRedirect(reverse('detail_tuteur', args=[tuteur.id]))
 
             if '_continuer' in request.POST:
@@ -345,19 +344,14 @@ def ajouter_formateur(request):
         form = UtilisateurForm(request.POST)
         if form.is_valid():
             formateur = form.save()
-            formateur.set_password(formateur.username)
+            formateur.password = User.objects.make_random_password()
             formateur.save()
             profil = ProfilUtilisateur.objects.get(user=formateur)
             profil.user_type = 'f'
             profil.phone_number = form.cleaned_data['phone_number']
             profil.save()
 
-            body = render_to_string('creation_compte.txt', {'profil' : formateur.get_profile(), 'site' : Site.objects.get_current()})
-            try:
-                formateur.email_user(u'[CFAI/ENSMM] Création de votre compte', body, from_email=settings.SERVER_EMAIL)
-                messages.success(request, u'Un email a été envoyé à %s.' % formateur.get_full_name())
-            except:
-                messages.error(request, u'Une erreur s\'est produite lors de l\'envoi d\'un email à %s, veuillez vérifier l\'adresse.' % formateur.email)
+            if not mail_new_user(request, tuteur):
                 return HttpResponseRedirect(reverse('detail_formateur', args=[formateur.id]))
 
             if '_continuer' in request.POST:
@@ -389,7 +383,7 @@ def detail_formateur(request, object_id):
             profil.save()
             
             if '_reinit' in request.POST:
-                formateur.set_password(formateur.username)
+                formateur.password = User.objects.make_random_password()
                 formateur.save()
                 body = render_to_string('creation_compte.txt', {'profil' : formateur.get_profile(), 'site' : Site.objects.get_current()})
                 try:
@@ -417,7 +411,7 @@ def detail_tuteur(request, object_id):
             profil.save()
             
             if '_reinit' in request.POST:
-                tuteur.set_password(tuteur.username)
+                tuteur.password = User.objects.make_random_password()
                 tuteur.save()
                 body = render_to_string('creation_compte.txt', {'profil' : tuteur.get_profile(), 'site' : Site.objects.get_current()})
                 try:

@@ -1,4 +1,4 @@
-Mis à jour le 13/10/2012
+Mis à jour le 15/10/2012
 
  * Prévoir la génération du fichier excel pour une année
 
@@ -8,9 +8,6 @@ Mis à jour le 13/10/2012
 
  * Possibilité de supprimer un apprenti des listes (après démission
    par exemple)
-
- * Générer des mots de passes aléatoires lors de la création des
-   comptes
 
  * Suppression des cours associés
 
