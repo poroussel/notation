@@ -42,15 +42,15 @@ def index_tuteur(request):
     bulletins = Bulletin.objects.filter(tuteur=request.user)
     return render_to_response('index_tuteur.html', RequestContext(request, {'bulletins' : bulletins}))
 
-@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
 def index_admin(request):
     return render_to_response('index_admin.html', RequestContext(request))
 
-@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
 def index_gestion(request):
     return render_to_response('index_gestion.html', RequestContext(request))
 
-@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
 def index_assistance(request):
     formations = Formation.objects.all()
     return render_to_response('index_assistance.html', RequestContext(request, {'formations' : formations}))
@@ -70,7 +70,7 @@ def index(request):
     profile = request.user.get_profile()
     if profile.is_tuteur():
         return HttpResponseRedirect(reverse(index_tuteur))
-    if profile.is_administratif():
+    if profile.is_manitou():
         return HttpResponseRedirect(reverse(index_admin))
     if profile.is_formateur():
         return HttpResponseRedirect(reverse(index_formateur))
@@ -103,7 +103,7 @@ def bulletin(request, blt_id):
     annees = range(blt.grille.duree)
     return render_to_response('notation/bulletin.html', RequestContext(request, {'bulletin' : blt, 'annees' : annees}))
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and (u.get_profile().is_manitou() or u.get_profile().is_tuteur()))
 def annee_bulletin(request, blt_id, annee):
     """
     Affiche la liste des ensembles de capacités d'un bulletin
@@ -138,7 +138,7 @@ def annee_bulletin(request, blt_id, annee):
             blt.calcul_moyenne_savoir(annee, request.user)
     return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'ens' : ens, 'form' : form, 'moyenne' : moyenne}))
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and (u.get_profile().is_manitou() or u.get_profile().is_tuteur()))
 def ensemble_bulletin(request, blt_id, annee, ens_id):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
@@ -313,7 +313,7 @@ def modifier_eleve(request, object_id):
                                          'tuteur' : blt.tuteur,
                                          'formateur' : blt.formateur,
                                          'telephone' : profil.phone_number})
-    return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blt}))
+    return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blt, 'object' : elv}))
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def ajouter_tuteur(request):
@@ -361,7 +361,7 @@ def ajouter_formateur(request):
         form = UtilisateurForm()
     return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form}))
 
-@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
 def detail_entreprise(request, object_id=None):
     psr = reverse('liste_entreprise')
     if object_id:
@@ -370,7 +370,7 @@ def detail_entreprise(request, object_id=None):
         psr = reverse('ajouter_entreprise')
     return create_object(request, form_class=EntrepriseForm, post_save_redirect=psr)
 
-@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
 def detail_formateur(request, object_id):
     frm = get_object_or_404(User, pk=object_id)
     profil = frm.get_profile()
@@ -398,7 +398,7 @@ def detail_formateur(request, object_id):
         form = ProfilUtilisateurForm(instance=frm, initial={'phone_number' : profil.phone_number})
     return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : frm}))
 
-@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
 def detail_tuteur(request, object_id):
     tuteur = get_object_or_404(User, pk=object_id)
     profil = tuteur.get_profile()
@@ -449,7 +449,7 @@ class SearchMiddleware(object):
             return HttpResponseRedirect(reverse('cfai.notation.views.recherche') + '?search=%s' % chaine)
         return None
 
-@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
 def liste_eleve(request):
     grilles = GrilleNotation.objects.all().order_by('frm__libelle', 'promotion')
     object_list = Bulletin.objects.select_related(depth=1)
@@ -463,7 +463,7 @@ def liste_eleve(request):
     object_list = object_list.filter(grille__id__exact=grille.id).order_by('eleve__last_name')
     return render_to_response('notation/eleve_list.html', RequestContext(request, {'object_list' : object_list, 'grilles' : grilles, 'gr' : grille}))
 
-@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
 def liste_bulletin(request):
     grilles = GrilleNotation.objects.all().order_by('frm__libelle', 'promotion')
     object_list = Bulletin.objects.select_related(depth=1)

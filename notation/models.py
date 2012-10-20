@@ -55,10 +55,13 @@ class ProfilUtilisateur(models.Model):
         return self.user_type == 'e'
     def is_formateur(self):
         return self.user_type == 'f'
+    
     def is_administratif(self):
         return self.user_type == 'a'
     def is_pilote(self):
         return self.user_type == 'p'
+    def is_manitou(self):
+        return self.is_administratif() or self.is_pilote()
 
     def _nom_complet(self):
         return '%s %s' % (self.user.last_name, self.user.first_name)

@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% if user.is_administratif %}
 <h1>Menu administration</h1>
+{% else %}
+<h1>Menu pilotage</h1>
+{% endif %}
 <div class="actions">
   <div class="contenugauche">
     <a class="button" href="{% url index_gestion %}">Gestion</a>

@@ -8,6 +8,8 @@
   <form style="margin-left: 10%;" action="" method="post">{% csrf_token %}
     <table>
     {{ form.as_table }}
+
+    {% if user.is_administratif %}
     <tr><th></th><td>
     {% if object %}
       <input type="submit" name="_save" value="Enregistrer et revenir à la liste" />
@@ -16,6 +18,8 @@
       <input type="submit" name="_save "value="Enregistrer et revenir à la liste" />
     {% endif %}
     </td></tr>
+    {% endif %}
+    
     </table>
   </form>
 

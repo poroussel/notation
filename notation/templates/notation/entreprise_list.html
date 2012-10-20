@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Les entreprises</h1>
+
+{% if user.is_administratif %}
 <div class="actions">
 <a class="button" href="{% url ajouter_entreprise %}">Ajouter une entreprise</a>
 </div>
+{% endif %}
 
 <table>
 <thead><th>Nom</th><th>Adresse</th><th>Tél</th><th>Fax</th><th>Apprenti(s)</th></thead>
