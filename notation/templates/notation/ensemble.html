@@ -16,7 +16,7 @@
     <table>
       {{ form }}
 
-{% if user.get_profile.is_administratif or user.get_profile.is_tuteur %}
+{% if user.get_profile.is_administratif or user.get_profile.is_tuteur  or user.get_profile.is_eleve %}
     <tr><th></th><td><input type="submit" value="Enregistrer et passer au groupe suivant" /></td></tr>
 {% endif %}
     

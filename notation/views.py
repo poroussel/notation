@@ -103,7 +103,7 @@ def bulletin(request, blt_id):
     annees = range(blt.grille.duree)
     return render_to_response('notation/bulletin.html', RequestContext(request, {'bulletin' : blt, 'annees' : annees}))
 
-@user_passes_test(lambda u: u.is_authenticated() and (u.get_profile().is_manitou() or u.get_profile().is_tuteur()))
+@user_passes_test(lambda u: u.is_authenticated() and (u.get_profile().is_manitou() or u.get_profile().is_tuteur() or u.get_profile().is_eleve()))
 def annee_bulletin(request, blt_id, annee):
     """
     Affiche la liste des ensembles de capacités d'un bulletin
@@ -138,7 +138,7 @@ def annee_bulletin(request, blt_id, annee):
             blt.calcul_moyenne_savoir(annee, request.user)
     return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'ens' : ens, 'form' : form, 'moyenne' : moyenne}))
 
-@user_passes_test(lambda u: u.is_authenticated() and (u.get_profile().is_manitou() or u.get_profile().is_tuteur()))
+@user_passes_test(lambda u: u.is_authenticated() and (u.get_profile().is_manitou() or u.get_profile().is_tuteur() or u.get_profile().is_eleve()))
 def ensemble_bulletin(request, blt_id, annee, ens_id):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
