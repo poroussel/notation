@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% if user.is_administratif %}
+{% if user.get_profile.is_administratif %}
 <h1>Menu administration</h1>
 {% else %}
 <h1>Menu pilotage</h1>

@@ -2,7 +2,7 @@
 {% block content %}
 <h1>Les chargés de promotion</h1>
 
-{% if user.is_administratif %}
+{% if user.get_profile.is_administratif %}
 <div class="actions">
 <a class="button" href="{% url notation.views.ajouter_formateur %}">Ajouter un chargé de promotion</a>
 </div>

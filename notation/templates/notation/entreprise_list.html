@@ -2,7 +2,7 @@
 {% block content %}
 <h1>Les entreprises</h1>
 
-{% if user.is_administratif %}
+{% if user.get_profile.is_administratif %}
 <div class="actions">
 <a class="button" href="{% url ajouter_entreprise %}">Ajouter une entreprise</a>
 </div>

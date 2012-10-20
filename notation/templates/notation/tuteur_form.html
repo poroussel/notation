@@ -9,7 +9,7 @@
     <table>
     {{ form.as_table }}
 
-{% if user.is_administratif %}
+{% if user.get_profile.is_administratif %}
     <tr><th></th><td>
 {% if object %}
       <input type="submit" value="Enregistrer" />
