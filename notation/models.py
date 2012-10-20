@@ -37,6 +37,11 @@ TYPES = (('e', u'Apprenti'),
          ('a', u'Administratif'),
          ('p', u'Pilotage'))
 
+APPRECIATIONS = (('n', u'Non renseigné'),
+                 ('a', u'Acquis'),
+                 ('n', u'Non acquis'),
+                 ('e', u'En cours d\'acquisition'))
+
 NOMS_ANNEES = [u'1ère année', u'2ème année', u'3ème année']
 
 class ProfilUtilisateur(models.Model):
@@ -299,6 +304,7 @@ class Capacite(models.Model):
     ensemble = models.ForeignKey(EnsembleCapacite)
     numero = models.PositiveIntegerField()
     libelle = models.CharField(u'Libellé', max_length=200)
+    # Plus utile
     cours = models.CharField(u'Cours associé', max_length=80, blank=True)
     an_1 = models.BooleanField(NOMS_ANNEES[0])
     an_2 = models.BooleanField(NOMS_ANNEES[1])
@@ -354,8 +360,24 @@ def maj_moyenne_generale(sender, instance, **kwargs):
     instance.valeur_gn = (instance.valeur_cp * instance.bulletin.grille.poids_capacite + instance.valeur_sv * instance.bulletin.grille.poids_savoir_etre) / (instance.bulletin.grille.poids_capacite + instance.bulletin.grille.poids_savoir_etre)
 pre_save.connect(maj_moyenne_generale, sender=Moyenne)
 
-class Note(models.Model):
+class Evaluation(models.Model):
+    """
+    Les capacités ne sont plus notées individuellement mais évaluées.
+    """
     bulletin = models.ForeignKey(Bulletin)
+    capacite = models.ForeignKey(Capacite)
+    valeur = models.CharField(max_length=1, default='n', choices=APPRECIATIONS)
+    annee = models.PositiveIntegerField(u'Année')
+    date_modification = models.DateTimeField(auto_now=True)
+    auteur_modification = models.ForeignKey(User)
+
+class Note(models.Model):
+    """
+    Une note peut être affectée à un savoir être et à un groupe
+    de capacités
+    """
+    bulletin = models.ForeignKey(Bulletin)
+    # Plus utilise mais necessaire pour importer les anciennes donnees
     capacite = models.ForeignKey(Capacite, null=True, blank=True)
     savoir = models.ForeignKey(SavoirEtre, null=True, blank=True)
     valeur = models.DecimalField(max_digits=3, decimal_places=1)
