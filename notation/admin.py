@@ -10,12 +10,17 @@ admin.site.register(Moyenne)
 
 class EnsembleCapaciteAdmin(admin.ModelAdmin):
     list_display = ('__unicode__', 'grille')
-    list_filter = ('grille', 'partie',)
+    list_filter = ('grille',)
     search_fields = ['grille__formation', 'libelle']
 admin.site.register(EnsembleCapacite, EnsembleCapaciteAdmin)
 
+class ThemeAdmin(admin.ModelAdmin):
+    list_display = ('__unicode__', 'grille')
+    list_filter = ('grille',)
+admin.site.register(Theme, ThemeAdmin)
+
 class CapaciteAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__', 'cours', 'an_1', 'an_2', 'an_3')
+    list_display = ('__unicode__', 'an_1', 'an_2', 'an_3')
     list_filter = ('ensemble',)
 admin.site.register(Capacite, CapaciteAdmin)
 
