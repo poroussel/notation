@@ -104,7 +104,7 @@ class NotationForm(forms.Form, ReadOnly):
                 note = notes.filter(capacite=cap)
             else:
                 note = None
-            self.fields[str(cap.id)] = forms.IntegerField(label=cap.libelle, min_value=0, max_value=5, required=False, initial=note and int(note[0].valeur) or None)
+            self.fields[str(cap.id)] = forms.ChoiceField(label=cap.libelle, choices=APPRECIATIONS, initial=note and note[0].valeur or 'n')
             if profile.is_eleve() or profile.is_formateur():
                 self.fields[str(cap.id)].widget.attrs['readonly'] = True
 

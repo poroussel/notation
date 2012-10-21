@@ -106,13 +106,14 @@ def bulletin(request, blt_id):
 @user_passes_test(lambda u: u.is_authenticated() and (u.get_profile().is_manitou() or u.get_profile().is_tuteur() or u.get_profile().is_eleve()))
 def annee_bulletin(request, blt_id, annee):
     """
-    Affiche la liste des ensembles de capacités d'un bulletin
-    pour une annnée, le formulaire de saisie des savoirs être
-    ainsi que les moyennes actuelles pour l'année.
+    Affiche les themes d'une grille de notation avec pour chaque
+    thème les ensembles de capacités et une note pour une annnée,
+    le formulaire de saisie des savoirs être ainsi que les moyennes
+    actuelles pour l'année.
     """
     blt = get_object_or_404(Bulletin, pk=blt_id)
-    ens = blt.grille.ensemblecapacite_set.filter(capacite__code_annee__contains=annee).annotate(nbre_capacite=Count('capacite'))
-    setre = blt.grille.savoiretre_set.filter(code_annee__contains=annee)
+    themes = Theme.objects.filter(grille=blt.grille).select_related()
+    setre = blt.grille.savoiretre_set.all()
     notes = Note.objects.filter(bulletin=blt, savoir__in=list(setre), annee=annee)
     moyenne = Moyenne.objects.filter(annee=annee, bulletin=blt)
     
@@ -136,14 +137,14 @@ def annee_bulletin(request, blt_id, annee):
                     else:
                         Note.objects.filter(bulletin=blt, savoir=sv, annee=annee).delete()
             blt.calcul_moyenne_savoir(annee, request.user)
-    return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'ens' : ens, 'form' : form, 'moyenne' : moyenne}))
+    return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'themes' : themes, 'form' : form, 'moyenne' : moyenne}))
 
 @user_passes_test(lambda u: u.is_authenticated() and (u.get_profile().is_manitou() or u.get_profile().is_tuteur() or u.get_profile().is_eleve()))
 def ensemble_bulletin(request, blt_id, annee, ens_id):
     blt = get_object_or_404(Bulletin, pk=blt_id)
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
-    capacites = ens.capacite_set.filter(code_annee__contains=annee)
-    notes = Note.objects.filter(bulletin=blt, capacite__in=list(capacites), annee=annee)
+    capacites = ens.capacite_set.all()
+    evaluations = Evaluation.objects.filter(bulletin=blt, capacite__in=list(capacites), annee=annee)
     
     commentaires = Commentaire.objects.filter(bulletin=blt, ensemble=ens)
     commentaire = commentaires and commentaires[0].texte or None
@@ -168,20 +169,19 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                 if str(cap.id) in form.cleaned_data:
                     value = form.cleaned_data[str(cap.id)]
                     if value:
-                        note, created = Note.objects.get_or_create(bulletin=blt, capacite=cap, annee=annee, defaults={'valeur' : value, 'auteur_modification' : request.user})
+                        note, created = Evaluation.objects.get_or_create(bulletin=blt, capacite=cap, annee=annee, defaults={'valeur' : value, 'auteur_modification' : request.user})
                         if not created:
                             note.valeur = value
                             note.auteur_modification = request.user
                             note.save()
                     else:
-                        Note.objects.filter(bulletin=blt, capacite=cap, annee=annee).delete()
+                        Evaluation.objects.filter(bulletin=blt, capacite=cap, annee=annee).delete()
 
-            blt.calcul_moyenne_competence(annee, request.user)
             if suivant:
                 return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, annee, suivant.id]))
             return HttpResponseRedirect(reverse(bulletin, args=[blt_id]))
     else:
-        form = NotationForm(questions=capacites, notes=notes, commentaire=commentaire, user=request.user)
+        form = NotationForm(questions=capacites, notes=evaluations, commentaire=commentaire, user=request.user)
     return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens,
                                                                                  'annee' : annee,
                                                                                  'bulletin' : blt,

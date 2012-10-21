@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>{{ bulletin }} / {{ bulletin.grille.promotion|add:annee }} - {{ bulletin.grille.promotion|add:annee|add:1 }}</h1>
+<h1>Bulletin de {{ bulletin.eleve.get_profile.nom_complet }} / Année {{ bulletin.grille.promotion|add:annee }} - {{ bulletin.grille.promotion|add:annee|add:1 }}</h1>
 <div id="soustitre">
 <a href="{% url notation.views.bulletin bulletin.id %}">retour au choix de l'année</a>
 </div>
 
 <ul>
-{% for ensemble in ens %}
-  {% if ensemble.nbre_capacite %}
-  <li><a href="{% url notation.views.ensemble_bulletin bulletin.id annee ensemble.id %}">{{ ensemble }} ({{ ensemble.nbre_capacite }})</a></li>
-  {% endif %}
+{% for th in themes %}
+  <li><b>{{ th }}</b></li>
+  <ul>
+    {% for ensemble in th.ensemblecapacite_set.all %}
+    <li><a href="{% url notation.views.ensemble_bulletin bulletin.id annee ensemble.id %}">{{ ensemble }}</a></li>
+    {% endfor %}
+  </ul>
 {% endfor %}
 </ul>
 
