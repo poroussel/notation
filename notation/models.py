@@ -42,6 +42,12 @@ APPRECIATIONS = (('v', u'Non renseigné'),
                  ('n', u'Non acquis'),
                  ('e', u'En cours d\'acquisition'))
 
+NOTES = ((1, '1'),
+         (2, '2'),
+         (3, '3'),
+         (4, '4'),
+         (5, '5'))
+
 NOMS_ANNEES = [u'1ère année', u'2ème année', u'3ème année']
 
 class ProfilUtilisateur(models.Model):

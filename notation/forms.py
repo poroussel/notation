@@ -129,7 +129,7 @@ class BulletinForm(forms.Form, ReadOnly):
                 note = notes.filter(savoir=sv)
             else:
                 note = None
-            self.fields[str(sv.id)] = forms.IntegerField(label=sv.libelle, min_value=0, max_value=5, required=False, initial=note and int(note[0].valeur) or None)
+            self.fields[str(sv.id)] = forms.ChoiceField(label=sv.libelle, choices=NOTES, initial=note and int(note[0].valeur) or 1)
             if profile.is_eleve():
                 self.fields[str(sv.id)].widget.attrs['readonly'] = True
             
