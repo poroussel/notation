@@ -146,7 +146,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
     capacites = ens.capacite_set.all()
     evaluations = Evaluation.objects.filter(bulletin=blt, capacite__in=list(capacites), annee=annee)
     
-    commentaires = Commentaire.objects.filter(bulletin=blt, ensemble=ens)
+    commentaires = Commentaire.objects.filter(bulletin=blt, ensemble=ens, annee=annee)
     commentaire = commentaires and commentaires[0].texte or None
 
     suivant = ens.suivant()
@@ -160,7 +160,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
         form = NotationForm(request.POST, questions=capacites, user=request.user)
         if form.is_valid():
             if 'commentaire' in form.cleaned_data:
-                com, created = Commentaire.objects.get_or_create(bulletin=blt, ensemble=ens, defaults={'texte' : form.cleaned_data['commentaire'], 'auteur_modification' : request.user})
+                com, created = Commentaire.objects.get_or_create(bulletin=blt, ensemble=ens, annee=annee, defaults={'texte' : form.cleaned_data['commentaire'], 'auteur_modification' : request.user})
                 if not created:
                     com.texte = form.cleaned_data['commentaire']
                     com.save()

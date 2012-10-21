@@ -188,6 +188,7 @@ class Bulletin(models.Model):
     entreprise = models.ForeignKey(Entreprise)
     tuteur = models.ForeignKey(User, related_name='tuteur', verbose_name=u'Tuteur entreprise')
     formateur = models.ForeignKey(User, related_name='formateur', verbose_name=u'Tuteur académique')
+    # FIXME : remplacé par le modèle CommentaireGeneral
     commentaires_generaux = models.TextField(u'Commentaires généraux')
     date_modification = models.DateTimeField(auto_now=True)
     auteur_modification = models.ForeignKey(User, related_name='auteur', null=True)
@@ -388,7 +389,6 @@ class Note(models.Model):
     theme = models.ForeignKey(Theme, null=True, blank=True)
     savoir = models.ForeignKey(SavoirEtre, null=True, blank=True)
     valeur = models.DecimalField(max_digits=3, decimal_places=1)
-    # Indice dans la liste des annees (0, 1 etc) 
     annee = models.PositiveIntegerField(u'Année')
     date_modification = models.DateTimeField(auto_now=True)
     auteur_modification = models.ForeignKey(User)
@@ -414,8 +414,8 @@ class Note(models.Model):
 
 class Commentaire(models.Model):
     """
-    Permet le stockage d'un commentaire libre pour un bulletin et un
-    ensemble de capacites
+    Permet le stockage d'un commentaire libre pour un bulletin, un
+    ensemble de capacites et une annee
     
     Doit etre modifiable par l'eleve ce qui necessite un login/password pour les eleves
     """
@@ -426,6 +426,7 @@ class Commentaire(models.Model):
     bulletin = models.ForeignKey(Bulletin)
     ensemble = models.ForeignKey(EnsembleCapacite)
     texte = models.TextField()
+    annee = models.PositiveIntegerField(u'Année', default=0)
     date_modification = models.DateTimeField(auto_now=True)
     auteur_modification = models.ForeignKey(User)
 
@@ -437,3 +438,27 @@ class Commentaire(models.Model):
 
     def __unicode__(self):
         return u'Commentaire de %s pour le groupe %s'% (self.bulletin.eleve.get_full_name(), self.ensemble)
+
+class CommentaireGeneral(models.Model):
+    """
+    Permet le stockage d'un commentaire general (savoir etreà par un bulletin et
+    par année
+    """
+    class Meta:
+        verbose_name = u'Commentaire général'
+        verbose_name_plural = u'Commentaires généraux'
+        
+    bulletin = models.ForeignKey(Bulletin)
+    texte = models.TextField()
+    annee = models.PositiveIntegerField(u'Année', default=0)
+    date_modification = models.DateTimeField(auto_now=True)
+    auteur_modification = models.ForeignKey(User)
+
+    def eleve(self):
+        """
+        Méthode utilisée dans le vue liste admin
+        """
+        return self.bulletin.eleve.get_profile().nom_complet
+
+    def __unicode__(self):
+        return u'Commentaire général de %s pour l\année %d'% (self.bulletin.eleve.get_full_name(), self.ensemble, self.annee)
