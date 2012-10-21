@@ -12,7 +12,7 @@ from django.contrib import messages
 
 class Suppression(models.Model):
     """
-    On pourrait utiliser quelque chose comme
+    On utilise quelque chose comme
     file:///usr/share/doc/python-django-doc/html/ref/contrib/contenttypes.html#generic-relations
     pour avoir un lien vers l'objet supprimé et donc acceder facilement
     a ses attributes et methodes
@@ -219,8 +219,8 @@ class Bulletin(models.Model):
         for ens in ensembles:
             moyenne_ensemble = self.moyenne_ensemble(ens, annee)
             if moyenne_ensemble:
-                total += moyenne_ensemble * ens.poids
-                poids += ens.poids
+                total += moyenne_ensemble * 1
+                poids += 1
         moyenne = total * 4 / poids
         moy, created = Moyenne.objects.get_or_create(bulletin=self, annee=annee, defaults={'valeur_cp' : moyenne})
         if not created:
@@ -247,51 +247,52 @@ class Bulletin(models.Model):
         self.auteur_modification = user
         self.save()
 
+class Theme(models.Model):
+    """
+    Un thème regroupe plusieurs ensemble de capacités.
+    Une note sur 20 est attribuée pour chaque thème.
+
+    Chaque thème est liée à une grille et comporte
+    un libellé et une position dans la grille globale
+    """ 
+    class Meta:
+        verbose_name = u'Thème'
+        verbose_name_plural = u'Thèmes'
+        ordering = ['grille', 'position']
+        unique_together = ('grille', 'position')
+
+    grille = models.ForeignKey(GrilleNotation)
+    position = models.PositiveIntegerField()
+    libelle = models.CharField(u'Libellé', max_length=200)
+
+    def __unicode__(self):
+        return u'%d %s'% (self.position, self.libelle)
+
 class EnsembleCapacite(models.Model):
     class Meta:
         verbose_name = u'Ensemble de capacités'
         verbose_name_plural = u'Ensembles de capacités'
-        ordering = ['partie', 'numero']
-        unique_together = ('grille', 'partie', 'numero')
+        ordering = ['grille', 'numero']
+        unique_together = ('grille', 'numero')
 
     grille = models.ForeignKey(GrilleNotation)
-    # Relie plusieurs ensembles dans une catégorie
-    partie = models.CharField(max_length=1, blank=True)
+    theme = models.ForeignKey(Theme)
     numero = models.PositiveIntegerField()
     libelle = models.CharField(u'Libellé', max_length=200)
-    poids = models.PositiveIntegerField(default=1)
 
     def precedent(self):
-        if self.partie:
-            precedents = EnsembleCapacite.objects.filter(grille=self.grille, partie=self.partie, numero=self.numero - 1)
-            if precedents:
-                return precedents[0]
-            precedents = EnsembleCapacite.objects.filter(grille=self.grille, partie=chr(ord(self.partie) - 1)).reverse()
-            if precedents:
-                return precedents[0]
-        else:
-            precedents = EnsembleCapacite.objects.filter(grille=self.grille, numero=self.numero - 1)
-            if precedents:
-                return precedents[0]
+        precedents = EnsembleCapacite.objects.filter(grille=self.grille, numero=self.numero - 1)
+        if precedents:
+            return precedents[0]
         return None
     
     def suivant(self):
-        if self.partie:
-            suivants = EnsembleCapacite.objects.filter(grille=self.grille, partie=self.partie, numero=self.numero + 1)
-            if suivants:
-                return suivants[0]
-            suivants = EnsembleCapacite.objects.filter(grille=self.grille, partie=chr(ord(self.partie) + 1), numero=1)
-            if suivants:
-                return suivants[0]
-        else:
-            suivants = EnsembleCapacite.objects.filter(grille=self.grille, numero=self.numero + 1)
-            if suivants:
-                return suivants[0]
+        suivants = EnsembleCapacite.objects.filter(grille=self.grille, numero=self.numero + 1)
+        if suivants:
+            return suivants[0]
         return None
     
     def __unicode__(self):
-        if self.partie:
-            return u'%c.%d %s'% (self.partie, self.numero, self.libelle)
         return u'%d %s'% (self.numero, self.libelle)
 
 class Capacite(models.Model):
@@ -304,16 +305,13 @@ class Capacite(models.Model):
     ensemble = models.ForeignKey(EnsembleCapacite)
     numero = models.PositiveIntegerField()
     libelle = models.CharField(u'Libellé', max_length=200)
-    # Plus utile
-    cours = models.CharField(u'Cours associé', max_length=80, blank=True)
+    # FIXME : ne sert plus ?
     an_1 = models.BooleanField(NOMS_ANNEES[0])
     an_2 = models.BooleanField(NOMS_ANNEES[1])
     an_3 = models.BooleanField(NOMS_ANNEES[2])
     code_annee = models.CharField(max_length=3, editable=False)
     
     def __unicode__(self):
-        if self.ensemble.partie:
-            return u'%c.%d.%d %s'% (self.ensemble.partie, self.ensemble.numero, self.numero, self.libelle)
         return u'%d.%d %s'% (self.ensemble.numero, self.numero, self.libelle)
     
 def calcul_code_annee(sender, instance, **kwargs):
@@ -373,12 +371,11 @@ class Evaluation(models.Model):
 
 class Note(models.Model):
     """
-    Une note peut être affectée à un savoir être et à un groupe
-    de capacités
+    Une note peut être affectée à un savoir être
+    ou à un thème
     """
     bulletin = models.ForeignKey(Bulletin)
-    # Plus utilise mais necessaire pour importer les anciennes donnees
-    capacite = models.ForeignKey(Capacite, null=True, blank=True)
+    theme = models.ForeignKey(Theme, null=True, blank=True)
     savoir = models.ForeignKey(SavoirEtre, null=True, blank=True)
     valeur = models.DecimalField(max_digits=3, decimal_places=1)
     # Indice dans la liste des annees (0, 1 etc) 
@@ -390,8 +387,8 @@ class Note(models.Model):
         """
         Méthode utilisée dans le vue liste admin
         """
-        if self.capacite:
-            return self.capacite.libelle
+        if self.theme:
+            return self.theme.libelle
         return self.savoir.libelle
     
     def eleve(self):
@@ -401,8 +398,8 @@ class Note(models.Model):
         return self.bulletin.eleve.get_profile().nom_complet
     
     def __unicode__(self):
-        if self.capacite:
-            return u'Note de %s pour la capacité %s'% (self.bulletin.eleve.get_profile().nom_complet, self.capacite)
+        if self.theme:
+            return u'Note de %s pour la capacité %s'% (self.bulletin.eleve.get_profile().nom_complet, self.theme)
         return u'Note de %s pour le savoir être %s'% (self.bulletin.eleve.get_profile().nom_complet, self.savoir)
 
 class Commentaire(models.Model):
