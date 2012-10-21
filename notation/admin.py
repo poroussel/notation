@@ -50,6 +50,15 @@ class CommentaireAdmin(admin.ModelAdmin):
     list_filter = ('bulletin', )
 admin.site.register(Commentaire, CommentaireAdmin)
 
+class CommentaireGeneralAdmin(admin.ModelAdmin):
+    list_display = ('eleve',
+                    'texte',
+                    'auteur_modification',
+                    'date_modification')
+    list_display_links = ('texte',)
+    list_filter = ('bulletin', )
+admin.site.register(CommentaireGeneral, CommentaireGeneralAdmin)
+
 class PUAdmin(admin.ModelAdmin):
     list_filter = ('user_type', )
 admin.site.register(ProfilUtilisateur, PUAdmin)

@@ -116,15 +116,21 @@ def annee_bulletin(request, blt_id, annee):
     setre = blt.grille.savoiretre_set.all()
     notes = Note.objects.filter(bulletin=blt, savoir__in=list(setre), annee=annee)
     moyenne = Moyenne.objects.filter(annee=annee, bulletin=blt)
+    commentaire = CommentaireGeneral.objects.filter(annee=annee, bulletin=blt)
+    commentaire = bool(commentaire) and commentaire[0].texte or None
     
-    form = BulletinForm(commentaire=blt.commentaires_generaux, notes=notes, savoirs=setre, user=request.user)
+    form = BulletinForm(commentaire=commentaire, notes=notes, savoirs=setre, user=request.user)
     if request.method == 'POST':
         form = BulletinForm(request.POST, commentaire=blt.commentaires_generaux, savoirs=setre, user=request.user)
         if form.is_valid():
             if 'commentaires_generaux' in form.cleaned_data:
-                blt.commentaires_generaux = form.cleaned_data['commentaires_generaux']
-                blt.save()
-
+                value = form.cleaned_data['commentaires_generaux']
+                comm, created = CommentaireGeneral.objects.get_or_create(bulletin=blt, annee=annee, defaults={'texte' : value, 'auteur_modification' : request.user})
+                if not created:
+                    comm.texte = value
+                    comm.auteur_modification = request.user
+                    comm.save()
+                    
             for sv in setre:
                 if str(sv.id) in form.cleaned_data:
                     value = form.cleaned_data[str(sv.id)]

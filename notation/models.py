@@ -437,7 +437,7 @@ class Commentaire(models.Model):
         return self.bulletin.eleve.get_profile().nom_complet
 
     def __unicode__(self):
-        return u'Commentaire de %s pour le groupe %s'% (self.bulletin.eleve.get_full_name(), self.ensemble)
+        return u'Commentaire de %s pour le groupe %s' % (self.bulletin.eleve.get_full_name(), self.ensemble)
 
 class CommentaireGeneral(models.Model):
     """
@@ -461,4 +461,4 @@ class CommentaireGeneral(models.Model):
         return self.bulletin.eleve.get_profile().nom_complet
 
     def __unicode__(self):
-        return u'Commentaire général de %s pour l\année %d'% (self.bulletin.eleve.get_full_name(), self.ensemble, self.annee)
+        return u'Commentaire général de %s pour l\'année %d' % (self.bulletin.eleve.get_full_name(), self.annee)
