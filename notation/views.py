@@ -236,6 +236,18 @@ def mail_new_user(request, user):
         return False
     return True
 
+def mail_new_password(request, user):
+    user.password = User.objects.make_random_password()
+    user.save()
+    body = render_to_string('creation_compte.txt', {'profil' : user.get_profile(), 'site' : Site.objects.get_current()})
+    try:
+        user.email_user(u'[CFAI/ENSMM] Réinitialisation de votre compte', body, from_email=settings.SERVER_EMAIL)
+        messages.success(request, u'Un email a été envoyé à %s.' % user.get_full_name())
+    except:
+        messages.error(request, u'Une erreur s\'est produite lors de l\'envoi d\'un email à %s, veuillez vérifier l\'adresse.' % user.email)
+        return False
+    return True
+
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def ajouter_eleve(request):
     if request.method == 'POST':
@@ -298,16 +310,8 @@ def modifier_eleve(request, object_id):
             blt.save()
 
             
-            if '_reinit' in request.POST:
-                elv.password = User.objects.make_random_password()
-                elv.save()
-                body = render_to_string('creation_compte.txt', {'profil' : elv.get_profile(), 'site' : Site.objects.get_current()})
-                try:
-                    elv.email_user(u'[CFAI/ENSMM] Réinitialisation de votre compte', body, from_email=settings.SERVER_EMAIL)
-                    messages.success(request, u'Un email a été envoyé à %s.' % elv.get_full_name())
-                except:
-                    messages.error(request, u'Une erreur s\'est produite lors de l\'envoi d\'un email à %s, veuillez vérifier l\'adresse.' % elv.email)
-                    return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blt}))
+            if '_reinit' in request.POST and not mail_new_user(request, elv):
+                return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blt}))
                 
             return HttpResponseRedirect(reverse('liste_eleve'))
     else:
@@ -388,16 +392,8 @@ def detail_formateur(request, object_id):
             profil.phone_number = form.cleaned_data['phone_number']
             profil.save()
             
-            if '_reinit' in request.POST:
-                formateur.password = User.objects.make_random_password()
-                formateur.save()
-                body = render_to_string('creation_compte.txt', {'profil' : formateur.get_profile(), 'site' : Site.objects.get_current()})
-                try:
-                    formateur.email_user(u'[CFAI/ENSMM] Réinitialisation de votre compte', body, from_email=settings.SERVER_EMAIL)
-                    messages.success(request, u'Un email a été envoyé à %s.' % formateur.get_full_name())
-                except:
-                    messages.error(request, u'Une erreur s\'est produite lors de l\'envoi d\'un email à %s, veuillez vérifier l\'adresse.' % formateur.email)
-                    return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : frm}))
+            if '_reinit' in request.POST and not mail_new_password(request, formateur):
+                return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : frm}))
                 
             return HttpResponseRedirect(reverse('liste_formateur'))
     else:
@@ -416,16 +412,8 @@ def detail_tuteur(request, object_id):
             profil.phone_number = form.cleaned_data['phone_number']
             profil.save()
             
-            if '_reinit' in request.POST:
-                tuteur.password = User.objects.make_random_password()
-                tuteur.save()
-                body = render_to_string('creation_compte.txt', {'profil' : tuteur.get_profile(), 'site' : Site.objects.get_current()})
-                try:
-                    tuteur.email_user(u'[CFAI/ENSMM] Réinitialisation de votre compte', body, from_email=settings.SERVER_EMAIL)
-                    messages.success(request, u'Un email a été envoyé à %s.' % tuteur.get_full_name())
-                except:
-                    messages.error(request, u'Une erreur s\'est produite lors de l\'envoi d\'un email à %s, veuillez vérifier l\'adresse.' % tuteur.email)
-                    return render_to_response('notation/tuteur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : tuteur}))
+            if '_reinit' in request.POST and not mail_new_password(request, tuteur):
+                return render_to_response('notation/tuteur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : tuteur}))
                 
             return HttpResponseRedirect(reverse('liste_tuteur'))
     else:
