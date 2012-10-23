@@ -19,7 +19,7 @@ from cfai.notation.models import *
 from cfai.notation.forms import *
 from cfai.notation.excel import *
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def suppression_objet(request, model, object_id):
     """
     model est une chaîne de caractères représentant le nom
@@ -236,7 +236,7 @@ def mail_new_user(request, user):
         return False
     return True
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def ajouter_eleve(request):
     if request.method == 'POST':
         form = CreationEleveForm(request.POST)
@@ -271,7 +271,7 @@ def ajouter_eleve(request):
         form = CreationEleveForm()
     return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : None}))
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def modifier_eleve(request, object_id):
     """
     On gère la relation élève-bulletin (et donc élève-formation) comme
