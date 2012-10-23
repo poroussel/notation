@@ -109,8 +109,9 @@ class GrilleNotation(models.Model):
     frm = models.ForeignKey(Formation, verbose_name='Formation')
     promotion = models.PositiveIntegerField(u'Première année de la promotion')
     duree = models.PositiveIntegerField(u'Durée en années de la formation')
-    poids_capacite = models.PositiveIntegerField(u'Poids de la moyenne des capacités dans la moyenne générale', default=1)
-    poids_savoir_etre = models.PositiveIntegerField(u'Poids de la moyenne des savoirs être dans la moyenne générale', default=1)
+    # Les poids ne sont plus utilisés et pourront être supprimés après filtrage des données
+    poids_capacite = models.PositiveIntegerField(u'Poids de la moyenne des capacités dans la moyenne générale', default=1, editable=False)
+    poids_savoir_etre = models.PositiveIntegerField(u'Poids de la moyenne des savoirs être dans la moyenne générale', default=1, editable=False)
 
     def __unicode__(self):
         return u'%s / %d - %d' % (self.frm.libelle, self.promotion, self.promotion + self.duree)
@@ -351,7 +352,7 @@ class Moyenne(models.Model):
         return u'Moyenne de %s pour la %s' % (self.bulletin.eleve.get_profile().nom_complet, NOMS_ANNEES[self.annee])
 
 def maj_moyenne_generale(sender, instance, **kwargs):
-    instance.valeur_gn = (instance.valeur_cp * instance.bulletin.grille.poids_capacite + instance.valeur_sv * instance.bulletin.grille.poids_savoir_etre) / (instance.bulletin.grille.poids_capacite + instance.bulletin.grille.poids_savoir_etre)
+    instance.valeur_gn = (instance.valeur_cp + instance.valeur_sv ) / 2
 pre_save.connect(maj_moyenne_generale, sender=Moyenne)
 
 class Evaluation(models.Model):
