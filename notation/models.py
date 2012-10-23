@@ -321,17 +321,6 @@ class Capacite(models.Model):
     def __unicode__(self):
         return u'%d.%d %s'% (self.ensemble.numero, self.numero, self.libelle)
     
-def calcul_code_annee(sender, instance, **kwargs):
-    code = ''
-    if instance.an_1:
-        code += '0'
-    if instance.an_2:
-        code += '1'
-    if instance.an_3:
-        code += '2'
-    instance.code_annee = code
-pre_save.connect(calcul_code_annee, sender=Capacite)
-
 class SavoirEtre(models.Model):
     class Meta:
         verbose_name = u'Savoir être'
@@ -347,7 +336,6 @@ class SavoirEtre(models.Model):
 
     def __unicode__(self):
         return self.libelle
-pre_save.connect(calcul_code_annee, sender=SavoirEtre)
 
 class Moyenne(models.Model):
     class Meta:
