@@ -7,6 +7,7 @@ admin.site.register(Entreprise)
 admin.site.register(GrilleNotation)
 admin.site.register(Formation)
 admin.site.register(Moyenne)
+admin.site.register(Evaluation)
 
 class EnsembleCapaciteAdmin(admin.ModelAdmin):
     list_display = ('__unicode__', 'grille')
@@ -20,7 +21,7 @@ class ThemeAdmin(admin.ModelAdmin):
 admin.site.register(Theme, ThemeAdmin)
 
 class CapaciteAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__', 'an_1', 'an_2', 'an_3')
+    list_display = ('__unicode__', 'ensemble')
     list_filter = ('ensemble',)
 admin.site.register(Capacite, CapaciteAdmin)
 
