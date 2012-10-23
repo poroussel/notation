@@ -313,9 +313,9 @@ class Capacite(models.Model):
     numero = models.PositiveIntegerField()
     libelle = models.CharField(u'Libellé', max_length=200)
     # FIXME : ne sert plus ?
-    an_1 = models.BooleanField(NOMS_ANNEES[0])
-    an_2 = models.BooleanField(NOMS_ANNEES[1])
-    an_3 = models.BooleanField(NOMS_ANNEES[2])
+    an_1 = models.BooleanField(NOMS_ANNEES[0], editable=False)
+    an_2 = models.BooleanField(NOMS_ANNEES[1], editable=False)
+    an_3 = models.BooleanField(NOMS_ANNEES[2], editable=False)
     code_annee = models.CharField(max_length=3, editable=False)
     
     def __unicode__(self):
@@ -340,9 +340,9 @@ class SavoirEtre(models.Model):
     grille = models.ForeignKey(GrilleNotation)
     libelle = models.CharField(u'Libellé', max_length=200)
     # FIXME : ne sert plus mais on garde pour compatibilité ?
-    an_1 = models.BooleanField(NOMS_ANNEES[0])
-    an_2 = models.BooleanField(NOMS_ANNEES[1])
-    an_3 = models.BooleanField(NOMS_ANNEES[2])
+    an_1 = models.BooleanField(NOMS_ANNEES[0], editable=False)
+    an_2 = models.BooleanField(NOMS_ANNEES[1], editable=False)
+    an_3 = models.BooleanField(NOMS_ANNEES[2], editable=False)
     code_annee = models.CharField(max_length=3, editable=False)
 
     def __unicode__(self):
@@ -372,13 +372,13 @@ class Evaluation(models.Model):
     """
     bulletin = models.ForeignKey(Bulletin)
     capacite = models.ForeignKey(Capacite)
-    valeur = models.CharField(max_length=1, default='n', choices=APPRECIATIONS)
+    valeur = models.CharField(max_length=1, default='v', choices=APPRECIATIONS)
     annee = models.PositiveIntegerField(u'Année')
     date_modification = models.DateTimeField(auto_now=True)
     auteur_modification = models.ForeignKey(User)
 
     def __unicode__(self):
-        return u'Note de %s pour la capacité %s'% (self.bulletin.eleve.get_profile().nom_complet, self.capacite)
+        return u'Évaluation de %s pour la capacité %s'% (self.bulletin.eleve.get_profile().nom_complet, self.capacite)
 
 class Note(models.Model):
     """
