@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from cfai.notation.models import *
 
+# FIXME : modifier pour uniquement copier le contenu d'une grille existante
+# vers une autre grille existante (créée dans l'admin)
 class Command(BaseCommand):
     help = u'Copie d\'une grille de notation et des objets associés'
     args = "id_grille_origine promotion_nouvelle_grille"
