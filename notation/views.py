@@ -115,18 +115,27 @@ def annee_bulletin(request, blt_id, annee):
     themes = Theme.objects.filter(grille=blt.grille).select_related()
     setre = blt.grille.savoiretre_set.all()
     notes = Note.objects.filter(bulletin=blt, savoir__in=list(setre), annee=annee)
+    notesth = Note.objects.filter(bulletin=blt, theme__in=list(themes), annee=annee)
     moyenne = Moyenne.objects.filter(annee=annee, bulletin=blt)
     commentaire = CommentaireGeneral.objects.filter(annee=annee, bulletin=blt)
     commentaire = bool(commentaire) and commentaire[0].texte or None
 
-    thform = NotationThemeForm(prefix='themes', themes=themes)
+    thform = NotationThemeForm(prefix='themes', themes=themes, notes=notesth)
     form = BulletinForm(commentaire=commentaire, notes=notes, savoirs=setre, user=request.user)
     
     if request.method == 'POST':
         if 'themes' in request.POST:
             thform = NotationThemeForm(request.POST, prefix='themes', themes=themes)
             if thform.is_valid():
-                pass
+                for th in themes:
+                    if str(th.id) in thform.cleaned_data:
+                        value = thform.cleaned_data[str(th.id)]
+                        if value:
+                            note, created = Note.objects.get_or_create(bulletin=blt, theme=th, annee=annee, defaults={'valeur' : value, 'auteur_modification' : request.user})
+                            if not created:
+                                note.valeur = value
+                                note.auteur_modification = request.user
+                                note.save()                        
         else:
             form = BulletinForm(request.POST, commentaire=blt.commentaires_generaux, savoirs=setre, user=request.user)
             if form.is_valid():

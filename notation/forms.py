@@ -141,8 +141,10 @@ class BulletinForm(forms.Form, ReadOnly):
 class NotationThemeForm(forms.Form):
     def __init__(self, *args, **kwargs):
         themes = kwargs.pop('themes')
+        notes = 'notes' in kwargs and kwargs.pop('notes') or None
         super(NotationThemeForm, self).__init__(*args, **kwargs)
 
         for th in themes:
-            self.fields[str(th.id)] = forms.IntegerField(label=th.libelle, min_value=0, max_value=20, help_text=u'Note entre 0 et 20', required=False)
+            note = notes and notes.filter(theme=th) or None
+            self.fields[str(th.id)] = forms.IntegerField(label=th.libelle, min_value=0, max_value=20, help_text=u'Note entre 0 et 20', required=False, initial=note and int(note[0].valeur) or None)
             self.fields[str(th.id)].ensembles = th.ensemblecapacite_set.all()
