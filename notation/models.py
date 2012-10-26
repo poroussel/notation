@@ -203,33 +203,15 @@ class Bulletin(models.Model):
     def get_absolute_url(self):
         return ('bulletin', [self.id])
 
-    def moyenne_ensemble(self, ens, annee):
-        """
-        Calcul de la moyenne pour un ensemble de capacités pour une année.
-        Les notes manquantes (non saisies) sont considérées comme valant 1
-        """
-        capacites = ens.capacite_set.filter(code_annee__contains=str(annee))
-        if len(capacites) == 0:
-            return None
-        notes = Note.objects.filter(bulletin=self, annee=annee, capacite__in=capacites).values_list('valeur', flat=True)
-        somme = sum(notes)
-        somme += len(capacites) - len(notes)
-        return somme / len(capacites)
-
     def calcul_moyenne_competence(self, annee, user):
         """
         Calcul la moyenne compétence de ce bulletin pour une année
         """
         annee = int(annee)
-        total = 0
-        poids = 0
-        ensembles = self.grille.ensemblecapacite_set.all()
-        for ens in ensembles:
-            moyenne_ensemble = self.moyenne_ensemble(ens, annee)
-            if moyenne_ensemble:
-                total += moyenne_ensemble * 1
-                poids += 1
-        moyenne = total * 4 / poids
+        themes = self.grille.theme_set.all()
+        notes = Note.objects.filter(bulletin=self, theme__in=list(themes), annee=annee).values_list('valeur', flat=True)
+        total = sum(notes)
+        moyenne = total / len(themes)
         moy, created = Moyenne.objects.get_or_create(bulletin=self, annee=annee, defaults={'valeur_cp' : moyenne})
         if not created:
             moy.valeur_cp = moyenne
@@ -242,7 +224,7 @@ class Bulletin(models.Model):
         Calcul la moyenne savoir être de ce bulletin pour une année
         """
         annee = int(annee)
-        savoirs = self.grille.savoiretre_set.filter(code_annee__contains=str(annee))
+        savoirs = self.grille.savoiretre_set.all()
         notes = Note.objects.filter(bulletin=self, annee=annee, savoir__in=savoirs).values_list('valeur', flat=True)
         somme = sum(notes)
         somme += len(savoirs) - len(notes)

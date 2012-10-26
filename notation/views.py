@@ -135,7 +135,9 @@ def annee_bulletin(request, blt_id, annee):
                             if not created:
                                 note.valeur = value
                                 note.auteur_modification = request.user
-                                note.save()                        
+                                note.save()
+                blt.calcul_moyenne_competence(annee, request.user)
+                
         else:
             form = BulletinForm(request.POST, commentaire=blt.commentaires_generaux, savoirs=setre, user=request.user)
             if form.is_valid():
