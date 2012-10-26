@@ -5,17 +5,39 @@
 <div id="soustitre">
 <a href="{% url notation.views.bulletin bulletin.id %}">retour au choix de l'année</a>
 </div>
-
-<ul>
-{% for th in themes %}
-  <li><b>{{ th }}</b></li>
-  <ul>
-    {% for ensemble in th.ensemblecapacite_set.all %}
-    <li><a href="{% url notation.views.ensemble_bulletin bulletin.id annee ensemble.id %}">{{ ensemble }}</a></li>
+<form action="" method="post">{% csrf_token %}
+  <table>
+    {% for field in thform %}
+    <tr><th>
+      {{ field.label_tag }}
+      <ul>
+	{% for ens in field.field.ensembles %}
+	<li><a href="{% url notation.views.ensemble_bulletin bulletin.id annee ens.id %}">{{ ens }}</a></li>
+	{% endfor %}
+      </ul>
+    </th><td>
+      {% if field.errors %}
+      <ul class="errorlist">
+	{% for error in field.errors %}
+	<li>{{ error|escape }}</li>
+	{% endfor %}
+      </ol>
+      {% endif %}
+      {{ field }}
+      {% if field.help_text %}
+      <br><span>{{ field.help_text|escape }}</span>
+      {% endif %}
+    </td></tr>
     {% endfor %}
-  </ul>
-{% endfor %}
-</ul>
+
+{% if user.get_profile.is_tuteur or user.get_profile.is_administratif %}
+  <tr><th></th><td>
+    <input name="themes" type="submit" value="Enregistrer" />
+  </td></tr>
+{% endif %}  
+  </table>
+</form>
+
 
 <h1>Les savoirs êtres</h1>
 <form action="" method="post">{% csrf_token %}

@@ -118,32 +118,40 @@ def annee_bulletin(request, blt_id, annee):
     moyenne = Moyenne.objects.filter(annee=annee, bulletin=blt)
     commentaire = CommentaireGeneral.objects.filter(annee=annee, bulletin=blt)
     commentaire = bool(commentaire) and commentaire[0].texte or None
-    
+
+    thform = NotationThemeForm(prefix='themes', themes=themes)
     form = BulletinForm(commentaire=commentaire, notes=notes, savoirs=setre, user=request.user)
+    
     if request.method == 'POST':
-        form = BulletinForm(request.POST, commentaire=blt.commentaires_generaux, savoirs=setre, user=request.user)
-        if form.is_valid():
-            if 'commentaires_generaux' in form.cleaned_data:
-                value = form.cleaned_data['commentaires_generaux']
-                comm, created = CommentaireGeneral.objects.get_or_create(bulletin=blt, annee=annee, defaults={'texte' : value, 'auteur_modification' : request.user})
-                if not created:
-                    comm.texte = value
-                    comm.auteur_modification = request.user
-                    comm.save()
+        if 'themes' in request.POST:
+            thform = NotationThemeForm(request.POST, prefix='themes', themes=themes)
+            if thform.is_valid():
+                pass
+        else:
+            form = BulletinForm(request.POST, commentaire=blt.commentaires_generaux, savoirs=setre, user=request.user)
+            if form.is_valid():
+                if 'commentaires_generaux' in form.cleaned_data:
+                    value = form.cleaned_data['commentaires_generaux']
+                    comm, created = CommentaireGeneral.objects.get_or_create(bulletin=blt, annee=annee, defaults={'texte' : value, 'auteur_modification' : request.user})
+                    if not created:
+                        comm.texte = value
+                        comm.auteur_modification = request.user
+                        comm.save()
                     
-            for sv in setre:
-                if str(sv.id) in form.cleaned_data:
-                    value = form.cleaned_data[str(sv.id)]
-                    if value:
-                        note, created = Note.objects.get_or_create(bulletin=blt, savoir=sv, annee=annee, defaults={'valeur' : value, 'auteur_modification' : request.user})
-                        if not created:
-                            note.valeur = value
-                            note.auteur_modification = request.user
-                            note.save()
-                    else:
-                        Note.objects.filter(bulletin=blt, savoir=sv, annee=annee).delete()
-            blt.calcul_moyenne_savoir(annee, request.user)
-    return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'themes' : themes, 'form' : form, 'moyenne' : moyenne}))
+                for sv in setre:
+                    if str(sv.id) in form.cleaned_data:
+                        value = form.cleaned_data[str(sv.id)]
+                        if value:
+                            note, created = Note.objects.get_or_create(bulletin=blt, savoir=sv, annee=annee, defaults={'valeur' : value, 'auteur_modification' : request.user})
+                            if not created:
+                                note.valeur = value
+                                note.auteur_modification = request.user
+                                note.save()
+                        else:
+                            Note.objects.filter(bulletin=blt, savoir=sv, annee=annee).delete()
+                blt.calcul_moyenne_savoir(annee, request.user)
+                
+    return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'themes' : themes, 'form' : form, 'moyenne' : moyenne, 'thform' : thform}))
 
 @user_passes_test(lambda u: u.is_authenticated() and (u.get_profile().is_manitou() or u.get_profile().is_tuteur() or u.get_profile().is_eleve()))
 def ensemble_bulletin(request, blt_id, annee, ens_id):

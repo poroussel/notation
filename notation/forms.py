@@ -136,3 +136,13 @@ class BulletinForm(forms.Form, ReadOnly):
         self.fields['commentaires_generaux'] = forms.CharField(label=u'Commentaires généraux', widget=forms.Textarea, required=False, initial=commentaire)
         if profile.is_eleve():
             self.fields['commentaires_generaux'].widget.attrs['readonly'] = True
+
+
+class NotationThemeForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        themes = kwargs.pop('themes')
+        super(NotationThemeForm, self).__init__(*args, **kwargs)
+
+        for th in themes:
+            self.fields[str(th.id)] = forms.IntegerField(label=th.libelle, min_value=0, max_value=20, help_text=u'Note entre 0 et 20', required=False)
+            self.fields[str(th.id)].ensembles = th.ensemblecapacite_set.all()
