@@ -137,18 +137,6 @@ class GrilleNotation(models.Model):
             return None
         return NOMS_ANNEES[annee]
 
-def maj_bulletins_de_grille(sender, instance, created, **kwargs):
-    """
-    Lorsqu'une grille est modifiee les moyennes des bulletins associes
-    doivent etre recalculees pour prendre en compte la modification
-    eventuelle des poids.
-    """
-    if not created:
-        moyennes = Moyenne.objects.filter(bulletin__grille=instance)
-        for moyenne in moyennes:
-            moyenne.save()
-post_save.connect(maj_bulletins_de_grille, sender=GrilleNotation)
-
 
 class Entreprise(models.Model):
     class Meta:
