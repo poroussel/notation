@@ -81,7 +81,7 @@ def bulletin_xls(request, blt):
         if capacites.count() == 0:
             continue
         
-        sheet.write(lig, 0, ens.partie)
+        sheet.write(lig, 0, u'partie')
         sheet.write_merge(lig, lig, 1, 6, u'%d %s' % (ens.numero, ens.libelle), titreg)
         lig += 1
 
@@ -91,14 +91,14 @@ def bulletin_xls(request, blt):
             # Création des cellules même vides pour la bordure
             sheet.write(lig, 1, u'%d.%d %s' % (ens.numero, cap.numero, cap.libelle), normal)
             
-            notes = Note.objects.filter(bulletin=blt, capacite=cap)
+            notes = Evaluation.objects.filter(bulletin=blt, capacite=cap)
             n = notes.filter(annee=0)
             sheet.write(lig, 2, n and n[0].valeur or '', cap.an_1 and centrer or centre)
             n = notes.filter(annee=1)
             sheet.write(lig, 3, n and n[0].valeur or '', cap.an_2 and centrev or centre)
             n = notes.filter(annee=2)
             sheet.write(lig, 4, n and n[0].valeur or '', cap.an_3 and centreb or centre)
-            sheet.write(lig, 5, cap.cours, centre)
+            # sheet.write(lig, 5, cap.cours, centre)
 
             lig += 1
 
@@ -108,13 +108,13 @@ def bulletin_xls(request, blt):
         else:
             sheet.merge(start, lig - 1, 6, 6, commentaire)
         
-        sheet.write(lig, 1, u'Note sur %s' % (5 * ens.poids), note)
-        moy = blt.moyenne_ensemble(ens, 0)
-        sheet.write(lig, 2, moy and ("%.2f" % (moy * ens.poids)) or None, notec)
-        moy = blt.moyenne_ensemble(ens, 1)
-        sheet.write(lig, 3, moy and ("%.2f" % (moy * ens.poids)) or None, notec)
-        moy = blt.moyenne_ensemble(ens, 2)
-        sheet.write(lig, 4, moy and ("%.2f" % (moy * ens.poids)) or None, notec)
+        # sheet.write(lig, 1, u'Note sur %s' % (5 * ens.poids), note)
+        # moy = blt.moyenne_ensemble(ens, 0)
+        # sheet.write(lig, 2, moy and ("%.2f" % (moy * ens.poids)) or None, notec)
+        # moy = blt.moyenne_ensemble(ens, 1)
+        # sheet.write(lig, 3, moy and ("%.2f" % (moy * ens.poids)) or None, notec)
+        # moy = blt.moyenne_ensemble(ens, 2)
+        # sheet.write(lig, 4, moy and ("%.2f" % (moy * ens.poids)) or None, notec)
         
         lig += 2
 
