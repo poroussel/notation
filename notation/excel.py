@@ -20,7 +20,8 @@ def bulletin_xls(request, blt):
     # Creation d'un workbook en Unicode
     book = Workbook(encoding='cp1251')
     sheet = book.add_sheet('Bulletin %d-%d' % (blt.grille.promotion, blt.grille.promotion + blt.grille.duree))
-
+    sheet.set_portrait(False)
+    
     # Largeur des colonnes
     sheet.col(1).width = 15000
     sheet.col(5).width = 12000
@@ -107,11 +108,21 @@ def bulletin_xls(request, blt):
 
             lig += 1
 
-        comm = Commentaire.objects.filter(bulletin=blt, ensemble=ens)
+        comm = Commentaire.objects.filter(bulletin=blt, ensemble=ens, annee=0)
+        if comm:
+            sheet.write_merge(start, lig - 1, 5, 5, comm[0].texte, commentaire)
+        else:
+            sheet.merge(start, lig - 1, 5, 5, commentaire)
+        comm = Commentaire.objects.filter(bulletin=blt, ensemble=ens, annee=1)
         if comm:
             sheet.write_merge(start, lig - 1, 6, 6, comm[0].texte, commentaire)
         else:
             sheet.merge(start, lig - 1, 6, 6, commentaire)
+        comm = Commentaire.objects.filter(bulletin=blt, ensemble=ens, annee=2)
+        if comm:
+            sheet.write_merge(start, lig - 1, 7, 7, comm[0].texte, commentaire)
+        else:
+            sheet.merge(start, lig - 1, 7, 7, commentaire)
         
         # sheet.write(lig, 1, u'Note sur %s' % (5 * ens.poids), note)
         # moy = blt.moyenne_ensemble(ens, 0)
@@ -121,7 +132,7 @@ def bulletin_xls(request, blt):
         # moy = blt.moyenne_ensemble(ens, 2)
         # sheet.write(lig, 4, moy and ("%.2f" % (moy * ens.poids)) or None, notec)
         
-        lig += 2
+        lig += 1
 
     # Fin de tableau avec les moyennes et les savoirs etre
     lig += 1
