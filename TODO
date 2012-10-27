@@ -1,15 +1,3 @@
-Mis à jour le 15/10/2012
+Mis à jour le 27/10/2012
 
- * Prévoir la génération du fichier excel pour une année
-
- * Les commentaires sur les ensembles devraient être liés à une année,
-   pas seulement à un bulletin. Voir comment récupérer les données
-   saisies lors du changement
-
- * Possibilité de supprimer un apprenti des listes (après démission
-   par exemple)
-
- * Suppression des cours associés
-
- * Suppression des coefficients (les cacher au cas ou ?)
-
+ * Prévoir la génération du fichier excel pour une année ?
