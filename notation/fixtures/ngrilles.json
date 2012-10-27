@@ -1,5 +1,132 @@
 [
   {
+    "pk": 3,
+    "model": "notation.grillenotation",
+    "fields": {
+      "poids_capacite": 1,
+      "poids_savoir_etre": 1,
+      "promotion": 2011,
+      "duree": 3,
+      "frm": 1
+    }
+  },
+  {
+    "pk": 5,
+    "model": "notation.grillenotation",
+    "fields": {
+      "poids_capacite": 1,
+      "poids_savoir_etre": 1,
+      "promotion": 2010,
+      "duree": 3,
+      "frm": 1
+    }
+  },
+  {
+    "pk": 6,
+    "model": "notation.grillenotation",
+    "fields": {
+      "poids_capacite": 1,
+      "poids_savoir_etre": 1,
+      "promotion": 2012,
+      "duree": 3,
+      "frm": 2
+    }
+  },
+  {
+    "pk": 2,
+    "model": "notation.grillenotation",
+    "fields": {
+      "poids_capacite": 1,
+      "poids_savoir_etre": 1,
+      "promotion": 2011,
+      "duree": 3,
+      "frm": 2
+    }
+  },
+  {
+    "pk": 4,
+    "model": "notation.grillenotation",
+    "fields": {
+      "poids_capacite": 1,
+      "poids_savoir_etre": 1,
+      "promotion": 2010,
+      "duree": 3,
+      "frm": 2
+    }
+  },
+  {
+    "pk": 9,
+    "model": "notation.theme",
+    "fields": {
+      "position": 1,
+      "libelle": "Politiques et strat\u00e9gies",
+      "grille": 6
+    }
+  },
+  {
+    "pk": 10,
+    "model": "notation.theme",
+    "fields": {
+      "position": 2,
+      "libelle": "Ma\u00eetriser les techniques",
+      "grille": 6
+    }
+  },
+  {
+    "pk": 11,
+    "model": "notation.theme",
+    "fields": {
+      "position": 3,
+      "libelle": "M\u00e9thodologies - Conception - R\u00e9alisation",
+      "grille": 6
+    }
+  },
+  {
+    "pk": 12,
+    "model": "notation.theme",
+    "fields": {
+      "position": 4,
+      "libelle": "Management - Communication - Informatique",
+      "grille": 6
+    }
+  },
+  {
+    "pk": 5,
+    "model": "notation.theme",
+    "fields": {
+      "position": 1,
+      "libelle": "Politiques et strat\u00e9gies",
+      "grille": 2
+    }
+  },
+  {
+    "pk": 6,
+    "model": "notation.theme",
+    "fields": {
+      "position": 2,
+      "libelle": "Ma\u00eetriser les techniques",
+      "grille": 2
+    }
+  },
+  {
+    "pk": 7,
+    "model": "notation.theme",
+    "fields": {
+      "position": 3,
+      "libelle": "M\u00e9thodologies - Conception - R\u00e9alisation",
+      "grille": 2
+    }
+  },
+  {
+    "pk": 8,
+    "model": "notation.theme",
+    "fields": {
+      "position": 4,
+      "libelle": "Management - Communication - Informatique",
+      "grille": 2
+    }
+  },
+  {
     "pk": 1,
     "model": "notation.theme",
     "fields": {
@@ -33,6 +160,406 @@
       "position": 4,
       "libelle": "Management - Communication - Informatique",
       "grille": 4
+    }
+  },
+  {
+    "pk": 41,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 9,
+      "libelle": "D\u00e9velopper une d\u00e9marche strat\u00e9gique",
+      "numero": 1,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 42,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 9,
+      "libelle": "D\u00e9ployer la politique qualit\u00e9",
+      "numero": 2,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 43,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 9,
+      "libelle": "D\u00e9ployer la politique S\u00e9curit\u00e9",
+      "numero": 3,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 44,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 9,
+      "libelle": "D\u00e9ployer la politique Environnement (dont les sp\u00e9cificit\u00e9s mati\u00e8re pr\u00e9cieuse)",
+      "numero": 4,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 45,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 9,
+      "libelle": "Anticiper les \u00e9volutions sur les axes : produits - process - organisation",
+      "numero": 5,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 46,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 10,
+      "libelle": "Ma\u00eetrise les techniques",
+      "numero": 6,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 47,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 11,
+      "libelle": "Conduire un projet ou une \u00e9tude",
+      "numero": 7,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 48,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 11,
+      "libelle": "Industrialiser",
+      "numero": 8,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 49,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 11,
+      "libelle": "Piloter un processus de production",
+      "numero": 9,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 50,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 11,
+      "libelle": "Am\u00e9liorer un processus de production",
+      "numero": 10,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 51,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 11,
+      "libelle": "Faire \u00e9merger de nouvelles id\u00e9es",
+      "numero": 11,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 52,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 11,
+      "libelle": "Elaborer et suivre le budget de fonctionnement / la comptabilit\u00e9 analytique",
+      "numero": 12,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 53,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 11,
+      "libelle": "Etablir et suivre des relations avec les partenaires externes (Fournisseurs - S/T - Clients\u2026)",
+      "numero": 13,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 54,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 12,
+      "libelle": "Manager des \u00e9quipes",
+      "numero": 14,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 55,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 12,
+      "libelle": "Aptitude \u00e0 faire respecter les r\u00e8gles",
+      "numero": 15,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 56,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 12,
+      "libelle": "Conduite une r\u00e9union",
+      "numero": 16,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 57,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 12,
+      "libelle": "Communiquer",
+      "numero": 17,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 58,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 12,
+      "libelle": "Dialoguer",
+      "numero": 18,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 59,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 12,
+      "libelle": "\u00c9voluer dans un contexte international",
+      "numero": 19,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 60,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 12,
+      "libelle": "Ma\u00eetriser les bases du syst\u00e8me informatique",
+      "numero": 20,
+      "grille": 6
+    }
+  },
+  {
+    "pk": 21,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 5,
+      "libelle": "D\u00e9velopper une d\u00e9marche strat\u00e9gique",
+      "numero": 1,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 22,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 5,
+      "libelle": "D\u00e9ployer la politique qualit\u00e9",
+      "numero": 2,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 23,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 5,
+      "libelle": "D\u00e9ployer la politique S\u00e9curit\u00e9",
+      "numero": 3,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 24,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 5,
+      "libelle": "D\u00e9ployer la politique Environnement (dont les sp\u00e9cificit\u00e9s mati\u00e8re pr\u00e9cieuse)",
+      "numero": 4,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 25,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 5,
+      "libelle": "Anticiper les \u00e9volutions sur les axes : produits - process - organisation",
+      "numero": 5,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 26,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 6,
+      "libelle": "Ma\u00eetrise les techniques",
+      "numero": 6,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 27,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 7,
+      "libelle": "Conduire un projet ou une \u00e9tude",
+      "numero": 7,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 28,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 7,
+      "libelle": "Industrialiser",
+      "numero": 8,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 29,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 7,
+      "libelle": "Piloter un processus de production",
+      "numero": 9,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 30,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 7,
+      "libelle": "Am\u00e9liorer un processus de production",
+      "numero": 10,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 31,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 7,
+      "libelle": "Faire \u00e9merger de nouvelles id\u00e9es",
+      "numero": 11,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 32,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 7,
+      "libelle": "Elaborer et suivre le budget de fonctionnement / la comptabilit\u00e9 analytique",
+      "numero": 12,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 33,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 7,
+      "libelle": "Etablir et suivre des relations avec les partenaires externes (Fournisseurs - S/T - Clients\u2026)",
+      "numero": 13,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 34,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 8,
+      "libelle": "Manager des \u00e9quipes",
+      "numero": 14,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 35,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 8,
+      "libelle": "Aptitude \u00e0 faire respecter les r\u00e8gles",
+      "numero": 15,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 36,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 8,
+      "libelle": "Conduite une r\u00e9union",
+      "numero": 16,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 37,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 8,
+      "libelle": "Communiquer",
+      "numero": 17,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 38,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 8,
+      "libelle": "Dialoguer",
+      "numero": 18,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 39,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 8,
+      "libelle": "\u00c9voluer dans un contexte international",
+      "numero": 19,
+      "grille": 2
+    }
+  },
+  {
+    "pk": 40,
+    "model": "notation.ensemblecapacite",
+    "fields": {
+      "theme": 8,
+      "libelle": "Ma\u00eetriser les bases du syst\u00e8me informatique",
+      "numero": 20,
+      "grille": 2
     }
   },
   {
@@ -233,6 +760,2528 @@
       "libelle": "Ma\u00eetriser les bases du syst\u00e8me informatique",
       "numero": 20,
       "grille": 4
+    }
+  },
+  {
+    "pk": 195,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Analyser le march\u00e9 et les attentes clients",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 41,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 196,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Positionner la concurrence",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 41,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 197,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Comprendre et relayer la strat\u00e9gie",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 41,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 198,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9valuer les risques de la strat\u00e9gie de l'entreprise",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 41,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 199,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Expliquer et faire appliquer les proc\u00e9dures qualit\u00e9",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 42,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 200,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Construire et/ou v\u00e9rifier l\u2019application des plans de contr\u00f4le et des instructions",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 42,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 201,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Participer \u00e0 la r\u00e9solution des probl\u00e8mes qualit\u00e9 internes et externes",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 42,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 202,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Conna\u00eetre la r\u00e9glementation et les moyens de pr\u00e9vention",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 43,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 203,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Appliquer et faire appliquer les r\u00e8gles de s\u00e9curit\u00e9",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 43,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 204,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Motiver pour am\u00e9liorer les conditions de s\u00e9curit\u00e9",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 43,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 205,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Veiller aux principes d\u2019ergonomie",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 43,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 206,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Veiller \u00e0 l\u2019application des r\u00e8gles environnementales",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 44,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 207,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Veiller au respect du tri des d\u00e9chets",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 44,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 208,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Contribuer au  suivi  des points significatifs",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 44,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 209,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Participer aux audits des pratiques environnementales",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 44,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 210,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Assurer la veille technologique de fa\u00e7on permanente",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 45,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 211,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Anticiper les \u00e9volutions de son secteur d\u2019activit\u00e9",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 45,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 212,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "D\u00e9finir des besoins en termes d\u2019\u00e9volution",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 45,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 213,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Appliquer ses connaissances en :",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 46,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 214,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Conception & design",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 46,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 215,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "M\u00e9canique",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 46,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 216,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Mat\u00e9riaux (gemmologie, composites, c\u00e9ramique, mati\u00e8res souples\u2026)",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 46,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 217,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Automatisme, robotique et m\u00e9catronique",
+      "numero": 5,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 46,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 218,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Proc\u00e9d\u00e9 de micro-fabrication",
+      "numero": 6,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 46,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 219,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9lectronique et opto-\u00e9lectronique",
+      "numero": 7,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 46,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 220,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Traitement de surface (rev\u00eatements, finition, polissage\u2026)",
+      "numero": 8,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 46,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 221,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Moyens de mesures",
+      "numero": 9,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 46,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 222,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Assurer la s\u00e9curit\u00e9 des marchandises \"pr\u00e9cieuses\"",
+      "numero": 10,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 46,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 223,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "D\u00e9finir le projet (contexte, situation souhait\u00e9e, acteurs, forces, faiblesses, gains attendus, dates cl\u00e9s)",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 47,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 224,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Analyser un cahier des charges client",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 47,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 225,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Valider la faisabilit\u00e9 technique",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 47,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 226,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9tablir le planning pr\u00e9visionnel (valider les ressources)",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 47,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 227,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Construire un tableau de bord de pilotage de projet (co\u00fbts d\u00e9lais ressources...)",
+      "numero": 5,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 47,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 228,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Animer les revues de projet",
+      "numero": 6,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 47,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 229,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Comparer les r\u00e9sultats et objectifs",
+      "numero": 7,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 47,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 230,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9tablir le bilan financier du projet et \u00e9valuer la rentabilit\u00e9",
+      "numero": 8,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 47,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 231,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Argumenter et pr\u00e9senter les r\u00e9sultats d'un projet \u00e0 sa hi\u00e9rarchie",
+      "numero": 9,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 47,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 232,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Participer \u00e0 la d\u00e9finition du besoin (produit ou process)",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 48,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 233,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9tudier l\u2019impact sur les co\u00fbts",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 48,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 234,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9valuer l\u2019impact sur la gestion des flux",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 48,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 235,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9valuer l\u2019impact sur les comp\u00e9tences",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 48,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 236,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9valuer l\u2019impact sur les \u00e9quipements",
+      "numero": 5,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 48,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 237,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9valuer les risques d\u2019un nouvel \u00e9quipement",
+      "numero": 6,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 48,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 238,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "R\u00e9diger un cahier des charges (achat)",
+      "numero": 7,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 48,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 239,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Participer \u00e0 la mise au point de l\u2019\u00e9quipement",
+      "numero": 8,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 48,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 240,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Qualifier le nouvel \u00e9quipement",
+      "numero": 9,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 48,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 241,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Calculer une charge-capacit\u00e9 et r\u00e9pondre r\u00e9guli\u00e8rement aux pr\u00e9visions de commandes",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 49,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 242,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Construire un tableau de bord (indicateurs - objectifs)",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 49,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 243,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Organiser le travail des \u00e9quipes de production",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 49,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 244,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Veiller \u00e0 l\u2019application des r\u00e8gles qualit\u00e9, s\u00e9curit\u00e9 et environnement (cf Management QSE)",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 49,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 245,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Contr\u00f4ler la gestion des flux de mati\u00e8res, composants et de produits",
+      "numero": 5,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 49,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 246,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9laborer et entretenir la maintenance des \u00e9quipements",
+      "numero": 6,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 49,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 247,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Veiller \u00e0 l'atteinte des objectifs (quantit\u00e9, livraison \u00e0 temps, co\u00fbts de non qualit\u00e9, incidents qualit\u00e9...)",
+      "numero": 7,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 49,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 248,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Animer le suivi des r\u00e9sultats et des performances pour une d\u00e9marche p\u00e9renne",
+      "numero": 8,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 49,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 249,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Prioriser et prendre des d\u00e9cisions en lien avec les orientations strat\u00e9giques",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 50,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 250,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Cr\u00e9er un plan d\u2019am\u00e9lioration continue",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 50,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 251,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Conduire des r\u00e9ductions de co\u00fbts",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 50,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 252,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Rep\u00e9rer les dysfonctionnements",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 50,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 253,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Favoriser la r\u00e9solution des probl\u00e8mes techniques",
+      "numero": 5,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 50,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 254,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "D\u00e9velopper un processus de g\u00e9n\u00e9ration d\u2019id\u00e9es nouvelles",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 51,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 255,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Mettre en \u0153uvre et animer ce processus",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 51,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 256,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "En \u00e9tudier la faisabilit\u00e9",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 51,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 257,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Identifier et classer les charges",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 52,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 258,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9valuer les co\u00fbts mati\u00e8res (consommables, \u00e9nergie..) li\u00e9s \u00e0 son activit\u00e9",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 52,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 259,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Participer \u00e0 la construction du budget du service (objectifs financiers entreprise/pr\u00e9visions d\u2019activit\u00e9 du service)",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 52,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 260,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Comprendre la constitution d\u2019un co\u00fbt produit",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 52,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 261,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "D\u00e9finir les charges directes et indirectes li\u00e9es \u00e0 un produit",
+      "numero": 5,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 52,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 262,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Analyser les \u00e9carts pr\u00e9visions/r\u00e9alisations proposer des plans d'actions d'am\u00e9lioration des co\u00fbts",
+      "numero": 6,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 52,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 263,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Construire un cahier des charges",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 53,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 264,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Comparer co\u00fbts interne et co\u00fbts externes",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 53,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 265,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Analyser et valider des choix",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 53,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 266,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Organiser et suivre les relations (plan d'am\u00e9lioration, contrat de progr\u00e8s, performance\u2026) - \"jouer gagnant - gagnant\"",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 53,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 267,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Manager un collaborateur, adapter son mode de management",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 54,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 268,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Fixer des objectifs, suivre l'avancement et \u00e9valuer les r\u00e9sultats",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 54,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 269,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Animer une \u00e9quipe en assurant la coh\u00e9rence et la coh\u00e9sion",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 54,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 270,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Faire \"grandir\" et valoriser ses collaborateurs / coll\u00e8gues",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 54,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 271,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Assurer le r\u00f4le central de leader et mettre en \u0153uvre des m\u00e9thodes de pilotage et d\u2019action en tant que leader",
+      "numero": 5,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 54,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 272,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00catre capable de conduire un entretien individuel",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 55,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 273,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00catre capable de s'affirmer comme garant du respect des r\u00e8gles",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 55,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 274,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00catre capable de recadrer les pratiques d\u2019un individu, d\u2019un groupe",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 55,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 275,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Accompagner un changement de r\u00e8glement",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 55,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 276,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Mettre en \u0153uvre une approche m\u00e9thodologique de conduite de r\u00e9union",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 56,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 277,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Animer efficacement une r\u00e9union",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 56,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 278,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Conna\u00eetre et ma\u00eetriser les outils de communication (messagerie, tableau de bord, affichage\u2026)",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 57,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 279,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Ma\u00eetriser la communication \u00e9crite",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 57,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 280,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Ma\u00eetriser la communication orale par \"petit groupe\" (r\u00e9union, briefing\u2026)",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 57,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 281,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Ma\u00eetriser la communication orale (assembl\u00e9e\u2026)",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 57,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 282,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00catre \u00e0 l'\u00e9coute des collaborateurs",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 58,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 283,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Apporter des r\u00e9ponses claires et pr\u00e9cises",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 58,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 284,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "V\u00e9rifier ses informations",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 58,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 285,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Effectuer des d\u00e9placements \u00e0 l'\u00e9tranger (filiales, sites, client, fournisseurs, salons\u2026)",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 59,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 286,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Lire et r\u00e9aliser des documents en anglais",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 59,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 287,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Maintenir une conversation t\u00e9l\u00e9phonique en anglais",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 59,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 288,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "S\u2019exprimer avec aisance en anglais",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 59,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 289,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Comprendre les syst\u00e8mes d'information (ERP, GPAO, GMAO\u2026)",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 60,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 290,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Comprendre et respecter les principes de la s\u00e9curit\u00e9 informatique",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 60,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 291,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Ma\u00eetriser les outils informatiques (bureautique, internet, progiciels\u2026)",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 60,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 98,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Analyser le march\u00e9 et les attentes clients",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 21,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 99,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Positionner la concurrence",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 21,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 100,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Comprendre et relayer la strat\u00e9gie",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 21,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 101,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9valuer les risques de la strat\u00e9gie de l'entreprise",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 21,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 102,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Expliquer et faire appliquer les proc\u00e9dures qualit\u00e9",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 22,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 103,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Construire et/ou v\u00e9rifier l\u2019application des plans de contr\u00f4le et des instructions",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 22,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 104,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Participer \u00e0 la r\u00e9solution des probl\u00e8mes qualit\u00e9 internes et externes",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 22,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 105,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Conna\u00eetre la r\u00e9glementation et les moyens de pr\u00e9vention",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 23,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 106,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Appliquer et faire appliquer les r\u00e8gles de s\u00e9curit\u00e9",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 23,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 107,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Motiver pour am\u00e9liorer les conditions de s\u00e9curit\u00e9",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 23,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 108,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Veiller aux principes d\u2019ergonomie",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 23,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 109,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Veiller \u00e0 l\u2019application des r\u00e8gles environnementales",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 24,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 110,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Veiller au respect du tri des d\u00e9chets",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 24,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 111,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Contribuer au  suivi  des points significatifs",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 24,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 112,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Participer aux audits des pratiques environnementales",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 24,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 113,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Assurer la veille technologique de fa\u00e7on permanente",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 25,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 114,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Anticiper les \u00e9volutions de son secteur d\u2019activit\u00e9",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 25,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 115,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "D\u00e9finir des besoins en termes d\u2019\u00e9volution",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 25,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 116,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Appliquer ses connaissances en :",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 26,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 117,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Conception & design",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 26,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 118,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "M\u00e9canique",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 26,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 119,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Mat\u00e9riaux (gemmologie, composites, c\u00e9ramique, mati\u00e8res souples\u2026)",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 26,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 120,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Automatisme, robotique et m\u00e9catronique",
+      "numero": 5,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 26,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 121,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Proc\u00e9d\u00e9 de micro-fabrication",
+      "numero": 6,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 26,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 122,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9lectronique et opto-\u00e9lectronique",
+      "numero": 7,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 26,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 123,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Traitement de surface (rev\u00eatements, finition, polissage\u2026)",
+      "numero": 8,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 26,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 124,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Moyens de mesures",
+      "numero": 9,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 26,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 125,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Assurer la s\u00e9curit\u00e9 des marchandises \"pr\u00e9cieuses\"",
+      "numero": 10,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 26,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 126,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "D\u00e9finir le projet (contexte, situation souhait\u00e9e, acteurs, forces, faiblesses, gains attendus, dates cl\u00e9s)",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 27,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 127,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Analyser un cahier des charges client",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 27,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 128,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Valider la faisabilit\u00e9 technique",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 27,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 129,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9tablir le planning pr\u00e9visionnel (valider les ressources)",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 27,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 130,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Construire un tableau de bord de pilotage de projet (co\u00fbts d\u00e9lais ressources...)",
+      "numero": 5,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 27,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 131,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Animer les revues de projet",
+      "numero": 6,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 27,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 132,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Comparer les r\u00e9sultats et objectifs",
+      "numero": 7,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 27,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 133,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9tablir le bilan financier du projet et \u00e9valuer la rentabilit\u00e9",
+      "numero": 8,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 27,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 134,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Argumenter et pr\u00e9senter les r\u00e9sultats d'un projet \u00e0 sa hi\u00e9rarchie",
+      "numero": 9,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 27,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 135,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Participer \u00e0 la d\u00e9finition du besoin (produit ou process)",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 28,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 136,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9tudier l\u2019impact sur les co\u00fbts",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 28,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 137,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9valuer l\u2019impact sur la gestion des flux",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 28,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 138,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9valuer l\u2019impact sur les comp\u00e9tences",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 28,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 139,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9valuer l\u2019impact sur les \u00e9quipements",
+      "numero": 5,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 28,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 140,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9valuer les risques d\u2019un nouvel \u00e9quipement",
+      "numero": 6,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 28,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 141,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "R\u00e9diger un cahier des charges (achat)",
+      "numero": 7,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 28,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 142,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Participer \u00e0 la mise au point de l\u2019\u00e9quipement",
+      "numero": 8,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 28,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 143,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Qualifier le nouvel \u00e9quipement",
+      "numero": 9,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 28,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 144,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Calculer une charge-capacit\u00e9 et r\u00e9pondre r\u00e9guli\u00e8rement aux pr\u00e9visions de commandes",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 29,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 145,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Construire un tableau de bord (indicateurs - objectifs)",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 29,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 146,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Organiser le travail des \u00e9quipes de production",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 29,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 147,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Veiller \u00e0 l\u2019application des r\u00e8gles qualit\u00e9, s\u00e9curit\u00e9 et environnement (cf Management QSE)",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 29,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 148,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Contr\u00f4ler la gestion des flux de mati\u00e8res, composants et de produits",
+      "numero": 5,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 29,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 149,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9laborer et entretenir la maintenance des \u00e9quipements",
+      "numero": 6,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 29,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 150,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Veiller \u00e0 l'atteinte des objectifs (quantit\u00e9, livraison \u00e0 temps, co\u00fbts de non qualit\u00e9, incidents qualit\u00e9...)",
+      "numero": 7,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 29,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 151,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Animer le suivi des r\u00e9sultats et des performances pour une d\u00e9marche p\u00e9renne",
+      "numero": 8,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 29,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 152,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Prioriser et prendre des d\u00e9cisions en lien avec les orientations strat\u00e9giques",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 30,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 153,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Cr\u00e9er un plan d\u2019am\u00e9lioration continue",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 30,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 154,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Conduire des r\u00e9ductions de co\u00fbts",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 30,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 155,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Rep\u00e9rer les dysfonctionnements",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 30,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 156,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Favoriser la r\u00e9solution des probl\u00e8mes techniques",
+      "numero": 5,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 30,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 157,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "D\u00e9velopper un processus de g\u00e9n\u00e9ration d\u2019id\u00e9es nouvelles",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 31,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 158,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Mettre en \u0153uvre et animer ce processus",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 31,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 159,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "En \u00e9tudier la faisabilit\u00e9",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 31,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 160,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Identifier et classer les charges",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 32,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 161,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00c9valuer les co\u00fbts mati\u00e8res (consommables, \u00e9nergie..) li\u00e9s \u00e0 son activit\u00e9",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 32,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 162,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Participer \u00e0 la construction du budget du service (objectifs financiers entreprise/pr\u00e9visions d\u2019activit\u00e9 du service)",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 32,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 163,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Comprendre la constitution d\u2019un co\u00fbt produit",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 32,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 164,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "D\u00e9finir les charges directes et indirectes li\u00e9es \u00e0 un produit",
+      "numero": 5,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 32,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 165,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Analyser les \u00e9carts pr\u00e9visions/r\u00e9alisations proposer des plans d'actions d'am\u00e9lioration des co\u00fbts",
+      "numero": 6,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 32,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 166,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Construire un cahier des charges",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 33,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 167,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Comparer co\u00fbts interne et co\u00fbts externes",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 33,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 168,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Analyser et valider des choix",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 33,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 169,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Organiser et suivre les relations (plan d'am\u00e9lioration, contrat de progr\u00e8s, performance\u2026) - \"jouer gagnant - gagnant\"",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 33,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 170,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Manager un collaborateur, adapter son mode de management",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 34,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 171,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Fixer des objectifs, suivre l'avancement et \u00e9valuer les r\u00e9sultats",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 34,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 172,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Animer une \u00e9quipe en assurant la coh\u00e9rence et la coh\u00e9sion",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 34,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 173,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Faire \"grandir\" et valoriser ses collaborateurs / coll\u00e8gues",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 34,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 174,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Assurer le r\u00f4le central de leader et mettre en \u0153uvre des m\u00e9thodes de pilotage et d\u2019action en tant que leader",
+      "numero": 5,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 34,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 175,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00catre capable de conduire un entretien individuel",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 35,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 176,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00catre capable de s'affirmer comme garant du respect des r\u00e8gles",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 35,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 177,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00catre capable de recadrer les pratiques d\u2019un individu, d\u2019un groupe",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 35,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 178,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Accompagner un changement de r\u00e8glement",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 35,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 179,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Mettre en \u0153uvre une approche m\u00e9thodologique de conduite de r\u00e9union",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 36,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 180,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Animer efficacement une r\u00e9union",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 36,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 181,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Conna\u00eetre et ma\u00eetriser les outils de communication (messagerie, tableau de bord, affichage\u2026)",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 37,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 182,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Ma\u00eetriser la communication \u00e9crite",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 37,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 183,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Ma\u00eetriser la communication orale par \"petit groupe\" (r\u00e9union, briefing\u2026)",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 37,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 184,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Ma\u00eetriser la communication orale (assembl\u00e9e\u2026)",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 37,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 185,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "\u00catre \u00e0 l'\u00e9coute des collaborateurs",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 38,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 186,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Apporter des r\u00e9ponses claires et pr\u00e9cises",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 38,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 187,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "V\u00e9rifier ses informations",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 38,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 188,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Effectuer des d\u00e9placements \u00e0 l'\u00e9tranger (filiales, sites, client, fournisseurs, salons\u2026)",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 39,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 189,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Lire et r\u00e9aliser des documents en anglais",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 39,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 190,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Maintenir une conversation t\u00e9l\u00e9phonique en anglais",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 39,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 191,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "S\u2019exprimer avec aisance en anglais",
+      "numero": 4,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 39,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 192,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Comprendre les syst\u00e8mes d'information (ERP, GPAO, GMAO\u2026)",
+      "numero": 1,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 40,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 193,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Comprendre et respecter les principes de la s\u00e9curit\u00e9 informatique",
+      "numero": 2,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 40,
+      "an_2": false,
+      "an_3": false
+    }
+  },
+  {
+    "pk": 194,
+    "model": "notation.capacite",
+    "fields": {
+      "libelle": "Ma\u00eetriser les outils informatiques (bureautique, internet, progiciels\u2026)",
+      "numero": 3,
+      "an_1": false,
+      "code_annee": "",
+      "ensemble": 40,
+      "an_2": false,
+      "an_3": false
     }
   },
   {
@@ -1494,6 +4543,426 @@
       "ensemble": 20,
       "an_2": false,
       "an_3": false
+    }
+  },
+  {
+    "pk": 8,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Comprendre et mettre en application les directives",
+      "code_annee": "012",
+      "grille": 3,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 9,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "D\u00e9montrer son int\u00e9r\u00eat et sa motivation",
+      "code_annee": "012",
+      "grille": 3,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 10,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Etre poli et courtois",
+      "code_annee": "012",
+      "grille": 3,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 11,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Accepter des critiques constructives et apporter des correctifs demand\u00e9s",
+      "code_annee": "012",
+      "grille": 3,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 12,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Etre ponctuel et assidu",
+      "code_annee": "012",
+      "grille": 3,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 13,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Mettre \u00e0 profit ses comp\u00e9tences",
+      "code_annee": "012",
+      "grille": 3,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 14,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Effectuer son travail avec dilligence et efficacit\u00e9",
+      "code_annee": "012",
+      "grille": 3,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 15,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Comprendre et mettre en application les directives",
+      "code_annee": "012",
+      "grille": 4,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 16,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "D\u00e9montrer son int\u00e9r\u00eat et sa motivation",
+      "code_annee": "012",
+      "grille": 4,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 17,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Etre poli et courtois",
+      "code_annee": "012",
+      "grille": 4,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 18,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Accepter des critiques constructives et apporter des correctifs demand\u00e9s",
+      "code_annee": "012",
+      "grille": 4,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 19,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Etre ponctuel et assidu",
+      "code_annee": "012",
+      "grille": 4,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 20,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Mettre \u00e0 profit ses comp\u00e9tences",
+      "code_annee": "012",
+      "grille": 4,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 21,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Effectuer son travail avec dilligence et efficacit\u00e9",
+      "code_annee": "012",
+      "grille": 4,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 22,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Comprendre et mettre en application les directives",
+      "code_annee": "012",
+      "grille": 5,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 23,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "D\u00e9montrer son int\u00e9r\u00eat et sa motivation",
+      "code_annee": "012",
+      "grille": 5,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 24,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Etre poli et courtois",
+      "code_annee": "012",
+      "grille": 5,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 25,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Accepter des critiques constructives et apporter des correctifs demand\u00e9s",
+      "code_annee": "012",
+      "grille": 5,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 26,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Etre ponctuel et assidu",
+      "code_annee": "012",
+      "grille": 5,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 27,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Mettre \u00e0 profit ses comp\u00e9tences",
+      "code_annee": "012",
+      "grille": 5,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 28,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Effectuer son travail avec dilligence et efficacit\u00e9",
+      "code_annee": "012",
+      "grille": 5,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 29,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Comprendre et mettre en application les directives",
+      "code_annee": "012",
+      "grille": 2,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 30,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "D\u00e9montrer son int\u00e9r\u00eat et sa motivation",
+      "code_annee": "012",
+      "grille": 2,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 31,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Etre poli et courtois",
+      "code_annee": "012",
+      "grille": 2,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 32,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Accepter des critiques constructives et apporter des correctifs demand\u00e9s",
+      "code_annee": "012",
+      "grille": 2,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 33,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Etre ponctuel et assidu",
+      "code_annee": "012",
+      "grille": 2,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 34,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Mettre \u00e0 profit ses comp\u00e9tences",
+      "code_annee": "012",
+      "grille": 2,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 35,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Effectuer son travail avec dilligence et efficacit\u00e9",
+      "code_annee": "012",
+      "grille": 2,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 36,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Comprendre et mettre en application les directives",
+      "code_annee": "012",
+      "grille": 6,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 37,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "D\u00e9montrer son int\u00e9r\u00eat et sa motivation",
+      "code_annee": "012",
+      "grille": 6,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 38,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Etre poli et courtois",
+      "code_annee": "012",
+      "grille": 6,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 39,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Accepter des critiques constructives et apporter des correctifs demand\u00e9s",
+      "code_annee": "012",
+      "grille": 6,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 40,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Etre ponctuel et assidu",
+      "code_annee": "012",
+      "grille": 6,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 41,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Mettre \u00e0 profit ses comp\u00e9tences",
+      "code_annee": "012",
+      "grille": 6,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
+    }
+  },
+  {
+    "pk": 42,
+    "model": "notation.savoiretre",
+    "fields": {
+      "libelle": "Effectuer son travail avec dilligence et efficacit\u00e9",
+      "code_annee": "012",
+      "grille": 6,
+      "an_1": true,
+      "an_2": true,
+      "an_3": true
     }
   }
 ]
