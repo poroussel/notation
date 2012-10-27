@@ -1236,21 +1236,8 @@
     "pk": 601,
     "model": "notation.capacite",
     "fields": {
-      "libelle": "Appliquer ses connaissances en :",
+      "libelle": "Appliquer ses connaissances en",
       "numero": 1,
-      "an_1": false,
-      "code_annee": "",
-      "ensemble": 126,
-      "an_2": false,
-      "an_3": false
-    }
-  },
-  {
-    "pk": 602,
-    "model": "notation.capacite",
-    "fields": {
-      "libelle": "Conception & design",
-      "numero": 2,
       "an_1": false,
       "code_annee": "",
       "ensemble": 126,
@@ -1263,7 +1250,7 @@
     "model": "notation.capacite",
     "fields": {
       "libelle": "M\u00e9canique",
-      "numero": 3,
+      "numero": 2,
       "an_1": false,
       "code_annee": "",
       "ensemble": 126,
@@ -1275,8 +1262,8 @@
     "pk": 604,
     "model": "notation.capacite",
     "fields": {
-      "libelle": "Mat\u00e9riaux (gemmologie, composites, c\u00e9ramique, mati\u00e8res souples\u2026)",
-      "numero": 4,
+      "libelle": "Mat\u00e9riaux",
+      "numero": 3,
       "an_1": false,
       "code_annee": "",
       "ensemble": 126,
@@ -1289,7 +1276,7 @@
     "model": "notation.capacite",
     "fields": {
       "libelle": "Automatisme, robotique et m\u00e9catronique",
-      "numero": 5,
+      "numero": 4,
       "an_1": false,
       "code_annee": "",
       "ensemble": 126,
@@ -1298,37 +1285,11 @@
     }
   },
   {
-    "pk": 606,
-    "model": "notation.capacite",
-    "fields": {
-      "libelle": "Proc\u00e9d\u00e9 de micro-fabrication",
-      "numero": 6,
-      "an_1": false,
-      "code_annee": "",
-      "ensemble": 126,
-      "an_2": false,
-      "an_3": false
-    }
-  },
-  {
-    "pk": 607,
+    "pk": 680,
     "model": "notation.capacite",
     "fields": {
       "libelle": "\u00c9lectronique et opto-\u00e9lectronique",
-      "numero": 7,
-      "an_1": false,
-      "code_annee": "",
-      "ensemble": 126,
-      "an_2": false,
-      "an_3": false
-    }
-  },
-  {
-    "pk": 608,
-    "model": "notation.capacite",
-    "fields": {
-      "libelle": "Traitement de surface (rev\u00eatements, finition, polissage\u2026)",
-      "numero": 8,
+      "numero": 5,
       "an_1": false,
       "code_annee": "",
       "ensemble": 126,
@@ -1341,20 +1302,7 @@
     "model": "notation.capacite",
     "fields": {
       "libelle": "Moyens de mesures",
-      "numero": 9,
-      "an_1": false,
-      "code_annee": "",
-      "ensemble": 126,
-      "an_2": false,
-      "an_3": false
-    }
-  },
-  {
-    "pk": 610,
-    "model": "notation.capacite",
-    "fields": {
-      "libelle": "Assurer la s\u00e9curit\u00e9 des marchandises \"pr\u00e9cieuses\"",
-      "numero": 10,
+      "numero": 6,
       "an_1": false,
       "code_annee": "",
       "ensemble": 126,
