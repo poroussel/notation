@@ -61,10 +61,11 @@ def bulletin_xls(request, blt):
     normal = easyxf('font: name Arial, bold on, height 180; borders: left medium, right medium, bottom medium')
     sheet.write_merge(lig, lig, 1, 4, u'Chargé de promotion : %s' % (blt.formateur.get_profile().nom_complet), normal)
     
-    titre = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: horiz centre')
+    titre = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: horiz centre, vert centre')
+    titrev = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: horiz centre, vert centre; pattern: pattern solid, fore-colour green')
     lig = 13
-    sheet.row(lig).height *=3
-    sheet.write(lig, 1, u'Capacités professionnelles et Tâches professionnelles (Être capable de...)', titre)
+    sheet.row(lig).height = sheet.row(lig).height * 5 / 2
+    sheet.write(lig, 1, u'Capacités professionnelles et Tâches professionnelles (Être capable de...)', titrev)
     sheet.write(lig, 2, u'1ère année', titre)
     sheet.write(lig, 3, u'2ème année', titre)
     sheet.write(lig, 4, u'3ème année', titre)
@@ -80,59 +81,48 @@ def bulletin_xls(request, blt):
     note = easyxf('font: name Arial, height 160, bold on; align: vert centre')
     notec = easyxf('font: name Arial, height 160, bold on; align: vert centre, horiz centre')
 
+    vertical = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: horiz centre, vert centre, rotation 90')
+
     centrer = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour red')
     centrev = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour green')
     centreb = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour blue')
     
     lig += 1
-    ensembles = EnsembleCapacite.objects.filter(grille = blt.grille)
-    for ens in ensembles:
-        capacites = Capacite.objects.filter(ensemble = ens).order_by('numero')
-        if capacites.count() == 0:
-            continue
-        
-        sheet.write(lig, 0, u'partie')
-        sheet.write_merge(lig, lig, 1, 7, u'%d %s' % (ens.numero, ens.libelle), titreg)
-        lig += 1
+    
+    for theme in Theme.objects.filter(grille = blt.grille):
+        th_start = lig
+        for ens in EnsembleCapacite.objects.filter(grille = blt.grille, theme = theme):
+            sheet.write_merge(lig, lig, 1, 7, u'%d %s' % (ens.numero, ens.libelle), titreg)
+            lig += 1
+            start = lig
+            for cap in Capacite.objects.filter(ensemble = ens).order_by('numero'):
+                sheet.row(lig).height = sheet.row(lig).height * 3 / 2
+                sheet.write(lig, 1, u'%d.%d %s' % (ens.numero, cap.numero, cap.libelle), normal)            
+                notes = Evaluation.objects.filter(bulletin=blt, capacite=cap)
+                sheet.write(lig, 2, evaluation(notes.filter(annee=0)), centre)
+                sheet.write(lig, 3, evaluation(notes.filter(annee=1)), centre)
+                sheet.write(lig, 4, evaluation(notes.filter(annee=2)), centre)
+                lig += 1
 
-        start = lig
-        for cap in capacites:
-            sheet.row(lig).height = sheet.row(lig).height * 3 / 2
-            # Création des cellules même vides pour la bordure
-            sheet.write(lig, 1, u'%d.%d %s' % (ens.numero, cap.numero, cap.libelle), normal)
-            
-            notes = Evaluation.objects.filter(bulletin=blt, capacite=cap)
-            sheet.write(lig, 2, evaluation(notes.filter(annee=0)), centre)
-            sheet.write(lig, 3, evaluation(notes.filter(annee=1)), centre)
-            sheet.write(lig, 4, evaluation(notes.filter(annee=2)), centre)
-
+            comm = Commentaire.objects.filter(bulletin=blt, ensemble=ens, annee=0)
+            if comm:
+                sheet.write_merge(start, lig - 1, 5, 5, comm[0].texte, commentaire)
+            else:
+                sheet.merge(start, lig - 1, 5, 5, commentaire)
+            comm = Commentaire.objects.filter(bulletin=blt, ensemble=ens, annee=1)
+            if comm:
+                sheet.write_merge(start, lig - 1, 6, 6, comm[0].texte, commentaire)
+            else:
+                sheet.merge(start, lig - 1, 6, 6, commentaire)
+            comm = Commentaire.objects.filter(bulletin=blt, ensemble=ens, annee=2)
+            if comm:
+                sheet.write_merge(start, lig - 1, 7, 7, comm[0].texte, commentaire)
+            else:
+                sheet.merge(start, lig - 1, 7, 7, commentaire)
             lig += 1
 
-        comm = Commentaire.objects.filter(bulletin=blt, ensemble=ens, annee=0)
-        if comm:
-            sheet.write_merge(start, lig - 1, 5, 5, comm[0].texte, commentaire)
-        else:
-            sheet.merge(start, lig - 1, 5, 5, commentaire)
-        comm = Commentaire.objects.filter(bulletin=blt, ensemble=ens, annee=1)
-        if comm:
-            sheet.write_merge(start, lig - 1, 6, 6, comm[0].texte, commentaire)
-        else:
-            sheet.merge(start, lig - 1, 6, 6, commentaire)
-        comm = Commentaire.objects.filter(bulletin=blt, ensemble=ens, annee=2)
-        if comm:
-            sheet.write_merge(start, lig - 1, 7, 7, comm[0].texte, commentaire)
-        else:
-            sheet.merge(start, lig - 1, 7, 7, commentaire)
-        
-        # sheet.write(lig, 1, u'Note sur %s' % (5 * ens.poids), note)
-        # moy = blt.moyenne_ensemble(ens, 0)
-        # sheet.write(lig, 2, moy and ("%.2f" % (moy * ens.poids)) or None, notec)
-        # moy = blt.moyenne_ensemble(ens, 1)
-        # sheet.write(lig, 3, moy and ("%.2f" % (moy * ens.poids)) or None, notec)
-        # moy = blt.moyenne_ensemble(ens, 2)
-        # sheet.write(lig, 4, moy and ("%.2f" % (moy * ens.poids)) or None, notec)
-        
-        lig += 1
+        th_end = lig - 1
+        sheet.write_merge(th_start, th_end, 0, 0, theme.libelle, vertical)
 
     # Fin de tableau avec les moyennes et les savoirs etre
     lig += 1
