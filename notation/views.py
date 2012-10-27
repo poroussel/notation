@@ -175,11 +175,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
     commentaire = commentaires and commentaires[0].texte or None
 
     suivant = ens.suivant()
-    while suivant and not suivant.capacite_set.all():
-        suivant = suivant.suivant()
     precedent = ens.precedent()
-    while precedent and not precedent.capacite_set.all():
-        precedent = precedent.precedent()
 
     if request.method == 'POST':
         form = NotationForm(request.POST, questions=capacites, user=request.user)
