@@ -5,6 +5,11 @@ from cfai.notation.models import *
 from xlwt import *
 import unicodedata
 
+def evaluation(value):
+    if value:
+        return value[0].get_valeur_display()
+    return u'Non renseigné'
+
 chaine = u"éèêäûôü"
 def bulletin_xls(request, blt):
     # Suppression des caractères accentués du nom de l'apprenti
@@ -18,8 +23,9 @@ def bulletin_xls(request, blt):
 
     # Largeur des colonnes
     sheet.col(1).width = 15000
-    sheet.col(5).width += 400
-    sheet.col(6).width = 7000
+    sheet.col(5).width = 12000
+    sheet.col(6).width = 12000
+    sheet.col(7).width = 12000
     
     # Entête globale
     lig = 0
@@ -56,11 +62,14 @@ def bulletin_xls(request, blt):
     
     titre = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: horiz centre')
     lig = 13
+    sheet.row(lig).height *=3
+    sheet.write(lig, 1, u'Capacités professionnelles et Tâches professionnelles (Être capable de...)', titre)
     sheet.write(lig, 2, u'1ère année', titre)
     sheet.write(lig, 3, u'2ème année', titre)
     sheet.write(lig, 4, u'3ème année', titre)
-    sheet.write(lig, 5, u'Cours associé', titre)
-    sheet.write(lig, 6, u'Actions réalisées ou initiées', titre)
+    sheet.write(lig, 5, u'Résultats - Indicateurs de performance - Validation\r\n(Action réalisées ou initiées en entreprise)\r\n1ère année', titre)
+    sheet.write(lig, 6, u'Résultats - Indicateurs de performance - Validation\r\n(Action réalisées ou initiées en entreprise)\r\n2ème année', titre)
+    sheet.write(lig, 7, u'Résultats - Indicateurs de performance - Validation\r\n(Action réalisées ou initiées en entreprise)\r\n3ème année', titre)
 
     titre = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour grey25')
     titreg = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour grey25')
@@ -82,7 +91,7 @@ def bulletin_xls(request, blt):
             continue
         
         sheet.write(lig, 0, u'partie')
-        sheet.write_merge(lig, lig, 1, 6, u'%d %s' % (ens.numero, ens.libelle), titreg)
+        sheet.write_merge(lig, lig, 1, 7, u'%d %s' % (ens.numero, ens.libelle), titreg)
         lig += 1
 
         start = lig
@@ -92,13 +101,9 @@ def bulletin_xls(request, blt):
             sheet.write(lig, 1, u'%d.%d %s' % (ens.numero, cap.numero, cap.libelle), normal)
             
             notes = Evaluation.objects.filter(bulletin=blt, capacite=cap)
-            n = notes.filter(annee=0)
-            sheet.write(lig, 2, n and n[0].valeur or '', cap.an_1 and centrer or centre)
-            n = notes.filter(annee=1)
-            sheet.write(lig, 3, n and n[0].valeur or '', cap.an_2 and centrev or centre)
-            n = notes.filter(annee=2)
-            sheet.write(lig, 4, n and n[0].valeur or '', cap.an_3 and centreb or centre)
-            # sheet.write(lig, 5, cap.cours, centre)
+            sheet.write(lig, 2, evaluation(notes.filter(annee=0)), centre)
+            sheet.write(lig, 3, evaluation(notes.filter(annee=1)), centre)
+            sheet.write(lig, 4, evaluation(notes.filter(annee=2)), centre)
 
             lig += 1
 
