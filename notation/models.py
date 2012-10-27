@@ -108,6 +108,7 @@ class GrilleNotation(models.Model):
 
     frm = models.ForeignKey(Formation, verbose_name='Formation')
     promotion = models.PositiveIntegerField(u'Première année de la promotion')
+    # FIXME : doublon avec Formation.duree
     duree = models.PositiveIntegerField(u'Durée en années de la formation')
     # Les poids ne sont plus utilisés et pourront être supprimés après filtrage des données
     poids_capacite = models.PositiveIntegerField(u'Poids de la moyenne des capacités dans la moyenne générale', default=1, editable=False)
