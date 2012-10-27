@@ -23,10 +23,10 @@ def bulletin_xls(request, blt):
     sheet.set_portrait(False)
     
     # Largeur des colonnes
-    sheet.col(1).width = 15000
-    sheet.col(5).width = 12000
-    sheet.col(6).width = 12000
-    sheet.col(7).width = 12000
+    sheet.col(1).width = 12000
+    sheet.col(5).width = 10000
+    sheet.col(6).width = 10000
+    sheet.col(7).width = 10000
     
     # Entête globale
     lig = 0
@@ -65,7 +65,7 @@ def bulletin_xls(request, blt):
     titrev = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: horiz centre, vert centre; pattern: pattern solid, fore-colour green')
     lig = 13
     sheet.row(lig).height = sheet.row(lig).height * 5 / 2
-    sheet.write(lig, 1, u'Capacités professionnelles et Tâches professionnelles (Être capable de...)', titrev)
+    sheet.write(lig, 1, u'Capacités professionnelles et Tâches professionnelles\r\n(Être capable de...)', titrev)
     sheet.write(lig, 2, u'1ère année', titre)
     sheet.write(lig, 3, u'2ème année', titre)
     sheet.write(lig, 4, u'3ème année', titre)
@@ -80,13 +80,9 @@ def bulletin_xls(request, blt):
     centre = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre')
     note = easyxf('font: name Arial, height 160, bold on; align: vert centre')
     notec = easyxf('font: name Arial, height 160, bold on; align: vert centre, horiz centre')
-
     vertical = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: horiz centre, vert centre, rotation 90')
+    grasdroite = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz right')
 
-    centrer = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour red')
-    centrev = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour green')
-    centreb = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour blue')
-    
     lig += 1
     
     for theme in Theme.objects.filter(grille = blt.grille):
@@ -104,90 +100,76 @@ def bulletin_xls(request, blt):
                 sheet.write(lig, 4, evaluation(notes.filter(annee=2)), centre)
                 lig += 1
 
-            comm = Commentaire.objects.filter(bulletin=blt, ensemble=ens, annee=0)
-            if comm:
-                sheet.write_merge(start, lig - 1, 5, 5, comm[0].texte, commentaire)
-            else:
-                sheet.merge(start, lig - 1, 5, 5, commentaire)
-            comm = Commentaire.objects.filter(bulletin=blt, ensemble=ens, annee=1)
-            if comm:
-                sheet.write_merge(start, lig - 1, 6, 6, comm[0].texte, commentaire)
-            else:
-                sheet.merge(start, lig - 1, 6, 6, commentaire)
-            comm = Commentaire.objects.filter(bulletin=blt, ensemble=ens, annee=2)
-            if comm:
-                sheet.write_merge(start, lig - 1, 7, 7, comm[0].texte, commentaire)
-            else:
-                sheet.merge(start, lig - 1, 7, 7, commentaire)
+            
+            comms = Commentaire.objects.filter(bulletin=blt, ensemble=ens)
+            for year in [0, 1, 2]:
+                comm = comms.filter(annee=year)
+                if comm:
+                    sheet.write_merge(start, lig - 1, 5 + year, 5 + year, comm[0].texte, commentaire)
+                else:
+                    sheet.merge(start, lig - 1, 5 + year, 5 + year, commentaire)
             lig += 1
 
         th_end = lig - 1
+        
+        sheet.write(lig - 1, 1, u'Note sur 20', grasdroite)
         sheet.write_merge(th_start, th_end, 0, 0, theme.libelle, vertical)
+        notes = theme.note_set.all()
+        for year in [0, 1, 2]:
+            note = notes.filter(annee=year)
+            if note:
+                sheet.write(th_end, 2 + year, note[0].valeur, notec)
+            
+        lig += 1
 
     # Fin de tableau avec les moyennes et les savoirs etre
     lig += 1
     titreg = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour sea_green')
     sheet.write(lig, 1, u'Note globale "compétence" sur 20 (sera entre 4 et 20)', titreg)
-    gras = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour sea_green')
-    moyenne = Moyenne.objects.filter(bulletin=blt, annee=0)
-    sheet.write(lig, 2, moyenne and moyenne[0].valeur_cp or 4, gras)
-    moyenne = Moyenne.objects.filter(bulletin=blt, annee=1)
-    sheet.write(lig, 3, moyenne and moyenne[0].valeur_cp or 4, gras)
-    moyenne = Moyenne.objects.filter(bulletin=blt, annee=2)
-    sheet.write(lig, 4, moyenne and moyenne[0].valeur_cp or 4, gras)
+    gras = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre;')
+
+
+    moyennes = blt.moyenne_set.all()
+    for year in [0, 1, 2]:
+        moyenne = moyennes.filter(annee=year)
+        sheet.write(lig, 2 + year, moyenne and moyenne[0].valeur_cp or 0, gras)
 
     lig += 2
     titre = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: horiz centre, vert centre; pattern: pattern solid, fore-colour pink')
-    normal = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour pink')
-    sheet.write(lig, 1, u'Savoir être', titre)
-    sheet.write(lig, 2, u'', centrer)
-    sheet.write(lig, 3, u'', centrev)
-    sheet.write(lig, 4, u'', centreb)
+    normal = easyxf('font: name Arial, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, wrap true;')
+    sheet.write_merge(lig, lig, 1, 4, u'Savoir être (notes de 0 à 5)', titre)
 
     lig += 1
     start = lig
-    centrer = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour red')
-    centrev = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour green')
-    centreb = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour blue')
     savoirs = SavoirEtre.objects.filter(grille=blt.grille)
     for sv in savoirs:
         sheet.row(lig).height = sheet.row(lig).height * 3 / 2
         sheet.write(lig, 1, sv.libelle, normal)
         notes = Note.objects.filter(bulletin=blt, savoir=sv)
         n = notes.filter(annee=0)
-        sheet.write(lig, 2, n and n[0].valeur or '', centrer)
+        sheet.write(lig, 2, n and n[0].valeur or '', centre)
         n = notes.filter(annee=1)
-        sheet.write(lig, 3, n and n[0].valeur or '', centrev)
+        sheet.write(lig, 3, n and n[0].valeur or '', centre)
         n = notes.filter(annee=2)
-        sheet.write(lig, 4, n and n[0].valeur or '', centreb)
+        sheet.write(lig, 4, n and n[0].valeur or '', centre)
         lig += 1
 
     normal = easyxf('font: name Arial, bold on, height 180; borders: left medium, right medium, bottom medium, top medium; align: vert top, wrap true')
     sheet.write_merge(start, lig - 1, 5, 6, u'Commentaires généraux :\r\n%s' % blt.commentaires_generaux, normal)
 
-    lig += 1
     titreg = easyxf('font: name Arial, bold on, height 160; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour light_blue')
     sheet.write(lig, 1, u'Moyenne "savoir être" (sur 20)', titreg)
-    moyenne = Moyenne.objects.filter(bulletin=blt, annee=0)
-    sheet.write(lig, 2, moyenne and moyenne[0].valeur_sv or 4, centrer)
-    moyenne = Moyenne.objects.filter(bulletin=blt, annee=1)
-    sheet.write(lig, 3, moyenne and moyenne[0].valeur_sv or 4, centrev)
-    moyenne = Moyenne.objects.filter(bulletin=blt, annee=2)
-    sheet.write(lig, 4, moyenne and moyenne[0].valeur_sv or 4, centreb)
-    
-    lig += 1
+    for year in [0, 1, 2]:
+        moyenne = moyennes.filter(annee=year)
+        sheet.write(lig, 2 + year, moyenne and moyenne[0].valeur_sv or 0, gras)
+        
+    lig += 2
     titreg = easyxf('font: name Arial, bold on, height 200; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour light_blue')
-    centrer = easyxf('font: name Arial, bold on, height 200; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour red')
-    centrev = easyxf('font: name Arial, bold on, height 200; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour green')
-    centreb = easyxf('font: name Arial, bold on, height 200; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz centre; pattern: pattern solid, fore-colour blue')
     sheet.row(lig).height = sheet.row(lig).height * 3 / 2
     sheet.write(lig, 1, u'Note entreprise (sur 20)', titreg)
-    moyenne = Moyenne.objects.filter(bulletin=blt, annee=0)
-    sheet.write(lig, 2, moyenne and moyenne[0].valeur_gn or 4, centrer)
-    moyenne = Moyenne.objects.filter(bulletin=blt, annee=1)
-    sheet.write(lig, 3, moyenne and moyenne[0].valeur_gn or 4, centrev)
-    moyenne = Moyenne.objects.filter(bulletin=blt, annee=2)
-    sheet.write(lig, 4, moyenne and moyenne[0].valeur_gn or 4, centreb)
+    for year in [0, 1, 2]:
+        moyenne = moyennes.filter(annee=year)
+        sheet.write(lig, 2 + year, moyenne and moyenne[0].valeur_gn or 0, gras)
 
     book.save(response)
     return response
