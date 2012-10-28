@@ -6,7 +6,7 @@ site http://{{ site.domain }} a été réinitialisé.
 Vous pourrez vous y connecter en utilisant les identifiants suivants :
 
  - nom d'utilisateur : {{ profil.user.username }}
- - mot de passe : {{ profil.user.password }}
+ - mot de passe : {{ password }}
 
 Veuillez modifier votre mot de passe lors de votre prochaine connexion.
 

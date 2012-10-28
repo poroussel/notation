@@ -241,8 +241,8 @@ def profil(request):
         form = ProfilUtilisateurForm(instance=request.user, initial={'phone_number' : profil.phone_number})
     return render_to_response('notation/profil.html', RequestContext(request, {'password_form' : form}))
 
-def mail_new_user(request, user):
-    body = render_to_string('creation_compte.txt', {'profil' : user.get_profile(), 'site' : Site.objects.get_current()})
+def mail_new_user(request, user, password):
+    body = render_to_string('creation_compte.txt', {'profil' : user.get_profile(), 'site' : Site.objects.get_current(), 'password': password})
     try:
         user.email_user(u'[CFAI/ENSMM] Création de votre compte', body, from_email=settings.SERVER_EMAIL)
         messages.success(request, u'Un email a été envoyé à %s.' % user.get_full_name())
@@ -253,11 +253,12 @@ def mail_new_user(request, user):
 
 def mail_new_password(request, user):
     profile = user.get_profile()
-    user.set_password(User.objects.make_random_password())
+    password = User.objects.make_random_password()
+    user.set_password(password)
     user.save()
     profile.password_modified = False
     profile.save()
-    body = render_to_string('maj_compte.txt', {'profil' : profile, 'site' : Site.objects.get_current()})
+    body = render_to_string('maj_compte.txt', {'profil' : profile, 'site' : Site.objects.get_current(), 'password' : password})
     try:
         user.email_user(u'[CFAI/ENSMM] Réinitialisation de votre compte', body, from_email=settings.SERVER_EMAIL)
         messages.success(request, u'Un email a été envoyé à %s.' % user.get_full_name())
@@ -273,7 +274,8 @@ def ajouter_eleve(request):
         if form.is_valid():
             eleve = User()
             eleve.username = form.cleaned_data['identifiant']
-            eleve.set_password(User.objects.make_random_password())
+            password = User.objects.make_random_password()
+            eleve.set_password(password)
             eleve.first_name = form.cleaned_data['prenom']
             eleve.last_name = form.cleaned_data['nom']
             eleve.email = form.cleaned_data['email']
@@ -291,7 +293,7 @@ def ajouter_eleve(request):
             bulletin.formateur = form.cleaned_data['formateur']
             bulletin.save()
 
-            if not mail_new_user(request, eleve):
+            if not mail_new_user(request, eleve, password):
                 return HttpResponseRedirect(reverse('detail_eleve', args=[eleve.id]))
 
             if '_continuer' in request.POST:
@@ -328,7 +330,7 @@ def modifier_eleve(request, object_id):
             blt.save()
 
             
-            if '_reinit' in request.POST and not mail_new_user(request, elv):
+            if '_reinit' in request.POST and not mail_new_password(request, elv):
                 return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blt}))
                 
             return HttpResponseRedirect(reverse('liste_eleve'))
@@ -349,14 +351,15 @@ def ajouter_tuteur(request):
         form = UtilisateurForm(request.POST)
         if form.is_valid():
             tuteur = form.save()
-            tuteur.set_password(User.objects.make_random_password())
+            password = User.objects.make_random_password()
+            tuteur.set_password(password)
             tuteur.save()
             profil = ProfilUtilisateur.objects.get(user=tuteur)
             profil.user_type = 't'
             profil.phone_number = form.cleaned_data['phone_number']
             profil.save()
 
-            if not mail_new_user(request, tuteur):
+            if not mail_new_user(request, tuteur, password):
                 return HttpResponseRedirect(reverse('detail_tuteur', args=[tuteur.id]))
 
             if '_continuer' in request.POST:
@@ -372,14 +375,15 @@ def ajouter_formateur(request):
         form = UtilisateurForm(request.POST)
         if form.is_valid():
             formateur = form.save()
-            formateur.set_password(User.objects.make_random_password())
+            password = User.objects.make_random_password()
+            formateur.set_password(password)
             formateur.save()
             profil = ProfilUtilisateur.objects.get(user=formateur)
             profil.user_type = 'f'
             profil.phone_number = form.cleaned_data['phone_number']
             profil.save()
 
-            if not mail_new_user(request, formateur):
+            if not mail_new_user(request, formateur, password):
                 return HttpResponseRedirect(reverse('detail_formateur', args=[formateur.id]))
 
             if '_continuer' in request.POST:
