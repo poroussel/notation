@@ -252,9 +252,12 @@ def mail_new_user(request, user):
     return True
 
 def mail_new_password(request, user):
-    user.password = User.objects.make_random_password()
+    profile = user.get_profile()
+    user.set_password(User.objects.make_random_password())
     user.save()
-    body = render_to_string('maj_compte.txt', {'profil' : user.get_profile(), 'site' : Site.objects.get_current()})
+    profile.password_modified = False
+    profile.save()
+    body = render_to_string('maj_compte.txt', {'profil' : profile, 'site' : Site.objects.get_current()})
     try:
         user.email_user(u'[CFAI/ENSMM] Réinitialisation de votre compte', body, from_email=settings.SERVER_EMAIL)
         messages.success(request, u'Un email a été envoyé à %s.' % user.get_full_name())
@@ -270,7 +273,7 @@ def ajouter_eleve(request):
         if form.is_valid():
             eleve = User()
             eleve.username = form.cleaned_data['identifiant']
-            eleve.password = User.objects.make_random_password()
+            eleve.set_password(User.objects.make_random_password())
             eleve.first_name = form.cleaned_data['prenom']
             eleve.last_name = form.cleaned_data['nom']
             eleve.email = form.cleaned_data['email']
@@ -346,7 +349,7 @@ def ajouter_tuteur(request):
         form = UtilisateurForm(request.POST)
         if form.is_valid():
             tuteur = form.save()
-            tuteur.password = User.objects.make_random_password()
+            tuteur.set_password(User.objects.make_random_password())
             tuteur.save()
             profil = ProfilUtilisateur.objects.get(user=tuteur)
             profil.user_type = 't'
@@ -369,7 +372,7 @@ def ajouter_formateur(request):
         form = UtilisateurForm(request.POST)
         if form.is_valid():
             formateur = form.save()
-            formateur.password = User.objects.make_random_password()
+            formateur.set_password(User.objects.make_random_password())
             formateur.save()
             profil = ProfilUtilisateur.objects.get(user=formateur)
             profil.user_type = 'f'
