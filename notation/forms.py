@@ -80,7 +80,7 @@ class ReadOnly(object):
     def clean(self):
         cleaned_data = self.cleaned_data
         for field in self.fields:
-            if self.fields[field].widget.attrs and 'readonly' in self.fields[field].widget.attrs:
+            if self.fields[field].widget.attrs and 'disabled' in self.fields[field].widget.attrs:
                 del cleaned_data[field]
         return cleaned_data
     
@@ -106,11 +106,11 @@ class NotationForm(forms.Form, ReadOnly):
                 note = None
             self.fields[str(cap.id)] = forms.ChoiceField(label=cap.libelle, choices=APPRECIATIONS, initial=note and note[0].valeur or 'v')
             if profile.is_eleve() or profile.is_formateur():
-                self.fields[str(cap.id)].widget.attrs['readonly'] = True
+                self.fields[str(cap.id)].widget.attrs['disabled'] = True
 
         self.fields['commentaire'] = forms.CharField(widget=forms.Textarea, required=False, initial=commentaire)
         if profile.is_formateur():
-            self.fields['commentaire'].widget.attrs['readonly'] = True
+            self.fields['commentaire'].widget.attrs['disabled'] = True
 
 class BulletinForm(forms.Form, ReadOnly):
     def __init__(self, *args, **kwargs):
@@ -131,20 +131,24 @@ class BulletinForm(forms.Form, ReadOnly):
                 note = None
             self.fields[str(sv.id)] = forms.ChoiceField(label=sv.libelle, choices=NOTES, initial=note and int(note[0].valeur) or 1)
             if profile.is_eleve():
-                self.fields[str(sv.id)].widget.attrs['readonly'] = True
+                self.fields[str(sv.id)].widget.attrs['disabled'] = True
             
         self.fields['commentaires_generaux'] = forms.CharField(label=u'Commentaires généraux', widget=forms.Textarea, required=False, initial=commentaire)
         if profile.is_eleve():
-            self.fields['commentaires_generaux'].widget.attrs['readonly'] = True
+            self.fields['commentaires_generaux'].widget.attrs['disabled'] = True
 
 
-class NotationThemeForm(forms.Form):
+class NotationThemeForm(forms.Form, ReadOnly):
     def __init__(self, *args, **kwargs):
         themes = kwargs.pop('themes')
+        user = kwargs.pop('user')
         notes = 'notes' in kwargs and kwargs.pop('notes') or None
+        profile = user.get_profile()
         super(NotationThemeForm, self).__init__(*args, **kwargs)
 
         for th in themes:
             note = notes and notes.filter(theme=th) or None
             self.fields[str(th.id)] = forms.IntegerField(label=th.libelle, min_value=0, max_value=20, help_text=u'Note entre 0 et 20', required=False, initial=note and int(note[0].valeur) or None)
             self.fields[str(th.id)].ensembles = th.ensemblecapacite_set.all()
+            if profile.is_eleve():
+                self.fields[str(th.id)].widget.attrs['disabled'] = True
