@@ -155,8 +155,11 @@ def bulletin_xls(request, blt):
         sheet.write(lig, 4, n and n[0].valeur or '', centre)
         lig += 1
 
-    normal = easyxf('font: name Arial, bold on, height 160; borders: left medium, right medium, bottom medium, top medium; align: vert top, wrap true')
-    sheet.write_merge(start, lig - 1, 5, 6, u'Commentaires généraux :\r\n%s' % blt.commentaires_generaux, normal)
+    normal = easyxf('font: name Arial, height 160; borders: left medium, right medium, bottom medium, top medium; align: vert top, wrap true')
+    comms = blt.commentairegeneral_set.all()
+    for year in [0, 1, 2]:
+        comm = comms.filter(annee=year)
+        sheet.write_merge(start, lig - 1, 5 + year, 5 + year, comm and comm[0].texte or u'', normal)
 
     titreg = easyxf('font: name Arial, bold on, height 140; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour pink')
     sheet.write(lig, 1, u'Moyenne "savoir être" (sur 20)', titreg)
