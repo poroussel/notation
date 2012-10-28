@@ -303,7 +303,7 @@ def ajouter_eleve(request):
         form = CreationEleveForm()
     return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : None}))
 
-@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
 def modifier_eleve(request, object_id):
     """
     On gère la relation élève-bulletin (et donc élève-formation) comme
@@ -482,7 +482,7 @@ def detail_tuteur(request, object_id):
     return render_to_response('notation/tuteur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : tuteur}))
 
 
-@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
+@user_passes_test(lambda u: u.is_authenticated())
 def recherche(request):
     search = request.GET.get('search', '')
     if search == '':
