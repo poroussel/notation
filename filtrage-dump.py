@@ -11,6 +11,7 @@ if __name__ == "__main__":
         data = [el for el in data if el['model'] != 'notation.note']
         data = [el for el in data if el['model'] != 'notation.capacite']
         data = [el for el in data if el['model'] != 'notation.ensemblecapacite']
+        data = [el for el in data if el['model'] != 'notation.commentaire']
         print simplejson.dumps(data, indent=2)
                 
         inf.close()
