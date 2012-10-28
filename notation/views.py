@@ -254,7 +254,7 @@ def mail_new_user(request, user):
 def mail_new_password(request, user):
     user.password = User.objects.make_random_password()
     user.save()
-    body = render_to_string('creation_compte.txt', {'profil' : user.get_profile(), 'site' : Site.objects.get_current()})
+    body = render_to_string('maj_compte.txt', {'profil' : user.get_profile(), 'site' : Site.objects.get_current()})
     try:
         user.email_user(u'[CFAI/ENSMM] Réinitialisation de votre compte', body, from_email=settings.SERVER_EMAIL)
         messages.success(request, u'Un email a été envoyé à %s.' % user.get_full_name())

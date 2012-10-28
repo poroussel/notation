@@ -7,6 +7,6 @@ de notes des apprentis.
 Vous pourrez vous y connecter en utilisant les identifiants suivants :
 
  - nom d'utilisateur : {{ profil.user.username }}
- - mot de passe : {{ profil.user.username }}
+ - mot de passe : {{ profil.user.password }}
 
 Veuillez modifier votre mot de passe lors de votre première connexion.
