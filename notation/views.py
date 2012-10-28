@@ -376,7 +376,7 @@ def ajouter_formateur(request):
             profil.phone_number = form.cleaned_data['phone_number']
             profil.save()
 
-            if not mail_new_user(request, tuteur):
+            if not mail_new_user(request, formateur):
                 return HttpResponseRedirect(reverse('detail_formateur', args=[formateur.id]))
 
             if '_continuer' in request.POST:
