@@ -7,10 +7,15 @@
 </div>
 
 <div class="actions">
+  <div class="contenugauche">
   <div><a class="button" href="{% url liste_entreprise %}">Les entreprises</a></div>
   <div><a class="button" href="{% url liste_eleve %}">Les apprentis</a></div>
+  <div><a class="button" href="{% url liste_bulletin %}">Les bulletins de notes</a></div>
+  </div>
+  <div class="contenudroit">
   <div><a class="button" href="{% url liste_formateur %}">Les chargés de promotion</a></div>
   <div><a class="button" href="{% url liste_tuteur %}">Les tuteurs entreprises</a></div>
-  <div><a class="button" href="{% url liste_bulletin %}">Les bulletins de notes</a></div>
+  <div><a class="button" href="{% url liste_pilote %}">Les pilotes</a></div>
+  </div>
 </div>
 {% endblock %}

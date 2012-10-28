@@ -16,6 +16,11 @@ liste_formateurs_dict = {
     'template_name' : 'notation/formateur_list.html'
     }
 
+liste_pilotes_dict = {
+    'queryset' : User.objects.filter(profilutilisateur__user_type='p').order_by('last_name'),
+    'template_name' : 'notation/pilote_list.html'
+    }
+
 urlpatterns = patterns('',
     (r'^accounts/login/$',  'django.contrib.auth.views.login'),
     (r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page':'/'}),
@@ -47,6 +52,10 @@ urlpatterns = patterns('',
     (r'^formateurs/$', object_list, liste_formateurs_dict, 'liste_formateur'),
     (r'^formateurs/ajouter/$', ajouter_formateur, None, 'ajouter_formateur'),
     (r'^formateurs/(?P<object_id>\d+)/$', detail_formateur, None, 'detail_formateur'),
+
+    (r'^pilotes/$', object_list, liste_pilotes_dict, 'liste_pilote'),
+    (r'^pilotes/ajouter/$', ajouter_pilote, None, 'ajouter_pilote'),
+    (r'^pilotes/(?P<object_id>\d+)/$', detail_pilote, None, 'detail_pilote'),
 
     (r'^administratif/$', index_admin),
     (r'^gestion/$', index_gestion, None, 'index_gestion'),

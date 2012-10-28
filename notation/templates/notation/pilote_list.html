@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Les pilotes</h1>
+
+{% if user.get_profile.is_administratif %}
+<div class="actions">
+<a class="button" href="{% url notation.views.ajouter_pilote %}">Ajouter un pilote</a>
+</div>
+{% endif %}
+
+<ul>
+{% for obj in object_list %}
+  <li><a href="{% url detail_pilote obj.id %}">{{ obj.get_profile.nom_complet }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
