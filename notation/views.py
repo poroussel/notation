@@ -492,8 +492,8 @@ def recherche(request):
     # Liste des bulletins qui référencent l'entreprise
     ol += list(Bulletin.objects.filter(entreprise__nom__istartswith=search))
     # Liste des bulletins qui référencent l'eleve
-    ol += list(Bulletin.objects.filter(eleve__last_name__istartswith=search))
-    ol += list(Bulletin.objects.filter(eleve__first_name__istartswith=search))
+    ol += list(Bulletin.tous.filter(eleve__last_name__istartswith=search))
+    ol += list(Bulletin.tous.filter(eleve__first_name__istartswith=search))
     
     return render_to_response('search.html', RequestContext(request, {'object_list' : ol, 'search_str' : search}))
 
