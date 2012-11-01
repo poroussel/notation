@@ -1,10 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
+{% if supprime %}
+<h1>Les apprentis supprimés de {{ gr }}</h1>
+{% else %}
 <h1>Les apprentis de {{ gr }}</h1>
+{% endif %}
 
 {% if user.get_profile.is_administratif %}
 <div class="actions">
+{% if not supprime %}
 <a class="button" href="{% url notation.views.ajouter_eleve %}">Ajouter un apprenti</a>
+<a class="button" href="{% url notation.views.liste_eleve_supprime %}">Les apprentis supprimés</a>
+{% else %}
+<a class="button" href="{% url notation.views.liste_eleve %}">Les apprentis non supprimés</a>
+{% endif %}
 </div>
 {% endif %}
 

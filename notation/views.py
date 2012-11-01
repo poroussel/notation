@@ -97,7 +97,7 @@ def resume_grille(request, object_id, annee):
 
 @login_required
 def bulletin(request, blt_id):
-    blt = get_object_or_404(Bulletin, pk=blt_id)
+    blt = Bulletin.tous.get(pk=blt_id)
     if request.GET.get('format', None) == 'xls':
         return bulletin_xls(request, blt)
     annees = range(blt.grille.duree)
@@ -111,7 +111,7 @@ def annee_bulletin(request, blt_id, annee):
     le formulaire de saisie des savoirs être ainsi que les moyennes
     actuelles pour l'année.
     """
-    blt = get_object_or_404(Bulletin, pk=blt_id)
+    blt = Bulletin.tous.get(pk=blt_id)
     themes = Theme.objects.filter(grille=blt.grille).select_related()
     setre = blt.grille.savoiretre_set.all()
     notes = Note.objects.filter(bulletin=blt, savoir__in=list(setre), annee=annee)
@@ -166,7 +166,7 @@ def annee_bulletin(request, blt_id, annee):
 
 @user_passes_test(lambda u: u.is_authenticated() and (u.get_profile().is_manitou() or u.get_profile().is_tuteur() or u.get_profile().is_eleve()))
 def ensemble_bulletin(request, blt_id, annee, ens_id):
-    blt = get_object_or_404(Bulletin, pk=blt_id)
+    blt = Bulletin.tous.get(pk=blt_id)
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
     capacites = ens.capacite_set.all()
     evaluations = Evaluation.objects.filter(bulletin=blt, capacite__in=list(capacites), annee=annee)
@@ -312,7 +312,7 @@ def modifier_eleve(request, object_id):
     """
     elv = get_object_or_404(User, pk=object_id)
     profil = elv.get_profile()
-    blt = Bulletin.objects.get(eleve=elv)
+    blt = Bulletin.tous.get(eleve=elv)
     if request.method == 'POST':
         if '_supprimer' in request.POST:
             return HttpResponseRedirect(reverse(suppression_objet, args=['ProfilUtilisateur', profil.id]))
@@ -331,7 +331,7 @@ def modifier_eleve(request, object_id):
 
             
             if '_reinit' in request.POST and not mail_new_password(request, elv):
-                return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blt}))
+                return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blt, 'object' : elv, 'profil' : profil}))
                 
             return HttpResponseRedirect(reverse('liste_eleve'))
     else:
@@ -343,7 +343,7 @@ def modifier_eleve(request, object_id):
                                          'tuteur' : blt.tuteur,
                                          'formateur' : blt.formateur,
                                          'telephone' : profil.phone_number})
-    return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blt, 'object' : elv}))
+    return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blt, 'object' : elv, 'profil' : profil}))
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def ajouter_tuteur(request):
@@ -517,6 +517,20 @@ def liste_eleve(request):
         grille = grilles[0]
     object_list = object_list.filter(grille__id__exact=grille.id).order_by('eleve__last_name')
     return render_to_response('notation/eleve_list.html', RequestContext(request, {'object_list' : object_list, 'grilles' : grilles, 'gr' : grille}))
+
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
+def liste_eleve_supprime(request):
+    grilles = GrilleNotation.objects.all().order_by('frm__libelle', 'promotion')
+    object_list = Bulletin.supprimes.select_related(depth=1)
+    if 'id' in request.GET:
+        try:
+            grille = grilles.get(id=request.GET['id'])
+        except:
+            grille = grilles[0]
+    else:
+        grille = grilles[0]
+    object_list = object_list.filter(grille__id__exact=grille.id).order_by('eleve__last_name')
+    return render_to_response('notation/eleve_list.html', RequestContext(request, {'object_list' : object_list, 'grilles' : grilles, 'gr' : grille, 'supprime' : True}))
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
 def liste_bulletin(request):

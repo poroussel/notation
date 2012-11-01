@@ -13,20 +13,23 @@
     <table>
     {{ form.as_table }}
 
-      {% if user.get_profile.is_administratif %}
+{% if user.get_profile.is_administratif %}
     <tr><th></th><td>
-    {% if blt %}
+{% if blt %}
       <input type="submit" value="Enregistrer" />
       </td></tr><tr><th></th><td>
       <input type="submit" name="_reinit" value="Enregistrer et envoyer un email avec le mot de passe réinitialisé" />
+{% if not profil.suppression %}
       </td></tr><tr><th></th><td>
       <input type="submit" name="_supprimer" value="Supprimer cet apprenti" />
-    {% else %}
+{% endif %}
+	
+{% else %}
       <input type="submit" name="_continuer" value="Enregistrer et saisir un autre apprenti" />
       <input type="submit" value="Enregistrer et revenir à la liste" />
-    {% endif %}
+{% endif %}
     </td></tr>
-    {% endif %}
+{% endif %}
 	
     </table>
   </form>

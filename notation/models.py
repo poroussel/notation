@@ -159,6 +159,12 @@ class Entreprise(models.Model):
 class BulletinApprentiNonSupprime(models.Manager):
     def get_query_set(self):
         return super(BulletinApprentiNonSupprime, self).get_query_set().filter(eleve__profilutilisateur__suppression=None)
+class BulletinApprentiSupprime(models.Manager):
+    def get_query_set(self):
+        return super(BulletinApprentiSupprime, self).get_query_set().exclude(eleve__profilutilisateur__suppression=None)
+class BulletinApprenti(models.Manager):
+    def get_query_set(self):
+        return super(BulletinApprenti, self).get_query_set()
 
 class Bulletin(models.Model):
     """
@@ -184,6 +190,8 @@ class Bulletin(models.Model):
     auteur_modification = models.ForeignKey(User, related_name='auteur', null=True)
 
     objects = BulletinApprentiNonSupprime()
+    supprimes = BulletinApprentiSupprime()
+    tous = BulletinApprenti()
     
     def __unicode__(self):
         return u'Bulletin de %s (%s / %s)' % (self.eleve.get_profile().nom_complet, self.grille, self.entreprise)

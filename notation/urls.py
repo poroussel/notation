@@ -42,6 +42,7 @@ urlpatterns = patterns('',
     (r'^entreprises/(?P<object_id>\d+)/$', detail_entreprise, None, 'detail_entreprise'),
 
     (r'^eleves/$', liste_eleve, None, 'liste_eleve'),
+    (r'^eleves/supprimes/$', liste_eleve_supprime, None, 'liste_eleve_supprime'),
     (r'^eleves/ajouter/$', ajouter_eleve, None, 'ajouter_eleve'),
     (r'^eleves/(?P<object_id>\d+)/$', modifier_eleve, None, 'detail_eleve'),
 
