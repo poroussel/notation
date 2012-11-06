@@ -115,7 +115,7 @@ def bulletin_xls(request, blt):
         
         sheet.write(lig - 1, 1, u'Note sur 20', grasdroite)
         sheet.write_merge(th_start, th_end, 0, 0, theme.libelle, vertical)
-        notes = theme.note_set.all()
+        notes = theme.note_set.filter(bulletin=blt)
         for year in [0, 1, 2]:
             note = notes.filter(annee=year)
             if note:
