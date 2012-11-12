@@ -114,14 +114,16 @@ def bulletin_xls(request, blt):
         th_end = lig - 1
         
         sheet.write(lig - 1, 1, u'Note sur 20', grasdroite)
+        sheet.write(lig, 1, u'% d\'évaluations renseignées', grasdroite)
         sheet.write_merge(th_start, th_end, 0, 0, theme.libelle, vertical)
         notes = theme.note_set.filter(bulletin=blt)
         for year in [0, 1, 2]:
             note = notes.filter(annee=year)
             if note:
                 sheet.write(th_end, 2 + year, note[0].valeur, notec)
+            sheet.write(lig, 2 + year, u'%d %%' % blt.pourcentage_saisie(year, theme), notec)
             
-        lig += 1
+        lig += 2
 
     # Fin de tableau avec les moyennes et les savoirs etre
     lig += 1
