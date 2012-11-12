@@ -234,6 +234,16 @@ class Bulletin(models.Model):
         self.auteur_modification = user
         self.save()
 
+    def pourcentage_saisie(self, annee, id_theme):
+        ens_theme = self.grille.ensemblecapacite_set.filter(theme=id_theme)
+        # Ensemble des capacites pour ce theme
+        ens_capa = Capacite.objects.filter(ensemble__in=list(ens_theme))
+        # Ensemble des evaluations differentes de 'Non renseigne'
+        ens_appr = self.evaluation_set.filter(annee=annee, capacite__in=list(ens_capa)).exclude(valeur='v')
+        # Pourcentage
+        prc = len(ens_appr) * 100 / len(ens_capa)
+        return prc
+
 class Theme(models.Model):
     """
     Un thème regroupe plusieurs ensemble de capacités.

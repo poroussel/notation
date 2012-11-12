@@ -142,6 +142,7 @@ class NotationThemeForm(forms.Form, ReadOnly):
     def __init__(self, *args, **kwargs):
         themes = kwargs.pop('themes')
         user = kwargs.pop('user')
+        prc = kwargs.pop('prc')
         notes = 'notes' in kwargs and kwargs.pop('notes') or None
         profile = user.get_profile()
         super(NotationThemeForm, self).__init__(*args, **kwargs)
@@ -150,5 +151,6 @@ class NotationThemeForm(forms.Form, ReadOnly):
             note = notes and notes.filter(theme=th) or None
             self.fields[str(th.id)] = forms.IntegerField(label=th.libelle, min_value=0, max_value=20, help_text=u'Note entre 0 et 20', required=False, initial=note and int(note[0].valeur) or None)
             self.fields[str(th.id)].ensembles = th.ensemblecapacite_set.all()
+            self.fields[str(th.id)].prc = prc[th]
             if profile.is_eleve():
                 self.fields[str(th.id)].widget.attrs['disabled'] = True

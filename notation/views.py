@@ -113,6 +113,9 @@ def annee_bulletin(request, blt_id, annee):
     """
     blt = Bulletin.tous.get(pk=blt_id)
     themes = Theme.objects.filter(grille=blt.grille).select_related()
+    pourcentage = {}
+    for th in themes:
+        pourcentage[th] = blt.pourcentage_saisie(annee, th)
     setre = blt.grille.savoiretre_set.all()
     notes = Note.objects.filter(bulletin=blt, savoir__in=list(setre), annee=annee)
     notesth = Note.objects.filter(bulletin=blt, theme__in=list(themes), annee=annee)
@@ -120,12 +123,12 @@ def annee_bulletin(request, blt_id, annee):
     commentaire = CommentaireGeneral.objects.filter(annee=annee, bulletin=blt)
     commentaire = bool(commentaire) and commentaire[0].texte or None
 
-    thform = NotationThemeForm(prefix='themes', themes=themes, user=request.user, notes=notesth)
+    thform = NotationThemeForm(prefix='themes', themes=themes, user=request.user, notes=notesth, prc=pourcentage)
     form = BulletinForm(commentaire=commentaire, notes=notes, savoirs=setre, user=request.user)
     
     if request.method == 'POST':
         if 'themes' in request.POST:
-            thform = NotationThemeForm(request.POST, prefix='themes', themes=themes, user=request.user)
+            thform = NotationThemeForm(request.POST, prefix='themes', themes=themes, user=request.user, prc=pourcentage)
             if thform.is_valid():
                 for th in themes:
                     if str(th.id) in thform.cleaned_data:
