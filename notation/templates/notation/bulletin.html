@@ -16,10 +16,10 @@
 </br>
 <h1>{{ bulletin.eleve.get_profile.nom_complet }}</h1>
 <table>
-    <tr><td><b>Adresse électronique</b></td><td>{{ bulletin.eleve.email }}</td></tr>
+    <tr><td><b>Adresse électronique</b></td><td><a href="mailto:{{ bulletin.eleve.email }}">{{ bulletin.eleve.email }}</a></td></tr>
     <tr><td><b>N° de téléphone</b></td><td>{{ bulletin.eleve.get_profile.phone_number }}</td></tr>
-    <tr><td><b>Tuteur</b></td><td>{{ bulletin.tuteur.get_profile.nom_complet }}</td></tr>
-    <tr><td><b>Chargé de promotion</b></td><td>{{ bulletin.formateur.get_profile.nom_complet }}</td></tr>
+    <tr><td><b>Tuteur</b></td><td>{{ bulletin.tuteur.get_profile.nom_complet }} / <a href="mailto:{{ bulletin.tuteur.email }}">{{ bulletin.tuteur.email }}</a> / {{ bulletin.tuteur.get_profile.phone_number }}</td></tr>
+    <tr><td><b>Chargé de promotion</b></td><td>{{ bulletin.formateur.get_profile.nom_complet }} / <a href="mailto:{{ bulletin.formateur.email }}">{{ bulletin.formateur.email }}</a> / {{ bulletin.formateur.get_profile.phone_number }}</td></tr>
 </table>
 </br>
 <h1>{{ bulletin.entreprise }}</h1>
