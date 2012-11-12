@@ -35,7 +35,8 @@ TYPES = (('e', u'Apprenti'),
          ('t', u'Tuteur entreprise'),
          ('f', u'Chargé de promotion'),
          ('a', u'Administratif'),
-         ('p', u'Pilotage'))
+         ('p', u'Pilotage'),
+         ('F', u'Chargé de promotion et Pilotage'))
 
 APPRECIATIONS = (('v', u'Non renseigné'),
                  ('a', u'Acquis'),
@@ -65,12 +66,12 @@ class ProfilUtilisateur(models.Model):
     def is_eleve(self):
         return self.user_type == 'e'
     def is_formateur(self):
-        return self.user_type == 'f'
+        return self.user_type == 'f' or self.user_type == 'F'
     
     def is_administratif(self):
         return self.user_type == 'a'
     def is_pilote(self):
-        return self.user_type == 'p'
+        return self.user_type == 'p' or self.user_type == 'F'
     def is_manitou(self):
         return self.is_administratif() or self.is_pilote()
 

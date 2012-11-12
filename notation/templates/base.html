@@ -24,7 +24,7 @@
     
     <div id="navigation">
       {% if user.is_authenticated %}
-      <b><a href="{% url notation.views.profil %}">{{ user.get_full_name }}</a></b> /
+      <b><a href="{% url notation.views.profil %}">{{ user.get_full_name }} ({{ user.get_profile.get_user_type_display }})</a></b> /
       <a href="{% url notation.views.motdepasse %}">modifier votre mot de passe</a> /
       <a href="{% url notation.views.index %}">page d'accueil</a> / 
       <a href="{% url django.contrib.auth.views.logout %}">déconnexion</a>
