@@ -12,12 +12,12 @@ liste_tuteurs_dict = {
     }
 
 liste_formateurs_dict = {
-    'queryset' : User.objects.filter(profilutilisateur__user_type='f').order_by('last_name'),
+    'queryset' : User.objects.filter(profilutilisateur__user_type__in=['f', 'F']).order_by('last_name'),
     'template_name' : 'notation/formateur_list.html'
     }
 
 liste_pilotes_dict = {
-    'queryset' : User.objects.filter(profilutilisateur__user_type='p').order_by('last_name'),
+    'queryset' : User.objects.filter(profilutilisateur__user_type__in=['p', 'F']).order_by('last_name'),
     'template_name' : 'notation/pilote_list.html'
     }
 
