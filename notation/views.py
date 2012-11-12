@@ -103,7 +103,7 @@ def bulletin(request, blt_id):
     annees = range(blt.grille.duree)
     return render_to_response('notation/bulletin.html', RequestContext(request, {'bulletin' : blt, 'annees' : annees}))
 
-@user_passes_test(lambda u: u.is_authenticated() and (u.get_profile().is_manitou() or u.get_profile().is_tuteur() or u.get_profile().is_eleve()))
+@user_passes_test(lambda u: u.is_authenticated())
 def annee_bulletin(request, blt_id, annee):
     """
     Affiche les themes d'une grille de notation avec pour chaque
