@@ -50,7 +50,7 @@ def index_admin(request):
 def index_gestion(request):
     return render_to_response('index_gestion.html', RequestContext(request))
 
-@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
+@user_passes_test(lambda u: u.is_authenticated() and (u.get_profile().is_manitou() or u.get_profile().is_formateur()))
 def index_assistance(request):
     formations = Formation.objects.all()
     return render_to_response('index_assistance.html', RequestContext(request, {'formations' : formations}))
