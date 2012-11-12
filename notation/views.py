@@ -70,7 +70,7 @@ def index(request):
     profile = request.user.get_profile()
     if profile.is_tuteur():
         return HttpResponseRedirect(reverse(index_tuteur))
-    if profile.is_manitou():
+    if profile.is_manitou() and not profile.is_formateur():
         return HttpResponseRedirect(reverse(index_admin))
     if profile.is_formateur():
         return HttpResponseRedirect(reverse(index_formateur))
