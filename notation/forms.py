@@ -23,7 +23,7 @@ class CreationEleveForm(forms.Form):
     formation = forms.ModelChoiceField(queryset=GrilleNotation.objects.all())
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
     tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t').order_by('last_name', 'first_name'))
-    formateur = UserChoiceField(label=u'Chargé de promotion', queryset=User.objects.filter(profilutilisateur__user_type='f').order_by('last_name', 'first_name'))
+    formateur = UserChoiceField(label=u'Chargé de promotion', queryset=User.objects.filter(profilutilisateur__user_type__in=['f', 'F']).order_by('last_name', 'first_name'))
 
     def clean(self):
       """
@@ -43,7 +43,7 @@ class EditionEleveForm(forms.Form):
     telephone = FRPhoneNumberField(label=u'N° de téléphone', required=False)
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
     tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t').order_by('last_name', 'first_name'))
-    formateur = UserChoiceField(label=u'Chargé de promotion', queryset=User.objects.filter(profilutilisateur__user_type='f').order_by('last_name', 'first_name'))
+    formateur = UserChoiceField(label=u'Chargé de promotion', queryset=User.objects.filter(profilutilisateur__user_type__in=['f', 'F']).order_by('last_name', 'first_name'))
 
 class UtilisateurForm(forms.ModelForm):
     """
