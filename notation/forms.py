@@ -107,6 +107,7 @@ class NotationForm(forms.Form, ReadOnly):
             self.fields[str(cap.id)] = forms.ChoiceField(label=cap.libelle, choices=APPRECIATIONS, initial=note and note[0].valeur or 'v')
             if profile.is_eleve() or profile.is_formateur():
                 self.fields[str(cap.id)].widget.attrs['disabled'] = True
+                self.fields[str(cap.id)].required = False
 
         self.fields['commentaire'] = forms.CharField(label=u'Activités réalisées (à compléter par l\'apprenti)', widget=forms.Textarea, required=False, initial=commentaire)
         if profile.is_formateur():
@@ -132,6 +133,7 @@ class BulletinForm(forms.Form, ReadOnly):
             self.fields[str(sv.id)] = forms.ChoiceField(label=sv.libelle, choices=NOTES, initial=note and int(note[0].valeur) or 1)
             if profile.is_eleve():
                 self.fields[str(sv.id)].widget.attrs['disabled'] = True
+                self.fields[str(sv.id)].required = False
             
         self.fields['commentaires_generaux'] = forms.CharField(label=u'Commentaires généraux (à compléter par le tuteur)', widget=forms.Textarea, required=False, initial=commentaire)
         if profile.is_eleve():
@@ -154,3 +156,4 @@ class NotationThemeForm(forms.Form, ReadOnly):
             self.fields[str(th.id)].prc = prc[th]
             if profile.is_eleve():
                 self.fields[str(th.id)].widget.attrs['disabled'] = True
+                self.fields[str(th.id)].required = False
