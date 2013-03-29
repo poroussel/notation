@@ -1,6 +1,6 @@
 Bonjour {{ profil.user.get_full_name }},
 
-Suite à un dysfonctionnement, le mot de passe de votre compte sur le 
+Suite à un dysfonctionnement, le mot de passe de votre compte sur le
 site http://{{ site.domain }} a été réinitialisé.
 
 Vous pourrez vous y connecter en utilisant les identifiants suivants :
@@ -8,9 +8,10 @@ Vous pourrez vous y connecter en utilisant les identifiants suivants :
  - nom d'utilisateur : {{ profil.user.username }}
  - mot de passe : {{ password }}
 
-Veuillez modifier votre mot de passe lors de votre prochaine connexion.
+Veuillez modifier votre mot de passe lors de votre prochaine connexion,
+en évitant d'utiliser votre nom d'utilisateur comme mot de passe.
 
-En cas de doute sur la provenance de cet email, n'hésitez pas à me 
+En cas de doute sur la provenance de cet email, n'hésitez pas à me
 contacter à l'adresse webmaster@notation.octets.fr.
 
 Avec mes excuses pour le désagrément,
