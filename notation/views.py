@@ -92,12 +92,21 @@ def resume_grille(request, object_id, annee):
         if moyenne:
             lignes.append((bulletin, moyenne[0].valeur_cp, moyenne[0].valeur_sv, moyenne[0].valeur_gn))
         else:
-            lignes.append((bulletin, 0, 0, 0))            
+            lignes.append((bulletin, 0, 0, 0))
     return render_to_response('notation/resume_grille.html', RequestContext(request, {'grille' : grille, 'lignes' : lignes, 'annee' : annee}))
+
+def check_auth_blt(request, blt):
+    profil = request.user.get_profile()
+    if profil.is_eleve() and profil.user != blt.eleve:
+        messages.warning(request, u'Eh, il semblerait que cette page ne vous soit pas accessible ! Retour à la case départ.')
+        return False
+    return True
 
 @login_required
 def bulletin(request, blt_id):
     blt = Bulletin.tous.get(pk=blt_id)
+    if not check_auth_blt(request, blt):
+        return HttpResponseRedirect(reverse(index))
     if request.GET.get('format', None) == 'xls':
         return bulletin_xls(request, blt)
     annees = range(blt.grille.duree)
@@ -112,6 +121,8 @@ def annee_bulletin(request, blt_id, annee):
     actuelles pour l'année.
     """
     blt = Bulletin.tous.get(pk=blt_id)
+    if not check_auth_blt(request, blt):
+        return HttpResponseRedirect(reverse(index))
     themes = Theme.objects.filter(grille=blt.grille).select_related()
     pourcentage = {}
     for th in themes:
@@ -125,7 +136,7 @@ def annee_bulletin(request, blt_id, annee):
 
     thform = NotationThemeForm(prefix='themes', themes=themes, user=request.user, notes=notesth, prc=pourcentage)
     form = BulletinForm(commentaire=commentaire, notes=notes, savoirs=setre, user=request.user)
-    
+
     if request.method == 'POST':
         if 'themes' in request.POST:
             thform = NotationThemeForm(request.POST, prefix='themes', themes=themes, user=request.user, prc=pourcentage)
@@ -140,7 +151,7 @@ def annee_bulletin(request, blt_id, annee):
                                 note.auteur_modification = request.user
                                 note.save()
                 blt.calcul_moyenne_competence(annee, request.user)
-                
+
         else:
             form = BulletinForm(request.POST, commentaire=blt.commentaires_generaux, savoirs=setre, user=request.user)
             if form.is_valid():
@@ -151,7 +162,7 @@ def annee_bulletin(request, blt_id, annee):
                         comm.texte = value
                         comm.auteur_modification = request.user
                         comm.save()
-                    
+
                 for sv in setre:
                     if str(sv.id) in form.cleaned_data:
                         value = form.cleaned_data[str(sv.id)]
@@ -164,16 +175,18 @@ def annee_bulletin(request, blt_id, annee):
                         else:
                             Note.objects.filter(bulletin=blt, savoir=sv, annee=annee).delete()
                 blt.calcul_moyenne_savoir(annee, request.user)
-                
+
     return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'themes' : themes, 'form' : form, 'moyenne' : moyenne, 'thform' : thform}))
 
 @user_passes_test(lambda u: u.is_authenticated() and (u.get_profile().is_manitou() or u.get_profile().is_tuteur() or u.get_profile().is_eleve()))
 def ensemble_bulletin(request, blt_id, annee, ens_id):
     blt = Bulletin.tous.get(pk=blt_id)
+    if not check_auth_blt(request, blt):
+        return HttpResponseRedirect(reverse(index))
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
     capacites = ens.capacite_set.all()
     evaluations = Evaluation.objects.filter(bulletin=blt, capacite__in=list(capacites), annee=annee)
-    
+
     commentaires = Commentaire.objects.filter(bulletin=blt, ensemble=ens, annee=annee)
     commentaire = commentaires and commentaires[0].texte or None
 
@@ -188,7 +201,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                 if not created:
                     com.texte = form.cleaned_data['commentaire']
                     com.save()
-                        
+
             for cap in capacites:
                 if str(cap.id) in form.cleaned_data:
                     value = form.cleaned_data[str(cap.id)]
@@ -332,10 +345,10 @@ def modifier_eleve(request, object_id):
             blt.formateur = form.cleaned_data['formateur']
             blt.save()
 
-            
+
             if '_reinit' in request.POST and not mail_new_password(request, elv):
                 return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blt, 'object' : elv, 'profil' : profil}))
-                
+
             return HttpResponseRedirect(reverse('liste_eleve'))
     else:
         form = EditionEleveForm(initial={'identifiant' : elv.username,
@@ -455,10 +468,10 @@ def detail_formateur(request, object_id):
             formateur = form.save()
             profil.phone_number = form.cleaned_data['phone_number']
             profil.save()
-            
+
             if '_reinit' in request.POST and not mail_new_password(request, formateur):
                 return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : frm}))
-                
+
             return HttpResponseRedirect(reverse('liste_formateur'))
     else:
         form = ProfilUtilisateurForm(instance=frm, initial={'phone_number' : profil.phone_number})
@@ -475,10 +488,10 @@ def detail_tuteur(request, object_id):
             tuteur = form.save()
             profil.phone_number = form.cleaned_data['phone_number']
             profil.save()
-            
+
             if '_reinit' in request.POST and not mail_new_password(request, tuteur):
                 return render_to_response('notation/tuteur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : tuteur}))
-                
+
             return HttpResponseRedirect(reverse('liste_tuteur'))
     else:
         form = ProfilUtilisateurForm(instance=tuteur, initial={'phone_number' : profil.phone_number})
@@ -497,7 +510,7 @@ def recherche(request):
     # Liste des bulletins qui référencent l'eleve
     ol += list(Bulletin.tous.filter(eleve__last_name__istartswith=search))
     ol += list(Bulletin.tous.filter(eleve__first_name__istartswith=search))
-    
+
     return render_to_response('search.html', RequestContext(request, {'object_list' : ol, 'search_str' : search}))
 
 class SearchMiddleware(object):
