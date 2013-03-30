@@ -78,7 +78,7 @@ def index(request):
         return HttpResponseRedirect(reverse(index_eleve))
     return render_to_response('index.html', RequestContext(request))
 
-@login_required
+@user_passes_test(lambda u: u.is_authenticated() and not u.get_profile().is_eleve())
 def resume_grille(request, object_id, annee):
     """
     Affiche les résultats des apprentis de la grille dans un tableau récapitulatif
