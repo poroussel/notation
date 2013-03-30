@@ -21,8 +21,11 @@ class Command(BaseCommand):
                 password = User.objects.make_random_password()
                 u.set_password(password)
                 u.save()
+                profil.password_modified = False
+                profil.save()
                 if len(u.email) > 0:
-                    body = render_to_string('maj_compte.txt', {'profil' : profil, 'site' : current_site})
+                    body = render_to_string('maj_compte.txt', {'profil' : profil, 'site' : current_site, 'password' : password})
+                    print u'Email envoyé à %s <%s> avec mot de passe : %s' % (profil.nom_complet, u.email, password)
                     send_mail(u'[CFAI/ENSMM] Mise à jour de votre compte', body, settings.SERVER_EMAIL, [u.email], fail_silently=True)
                     time.sleep(5)
 
