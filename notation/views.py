@@ -205,7 +205,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
             for cap in capacites:
                 if str(cap.id) in form.cleaned_data:
                     value = form.cleaned_data[str(cap.id)]
-                    if value and value in APPRECIATIONS.keys():
+                    if value and value in dict(APPRECIATIONS).keys():
                         note, created = Evaluation.objects.get_or_create(bulletin=blt, capacite=cap, annee=annee, defaults={'valeur' : value, 'auteur_modification' : request.user})
                         if not created:
                             note.valeur = value
