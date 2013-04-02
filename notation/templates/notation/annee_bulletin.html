@@ -33,9 +33,9 @@
 
 {% if user.get_profile.is_tuteur or user.get_profile.is_administratif %}
   <tr><th></th><td>
-    <input name="themes" type="submit" value="Enregistrer" />
+    <input name="themes" type="submit" value="Enregistrer les notes compétences" />
   </td></tr>
-{% endif %}  
+{% endif %}
   </table>
 </form>
 
@@ -44,13 +44,13 @@
 <form action="" method="post">{% csrf_token %}
   <table>
   {{ form }}
-    
+
 {% if user.get_profile.is_tuteur or user.get_profile.is_administratif %}
   <tr><th></th><td>
-    <input type="submit" value="Enregistrer" />
+    <input type="submit" value="Enregistrer les notes savoir être" />
   </td></tr>
 {% endif %}
-  
+
   </table>
 </form>
 
