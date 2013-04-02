@@ -172,8 +172,6 @@ def annee_bulletin(request, blt_id, annee):
                                 note.valeur = value
                                 note.auteur_modification = request.user
                                 note.save()
-                        else:
-                            Note.objects.filter(bulletin=blt, savoir=sv, annee=annee).delete()
                 blt.calcul_moyenne_savoir(annee, request.user)
 
     return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'themes' : themes, 'form' : form, 'moyenne' : moyenne, 'thform' : thform}))
