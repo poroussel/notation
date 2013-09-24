@@ -432,7 +432,7 @@ def detail_pilote(request, object_id):
     pilote = get_object_or_404(User, pk=object_id)
     profil = pilote.get_profile()
     if request.method == 'POST':
-        form = ProfilUtilisateurForm(request.POST, instance=frm)
+        form = ProfilUtilisateurForm(request.POST, instance=pilote)
         if form.is_valid():
             pilote = form.save()
             profil.phone_number = form.cleaned_data['phone_number']
