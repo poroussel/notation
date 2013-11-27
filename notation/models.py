@@ -9,6 +9,7 @@ from django.contrib.auth.signals import user_logged_in
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.contrib import messages
+from django.contrib.auth import logout
 
 class Suppression(models.Model):
     """
@@ -26,7 +27,7 @@ class Suppression(models.Model):
 
     def __unicode__(self):
         return u'Suppression de %s par %s le %s' % (self.content_object, self.createur.get_full_name(), self.date_creation)
-    
+
 def supprimer_objet(obj, user, reason):
     obj.suppression = Suppression.objects.create(createur = user, raison = reason, content_object = obj)
     obj.save()
@@ -57,7 +58,7 @@ class ProfilUtilisateur(models.Model):
     password_modified = models.BooleanField(default=False, editable=True)
     phone_number = models.CharField(u'N° de téléphone', max_length=15, blank=True)
     suppression = models.OneToOneField(Suppression, null=True, blank=True, editable=False)
-                                            
+
     def __unicode__(self):
         return u'%s - %s' % (self.user.get_full_name(), self.get_user_type_display())
 
@@ -67,7 +68,7 @@ class ProfilUtilisateur(models.Model):
         return self.user_type == 'e'
     def is_formateur(self):
         return self.user_type == 'f' or self.user_type == 'F'
-    
+
     def is_administratif(self):
         return self.user_type == 'a'
     def is_pilote(self):
@@ -78,7 +79,7 @@ class ProfilUtilisateur(models.Model):
     def _nom_complet(self):
         return '%s %s' % (self.user.last_name, self.user.first_name)
     nom_complet = property(_nom_complet)
-                
+
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         profil, created = ProfilUtilisateur.objects.get_or_create(user=instance)
@@ -88,6 +89,15 @@ def check_user(sender, request, user, **kwargs):
     profile = user.get_profile()
     if not profile.password_modified:
         messages.warning(request, u'Vous devez modifier votre mot de passe !')
+
+    if profile.is_eleve():
+        bulletin = Bulletin.objects.get(eleve=user)
+        if bulletin.grille.archive:
+            messages.error(request, u"Vous n'avez plus accès au site")
+            user.is_active = False
+            user.save()
+            logout(request)
+
 user_logged_in.connect(check_user, sender=User, dispatch_uid='user_logged_in')
 
 class Formation(models.Model):
@@ -114,6 +124,8 @@ class GrilleNotation(models.Model):
     # Les poids ne sont plus utilisés et pourront être supprimés après filtrage des données
     poids_capacite = models.PositiveIntegerField(u'Poids de la moyenne des capacités dans la moyenne générale', default=1, editable=False)
     poids_savoir_etre = models.PositiveIntegerField(u'Poids de la moyenne des savoirs être dans la moyenne générale', default=1, editable=False)
+    # alter table notation_grillenotation add column archive bool not null default false
+    archive = models.BooleanField(u'Grille archivée (plus de modification)', default=False)
 
     def __unicode__(self):
         return u'%s / %d - %d' % (self.frm.libelle, self.promotion, self.promotion + self.duree)
@@ -143,19 +155,19 @@ class GrilleNotation(models.Model):
 class Entreprise(models.Model):
     class Meta:
         ordering = ['nom']
-        
+
     nom = models.CharField(u'Nom', max_length=80)
     description = models.TextField(u'Adresse', blank=True)
     telephone = models.CharField(u'N° de téléphone', max_length=15, blank=True)
     fax = models.CharField(u'N° de fax', max_length=15, blank=True)
-    
+
     def __unicode__(self):
         return self.nom
 
     @models.permalink
     def get_absolute_url(self):
         return ('detail_entreprise', [self.id])
-        
+
 
 class BulletinApprentiNonSupprime(models.Manager):
     def get_query_set(self):
@@ -179,7 +191,7 @@ class Bulletin(models.Model):
     class Meta:
         verbose_name = u'Bulletin'
         verbose_name_plural = u'Bulletins'
-        
+
     eleve = models.ForeignKey(User, related_name='eleve', verbose_name=u'Apprenti')
     grille = models.ForeignKey(GrilleNotation, verbose_name=u'Formation suivie')
     entreprise = models.ForeignKey(Entreprise)
@@ -193,7 +205,7 @@ class Bulletin(models.Model):
     objects = BulletinApprentiNonSupprime()
     supprimes = BulletinApprentiSupprime()
     tous = BulletinApprenti()
-    
+
     def __unicode__(self):
         return u'Bulletin de %s (%s / %s)' % (self.eleve.get_profile().nom_complet, self.grille, self.entreprise)
 
@@ -216,7 +228,7 @@ class Bulletin(models.Model):
             moy.save()
         self.auteur_modification = user
         self.save()
-        
+
     def calcul_moyenne_savoir(self, annee, user):
         """
         Calcul la moyenne savoir être de ce bulletin pour une année
@@ -252,7 +264,7 @@ class Theme(models.Model):
 
     Chaque thème est liée à une grille et comporte
     un libellé et une position dans la grille globale
-    """ 
+    """
     class Meta:
         verbose_name = u'Thème'
         verbose_name_plural = u'Thèmes'
@@ -283,13 +295,13 @@ class EnsembleCapacite(models.Model):
         if precedents:
             return precedents[0]
         return None
-    
+
     def suivant(self):
         suivants = EnsembleCapacite.objects.filter(grille=self.grille, numero=self.numero + 1)
         if suivants:
             return suivants[0]
         return None
-    
+
     def __unicode__(self):
         return u'%d %s' % (self.numero, self.libelle)
 
@@ -308,10 +320,10 @@ class Capacite(models.Model):
     an_2 = models.BooleanField(NOMS_ANNEES[1], editable=False)
     an_3 = models.BooleanField(NOMS_ANNEES[2], editable=False)
     code_annee = models.CharField(max_length=3, editable=False)
-    
+
     def __unicode__(self):
         return u'%d.%d %s'% (self.ensemble.numero, self.numero, self.libelle)
-    
+
 class SavoirEtre(models.Model):
     class Meta:
         verbose_name = u'Savoir être'
@@ -331,7 +343,7 @@ class SavoirEtre(models.Model):
 class Moyenne(models.Model):
     class Meta:
         ordering = ['annee']
-        
+
     bulletin = models.ForeignKey(Bulletin)
     annee = models.PositiveIntegerField()
     valeur_cp = models.DecimalField(u'Moyenne compétence', max_digits=4, decimal_places=2, default=0)
@@ -379,13 +391,13 @@ class Note(models.Model):
         if self.theme:
             return self.theme.libelle
         return self.savoir.libelle
-    
+
     def eleve(self):
         """
         Méthode utilisée dans le vue liste admin
         """
         return self.bulletin.eleve.get_profile().nom_complet
-    
+
     def __unicode__(self):
         if self.theme:
             return u'Note de %s pour la capacité %s'% (self.bulletin.eleve.get_profile().nom_complet, self.theme)
@@ -395,13 +407,13 @@ class Commentaire(models.Model):
     """
     Permet le stockage d'un commentaire libre pour un bulletin, un
     ensemble de capacites et une annee
-    
+
     Doit etre modifiable par l'eleve ce qui necessite un login/password pour les eleves
     """
     class Meta:
         verbose_name = u'Commentaire'
         verbose_name_plural = u'Commentaires'
-        
+
     bulletin = models.ForeignKey(Bulletin)
     ensemble = models.ForeignKey(EnsembleCapacite)
     texte = models.TextField()
@@ -426,7 +438,7 @@ class CommentaireGeneral(models.Model):
     class Meta:
         verbose_name = u'Commentaire général'
         verbose_name_plural = u'Commentaires généraux'
-        
+
     bulletin = models.ForeignKey(Bulletin)
     texte = models.TextField()
     annee = models.PositiveIntegerField(u'Année', default=0)
