@@ -12,9 +12,10 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
 
-    (r'^', include('cfai.notation.urls')),               
+    (r'^', include('cfai.notation.urls')),
 )
 
 if settings.SERVE_STATIC == True:
     urlpatterns += patterns('',
+       (r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
        (r'^static/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}))

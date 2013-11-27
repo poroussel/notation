@@ -54,17 +54,24 @@ USE_L10N = True
 # Example: "/home/media/media.lawrence.com/"
 import os.path
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = '/static/'
+MEDIA_URL = '/media/'
+
+STATIC_ROOT= os.path.join(PROJECT_ROOT, 'static')
+STATIC_URL = '/static/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/static/admin/'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 't9bm+or2g6(_(u^2r9gfo!yox!zo_^v%)%%u3o&gc*(2-k4s75'
@@ -83,7 +90,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'notation.views.SearchMiddleware',
-    'django.middleware.transaction.TransactionMiddleware',
 )
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
@@ -94,12 +100,6 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-)
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.contrib.messages.context_processors.messages',
-    'django.core.context_processors.request',
 )
 
 INSTALLED_APPS = (
