@@ -22,8 +22,8 @@ class CreationEleveForm(forms.Form):
     telephone = FRPhoneNumberField(label=u'N° de téléphone', required=False)
     formation = forms.ModelChoiceField(queryset=GrilleNotation.objects.all())
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
-    tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t').order_by('last_name', 'first_name'))
-    formateur = UserChoiceField(label=u'Tuteur académique', queryset=User.objects.filter(profilutilisateur__user_type__in=['f', 'F']).order_by('last_name', 'first_name'))
+    tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t').filter(profilutilisateur__suppression=None).order_by('last_name', 'first_name'))
+    formateur = UserChoiceField(label=u'Tuteur académique', queryset=User.objects.filter(profilutilisateur__user_type__in=['f', 'F']).filter(profilutilisateur__suppression=None).order_by('last_name', 'first_name'))
 
     def clean(self):
       """
@@ -42,8 +42,8 @@ class EditionEleveForm(forms.Form):
     email = forms.EmailField(label = u'Adresse électronique', required=True)
     telephone = FRPhoneNumberField(label=u'N° de téléphone', required=False)
     entreprise = forms.ModelChoiceField(queryset=Entreprise.objects.all())
-    tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t').order_by('last_name', 'first_name'))
-    formateur = UserChoiceField(label=u'Tuteur académique', queryset=User.objects.filter(profilutilisateur__user_type__in=['f', 'F']).order_by('last_name', 'first_name'))
+    tuteur = UserChoiceField(label=u'Tuteur entreprise', queryset=User.objects.filter(profilutilisateur__user_type='t').filter(profilutilisateur__suppression=None).order_by('last_name', 'first_name'))
+    formateur = UserChoiceField(label=u'Tuteur académique', queryset=User.objects.filter(profilutilisateur__user_type__in=['f', 'F']).filter(profilutilisateur__suppression=None).order_by('last_name', 'first_name'))
 
 class UtilisateurForm(forms.ModelForm):
     """

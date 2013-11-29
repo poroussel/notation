@@ -432,6 +432,8 @@ def detail_pilote(request, object_id):
     pilote = get_object_or_404(User, pk=object_id)
     profil = pilote.get_profile()
     if request.method == 'POST':
+        if '_delete' in request.POST:
+            return HttpResponseRedirect(reverse(suppression_objet, args=['ProfilUtilisateur', profil.id]))
         form = ProfilUtilisateurForm(request.POST, instance=pilote)
         if form.is_valid():
             pilote = form.save()
@@ -459,6 +461,8 @@ def detail_formateur(request, object_id):
     profil = frm.get_profile()
     bulletins = Bulletin.objects.filter(formateur=frm).order_by('grille', 'eleve__last_name', 'eleve__first_name')
     if request.method == 'POST':
+        if '_delete' in request.POST:
+            return HttpResponseRedirect(reverse(suppression_objet, args=['ProfilUtilisateur', profil.id]))
         form = ProfilUtilisateurForm(request.POST, instance=frm)
         if form.is_valid():
             formateur = form.save()
@@ -479,6 +483,8 @@ def detail_tuteur(request, object_id):
     profil = tuteur.get_profile()
     bulletins = Bulletin.objects.filter(tuteur=tuteur).order_by('grille', 'eleve__last_name', 'eleve__first_name')
     if request.method == 'POST':
+        if '_delete' in request.POST:
+            return HttpResponseRedirect(reverse(suppression_objet, args=['ProfilUtilisateur', profil.id]))
         form = ProfilUtilisateurForm(request.POST, instance=tuteur)
         if form.is_valid():
             tuteur = form.save()

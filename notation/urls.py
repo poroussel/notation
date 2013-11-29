@@ -7,17 +7,17 @@ from cfai.notation.models import Entreprise, ProfilUtilisateur
 liste_entreprises_dict = {'queryset' : Entreprise.objects.all()}
 
 liste_tuteurs_dict = {
-    'queryset' : User.objects.filter(profilutilisateur__user_type='t').order_by('last_name'),
+    'queryset' : User.objects.filter(profilutilisateur__user_type='t').filter(profilutilisateur__suppression=None).order_by('last_name'),
     'template_name' : 'notation/tuteur_list.html'
     }
 
 liste_formateurs_dict = {
-    'queryset' : User.objects.filter(profilutilisateur__user_type__in=['f', 'F']).order_by('last_name'),
+    'queryset' : User.objects.filter(profilutilisateur__user_type__in=['f', 'F']).filter(profilutilisateur__suppression=None).order_by('last_name'),
     'template_name' : 'notation/formateur_list.html'
     }
 
 liste_pilotes_dict = {
-    'queryset' : User.objects.filter(profilutilisateur__user_type__in=['p', 'F']).order_by('last_name'),
+    'queryset' : User.objects.filter(profilutilisateur__user_type__in=['p', 'F']).filter(profilutilisateur__suppression=None).order_by('last_name'),
     'template_name' : 'notation/pilote_list.html'
     }
 
@@ -27,7 +27,7 @@ urlpatterns = patterns('',
 
     (r'^utilisateur/motdepasse/$', motdepasse),
     (r'^utilisateur/profil/$', profil),
-                       
+
     (r'^suppression/(?P<model>[a-zA-Z]+)/(?P<object_id>\d+)/$', suppression_objet),
 
     (r'^bulletins/$', liste_bulletin, None, 'liste_bulletin'),
