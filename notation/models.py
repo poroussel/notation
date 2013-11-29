@@ -34,10 +34,10 @@ def supprimer_objet(obj, user, reason):
 
 TYPES = (('e', u'Apprenti'),
          ('t', u'Tuteur entreprise'),
-         ('f', u'Chargé de promotion'),
+         ('f', u'Tuteur académique'),
          ('a', u'Administratif'),
          ('p', u'Pilotage'),
-         ('F', u'Chargé de promotion et Pilotage'))
+         ('F', u'Tuteur académique et Pilotage'))
 
 APPRECIATIONS = (('v', u'Non renseigné'),
                  ('a', u'Acquis'),

@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 {% if object %}
-<h1>Détails du chargé de promotion {{ object.get_full_name }}</h1>
+<h1>Détails du tuteur académique {{ object.get_full_name }}</h1>
 {% else %}
-<h1>Ajout d'un chargé de promotion {{ object.get_full_name }}</h1>
+<h1>Ajout d'un tuteur académique {{ object.get_full_name }}</h1>
 {% endif %}
   <form style="margin-left: 10%;" action="" method="post">{% csrf_token %}
     <table>
@@ -16,7 +16,7 @@
       </td></tr><tr><th></th><td>
       <input type="submit" name="_reinit" value="Enregistrer et envoyer un email avec le mot de passe réinitialisé" />
 {% else %}
-      <input type="submit" name="_continuer" value="Enregistrer et saisir un autre chargé de promotion" />
+      <input type="submit" name="_continuer" value="Enregistrer et saisir un autre tuteur académique" />
       <input type="submit" value="Enregistrer et revenir à la liste" />
 {% endif %}
     </td></tr>
@@ -25,12 +25,12 @@
   </form>
 
 {% if bulletins.count %}
-<h1>Les bulletins de ce chargé de promotion</h1>
+<h1>Les bulletins de ce tuteur académique</h1>
 <ul>
 {% for blt in bulletins %}
     <li><a href="{% url detail_eleve blt.eleve.id %}">{{ blt.eleve.get_profile.nom_complet }} ({{ blt.grille }})</a></li>
 {% endfor %}
 </ul>
 {% endif %}
-    
+
 {% endblock %}

@@ -21,14 +21,14 @@ def bulletin_xls(request, blt):
     book = Workbook(encoding='cp1251')
     sheet = book.add_sheet('Bulletin %d-%d' % (blt.grille.promotion, blt.grille.promotion + blt.grille.duree))
     sheet.set_portrait(False)
-    
+
     # Largeur des colonnes
     sheet.col(0).width /= 3
     sheet.col(1).width = 12000
     sheet.col(5).width = 10000
     sheet.col(6).width = 10000
     sheet.col(7).width = 10000
-    
+
     # Entête globale
     lig = 0
     gras = easyxf('font: name Arial, bold on; pattern: pattern solid, fore-colour bright_green; borders: left medium, top medium, right medium')
@@ -47,22 +47,22 @@ def bulletin_xls(request, blt):
     lig += 1
     sheet.write_merge(lig, lig, 1, 4, u'N° de tél portable : %s            Adresse email : %s' % (blt.eleve.get_profile().phone_number, blt.eleve.email), normal)
     lig += 1
-    
+
     sheet.write_merge(lig, lig, 1, 4, u'Entreprise : %s' % (blt.entreprise), gros)
     sheet.row(lig).height = sheet.row(lig).height * 3 / 2
     lig += 1
     sheet.write_merge(lig, lig, 1, 4, u'Adresse : %s' % (blt.entreprise.description), normal)
     sheet.row(lig).height = sheet.row(lig).height * 2
     lig += 1
-    
+
     sheet.write_merge(lig, lig, 1, 4, u'Tuteur : %s' % (blt.tuteur.get_profile().nom_complet), gros)
     sheet.row(lig).height = sheet.row(lig).height * 3 / 2
     lig += 1
     sheet.write_merge(lig, lig, 1, 4, u'N° de tél portable : %s            Adresse email : %s' % (blt.tuteur.get_profile().phone_number, blt.tuteur.email), normal)
     lig += 1
     normal = easyxf('font: name Arial, bold on, height 160; borders: left medium, right medium, bottom medium')
-    sheet.write_merge(lig, lig, 1, 4, u'Chargé de promotion : %s' % (blt.formateur.get_profile().nom_complet), normal)
-    
+    sheet.write_merge(lig, lig, 1, 4, u'Tuteur académique : %s' % (blt.formateur.get_profile().nom_complet), normal)
+
     titre = easyxf('font: name Arial, bold on, height 140; borders: left medium, top medium, right medium, bottom medium; align: horiz centre, vert centre')
     titrev = easyxf('font: name Arial, bold on, height 140; borders: left medium, top medium, right medium, bottom medium; align: horiz centre, vert centre; pattern: pattern solid, fore-colour green')
     lig = 13
@@ -86,7 +86,7 @@ def bulletin_xls(request, blt):
     grasdroite = easyxf('font: name Arial, bold on, height 140; borders: left medium, top medium, right medium, bottom medium; align: vert centre, horiz right')
 
     lig += 1
-    
+
     for theme in Theme.objects.filter(grille = blt.grille):
         th_start = lig
         for ens in EnsembleCapacite.objects.filter(grille = blt.grille, theme = theme):
@@ -95,7 +95,7 @@ def bulletin_xls(request, blt):
             start = lig
             for cap in Capacite.objects.filter(ensemble = ens).order_by('numero'):
                 sheet.row(lig).height = sheet.row(lig).height * 3 / 2
-                sheet.write(lig, 1, u'%d.%d %s' % (ens.numero, cap.numero, cap.libelle), normal)            
+                sheet.write(lig, 1, u'%d.%d %s' % (ens.numero, cap.numero, cap.libelle), normal)
                 notes = Evaluation.objects.filter(bulletin=blt, capacite=cap)
                 sheet.write(lig, 2, evaluation(notes.filter(annee=0)), centre)
                 sheet.write(lig, 3, evaluation(notes.filter(annee=1)), centre)
@@ -112,7 +112,7 @@ def bulletin_xls(request, blt):
             lig += 1
 
         th_end = lig - 1
-        
+
         sheet.write(lig - 1, 1, u'Note sur 20', grasdroite)
         sheet.write(lig, 1, u'% d\'évaluations renseignées', grasdroite)
         sheet.write_merge(th_start, th_end, 0, 0, theme.libelle, vertical)
@@ -122,7 +122,7 @@ def bulletin_xls(request, blt):
             if note:
                 sheet.write(th_end, 2 + year, note[0].valeur, notec)
             sheet.write(lig, 2 + year, u'%d %%' % blt.pourcentage_saisie(year, theme), notec)
-            
+
         lig += 2
 
     # Fin de tableau avec les moyennes et les savoirs etre
@@ -168,7 +168,7 @@ def bulletin_xls(request, blt):
     for year in [0, 1, 2]:
         moyenne = moyennes.filter(annee=year)
         sheet.write(lig, 2 + year, moyenne and moyenne[0].valeur_sv or 0, gras)
-        
+
     lig += 2
     titreg = easyxf('font: name Arial, bold on, height 180; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour light_blue')
     sheet.row(lig).height = sheet.row(lig).height * 3 / 2
