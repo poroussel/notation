@@ -202,6 +202,9 @@ class Bulletin(models.Model):
     date_modification = models.DateTimeField(auto_now=True)
     auteur_modification = models.ForeignKey(User, related_name='auteur', null=True)
 
+    # alter table notation_bulletin add column reunion_ma bool not null default false
+    reunion_ma = models.BooleanField(u'Tuteur en réunion MA', default=False)
+
     objects = BulletinApprentiNonSupprime()
     supprimes = BulletinApprentiSupprime()
     tous = BulletinApprenti()
