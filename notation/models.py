@@ -260,6 +260,21 @@ class Bulletin(models.Model):
         prc = len(ens_appr) * 100 / len(ens_capa)
         return prc
 
+def upload_to(instance, filename):
+    return '%.04d/%d/%s' % (instance.bulletin.grille.promotion, instance.bulletin.id, filename)
+
+class PieceJointe(models.Model):
+    class Meta:
+        verbose_name = u'Pièce Jointe'
+        verbose_name_plural = u'Pièces Jointes'
+
+    fichier = models.FileField(upload_to=upload_to)
+    bulletin = models.ForeignKey(Bulletin)
+    date_creation = models.DateField(u'Date création', auto_now_add=True)
+
+    def __unicode__(self):
+        return u'%s : %s' % (self.bulletin, self.fichier.name)
+
 class Theme(models.Model):
     """
     Un thème regroupe plusieurs ensemble de capacités.
