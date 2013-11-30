@@ -2,6 +2,11 @@
 {% block content %}
 
 <h1>{{ bulletin }}</h1>
+
+{% if bulletin.archive %}
+<h3>Ce bulletin est archivé.</h3>
+{% endif %}
+
 <p><a href="?format=xls">Fichier excel pour</a> le bulletin complet</p>
 <ul>
   {% for annee in annees %}

@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Bulletin de {{ bulletin.eleve.get_profile.nom_complet }} / Année {{ bulletin.grille.promotion|add:annee }} - {{ bulletin.grille.promotion|add:annee|add:1 }}</h1>
+<h1>Bulletin de {{ bulletin.eleve.get_profile.nom_complet }} / Année {{ bulletin.grille.promotion|add:annee }} - {{ bulletin.grille.promotion|add:annee|add:1 }}
+{% if bulletin.archive %}
+ (archivé)
+{% endif %}
+</h1>
 <div id="soustitre">
 <a href="{% url notation.views.bulletin bulletin.id %}">choix de l'année</a>
 </div>
@@ -31,10 +35,12 @@
     </td></tr>
     {% endfor %}
 
+{% if not bulletin.archive or user.get_profile.is_administratif %}
 {% if user.get_profile.is_tuteur or user.get_profile.is_administratif %}
   <tr><th></th><td>
     <input name="themes" type="submit" value="Enregistrer les notes compétences" />
   </td></tr>
+{% endif %}
 {% endif %}
   </table>
 </form>
@@ -45,12 +51,13 @@
   <table>
   {{ form }}
 
+{% if not bulletin.archive or user.get_profile.is_administratif %}
 {% if user.get_profile.is_tuteur or user.get_profile.is_administratif %}
   <tr><th></th><td>
     <input type="submit" value="Enregistrer les notes savoir être" />
   </td></tr>
 {% endif %}
-
+{% endif %}
   </table>
 </form>
 

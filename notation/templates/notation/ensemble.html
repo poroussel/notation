@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>{{ ensemble }} / {{ bulletin.eleve.get_full_name }} ({{ bulletin.grille.promotion|add:annee }}-{{ bulletin.grille.promotion|add:annee|add:1 }})</h1>
+<h1>{{ ensemble }} / {{ bulletin.eleve.get_full_name }} ({{ bulletin.grille.promotion|add:annee }}-{{ bulletin.grille.promotion|add:annee|add:1 }})
+{% if bulletin.archive %}
+ (archivé)
+{% endif %}
+</h1>
 <div id="soustitre">
 <a href="{% url notation.views.annee_bulletin bulletin.id annee %}">retour à la liste</a>
 {% if precedent %}
@@ -11,15 +15,16 @@
 <a href="{% url notation.views.ensemble_bulletin bulletin.id annee suivant.id %}"> / suivant</a>
 {% endif %}
 </div>
- 
+
   <form style="margin-left: 2%;" action="" method="post">{% csrf_token %}
     <table>
       {{ form }}
 
-{% if user.get_profile.is_administratif or user.get_profile.is_tuteur  or user.get_profile.is_eleve %}
+{% if not bulletin.archive or user.get_profile.is_administratif %}
+{% if user.get_profile.is_administratif or user.get_profile.is_tuteur or user.get_profile.is_eleve %}
     <tr><th></th><td><input type="submit" value="Enregistrer et passer au groupe suivant" /></td></tr>
 {% endif %}
-    
+{% endif %}
     </table>
   </form>
 {% endblock %}

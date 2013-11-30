@@ -218,6 +218,9 @@ class Bulletin(models.Model):
     def get_absolute_url(self):
         return ('bulletin', [self.id])
 
+    def archive(self):
+        return self.grille.archive
+
     def calcul_moyenne_competence(self, annee, user):
         """
         Calcul la moyenne compétence de ce bulletin pour une année

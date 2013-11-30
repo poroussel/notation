@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Les bulletins de {{ gr }}</h1>
+<h1>Les bulletins de {{ gr }}
+{% if gr.archive %}
+ (archivés)
+{% endif %}
+</h1>
 <div class="table">
 <ul>
 {% for blt in object_list %}
