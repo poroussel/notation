@@ -157,3 +157,8 @@ class NotationThemeForm(forms.Form, ReadOnly):
             if profile.is_eleve():
                 self.fields[str(th.id)].widget.attrs['disabled'] = True
                 self.fields[str(th.id)].required = False
+
+class PJForm(forms.ModelForm):
+    class Meta:
+        model = PieceJointe
+

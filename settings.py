@@ -61,6 +61,9 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = '/media/'
 
+FILE_UPLOAD_PERMISSIONS = 0644
+FILE_UPLOAD_HANDLERS = ('django.core.files.uploadhandler.TemporaryFileUploadHandler',)
+
 STATIC_ROOT= os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 

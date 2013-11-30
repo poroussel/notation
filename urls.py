@@ -18,4 +18,4 @@ urlpatterns = patterns('',
 if settings.SERVE_STATIC == True:
     urlpatterns += patterns('',
        (r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
-       (r'^static/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}))
+       (r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}))

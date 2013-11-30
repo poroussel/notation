@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import logout
 from django.contrib import messages
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render, render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponseRedirect, HttpResponse
 from django.utils.http import urlquote
@@ -109,9 +109,25 @@ def bulletin(request, blt_id):
         return HttpResponseRedirect(reverse(index))
     if request.GET.get('format', None) == 'xls':
         return bulletin_xls(request, blt)
+
+    if request.method == 'POST':
+        form = PJForm(request.POST, request.FILES)
+        if form.is_valid():
+            pj = form.save(commit=False)
+            pj.bulletin = blt
+            pj.save()
+            form = PJForm()
+            messages.success(request, u'Fichier ajouté au bulletin.')
+    else:
+        form = PJForm()
     annees = range(blt.grille.duree)
     pjs = PieceJointe.objects.filter(bulletin=blt)
-    return render_to_response('notation/bulletin.html', RequestContext(request, {'bulletin' : blt, 'annees' : annees, 'pjs': pjs}))
+    return render(request, 'notation/bulletin.html', {
+        'bulletin' : blt,
+        'annees' : annees,
+        'pjs': pjs,
+        'form': form,
+    })
 
 @user_passes_test(lambda u: u.is_authenticated())
 def annee_bulletin(request, blt_id, annee):

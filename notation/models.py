@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import os.path
+
 from datetime import date
 
 from django.db import models
@@ -260,6 +262,7 @@ class Bulletin(models.Model):
         prc = len(ens_appr) * 100 / len(ens_capa)
         return prc
 
+
 def upload_to(instance, filename):
     return '%.04d/%d/%s' % (instance.bulletin.grille.promotion, instance.bulletin.id, filename)
 
@@ -269,12 +272,15 @@ class PieceJointe(models.Model):
         verbose_name_plural = u'Pièces Jointes'
 
     fichier = models.FileField(upload_to=upload_to)
-    bulletin = models.ForeignKey(Bulletin)
-    description = models.TextField(blank=False)
-    date_creation = models.DateField(u'Date création', auto_now_add=True)
+    bulletin = models.ForeignKey(Bulletin, editable=False)
+    description = models.CharField(max_length=100, blank=False)
+    date_creation = models.DateTimeField(u'Date création', auto_now_add=True)
+
+    def nom_fichier(self):
+        return os.path.basename(self.fichier.path)
 
     def __unicode__(self):
-        return u'%s : %s' % (self.bulletin, self.fichier.name)
+        return u'%s : %s' % (self.bulletin, self.nom_fichier())
 
 class Theme(models.Model):
     """
