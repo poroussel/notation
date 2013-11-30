@@ -2,7 +2,6 @@ from django.contrib import admin
 from cfai.notation.models import *
 
 admin.site.register(Suppression)
-admin.site.register(Bulletin)
 admin.site.register(Entreprise)
 admin.site.register(GrilleNotation)
 admin.site.register(Formation)
@@ -68,3 +67,7 @@ class PJAdmin(admin.ModelAdmin):
     list_display = ('fichier', 'bulletin', 'description')
     list_filter = ('bulletin__grille', )
 admin.site.register(PieceJointe, PJAdmin)
+
+class BulletinAdmin(admin.ModelAdmin):
+    search_fields = ['eleve__last_name', 'eleve__first_name', 'entreprise__nom']
+admin.site.register(Bulletin, BulletinAdmin)
