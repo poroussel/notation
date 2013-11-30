@@ -270,6 +270,7 @@ class PieceJointe(models.Model):
 
     fichier = models.FileField(upload_to=upload_to)
     bulletin = models.ForeignKey(Bulletin)
+    description = models.TextField(blank=False)
     date_creation = models.DateField(u'Date création', auto_now_add=True)
 
     def __unicode__(self):

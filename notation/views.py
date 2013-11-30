@@ -110,7 +110,8 @@ def bulletin(request, blt_id):
     if request.GET.get('format', None) == 'xls':
         return bulletin_xls(request, blt)
     annees = range(blt.grille.duree)
-    return render_to_response('notation/bulletin.html', RequestContext(request, {'bulletin' : blt, 'annees' : annees}))
+    pjs = PieceJointe.objects.filter(bulletin=blt)
+    return render_to_response('notation/bulletin.html', RequestContext(request, {'bulletin' : blt, 'annees' : annees, 'pjs': pjs}))
 
 @user_passes_test(lambda u: u.is_authenticated())
 def annee_bulletin(request, blt_id, annee):

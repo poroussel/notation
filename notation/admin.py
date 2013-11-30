@@ -63,3 +63,8 @@ admin.site.register(CommentaireGeneral, CommentaireGeneralAdmin)
 class PUAdmin(admin.ModelAdmin):
     list_filter = ('user_type', )
 admin.site.register(ProfilUtilisateur, PUAdmin)
+
+class PJAdmin(admin.ModelAdmin):
+    list_display = ('fichier', 'bulletin', 'description')
+    list_filter = ('bulletin__grille', )
+admin.site.register(PieceJointe, PJAdmin)
