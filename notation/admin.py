@@ -60,6 +60,7 @@ class CommentaireGeneralAdmin(admin.ModelAdmin):
 admin.site.register(CommentaireGeneral, CommentaireGeneralAdmin)
 
 class PUAdmin(admin.ModelAdmin):
+    search_fields = ['user__last_name', 'user__first_name']
     list_filter = ('user_type', )
 admin.site.register(ProfilUtilisateur, PUAdmin)
 
