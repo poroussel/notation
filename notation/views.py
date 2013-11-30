@@ -580,3 +580,16 @@ def liste_bulletin(request):
         grille = grilles[0]
     object_list = object_list.filter(grille__id__exact=grille.id).order_by('grille', 'eleve__last_name')
     return render_to_response('notation/bulletin_list.html', RequestContext(request, {'object_list' : object_list, 'grilles' : grilles, 'gr' : grille}))
+
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
+def liste_formation(request):
+    if 'id' in request.GET:
+        try:
+            grille = GrilleNotation.objects.get(id=request.GET['id'])
+            grille.archive = not grille.archive
+            grille.save()
+            messages.success(request, u'Statut de la formation modifié')
+        except:
+            pass
+    grilles = GrilleNotation.objects.all().order_by('frm__libelle', 'promotion')
+    return render(request, 'notation/formation_list.html', {'grilles' : grilles})

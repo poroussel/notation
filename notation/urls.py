@@ -58,6 +58,8 @@ urlpatterns = patterns('',
     (r'^pilotes/ajouter/$', ajouter_pilote, None, 'ajouter_pilote'),
     (r'^pilotes/(?P<object_id>\d+)/$', detail_pilote, None, 'detail_pilote'),
 
+    (r'^formations/$', liste_formation, None, 'liste_formation'),
+
     (r'^administratif/$', index_admin),
     (r'^gestion/$', index_gestion, None, 'index_gestion'),
     (r'^assistance/$', index_assistance, None, 'index_assistance'),

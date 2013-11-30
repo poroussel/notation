@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Les formations</h1>
+
+{% if user.get_profile.is_administratif %}
+<div class="actions">
+</div>
+{% endif %}
+
+<table class="table">
+<thead><th>Formation</th><th>Archivée ?</th></thead>
+<tbody>
+{% for gr in grilles %}
+<tr>
+  <td>{{ gr }}</td>
+  <td><a href="?id={{ gr.id }}">{{ gr.archive|yesno }}</a></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
