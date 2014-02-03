@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os.path
+import unicodedata
 
 from datetime import date
 
@@ -12,6 +13,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.contrib import messages
 from django.contrib.auth import logout
+from django.utils.encoding import smart_unicode
 
 class Suppression(models.Model):
     """
@@ -266,8 +268,16 @@ class Bulletin(models.Model):
         return prc
 
 
+def normalize_str(ustr):
+    """
+    Supprime les caractères spéciaux d'une chaine de caractères
+    (unicode ou str en utf-8) et retourne une chaîne str utf-8
+    """
+    data = smart_unicode(ustr)
+    return ''.join(c for c in unicodedata.normalize('NFD', data) if unicodedata.category(c) != 'Mn')
+
 def upload_to(instance, filename):
-    return '%.04d/%d/%s' % (instance.bulletin.grille.promotion, instance.bulletin.id, filename)
+    return '%.04d/%d/%s' % (instance.bulletin.grille.promotion, instance.bulletin.id, normalize_str(filename).replace(' ', '_'))
 
 class PieceJointe(models.Model):
     class Meta:
