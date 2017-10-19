@@ -143,8 +143,8 @@ class GrilleNotation(models.Model):
         """
         ajd = date.today()
         for inc in range(0, self.duree):
-            debut_annee = date(self.promotion + inc, 7, 10)
-            fin_annee = date(self.promotion + inc + 1, 7, 9)
+            debut_annee = date(self.promotion + inc, 9, 1)
+            fin_annee = date(self.promotion + inc + 1, 8, 30)
             if debut_annee <= ajd and ajd <= fin_annee:
                 return inc
         return -1
