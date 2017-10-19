@@ -95,8 +95,8 @@ def check_user(sender, request, user, **kwargs):
         messages.warning(request, u'Vous devez modifier votre mot de passe !')
 
     if profile.is_eleve():
-        bulletin = Bulletin.objects.get(eleve=user)
-        if bulletin.grille.archive:
+        bulletins = Bulletin.objects.filter(eleve=user)
+        if all(b.grille.archive for b in bulletins):
             messages.error(request, u"Vous n'avez plus accès au site")
             user.is_active = False
             user.save()
