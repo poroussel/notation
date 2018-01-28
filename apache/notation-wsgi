@@ -8,6 +8,6 @@
 
     	# Django settings
         WSGIScriptAlias / /home/www/cfai/apache/wsgi_handler.py
-	WSGIDaemonProcess cfai user=philou group=users processes=1 threads=2
+	WSGIDaemonProcess cfai user=philou group=users processes=1 threads=1
     	WSGIProcessGroup cfai
 </VirtualHost>
