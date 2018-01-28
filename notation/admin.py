@@ -21,7 +21,7 @@ admin.site.register(Theme, ThemeAdmin)
 
 class CapaciteAdmin(admin.ModelAdmin):
     list_display = ('__unicode__', 'ensemble')
-    list_filter = ('ensemble',)
+    list_filter = ('ensemble', 'ensemble__grille')
 admin.site.register(Capacite, CapaciteAdmin)
 
 class SavoirEtreAdmin(admin.ModelAdmin):

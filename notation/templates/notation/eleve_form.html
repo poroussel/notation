@@ -35,12 +35,14 @@
   </form>
     
 {% if blt %}
-<h1>Bulletin de note</h1>
+<h1>Bulletin(s) de notes</h1>
     <ul>
+    {% for b in blt %}
       <li>
-      <a href="{% url notation.views.bulletin blt.id %}">{{ blt }}</a>
-       / <a href="{% url notation.views.bulletin blt.id %}?format=xls">Fichier excel</a>
+      <a href="{% url notation.views.bulletin b.id %}">{{ b }}</a>
+       / <a href="{% url notation.views.bulletin b.id %}?format=xls">Fichier excel</a>
       </li>
+    {% endfor %}
     </ul>
 {% endif %}
 {% endblock %}

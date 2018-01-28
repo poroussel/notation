@@ -341,7 +341,8 @@ class EnsembleCapacite(models.Model):
         return None
 
     def __unicode__(self):
-        return u'%d %s' % (self.numero, self.libelle)
+        return u'%d %s / %s' % (self.numero, self.libelle, self.grille)
+        #return u'%d %s' % (self.numero, self.libelle)
 
 class Capacite(models.Model):
     class Meta:

@@ -341,7 +341,8 @@ def modifier_eleve(request, object_id):
     """
     elv = get_object_or_404(User, pk=object_id)
     profil = elv.get_profile()
-    blt = Bulletin.tous.get(eleve=elv)
+    blts = Bulletin.tous.filter(eleve=elv).order_by('-id')
+    blt = blts[0]
     if request.method == 'POST':
         if '_supprimer' in request.POST:
             return HttpResponseRedirect(reverse(suppression_objet, args=['ProfilUtilisateur', profil.id]))
@@ -360,7 +361,7 @@ def modifier_eleve(request, object_id):
 
 
             if '_reinit' in request.POST and not mail_new_password(request, elv):
-                return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blt, 'object' : elv, 'profil' : profil}))
+                return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blts, 'object' : elv, 'profil' : profil}))
 
             return HttpResponseRedirect(reverse('liste_eleve'))
     else:
@@ -372,7 +373,7 @@ def modifier_eleve(request, object_id):
                                          'tuteur' : blt.tuteur,
                                          'formateur' : blt.formateur,
                                          'telephone' : profil.phone_number})
-    return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blt, 'object' : elv, 'profil' : profil}))
+    return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blts, 'object' : elv, 'profil' : profil}))
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def ajouter_tuteur(request):
