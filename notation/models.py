@@ -58,7 +58,7 @@ NOMS_ANNEES = [u'1ère année', u'2ème année', u'3ème année']
 
 class ProfilUtilisateur(models.Model):
     user = models.OneToOneField(User, unique=True)
-    user_type = models.CharField(u'Type', max_length=1, default='e', choices=TYPES)
+    user_type = models.CharField(u'Type', max_length=1, default='a', choices=TYPES)
     password_modified = models.BooleanField(default=False, editable=True)
     phone_number = models.CharField(u'N° de téléphone', max_length=15, blank=True)
     suppression = models.OneToOneField(Suppression, null=True, blank=True, editable=False)

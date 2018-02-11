@@ -310,8 +310,8 @@ def ajouter_eleve(request):
             eleve.email = form.cleaned_data['email']
             eleve.is_active = True
             eleve.save()
-            # Le profil par défaut est élève, pas besoin de le spécifier
             profil = eleve.get_profile()
+            profil.user_type = 'e'
             profil.phone_number = form.cleaned_data['telephone']
             profil.save()
             bulletin = Bulletin()
