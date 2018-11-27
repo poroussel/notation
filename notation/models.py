@@ -46,7 +46,8 @@ TYPES = (('e', u'Apprenti'),
 APPRECIATIONS = (('v', u'Non renseigné'),
                  ('a', u'Acquis'),
                  ('n', u'Non acquis'),
-                 ('e', u'En cours d\'acquisition'))
+                 ('e', u'En cours d\'acquisition'),
+                 ('p', u'Non applicable'))
 
 NOTES = ((1, '1'),
          (2, '2'),

@@ -60,4 +60,6 @@ class Command(BaseCommand):
                     ncap.ensemble = nens
                     ncap.save()
                 
-        print u'Copie de la grille %s vers la grille %s' % (grille, ngrille)
+        # print u'Copie de la grille %s vers la grille %s' % (grille, ngrille)
+        print 'done'
+        
