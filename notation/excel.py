@@ -120,7 +120,7 @@ def bulletin_xls(request, blt):
         for year in [0, 1, 2]:
             note = notes.filter(annee=year)
             if note:
-                sheet.write(th_end, 2 + year, note[0].valeur, notec)
+                sheet.write(th_end, 2 + year, float(note[0].valeur), notec)
             sheet.write(lig, 2 + year, u'%d %%' % blt.pourcentage_saisie(year, theme), notec)
 
         lig += 2
@@ -135,7 +135,7 @@ def bulletin_xls(request, blt):
     moyennes = blt.moyenne_set.all()
     for year in [0, 1, 2]:
         moyenne = moyennes.filter(annee=year)
-        sheet.write(lig, 2 + year, moyenne and moyenne[0].valeur_cp or 0, gras)
+        sheet.write(lig, 2 + year, moyenne and float(moyenne[0].valeur_cp) or 0, gras)
 
     lig += 2
     titre = easyxf('font: name Arial, bold on, height 140; borders: left medium, top medium, right medium, bottom medium; align: horiz centre, vert centre; pattern: pattern solid, fore-colour pink')
