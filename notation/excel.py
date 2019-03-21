@@ -150,11 +150,11 @@ def bulletin_xls(request, blt):
         sheet.write(lig, 1, sv.libelle, normal)
         notes = Note.objects.filter(bulletin=blt, savoir=sv)
         n = notes.filter(annee=0)
-        sheet.write(lig, 2, n and n[0].valeur or '', centre)
+        sheet.write(lig, 2, n and float(n[0].valeur) or '', centre)
         n = notes.filter(annee=1)
-        sheet.write(lig, 3, n and n[0].valeur or '', centre)
+        sheet.write(lig, 3, n and float(n[0].valeur) or '', centre)
         n = notes.filter(annee=2)
-        sheet.write(lig, 4, n and n[0].valeur or '', centre)
+        sheet.write(lig, 4, n and float(n[0].valeur) or '', centre)
         lig += 1
 
     normal = easyxf('font: name Arial, height 160; borders: left medium, right medium, bottom medium, top medium; align: vert top, wrap true')
@@ -167,7 +167,7 @@ def bulletin_xls(request, blt):
     sheet.write(lig, 1, u'Moyenne "savoir être" (sur 20)', titreg)
     for year in [0, 1, 2]:
         moyenne = moyennes.filter(annee=year)
-        sheet.write(lig, 2 + year, moyenne and moyenne[0].valeur_sv or 0, gras)
+        sheet.write(lig, 2 + year, moyenne and float(moyenne[0].valeur_sv) or 0, gras)
 
     lig += 2
     titreg = easyxf('font: name Arial, bold on, height 180; borders: left medium, top medium, right medium, bottom medium; align: vert centre; pattern: pattern solid, fore-colour light_blue')
@@ -175,7 +175,7 @@ def bulletin_xls(request, blt):
     sheet.write(lig, 1, u'Note entreprise (sur 20)', titreg)
     for year in [0, 1, 2]:
         moyenne = moyennes.filter(annee=year)
-        sheet.write(lig, 2 + year, moyenne and moyenne[0].valeur_gn or 0, gras)
+        sheet.write(lig, 2 + year, moyenne and float(moyenne[0].valeur_gn) or 0, gras)
 
     book.save(response)
     return response
