@@ -231,7 +231,7 @@ class Bulletin(models.Model):
         annee = int(annee)
         themes = self.grille.theme_set.all()
         notes = Note.objects.filter(bulletin=self, theme__in=list(themes), annee=annee).values_list('valeur', flat=True)
-        total = sum(notes)
+        total = sum(float(n) for n in notes)
         moyenne = total / len(themes)
         moy, created = Moyenne.objects.get_or_create(bulletin=self, annee=annee, defaults={'valeur_cp' : moyenne})
         if not created:
@@ -247,7 +247,7 @@ class Bulletin(models.Model):
         annee = int(annee)
         savoirs = self.grille.savoiretre_set.all()
         notes = Note.objects.filter(bulletin=self, annee=annee, savoir__in=savoirs).values_list('valeur', flat=True)
-        somme = sum(notes)
+        somme = sum(float(n) for n in notes)
         somme += len(savoirs) - len(notes)
         moyenne = somme * 4 / len(savoirs)
 
@@ -394,7 +394,7 @@ class Moyenne(models.Model):
         return u'Moyenne de %s pour la %s' % (self.bulletin.eleve.get_profile().nom_complet, NOMS_ANNEES[self.annee])
 
 def maj_moyenne_generale(sender, instance, **kwargs):
-    instance.valeur_gn = (instance.valeur_cp + instance.valeur_sv ) / 2
+    instance.valeur_gn = (float(instance.valeur_cp) + float(instance.valeur_sv) ) / 2
 pre_save.connect(maj_moyenne_generale, sender=Moyenne)
 
 class Evaluation(models.Model):
