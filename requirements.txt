@@ -1,2 +1,2 @@
-django==1.4.22
+django==1.11.23
 xlwt
