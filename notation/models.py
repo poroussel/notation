@@ -231,7 +231,10 @@ class Bulletin(models.Model):
         annee = int(annee)
         themes = self.grille.theme_set.all()
         notes = Note.objects.filter(bulletin=self, theme__in=list(themes), annee=annee).values_list('valeur', flat=True)
-        total = sum(float(n) for n in notes)
+        if len(notes) > 0:
+            total = sum(float(n) for n in notes)
+        else:
+            total = 0.0
         moyenne = total / len(themes)
         moy, created = Moyenne.objects.get_or_create(bulletin=self, annee=annee, defaults={'valeur_cp' : moyenne})
         if not created:
@@ -247,10 +250,12 @@ class Bulletin(models.Model):
         annee = int(annee)
         savoirs = self.grille.savoiretre_set.all()
         notes = Note.objects.filter(bulletin=self, annee=annee, savoir__in=savoirs).values_list('valeur', flat=True)
-        somme = sum(float(n) for n in notes)
+        if len(notes) > 0:
+            somme = sum(float(n) for n in notes)
+        else:
+            somme = 0.0
         somme += len(savoirs) - len(notes)
         moyenne = somme * 4 / len(savoirs)
-
         moy, created = Moyenne.objects.get_or_create(bulletin=self, annee=annee, defaults={'valeur_sv' : moyenne})
         if not created:
             moy.valeur_sv = moyenne
