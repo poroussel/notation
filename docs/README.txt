@@ -1,8 +1,8 @@
 Développé avec :
 
- - python 2.7.1
- - django 1.3.3
- - xlwt 0.7.2
+ - python 2.7.3
+ - django 1.4.22
+ - xlwt 1.3.0
 
 
 Mise à jour de la base de données :
