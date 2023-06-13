@@ -1,8 +1,8 @@
-Bonjour {{ profil.user.get_full_name }},
+﻿Bonjour {{ profil.user.get_full_name }},
 
-Un compte a été créé à votre attention sur le site http://{{ site.domain }}.
-Ce site géré par le CFAI et l'ENSMM est destiné à la gestion des bulletins 
-de notes des apprentis.
+Un compte a été créé à votre attention sur le site https://{{ site.domain }}.
+Ce site géré par le CFAI et SUPMICROTECH-ENSMM, il est destiné à accéder au dispositif d'évaluation
+de compétences des apprenti(e)s ITII.
 
 Vous pourrez vous y connecter en utilisant les identifiants suivants :
 
@@ -10,3 +10,5 @@ Vous pourrez vous y connecter en utilisant les identifiants suivants :
  - mot de passe : {{ password }}
 
 Veuillez modifier votre mot de passe lors de votre première connexion.
+
+Le webmaster
