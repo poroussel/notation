@@ -1,6 +1,6 @@
 <VirtualHost *>
-	ServerName notation.octets.fr
-	ServerAdmin philippe.roussel@octets.fr
+	ServerName 20.199.110.27
+	ServerAdmin webmaster.octet@formation-industries-fc.fr
 	DocumentRoot /home/notation/cfai
 	LogLevel error
 	ErrorLog /var/log/apache2/notation-error.log
@@ -8,6 +8,6 @@
 
     	# Django settings
         WSGIScriptAlias / /home/notation/cfai/apache/wsgi_handler.py
-	WSGIDaemonProcess cfai python-home=/home/notation/env user=philou group=users processes=1 threads=1
+	WSGIDaemonProcess cfai python-home=/home/notation/env user=notation group=notation processes=1 threads=1
     	WSGIProcessGroup cfai
 </VirtualHost>
