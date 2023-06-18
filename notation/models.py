@@ -105,9 +105,26 @@ def check_user(sender, request, user, **kwargs):
 
 user_logged_in.connect(check_user, sender=User, dispatch_uid='user_logged_in')
 
+
+class Ecole(models.Model):
+    class Meta:
+        verbose_name = u'Ecole'
+        verbose_name_plural = u'Ecoles'
+
+    nom = models.CharField(max_length=100, blank=False)
+    calcul_note = models.BooleanField(u'Calcul automatique des notes', default=False)
+    logo = models.CharField(u'Nom du fichier logo', max_length=100, blank=False)
+    date_creation = models.DateTimeField(u'Date création', auto_now_add=True)
+
+    def __unicode__(self):
+        return u'%s' % (self.nom)
+
 class Formation(models.Model):
     libelle = models.CharField(u'Libellé', max_length=80)
     duree = models.PositiveIntegerField(u'Durée en années de la formation')
+    # Après création de l'ENSMM comme école d'id 1
+    # alter table notation_formation add column ecole_id integer not null unique references "notation_ecole" ("id") default 1
+    ecole = models.ForeignKey(Ecole, verbose_name='Ecole')
 
     def __unicode__(self):
         return self.libelle

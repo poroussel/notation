@@ -1,6 +1,7 @@
 from django.contrib import admin
 from cfai.notation.models import *
 
+admin.site.register(Ecole)
 admin.site.register(Suppression)
 admin.site.register(Entreprise)
 admin.site.register(GrilleNotation)
