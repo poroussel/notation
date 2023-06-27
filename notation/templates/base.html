@@ -46,7 +46,7 @@
 
     <div id="entete">
       <div class="contenugauche">
-	<a href="{% url notation.views.index %}"><img style="margin-left:5em" src="/static/images/logo-ensmm.jpg" width="398" height="80" style="vertical-align:top; margin-top:6px"/></a>
+	<a href="{% url notation.views.index %}"><img style="margin-left:5em" src="/static/images/{{ logo|default:"logo-itii.png"}}" style="vertical-align:top; margin-top:6px"/></a>
       </div>
       <div class="contenudroit">
 	<a href="{% url notation.views.index %}"><img style="float:right; margin-right:5em" src="/static/images/logo-pole-formation.png" width="160" height="171"/></a>

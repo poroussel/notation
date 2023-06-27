@@ -93,7 +93,7 @@ def resume_grille(request, object_id, annee):
             lignes.append((bulletin, moyenne[0].valeur_cp, moyenne[0].valeur_sv, moyenne[0].valeur_gn))
         else:
             lignes.append((bulletin, 0, 0, 0))
-    return render_to_response('notation/resume_grille.html', RequestContext(request, {'grille' : grille, 'lignes' : lignes, 'annee' : annee}))
+    return render_to_response('notation/resume_grille.html', RequestContext(request, {'grille' : grille, 'lignes' : lignes, 'annee' : annee, 'logo': grille.frm.ecole.logo}))
 
 def check_auth_blt(request, blt):
     profil = request.user.get_profile()
@@ -127,6 +127,7 @@ def bulletin(request, blt_id):
         'annees' : annees,
         'pjs': pjs,
         'form': form,
+        'logo': blt.grille.frm.ecole.logo
     })
 
 @user_passes_test(lambda u: u.is_authenticated())
@@ -191,7 +192,15 @@ def annee_bulletin(request, blt_id, annee):
                                 note.save()
                 blt.calcul_moyenne_savoir(annee, request.user)
 
-    return render_to_response('notation/annee_bulletin.html', RequestContext(request, {'bulletin' : blt, 'annee' : annee, 'themes' : themes, 'form' : form, 'moyenne' : moyenne, 'thform' : thform}))
+    return render_to_response('notation/annee_bulletin.html', RequestContext(request, {
+        'bulletin' : blt,
+        'annee' : annee,
+        'themes' : themes,
+        'form' : form,
+        'moyenne' : moyenne,
+        'thform' : thform,
+        'logo': blt.grille.frm.ecole.logo
+    }))
 
 @user_passes_test(lambda u: u.is_authenticated() and (u.get_profile().is_manitou() or u.get_profile().is_tuteur() or u.get_profile().is_eleve()))
 def ensemble_bulletin(request, blt_id, annee, ens_id):
@@ -232,12 +241,15 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
             return HttpResponseRedirect(reverse(bulletin, args=[blt_id]))
     else:
         form = NotationForm(questions=capacites, notes=evaluations, commentaire=commentaire, user=request.user)
-    return render_to_response('notation/ensemble.html', RequestContext(request, {'ensemble' : ens,
-                                                                                 'annee' : annee,
-                                                                                 'bulletin' : blt,
-                                                                                 'form' : form,
-                                                                                 'precedent' : precedent,
-                                                                                 'suivant' : suivant}))
+    return render_to_response('notation/ensemble.html', RequestContext(request, {
+        'ensemble' : ens,
+        'annee' : annee,
+        'bulletin' : blt,
+        'form' : form,
+        'precedent' : precedent,
+        'suivant' : suivant,
+        'logo': blt.grille.frm.ecole.logo
+    }))
 
 @login_required
 def motdepasse(request):
@@ -580,7 +592,12 @@ def liste_bulletin(request):
     else:
         grille = grilles[0]
     object_list = object_list.filter(grille__id__exact=grille.id).order_by('grille', 'eleve__last_name')
-    return render_to_response('notation/bulletin_list.html', RequestContext(request, {'object_list' : object_list, 'grilles' : grilles, 'gr' : grille}))
+    return render_to_response('notation/bulletin_list.html', RequestContext(request, {
+        'object_list' : object_list,
+        'grilles' : grilles,
+        'gr' : grille,
+        'logo': grille.frm.ecole.logo
+    }))
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def liste_formation(request):
