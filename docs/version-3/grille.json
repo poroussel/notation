@@ -1,0 +1,35 @@
+{
+    "formation": "Plantage de fraises",
+    "promotion": 2028,
+    "duree": 3,
+    "themes": [
+	{
+	    "libelle": "Premier thème",
+	    "ensembles": [
+		{
+		    "libelle": "Premier ensemble",
+		    "capacites": [
+			"Capacité 1",
+			"Capacité 2"
+		    ]
+		},
+		{
+		    "libelle": "Premier ensemble",
+		    "capacites": [
+			"Capacité 1",
+			"Capacité 2",
+			"Capacité 3",
+			"Capacité 4"
+		    ]
+		}
+	    ]
+	},
+	{
+	    "libelle": "Deuxième thème",
+	    "ensembles": [
+	    ]
+	}
+    ],
+    "savoirsetre": [
+    ]
+}

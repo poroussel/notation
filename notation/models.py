@@ -144,8 +144,8 @@ class GrilleNotation(models.Model):
     promotion = models.PositiveIntegerField(u'Première année de la promotion')
     duree = models.PositiveIntegerField(u'Durée en années de la formation')
     # Les poids ne sont plus utilisés et pourront être supprimés après filtrage des données
-    # poids_capacite = models.PositiveIntegerField(u'Poids de la moyenne des capacités dans la moyenne générale', default=1, editable=False)
-    # poids_savoir_etre = models.PositiveIntegerField(u'Poids de la moyenne des savoirs être dans la moyenne générale', default=1, editable=False)
+    poids_capacite = models.PositiveIntegerField(u'Poids de la moyenne des capacités dans la moyenne générale', default=1, editable=False)
+    poids_savoir_etre = models.PositiveIntegerField(u'Poids de la moyenne des savoirs être dans la moyenne générale', default=1, editable=False)
     # alter table notation_grillenotation add column archive bool not null default false
     archive = models.BooleanField(u'Grille archivée (plus de modification)', default=False)
 
