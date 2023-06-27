@@ -26,7 +26,7 @@ class CapaciteAdmin(admin.ModelAdmin):
 admin.site.register(Capacite, CapaciteAdmin)
 
 class SavoirEtreAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__', 'grille', 'an_1', 'an_2', 'an_3')
+    list_display = ('__unicode__', 'grille')
     list_filter = ('grille',)
     ordering = ['grille']
 admin.site.register(SavoirEtre, SavoirEtreAdmin)

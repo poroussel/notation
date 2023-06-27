@@ -144,8 +144,8 @@ class GrilleNotation(models.Model):
     promotion = models.PositiveIntegerField(u'Première année de la promotion')
     duree = models.PositiveIntegerField(u'Durée en années de la formation')
     # Les poids ne sont plus utilisés et pourront être supprimés après filtrage des données
-    poids_capacite = models.PositiveIntegerField(u'Poids de la moyenne des capacités dans la moyenne générale', default=1, editable=False)
-    poids_savoir_etre = models.PositiveIntegerField(u'Poids de la moyenne des savoirs être dans la moyenne générale', default=1, editable=False)
+    # poids_capacite = models.PositiveIntegerField(u'Poids de la moyenne des capacités dans la moyenne générale', default=1, editable=False)
+    # poids_savoir_etre = models.PositiveIntegerField(u'Poids de la moyenne des savoirs être dans la moyenne générale', default=1, editable=False)
     # alter table notation_grillenotation add column archive bool not null default false
     archive = models.BooleanField(u'Grille archivée (plus de modification)', default=False)
 
@@ -365,7 +365,6 @@ class EnsembleCapacite(models.Model):
 
     def __unicode__(self):
         return u'%d %s / %s' % (self.numero, self.libelle, self.grille)
-        #return u'%d %s' % (self.numero, self.libelle)
 
 class Capacite(models.Model):
     class Meta:
@@ -377,11 +376,11 @@ class Capacite(models.Model):
     ensemble = models.ForeignKey(EnsembleCapacite)
     numero = models.PositiveIntegerField()
     libelle = models.CharField(u'Libellé', max_length=200)
-    # FIXME : ne sert plus ?
-    an_1 = models.BooleanField(NOMS_ANNEES[0], editable=False)
-    an_2 = models.BooleanField(NOMS_ANNEES[1], editable=False)
-    an_3 = models.BooleanField(NOMS_ANNEES[2], editable=False)
-    code_annee = models.CharField(max_length=3, editable=False)
+    # Ne sert plus, garder la définition pour retour arrière
+    # an_1 = models.BooleanField(NOMS_ANNEES[0], editable=False)
+    # an_2 = models.BooleanField(NOMS_ANNEES[1], editable=False)
+    # an_3 = models.BooleanField(NOMS_ANNEES[2], editable=False)
+    # code_annee = models.CharField(max_length=3, editable=False)
 
     def __unicode__(self):
         return u'%d.%d %s'% (self.ensemble.numero, self.numero, self.libelle)
@@ -393,11 +392,11 @@ class SavoirEtre(models.Model):
 
     grille = models.ForeignKey(GrilleNotation)
     libelle = models.CharField(u'Libellé', max_length=200)
-    # FIXME : ne sert plus mais on garde pour compatibilité ?
-    an_1 = models.BooleanField(NOMS_ANNEES[0], editable=False)
-    an_2 = models.BooleanField(NOMS_ANNEES[1], editable=False)
-    an_3 = models.BooleanField(NOMS_ANNEES[2], editable=False)
-    code_annee = models.CharField(max_length=3, editable=False)
+    # Ne sert plus, garder la définition pour retour arrière
+    # an_1 = models.BooleanField(NOMS_ANNEES[0], editable=False)
+    # an_2 = models.BooleanField(NOMS_ANNEES[1], editable=False)
+    # an_3 = models.BooleanField(NOMS_ANNEES[2], editable=False)
+    # code_annee = models.CharField(max_length=3, editable=False)
 
     def __unicode__(self):
         return self.libelle
