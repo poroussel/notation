@@ -53,5 +53,9 @@ class Command(BaseCommand):
                         cap = Capacite(ensemble=ens, numero=cc, libelle=capacite)
                         cap.save()
 
-#            raise Exception('toto')
+            for cse, setre in enumerate(data['savoirsetre']):
+                print u'Savoir être {}:{}'.format(cse, setre)
+                se = SavoirEtre(grille=grille, libelle=setre)
+                se.save()
+
         print 'done'

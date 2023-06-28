@@ -1,6 +1,6 @@
 {
     "formation": "Plantage de fraises",
-    "promotion": 2028,
+    "promotion": 2022,
     "duree": 3,
     "themes": [
 	{
@@ -31,5 +31,8 @@
 	}
     ],
     "savoirsetre": [
+	"Matinal",
+	"Constant",
+	"Agréable"
     ]
 }
