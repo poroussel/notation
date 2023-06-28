@@ -377,10 +377,10 @@ class Capacite(models.Model):
     numero = models.PositiveIntegerField()
     libelle = models.CharField(u'Libellé', max_length=200)
     # Ne sert plus, garder la définition pour retour arrière
-    # an_1 = models.BooleanField(NOMS_ANNEES[0], editable=False)
-    # an_2 = models.BooleanField(NOMS_ANNEES[1], editable=False)
-    # an_3 = models.BooleanField(NOMS_ANNEES[2], editable=False)
-    # code_annee = models.CharField(max_length=3, editable=False)
+    an_1 = models.BooleanField(NOMS_ANNEES[0], editable=False)
+    an_2 = models.BooleanField(NOMS_ANNEES[1], editable=False)
+    an_3 = models.BooleanField(NOMS_ANNEES[2], editable=False)
+    code_annee = models.CharField(max_length=3, editable=False)
 
     def __unicode__(self):
         return u'%d.%d %s'% (self.ensemble.numero, self.numero, self.libelle)

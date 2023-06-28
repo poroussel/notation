@@ -40,10 +40,18 @@ class Command(BaseCommand):
 
             for ct, theme in enumerate(data['themes']):
                 print u'Theme {}:{}'.format(ct+1, theme['libelle'])
+                th = Theme(grille=grille, position=ct, libelle=theme['libelle'])
+                th.save()
+
                 for ce, ensemble in enumerate(theme['ensembles']):
                     print u'Ensemble {}:{}'.format(ce, ensemble['libelle'])
-                    for cc, capacite in enumerate(ensemble['capacites']):
-                        raise Exception('toto')
-                        print u'Capacité {}:{}'.format(cc, capacite)
+                    ens = EnsembleCapacite(grille=grille, theme=th, numero=ce, libelle=ensemble['libelle'])
+                    ens.save()
 
+                    for cc, capacite in enumerate(ensemble['capacites']):
+                        print u'Capacité {}:{}'.format(cc, capacite)
+                        cap = Capacite(ensemble=ens, numero=cc, libelle=capacite)
+                        cap.save()
+
+#            raise Exception('toto')
         print 'done'
