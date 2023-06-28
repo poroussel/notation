@@ -385,7 +385,13 @@ def modifier_eleve(request, object_id):
                                          'tuteur' : blt.tuteur,
                                          'formateur' : blt.formateur,
                                          'telephone' : profil.phone_number})
-    return render_to_response('notation/eleve_form.html', RequestContext(request, {'form' : form, 'blt' : blts, 'object' : elv, 'profil' : profil}))
+    return render_to_response('notation/eleve_form.html', RequestContext(request, {
+        'form' : form,
+        'blt' : blts,
+        'object' : elv,
+        'profil' : profil,
+        'logo' : blt.grille.frm.ecole.logo
+    }))
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_administratif())
 def ajouter_tuteur(request):
@@ -564,7 +570,12 @@ def liste_eleve(request):
     else:
         grille = grilles[0]
     object_list = object_list.filter(grille__id__exact=grille.id).order_by('eleve__last_name')
-    return render_to_response('notation/eleve_list.html', RequestContext(request, {'object_list' : object_list, 'grilles' : grilles, 'gr' : grille}))
+    return render_to_response('notation/eleve_list.html', RequestContext(request, {
+        'object_list' : object_list,
+        'grilles' : grilles,
+        'gr' : grille,
+        'logo': grille.frm.ecole.logo
+    }))
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
 def liste_eleve_supprime(request):
@@ -578,7 +589,13 @@ def liste_eleve_supprime(request):
     else:
         grille = grilles[0]
     object_list = object_list.filter(grille__id__exact=grille.id).order_by('eleve__last_name')
-    return render_to_response('notation/eleve_list.html', RequestContext(request, {'object_list' : object_list, 'grilles' : grilles, 'gr' : grille, 'supprime' : True}))
+    return render_to_response('notation/eleve_list.html', RequestContext(request, {
+        'object_list' : object_list,
+        'grilles' : grilles,
+        'gr' : grille,
+        'supprime' : True,
+        'logo': grille.frm.ecole.logo
+    }))
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
 def liste_bulletin(request):
