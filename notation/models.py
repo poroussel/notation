@@ -85,6 +85,19 @@ class ProfilUtilisateur(models.Model):
         return '%s %s' % (self.user.last_name, self.user.first_name)
     nom_complet = property(_nom_complet)
 
+    @models.permalink
+    def get_absolute_url(self):
+        if self.is_tuteur():
+            return ('detail_tuteur', [self.id])
+        if self.is_eleve():
+            return ('detail_eleve', [self.id])
+        if self.is_formateur():
+            return ('detail_formateur', [self.id])
+        if self.is_pilote():
+            return ('detail_pilote', [self.id])
+        return None
+
+
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         profil, created = ProfilUtilisateur.objects.get_or_create(user=instance)

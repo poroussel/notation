@@ -548,6 +548,8 @@ def recherche(request):
     # Liste des bulletins qui référencent l'eleve
     ol += list(Bulletin.tous.filter(eleve__last_name__istartswith=search))
     ol += list(Bulletin.tous.filter(eleve__first_name__istartswith=search))
+    # Liste des utilisateurs
+    ol += list(ProfilUtilisateur.objects.filter(user__last_name__istartswith=search))
 
     return render_to_response('search.html', RequestContext(request, {'object_list' : ol, 'search_str' : search}))
 
