@@ -252,7 +252,10 @@ class Bulletin(models.Model):
             total = sum(float(n) for n in notes)
         else:
             total = 0.0
-        moyenne = total / len(themes)
+        if len(themes) > 0:
+            moyenne = total / len(themes)
+        else:
+            moyenne = 0
         moy, created = Moyenne.objects.get_or_create(bulletin=self, annee=annee, defaults={'valeur_cp' : moyenne})
         if not created:
             moy.valeur_cp = moyenne
@@ -272,7 +275,10 @@ class Bulletin(models.Model):
         else:
             somme = 0.0
         somme += len(savoirs) - len(notes)
-        moyenne = somme * 4 / len(savoirs)
+        if len(savoirs) > 0:
+            moyenne = somme * 4 / len(savoirs)
+        else:
+            moyenne = 0
         moy, created = Moyenne.objects.get_or_create(bulletin=self, annee=annee, defaults={'valeur_sv' : moyenne})
         if not created:
             moy.valeur_sv = moyenne
@@ -287,7 +293,10 @@ class Bulletin(models.Model):
         # Ensemble des evaluations differentes de 'Non renseigne'
         ens_appr = self.evaluation_set.filter(annee=annee, capacite__in=list(ens_capa)).exclude(valeur='v')
         # Pourcentage
-        prc = len(ens_appr) * 100 / len(ens_capa)
+        if len(ens_capa) > 0:
+            prc = len(ens_appr) * 100 / len(ens_capa)
+        else:
+            prc = 0
         return prc
 
 
