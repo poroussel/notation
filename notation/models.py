@@ -4,6 +4,7 @@ import os.path
 import unicodedata
 
 from datetime import date
+from decimal import Decimal
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -254,6 +255,23 @@ class Bulletin(models.Model):
     def archive(self):
         return self.grille.archive
 
+    def calcul_note_theme(self, theme, annee, user):
+        """
+        Calcul d'une note à partir des évaluations
+        saisies pour les capacités
+        """
+        if self.grille.frm.ecole.calcul_note:
+            evls = Evaluation.objects.filter(bulletin=self, capacite__ensemble__theme=theme, annee=annee)
+            notes = [ev.note() for ev in evls if ev.note()]
+            if len(notes) > 0:
+                vm = Decimal(sum(notes)) / Decimal(len(notes))
+                note, created = Note.objects.get_or_create(bulletin=self, theme=theme, annee=annee, defaults={'valeur' : vm, 'auteur_modification' : user})
+                if not created:
+                    note.valeur = vm
+                    note.auteur_modification = user
+                    note.save()
+                self.calcul_moyenne_competence(annee, user)
+
     def calcul_moyenne_competence(self, annee, user):
         """
         Calcul la moyenne compétence de ce bulletin pour une année
@@ -447,9 +465,18 @@ class Evaluation(models.Model):
     bulletin = models.ForeignKey(Bulletin)
     capacite = models.ForeignKey(Capacite)
     valeur = models.CharField(max_length=1, default='v', choices=APPRECIATIONS)
+    # Distance depuis première année : 0, 1, 2
     annee = models.PositiveIntegerField(u'Année')
     date_modification = models.DateTimeField(auto_now=True)
     auteur_modification = models.ForeignKey(User)
+
+    def note(self):
+        vpa = [
+            {'v': None, 'n': 8, 'e': 12, 'a': 14, 'm': 18},
+            {'v': None, 'n': 6, 'e': 12, 'a': 14, 'm': 18},
+            {'v': None, 'n': 4, 'e': 10, 'a': 14, 'm': 18}
+        ]
+        return vpa[self.annee][self.valeur]
 
     def __unicode__(self):
         return u'Évaluation de %s pour la capacité %s'% (self.bulletin.eleve.get_profile().nom_complet, self.capacite)

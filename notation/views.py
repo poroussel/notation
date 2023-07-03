@@ -210,7 +210,6 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
     ens = get_object_or_404(EnsembleCapacite, pk=ens_id)
     capacites = ens.capacite_set.all()
     evaluations = Evaluation.objects.filter(bulletin=blt, capacite__in=list(capacites), annee=annee)
-
     commentaires = Commentaire.objects.filter(bulletin=blt, ensemble=ens, annee=annee)
     commentaire = commentaires and commentaires[0].texte or None
 
@@ -226,7 +225,6 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                     com.texte = form.cleaned_data['commentaire']
                     com.save()
 
-            # TODO : calcul des notes à partir des évaluations
             for cap in capacites:
                 if str(cap.id) in form.cleaned_data:
                     value = form.cleaned_data[str(cap.id)]
@@ -236,6 +234,8 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                             note.valeur = value
                             note.auteur_modification = request.user
                             note.save()
+
+            blt.calcul_note_theme(ens.theme, annee, request.user)
 
             if suivant:
                 return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, annee, suivant.id]))
