@@ -43,11 +43,11 @@ TYPES = (('e', u'Apprenti'),
          ('p', u'Pilotage'),
          ('F', u'Tuteur académique et Pilotage'))
 
-APPRECIATIONS = (('v', u'Non renseigné'),
-                 ('a', u'Acquis'),
-                 ('n', u'Non acquis'),
-                 ('e', u'En cours d\'acquisition'),
-                 ('p', u'Non applicable'))
+APPRECIATIONS = (('v', u'Non évalué'),
+                 ('a', u'Application autonome'),
+                 ('n', u'Notion'),
+                 ('e', u'Application tutorée'),
+                 ('m', u'Maîtrise'))
 
 NOTES = ((1, '1'),
          (2, '2'),

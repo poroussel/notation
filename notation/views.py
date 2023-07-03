@@ -226,6 +226,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                     com.texte = form.cleaned_data['commentaire']
                     com.save()
 
+            # TODO : calcul des notes à partir des évaluations
             for cap in capacites:
                 if str(cap.id) in form.cleaned_data:
                     value = form.cleaned_data[str(cap.id)]
