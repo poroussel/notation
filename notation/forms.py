@@ -154,11 +154,10 @@ class NotationThemeForm(forms.Form, ReadOnly):
             self.fields[str(th.id)] = forms.IntegerField(label=th.libelle, min_value=0, max_value=20, help_text=u'Note entre 0 et 20', required=False, initial=note and int(note[0].valeur) or None)
             self.fields[str(th.id)].ensembles = th.ensemblecapacite_set.all()
             self.fields[str(th.id)].prc = prc[th]
-            if profile.is_eleve():
+            if profile.is_eleve() or th.grille.frm.ecole.calcul_note:
                 self.fields[str(th.id)].widget.attrs['disabled'] = True
                 self.fields[str(th.id)].required = False
 
 class PJForm(forms.ModelForm):
     class Meta:
         model = PieceJointe
-
