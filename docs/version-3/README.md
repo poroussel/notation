@@ -42,6 +42,9 @@ avec la commande :
 
 ```
 user@hostname:~/sources/cfai$ python manage.py importgrille grille-32-2023-07-09.json
-done
 user@hostname:~/sources/cfai$
 ```
+
+De la même façon la commande `importgrille` peut être utilisée pour créer
+des grilles complètement nouvelles. Il suffit pour cela que la formation
+ait été créée dans l'interface d'administration.
