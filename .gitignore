@@ -1,2 +1,7 @@
 cfai.db
 *.pyc
+bin/
+include/
+lib/
+local/
+share/
