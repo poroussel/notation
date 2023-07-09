@@ -1,0 +1,220 @@
+{
+    "duree": 3, 
+    "formation": "Mécanique", 
+    "promotion": 2022, 
+    "themes": [
+        {
+            "ensembles": [
+                {
+                    "capacites": [
+                        "Analyser le marché et les attentes clients", 
+                        "Positionner la concurrence", 
+                        "Comprendre et relayer la stratégie", 
+                        "Évaluer les risques de la stratégie de l'entreprise"
+                    ], 
+                    "libelle": "Développer une démarche stratégique"
+                }, 
+                {
+                    "capacites": [
+                        "Expliquer et faire appliquer les procédures qualité", 
+                        "Construire et/ou vérifier l’application des plans de contrôle et des instructions", 
+                        "Participer à la résolution des problèmes qualité internes et externes"
+                    ], 
+                    "libelle": "Déployer la politique qualité"
+                }, 
+                {
+                    "capacites": [
+                        "Connaître la réglementation et les moyens de prévention", 
+                        "Appliquer et faire appliquer les règles de sécurité", 
+                        "Motiver pour améliorer les conditions de sécurité", 
+                        "Veiller aux principes d’ergonomie"
+                    ], 
+                    "libelle": "Déployer la politique Sécurité"
+                }, 
+                {
+                    "capacites": [
+                        "Veiller à l’application des règles environnementales", 
+                        "Veiller au respect du tri des déchets", 
+                        "Contribuer au  suivi  des points significatifs", 
+                        "Participer aux audits des pratiques environnementales"
+                    ], 
+                    "libelle": "Déployer la politique Environnement (dont les spécificités matière précieuse)"
+                }, 
+                {
+                    "capacites": [
+                        "Assurer la veille technologique de façon permanente", 
+                        "Anticiper les évolutions de son secteur d’activité", 
+                        "Définir des besoins en termes d’évolution"
+                    ], 
+                    "libelle": "Anticiper les évolutions sur les axes : produits - process - organisation"
+                }
+            ], 
+            "libelle": "Politiques et stratégies"
+        }, 
+        {
+            "ensembles": [
+                {
+                    "capacites": [
+                        "Appliquer ses connaissances en", 
+                        "Mécanique", 
+                        "Matériaux", 
+                        "Automatisme, robotique et mécatronique", 
+                        "Électronique et opto-électronique", 
+                        "Moyens de mesures"
+                    ], 
+                    "libelle": "Maîtrise les techniques"
+                }
+            ], 
+            "libelle": "Maîtriser les techniques"
+        }, 
+        {
+            "ensembles": [
+                {
+                    "capacites": [
+                        "Définir le projet (contexte, situation souhaitée, acteurs, forces, faiblesses, gains attendus, dates clés)", 
+                        "Analyser un cahier des charges client", 
+                        "Valider la faisabilité technique", 
+                        "Établir le planning prévisionnel (valider les ressources)", 
+                        "Construire un tableau de bord de pilotage de projet (coûts délais ressources...)", 
+                        "Animer les revues de projet", 
+                        "Comparer les résultats et objectifs", 
+                        "Établir le bilan financier du projet et évaluer la rentabilité", 
+                        "Argumenter et présenter les résultats d'un projet à sa hiérarchie"
+                    ], 
+                    "libelle": "Conduire un projet ou une étude"
+                }, 
+                {
+                    "capacites": [
+                        "Participer à la définition du besoin (produit ou process)", 
+                        "Étudier l’impact sur les coûts", 
+                        "Évaluer l’impact sur la gestion des flux", 
+                        "Évaluer l’impact sur les compétences", 
+                        "Évaluer l’impact sur les équipements", 
+                        "Évaluer les risques d’un nouvel équipement", 
+                        "Rédiger un cahier des charges (achat)", 
+                        "Participer à la mise au point de l’équipement", 
+                        "Qualifier le nouvel équipement"
+                    ], 
+                    "libelle": "Industrialiser"
+                }, 
+                {
+                    "capacites": [
+                        "Calculer une charge-capacité et répondre régulièrement aux prévisions de commandes", 
+                        "Construire un tableau de bord (indicateurs - objectifs)", 
+                        "Organiser le travail des équipes de production", 
+                        "Veiller à l’application des règles qualité, sécurité et environnement (cf Management QSE)", 
+                        "Contrôler la gestion des flux de matières, composants et de produits", 
+                        "Élaborer et entretenir la maintenance des équipements", 
+                        "Veiller à l'atteinte des objectifs (quantité, livraison à temps, coûts de non qualité, incidents qualité...)", 
+                        "Animer le suivi des résultats et des performances pour une démarche pérenne"
+                    ], 
+                    "libelle": "Piloter un processus de production"
+                }, 
+                {
+                    "capacites": [
+                        "Prioriser et prendre des décisions en lien avec les orientations stratégiques", 
+                        "Créer un plan d’amélioration continue", 
+                        "Conduire des réductions de coûts", 
+                        "Repérer les dysfonctionnements", 
+                        "Favoriser la résolution des problèmes techniques"
+                    ], 
+                    "libelle": "Améliorer un processus de production"
+                }, 
+                {
+                    "capacites": [
+                        "Développer un processus de génération d’idées nouvelles", 
+                        "Mettre en œuvre et animer ce processus", 
+                        "En étudier la faisabilité"
+                    ], 
+                    "libelle": "Faire émerger de nouvelles idées"
+                }, 
+                {
+                    "capacites": [
+                        "Identifier et classer les charges", 
+                        "Évaluer les coûts matières (consommables, énergie..) liés à son activité", 
+                        "Participer à la construction du budget du service (objectifs financiers entreprise/prévisions d’activité du service)", 
+                        "Comprendre la constitution d’un coût produit", 
+                        "Définir les charges directes et indirectes liées à un produit", 
+                        "Analyser les écarts prévisions/réalisations proposer des plans d'actions d'amélioration des coûts"
+                    ], 
+                    "libelle": "Elaborer et suivre le budget de fonctionnement / la comptabilité analytique"
+                }, 
+                {
+                    "capacites": [
+                        "Construire un cahier des charges", 
+                        "Comparer coûts interne et coûts externes", 
+                        "Analyser et valider des choix", 
+                        "Organiser et suivre les relations (plan d'amélioration, contrat de progrès, performance…) - \"jouer gagnant - gagnant\""
+                    ], 
+                    "libelle": "Etablir et suivre des relations avec les partenaires externes (Fournisseurs - S/T - Clients…)"
+                }
+            ], 
+            "libelle": "Méthodologies - Conception - Réalisation"
+        }, 
+        {
+            "ensembles": [
+                {
+                    "capacites": [
+                        "Manager un collaborateur, adapter son mode de management", 
+                        "Fixer des objectifs, suivre l'avancement et évaluer les résultats", 
+                        "Animer une équipe en assurant la cohérence et la cohésion", 
+                        "Faire \"grandir\" et valoriser ses collaborateurs / collègues", 
+                        "Assurer le rôle central de leader et mettre en œuvre des méthodes de pilotage et d’action en tant que leader"
+                    ], 
+                    "libelle": "Manager des équipes"
+                }, 
+                {
+                    "capacites": [
+                        "Être capable de conduire un entretien individuel", 
+                        "Être capable de s'affirmer comme garant du respect des règles", 
+                        "Être capable de recadrer les pratiques d’un individu, d’un groupe", 
+                        "Accompagner un changement de règlement"
+                    ], 
+                    "libelle": "Aptitude à faire respecter les règles"
+                }, 
+                {
+                    "capacites": [
+                        "Mettre en œuvre une approche méthodologique de conduite de réunion", 
+                        "Animer efficacement une réunion"
+                    ], 
+                    "libelle": "Conduite une réunion"
+                }, 
+                {
+                    "capacites": [
+                        "Connaître et maîtriser les outils de communication (messagerie, tableau de bord, affichage…)", 
+                        "Maîtriser la communication écrite", 
+                        "Maîtriser la communication orale par \"petit groupe\" (réunion, briefing…)", 
+                        "Maîtriser la communication orale (assemblée…)"
+                    ], 
+                    "libelle": "Communiquer"
+                }, 
+                {
+                    "capacites": [
+                        "Être à l'écoute des collaborateurs", 
+                        "Apporter des réponses claires et précises", 
+                        "Vérifier ses informations"
+                    ], 
+                    "libelle": "Dialoguer"
+                }, 
+                {
+                    "capacites": [
+                        "Effectuer des déplacements à l'étranger (filiales, sites, client, fournisseurs, salons…)", 
+                        "Lire et réaliser des documents en anglais", 
+                        "Maintenir une conversation téléphonique en anglais", 
+                        "S’exprimer avec aisance en anglais"
+                    ], 
+                    "libelle": "Évoluer dans un contexte international"
+                }, 
+                {
+                    "capacites": [
+                        "Comprendre les systèmes d'information (ERP, GPAO, GMAO…)", 
+                        "Comprendre et respecter les principes de la sécurité informatique", 
+                        "Maîtriser les outils informatiques (bureautique, internet, progiciels…)"
+                    ], 
+                    "libelle": "Maîtriser les bases du système informatique"
+                }
+            ], 
+            "libelle": "Management - Communication - Informatique"
+        }
+    ]
+}
