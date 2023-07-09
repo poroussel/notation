@@ -14,12 +14,12 @@
 		    ]
 		},
 		{
-		    "libelle": "Premier ensemble",
+		    "libelle": "Deuxième ensemble",
 		    "capacites": [
-			"Capacité 1",
-			"Capacité 2",
-			"Capacité 3",
-			"Capacité 4"
+			"Capacité 5",
+			"Capacité 6",
+			"Capacité 7",
+			"Capacité 8"
 		    ]
 		}
 	    ]
