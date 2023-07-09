@@ -41,7 +41,7 @@ class Command(BaseCommand):
             nuens = 1
             for ct, theme in enumerate(data['themes']):
                 print u'Theme {}:{}'.format(ct+1, theme['libelle'])
-                th = Theme(grille=grille, position=ct, libelle=theme['libelle'])
+                th = Theme(grille=grille, position=ct+1, libelle=theme['libelle'])
                 th.save()
 
                 for ensemble in theme['ensembles']:
@@ -51,8 +51,8 @@ class Command(BaseCommand):
                     nuens += 1
 
                     for cc, capacite in enumerate(ensemble['capacites']):
-                        print u'Capacité {}:{}'.format(cc, capacite)
-                        cap = Capacite(ensemble=ens, numero=cc, libelle=capacite)
+                        print u'Capacité {}:{}'.format(cc+1, capacite)
+                        cap = Capacite(ensemble=ens, numero=cc+1, libelle=capacite)
                         cap.save()
 
             for cse, setre in enumerate(data['savoirsetre']):

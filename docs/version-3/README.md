@@ -42,5 +42,6 @@ avec la commande :
 
 ```
 user@hostname:~/sources/cfai$ python manage.py importgrille grille-32-2023-07-09.json
+done
 user@hostname:~/sources/cfai$
 ```
