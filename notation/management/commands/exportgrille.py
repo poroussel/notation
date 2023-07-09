@@ -22,9 +22,11 @@ class Command(BaseCommand):
         id_grille = int(args[0])
         grille = GrilleNotation.objects.get(pk=id_grille)
 
-        doc = {'formation': grille.frm.libelle.encode('utf8')}
-        doc['promotion'] = grille.promotion
-        doc['duree'] = grille.duree
+        doc = {
+            'formation': grille.frm.libelle.encode('utf8'),
+            'promotion': grille.promotion,
+            'duree': grille.duree
+        }
 
         doc['themes'] = [{
             'libelle': th.libelle.encode('utf8'),
@@ -33,6 +35,8 @@ class Command(BaseCommand):
                 'capacites': [cap.libelle.encode('utf8') for cap in ens.capacite_set.all()]
                 } for ens in th.ensemblecapacite_set.all()]
         } for th in grille.theme_set.all()]
+
+        doc['savoirsetre'] = [se.libelle.encode('utf8') for se in grille.savoiretre_set.all()]
 
         print u'Génération du ficher grille-{}-{}.json'.format(id_grille, date.today())
         with open('grille-{}-{}.json'.format(id_grille, date.today()), 'wt') as fd:

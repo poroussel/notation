@@ -2,6 +2,17 @@
     "duree": 3, 
     "formation": "Mécanique", 
     "promotion": 2022, 
+    "savoirsetre": [
+        "Comprendre et mettre en application les directives", 
+        "Démontrer son intérêt, sa motivation et son esprit de curiosité", 
+        "Respecter ses collègues, collaborateurs, sa hiérarchie...", 
+        "Accepter des critiques constructives et apporter des correctifs demandés - être capable de se remettre en question", 
+        "Etre ponctuel et assidu", 
+        "Faire profiter de ses compétences à son entourage professionnel", 
+        "Avoir une certaine éthique", 
+        "Faire preuve d'autonomie", 
+        "Effectuer son travail avec diligence et efficacité"
+    ], 
     "themes": [
         {
             "ensembles": [

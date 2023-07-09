@@ -38,15 +38,17 @@ class Command(BaseCommand):
             grille = GrilleNotation(frm=formation, promotion=promotion, duree=duree, archive=False)
             grille.save()
 
+            nuens = 1
             for ct, theme in enumerate(data['themes']):
                 print u'Theme {}:{}'.format(ct+1, theme['libelle'])
                 th = Theme(grille=grille, position=ct, libelle=theme['libelle'])
                 th.save()
 
-                for ce, ensemble in enumerate(theme['ensembles']):
-                    print u'Ensemble {}:{}'.format(ce, ensemble['libelle'])
-                    ens = EnsembleCapacite(grille=grille, theme=th, numero=ce, libelle=ensemble['libelle'])
+                for ensemble in theme['ensembles']:
+                    print u'Ensemble {}:{}'.format(nuens, ensemble['libelle'])
+                    ens = EnsembleCapacite(grille=grille, theme=th, numero=nuens, libelle=ensemble['libelle'])
                     ens.save()
+                    nuens += 1
 
                     for cc, capacite in enumerate(ensemble['capacites']):
                         print u'Capacité {}:{}'.format(cc, capacite)
