@@ -18,8 +18,14 @@
   logo de cette école est affiché. Lorsque le choix n'est pas possbile
   le logo de l'ITII est utilisé.
 
+* Mise à jour des appréciations possibles (Non évalué,
+  Application autonome, Notion, Application tutorée,
+  Maîtrise)
+
 * Afin de simplifier l'ajout de nouvelles grilles de notation les
   commandes exportgrille et importgrille ont été ajoutées.
+
+* La recherche intègre les profils utilisateurs
 
 ## Gestion des grilles
 
