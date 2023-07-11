@@ -1,0 +1,5 @@
+Choses à faire :
+
+* python manage.py syncdb
+* alter table notation_formation add column ecole_id integer not null unique references "notation_ecole" ("id") default 1;
+* alter table notation_formation drop column duree; (?)
