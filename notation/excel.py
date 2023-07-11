@@ -32,7 +32,7 @@ def bulletin_xls(request, blt):
     # Entête globale
     lig = 0
     gras = easyxf('font: name Arial, bold on; pattern: pattern solid, fore-colour bright_green; borders: left medium, top medium, right medium')
-    sheet.write_merge(lig, lig, 1, 4, u'Diplôme d\'ingénieur ENSMM Intitulé : %s' % (blt.grille.frm), gras)
+    sheet.write_merge(lig, lig, 1, 4, u'Diplôme d\'ingénieur %s Intitulé : %s' % (blt.grille.frm.ecole.nom, blt.grille.frm), gras)
     lig += 1
     gras = easyxf('font: name Arial, bold on; pattern: pattern solid, fore-colour bright_green; borders: left medium, right medium')
     sheet.write_merge(lig, lig, 1, 4, u'Filière ITII, Organisme coordinateur CFAI Sud Franche-Comté; Branche Professionnelle UIMM', gras)
