@@ -3,8 +3,9 @@
 ## Vue d'ensemble
 
 * Ajout de la table Ecole qui permet définir pour chaque école
-  son nom, son logo (à placer dans le répertoire static/images/)
-  et si les notes calculées automatiquement
+  son nom, son logo (à placer dans le répertoire static/images/),
+  si les notes calculées automatiquement et les poids des
+  compétences et des savoirs être dans le calcul de la moyenne
 
 * Création de 2 écoles : ESMM et UTBM
 

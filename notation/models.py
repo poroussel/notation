@@ -127,6 +127,8 @@ class Ecole(models.Model):
 
     nom = models.CharField(max_length=100, blank=False)
     calcul_note = models.BooleanField(u'Calcul automatique des notes', default=False)
+    poids_competences = models.PositiveIntegerField(u'Poids compétences', default=1, editable=True)
+    poids_savoirs = models.PositiveIntegerField(u'Poids savoirs être', default=1, editable=True)
     logo = models.CharField(u'Nom du fichier logo', max_length=100, blank=False)
     date_creation = models.DateTimeField(u'Date création', auto_now_add=True)
 
@@ -455,6 +457,7 @@ class Moyenne(models.Model):
         return u'Moyenne de %s pour la %s' % (self.bulletin.eleve.get_profile().nom_complet, NOMS_ANNEES[self.annee])
 
 def maj_moyenne_generale(sender, instance, **kwargs):
+    # TODO : prend en compte les poids dans Ecole
     instance.valeur_gn = (float(instance.valeur_cp) + float(instance.valeur_sv) ) / 2
 pre_save.connect(maj_moyenne_generale, sender=Moyenne)
 
