@@ -12,6 +12,9 @@
 * Chaque formation est reliée à une école, les formations existantes
   étant reliées à ENSMM
 
+* Les moyennes générales sont calculées à l'aide des poids définis
+  pour chaque école
+
 * Lorsque le calcul des notes est activé les champs de saisie sont
   visibles mais en lecture seule.
 

@@ -458,7 +458,8 @@ class Moyenne(models.Model):
 
 def maj_moyenne_generale(sender, instance, **kwargs):
     # TODO : prend en compte les poids dans Ecole
-    instance.valeur_gn = (float(instance.valeur_cp) + float(instance.valeur_sv) ) / 2
+    ecole = instance.bulletin.grille.frm.ecole
+    instance.valeur_gn = (float(instance.valeur_cp) * ecole.poids_competences + float(instance.valeur_sv) * ecole.poids_savoirs ) / (ecole.poids_competences + ecole.poids_savoirs)
 pre_save.connect(maj_moyenne_generale, sender=Moyenne)
 
 class Evaluation(models.Model):
