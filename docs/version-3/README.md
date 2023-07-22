@@ -10,13 +10,14 @@
 * Création de 2 écoles : ESMM et UTBM
 
 * Chaque formation est reliée à une école, les formations existantes
-  étant reliées à ENSMM
+  étant reliées à ENSMM.
 
 * Les moyennes générales sont calculées à l'aide des poids définis
-  pour chaque école
+  pour chaque école.
 
 * Lorsque le calcul des notes est activé les champs de saisie sont
-  visibles mais en lecture seule.
+  visibles mais en lecture seule. Le bouton 'Enregistrer les notes
+  compétences' n'apparaît pas.
 
 * Pour chaque page pour laquelle on peut déterminer un école, le
   logo de cette école est affiché. Lorsque le choix n'est pas possbile

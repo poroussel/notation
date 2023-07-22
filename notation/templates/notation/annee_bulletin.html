@@ -37,9 +37,11 @@
 
 {% if not bulletin.archive or user.get_profile.is_administratif %}
 {% if user.get_profile.is_tuteur or user.get_profile.is_administratif %}
+{% if not calcul %}
   <tr><th></th><td>
     <input name="themes" type="submit" value="Enregistrer les notes compétences" />
   </td></tr>
+{% endif %}
 {% endif %}
 {% endif %}
   </table>
