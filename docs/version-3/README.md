@@ -13,7 +13,7 @@
   étant reliées à ENSMM.
 
 * Les moyennes générales sont calculées à l'aide des poids définis
-  pour chaque école.
+  pour chaque école (1/1 pour l'ensmm, 3/1 pour UTBM)
 
 * Lorsque le calcul des notes est activé les champs de saisie sont
   visibles mais en lecture seule. Le bouton 'Enregistrer les notes
