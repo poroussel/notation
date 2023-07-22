@@ -17,7 +17,8 @@
 
 * Lorsque le calcul des notes est activé les champs de saisie sont
   visibles mais en lecture seule. Le bouton 'Enregistrer les notes
-  compétences' n'apparaît pas.
+  compétences' n'apparaît pas. Les notes déduites des évaluations
+  sont affichées en tant que nombres réels.
 
 * Pour chaque page pour laquelle on peut déterminer un école, le
   logo de cette école est affiché. Lorsque le choix n'est pas possbile
