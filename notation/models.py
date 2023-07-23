@@ -15,6 +15,7 @@ from django.contrib.contenttypes import generic
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.utils.encoding import smart_unicode
+from django.conf import settings
 
 class Suppression(models.Model):
     """
@@ -475,12 +476,11 @@ class Evaluation(models.Model):
     auteur_modification = models.ForeignKey(User)
 
     def note(self):
-        vpa = [
-            {'v': None, 'n': 8, 'e': 12, 'a': 14, 'm': 18},
-            {'v': None, 'n': 6, 'e': 12, 'a': 14, 'm': 18},
-            {'v': None, 'n': 4, 'e': 10, 'a': 14, 'm': 18}
-        ]
-        return vpa[self.annee][self.valeur]
+        if self.annee > 2:
+            return 0
+        if not self.valeur in ['v', 'n', 'e', 'a', 'm']:
+            return 0
+        return settings.VALEUR_APPRECIATION[self.annee][self.valeur]
 
     def __unicode__(self):
         return u'Évaluation de %s pour la capacité %s'% (self.bulletin.eleve.get_profile().nom_complet, self.capacite)

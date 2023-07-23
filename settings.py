@@ -126,3 +126,9 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'cfai.notation',
 )
+
+VALEUR_APPRECIATION = [
+    {'v': None, 'n': 8, 'e': 12, 'a': 14, 'm': 18},
+    {'v': None, 'n': 6, 'e': 12, 'a': 14, 'm': 18},
+    {'v': None, 'n': 4, 'e': 10, 'a': 14, 'm': 18}
+]
