@@ -33,6 +33,15 @@
 
 * La recherche intègre les profils utilisateurs
 
+* La correspondance entre une appréciation est définie par le tableau
+  VALEUR_APPRECIATION dans le fichier settings.py. Une gestion en base
+  de données nécessiterait plus de réflexion et de travail : les valeurs
+  sont-elles liées à une formation ou à une grille de notation, doit-on
+  prévoir des formations durant plus de 3 ans, doit-on enregistrer des
+  barêmes de notation et lier les grilles à un de cas barêmes etc. La
+  solution mise en place est suffisante même si elle nécessite une
+  intervention de l'administrateur.
+
 ## Gestion des grilles
 
 La commande `exportgrille` permet de générer un fichier json décrivant
