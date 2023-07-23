@@ -477,9 +477,9 @@ class Evaluation(models.Model):
 
     def note(self):
         if self.annee > 2:
-            return 0
+            return None
         if not self.valeur in ['v', 'n', 'e', 'a', 'm']:
-            return 0
+            return None
         return settings.VALEUR_APPRECIATION[self.annee][self.valeur]
 
     def __unicode__(self):

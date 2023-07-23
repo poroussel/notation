@@ -127,6 +127,17 @@ INSTALLED_APPS = (
     'cfai.notation',
 )
 
+# Definition de la valeur des appreciations pour chaque annee d'une formation
+# La premiere ligne correspond a la premiere annee de formation et ainsi de suite.
+# La cle correspond a l'une des appreciations :
+#   * v : Non evalue
+#   * n : Notion
+#   * e : Application tutoree
+#   * a : Application autonome
+#   * m : Maitrise
+#
+# Une modification de ces valeurs necessite un redemarrage du serveur pour
+# etre prise en compte.
 VALEUR_APPRECIATION = [
     {'v': None, 'n': 8, 'e': 12, 'a': 14, 'm': 18},
     {'v': None, 'n': 6, 'e': 12, 'a': 14, 'm': 18},
