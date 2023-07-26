@@ -139,7 +139,7 @@ class Ecole(models.Model):
 class Formation(models.Model):
     libelle = models.CharField(u'Libellé', max_length=80)
     # alter table notation_formation drop column duree;
-    # duree = models.PositiveIntegerField(u'Durée en années de la formation')
+    duree = models.PositiveIntegerField(u'Durée en années de la formation', editable=False, default=3)
     # Après création de l'ENSMM comme école d'id 1
     # alter table notation_formation add column ecole_id integer not null unique references "notation_ecole" ("id") default 1
     ecole = models.ForeignKey(Ecole, verbose_name='Ecole')
