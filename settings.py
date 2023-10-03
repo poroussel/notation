@@ -135,6 +135,7 @@ INSTALLED_APPS = (
 #   * e : Application tutoree
 #   * a : Application autonome
 #   * m : Maitrise
+#   * p : Non applicable
 #
 # Une modification de ces valeurs necessite un redemarrage du serveur pour
 # etre prise en compte.
