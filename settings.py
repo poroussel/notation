@@ -139,7 +139,7 @@ INSTALLED_APPS = (
 # Une modification de ces valeurs necessite un redemarrage du serveur pour
 # etre prise en compte.
 VALEUR_APPRECIATION = [
-    {'v': None, 'n': 8, 'e': 12, 'a': 14, 'm': 18},
-    {'v': None, 'n': 6, 'e': 12, 'a': 14, 'm': 18},
-    {'v': None, 'n': 4, 'e': 10, 'a': 14, 'm': 18}
+    {'p': None, 'v': None, 'n': 8, 'e': 12, 'a': 14, 'm': 18},
+    {'p': None, 'v': None, 'n': 6, 'e': 12, 'a': 14, 'm': 18},
+    {'p': None, 'v': None, 'n': 4, 'e': 10, 'a': 14, 'm': 18}
 ]

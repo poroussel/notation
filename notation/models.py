@@ -478,7 +478,7 @@ class Evaluation(models.Model):
     def note(self):
         if self.annee > 2:
             return None
-        if not self.valeur in ['v', 'n', 'e', 'a', 'm']:
+        if not self.valeur in ['p', 'v', 'n', 'e', 'a', 'm']:
             return None
         return settings.VALEUR_APPRECIATION[self.annee][self.valeur]
 
