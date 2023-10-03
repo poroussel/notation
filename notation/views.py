@@ -218,7 +218,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
     precedent = ens.precedent()
 
     if request.method == 'POST':
-        form = NotationForm(request.POST, questions=capacites, user=request.user)
+        form = NotationForm(request.POST, questions=capacites, user=request.user, bulletin=blt)
         if form.is_valid():
             if 'commentaire' in form.cleaned_data:
                 com, created = Commentaire.objects.get_or_create(bulletin=blt, ensemble=ens, annee=annee, defaults={'texte' : form.cleaned_data['commentaire'], 'auteur_modification' : request.user})
@@ -229,7 +229,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
             for cap in capacites:
                 if str(cap.id) in form.cleaned_data:
                     value = form.cleaned_data[str(cap.id)]
-                    if value and value in dict(APPRECIATIONS).keys():
+                    if value and value in dict(blt.grille.frm.ecole.appreciations()).keys():
                         note, created = Evaluation.objects.get_or_create(bulletin=blt, capacite=cap, annee=annee, defaults={'valeur' : value, 'auteur_modification' : request.user})
                         if not created:
                             note.valeur = value
@@ -242,7 +242,7 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                 return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, annee, suivant.id]))
             return HttpResponseRedirect(reverse(bulletin, args=[blt_id]))
     else:
-        form = NotationForm(questions=capacites, notes=evaluations, commentaire=commentaire, user=request.user)
+        form = NotationForm(questions=capacites, notes=evaluations, commentaire=commentaire, user=request.user, bulletin=blt)
     return render_to_response('notation/ensemble.html', RequestContext(request, {
         'ensemble' : ens,
         'annee' : annee,

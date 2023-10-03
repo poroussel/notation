@@ -96,6 +96,8 @@ class NotationForm(forms.Form, ReadOnly):
             commentaire = None
         questions = kwargs.pop('questions')
         user = kwargs.pop('user')
+        blt = kwargs.pop('bulletin')
+
         profile = user.get_profile()
         super(NotationForm, self).__init__(*args, **kwargs)
 
@@ -104,7 +106,8 @@ class NotationForm(forms.Form, ReadOnly):
                 note = notes.filter(capacite=cap)
             else:
                 note = None
-            self.fields[str(cap.id)] = forms.ChoiceField(label=cap.libelle, choices=APPRECIATIONS, initial=note and note[0].valeur or 'v')
+
+            self.fields[str(cap.id)] = forms.ChoiceField(label=cap.libelle, choices=blt.grille.frm.ecole.appreciations(), initial=note and note[0].valeur or 'v')
             if profile.is_eleve() or profile.is_formateur():
                 self.fields[str(cap.id)].widget.attrs['disabled'] = True
                 self.fields[str(cap.id)].required = False

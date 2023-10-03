@@ -45,11 +45,17 @@ TYPES = (('e', u'Apprenti'),
          ('p', u'Pilotage'),
          ('F', u'Tuteur académique et Pilotage'))
 
-APPRECIATIONS = (('v', u'Non évalué'),
-                 ('n', u'Notion'),
-                 ('e', u'Application tutorée'),
-                 ('a', u'Application autonome'),
-                 ('m', u'Maîtrise'))
+APPRECIATIONS = (('v', u'Non renseigné'),
+                 ('a', u'Acquis'),
+                 ('n', u'Non acquis'),
+                 ('e', u"En cours d'acquisition"),
+                 ('p', u'Non applicable'))
+
+APPRECIATIONS_UTBM = (('v', u'Non évalué'),
+                      ('n', u'Notion'),
+                      ('e', u'Application tutorée'),
+                      ('a', u'Application autonome'),
+                      ('m', u'Maîtrise'))
 
 NOTES = ((1, '1'),
          (2, '2'),
@@ -135,6 +141,11 @@ class Ecole(models.Model):
 
     def __unicode__(self):
         return u'%s' % (self.nom)
+
+    def appreciations(self):
+        if self.id == 1:
+            return APPRECIATIONS
+        return APPRECIATIONS_UTBM
 
 class Formation(models.Model):
     libelle = models.CharField(u'Libellé', max_length=80)
