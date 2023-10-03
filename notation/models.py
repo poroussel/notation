@@ -493,6 +493,13 @@ class Evaluation(models.Model):
             return None
         return settings.VALEUR_APPRECIATION[self.annee][self.valeur]
 
+    def libelle(self):
+        appreciations = self.bulletin.grille.frm.ecole.appreciations()
+        for t in appreciations:
+            if self.valeur == t[0]:
+                return t[1]
+        return u'Non renseigné'
+
     def __unicode__(self):
         return u'Évaluation de %s pour la capacité %s'% (self.bulletin.eleve.get_profile().nom_complet, self.capacite)
 

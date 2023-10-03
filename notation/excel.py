@@ -7,7 +7,7 @@ import unicodedata
 
 def evaluation(value):
     if value:
-        return value[0].get_valeur_display()
+        return value[0].libelle()
     return u'Non renseigné'
 
 chaine = u"éèêäûôü"
