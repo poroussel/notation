@@ -203,7 +203,7 @@ def annee_bulletin(request, blt_id, annee):
         'calcul': blt.grille.frm.ecole.calcul_note
     }))
 
-@user_passes_test(lambda u: u.is_authenticated() and (u.get_profile().is_manitou() or u.get_profile().is_tuteur() or u.get_profile().is_eleve()))
+@user_passes_test(lambda u: u.is_authenticated())
 def ensemble_bulletin(request, blt_id, annee, ens_id):
     blt = Bulletin.tous.get(pk=blt_id)
     if not check_auth_blt(request, blt):
