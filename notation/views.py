@@ -287,7 +287,7 @@ def profil(request):
 def mail_new_user(request, user, password):
     body = render_to_string('creation_compte.txt', {'profil' : user.get_profile(), 'site' : Site.objects.get_current(), 'password': password})
     try:
-        user.email_user(u'[CFAI/ENSMM] Création de votre compte', body, from_email=settings.SERVER_EMAIL)
+        user.email_user(u'[ITII FC] Création de votre compte', body, from_email=settings.SERVER_EMAIL)
         messages.success(request, u'Un email a été envoyé à %s.' % user.get_full_name())
     except:
         messages.error(request, u'Une erreur s\'est produite lors de l\'envoi d\'un email à %s, veuillez vérifier l\'adresse.' % user.email)
@@ -303,7 +303,7 @@ def mail_new_password(request, user):
     profile.save()
     body = render_to_string('maj_compte.txt', {'profil' : profile, 'site' : Site.objects.get_current(), 'password' : password})
     try:
-        user.email_user(u'[CFAI/ENSMM] Réinitialisation de votre compte', body, from_email=settings.SERVER_EMAIL)
+        user.email_user(u'[ITII FC] Réinitialisation de votre compte', body, from_email=settings.SERVER_EMAIL)
         messages.success(request, u'Un email a été envoyé à %s.' % user.get_full_name())
     except:
         messages.error(request, u'Une erreur s\'est produite lors de l\'envoi d\'un email à %s, veuillez vérifier l\'adresse.' % user.email)
