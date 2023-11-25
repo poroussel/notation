@@ -1,7 +1,7 @@
 Bonjour {{ profil.user.get_full_name }},
 
-Suite à un dysfonctionnement, le mot de passe de votre compte sur le
-site http://{{ site.domain }} a été réinitialisé.
+Suite à votre demande, le mot de passe de votre compte sur le
+site https://octets.formation-industries-fc.fr a été réinitialisé.
 
 Vous pourrez vous y connecter en utilisant les identifiants suivants :
 
@@ -12,7 +12,7 @@ Veuillez modifier votre mot de passe lors de votre prochaine connexion,
 en évitant d'utiliser votre nom d'utilisateur comme mot de passe.
 
 En cas de doute sur la provenance de cet email, n'hésitez pas à me
-contacter à l'adresse webmaster@notation.octets.fr.
+contacter à l'adresse webmaster@formation-industries-fc.fr
 
 Avec mes excuses pour le désagrément,
 Le webmaster

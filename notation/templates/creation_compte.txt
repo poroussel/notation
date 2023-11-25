@@ -1,8 +1,7 @@
 Bonjour {{ profil.user.get_full_name }},
 
-Un compte a été créé à votre attention sur le site http://{{ site.domain }}.
-Ce site géré par le CFAI et l'ENSMM est destiné à la gestion des bulletins 
-de notes des apprentis.
+Un compte a été créé à votre attention sur le site https://octets.formation-industries-fc.fr
+Ce site vous permet d'accéder à la grille de compétences de votre apprenti ITII.
 
 Vous pourrez vous y connecter en utilisant les identifiants suivants :
 
