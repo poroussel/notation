@@ -11,7 +11,9 @@
 </div>
 
 <div class="actions">
+{% if not user.get_profile.is_formateur %}
     <a class="button" href="{% url index_assistance %}">Synthèse</a>
+{% endif %}
 {% if user.get_profile.is_pilote %}
     <a class="button" href="{% url index_gestion %}">Gestion</a>
 {% endif %}
