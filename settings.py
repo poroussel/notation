@@ -13,7 +13,7 @@ MANAGERS = ADMINS
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = '25'
 EMAIL_SUBJECT_PREFIX = '[Notation]'
-SERVER_EMAIL = 'webmaster@notation.octets.fr'
+SERVER_EMAIL = 'webmaster@formation-industries-fc.fr'
 DEFAULT_FROM_EMAIL = SERVER_EMAIL
 
 DATABASES_PROD = {
