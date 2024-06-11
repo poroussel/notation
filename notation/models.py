@@ -285,6 +285,12 @@ class Bulletin(models.Model):
                     note.auteur_modification = user
                     note.save()
                 self.calcul_moyenne_competence(annee, user)
+            else:
+                try:
+                    note = Note.objects.get(bulletin=self, theme=theme, annee=annee)
+                    note.delete()
+                except:
+                    pass
 
     def calcul_moyenne_competence(self, annee, user):
         """
