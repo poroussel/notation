@@ -284,13 +284,13 @@ class Bulletin(models.Model):
                     note.valeur = vm
                     note.auteur_modification = user
                     note.save()
-                self.calcul_moyenne_competence(annee, user)
             else:
                 try:
                     note = Note.objects.get(bulletin=self, theme=theme, annee=annee)
                     note.delete()
                 except:
                     pass
+            self.calcul_moyenne_competence(annee, user)
 
     def calcul_moyenne_competence(self, annee, user):
         """
@@ -298,15 +298,12 @@ class Bulletin(models.Model):
         """
         annee = int(annee)
         themes = self.grille.theme_set.all()
-        notes = Note.objects.filter(bulletin=self, theme__in=list(themes), annee=annee).values_list('valeur', flat=True)
+        notes = Note.objects.filter(bulletin=self, theme__in=list(themes), annee=annee, valeur__gt=0).values_list('valeur', flat=True)
         if len(notes) > 0:
             total = sum(float(n) for n in notes)
+            moyenne = total / len(notes)
         else:
-            total = 0.0
-        if len(themes) > 0:
-            moyenne = total / len(themes)
-        else:
-            moyenne = 0
+            moyenne = 0.0
         moy, created = Moyenne.objects.get_or_create(bulletin=self, annee=annee, defaults={'valeur_cp' : moyenne})
         if not created:
             moy.valeur_cp = moyenne
