@@ -8,7 +8,18 @@
   <li><a href="{% url notation.views.bulletin blt.id %}">{{ blt }}</a></li>
   {% endfor %}
 </ul>
+
+{% if enlecture.count %}
+<h1>Les bulletins consultables</h1>
+<ul>
+  {% for blt in enlecture %}
+  <li><a href="{% url notation.views.bulletin blt.id %}">{{ blt }}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+
 </div>
+
 
 <div class="actions">
 {% if not user.get_profile.is_formateur %}

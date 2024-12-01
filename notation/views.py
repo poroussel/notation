@@ -58,7 +58,10 @@ def index_assistance(request):
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_formateur())
 def index_formateur(request):
     bulletins = Bulletin.objects.filter(formateur=request.user)
-    return render_to_response('index_formateur.html', RequestContext(request, {'bulletins' : bulletins}))
+    autorisations = AutorisationVueGrille.objects.filter(utilisateur=request.user)
+    grilles = [a.grille for a in autorisations]
+    enlecture = Bulletin.objects.filter(grille__in=grilles).order_by('grille')
+    return render_to_response('index_formateur.html', RequestContext(request, {'bulletins' : bulletins, 'enlecture' : enlecture}))
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_eleve())
 def index_eleve(request):
@@ -498,6 +501,7 @@ def detail_formateur(request, object_id):
     frm = get_object_or_404(User, pk=object_id)
     profil = frm.get_profile()
     bulletins = Bulletin.objects.filter(formateur=frm).order_by('grille', 'eleve__last_name', 'eleve__first_name')
+    autorisations = AutorisationVueGrille.objects.filter(utilisateur=profil.user)
     if request.method == 'POST':
         if '_delete' in request.POST:
             return HttpResponseRedirect(reverse(suppression_objet, args=['ProfilUtilisateur', profil.id]))
@@ -508,12 +512,12 @@ def detail_formateur(request, object_id):
             profil.save()
 
             if '_reinit' in request.POST and not mail_new_password(request, formateur):
-                return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : frm}))
+                return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : frm, 'autorisations' : autorisations}))
 
             return HttpResponseRedirect(reverse('liste_formateur'))
     else:
         form = ProfilUtilisateurForm(instance=frm, initial={'phone_number' : profil.phone_number})
-    return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : frm}))
+    return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : frm, 'autorisations' : autorisations}))
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
 def detail_tuteur(request, object_id):

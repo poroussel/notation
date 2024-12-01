@@ -202,6 +202,18 @@ class GrilleNotation(models.Model):
         return NOMS_ANNEES[annee]
 
 
+class AutorisationVueGrille(models.Model):
+    """
+    Chaque enregistrement autorise à un utilisateur une vue
+    en lecture seules à tous les bulletins d'une grille
+    """
+    grille = models.ForeignKey(GrilleNotation, verbose_name='Grille notation')
+    utilisateur = models.ForeignKey(User, verbose_name='Utilisateur')
+
+    def __unicode__(self):
+        return u'%s - %s' % (self.grille, self.utilisateur)
+
+
 class Entreprise(models.Model):
     class Meta:
         ordering = ['nom']

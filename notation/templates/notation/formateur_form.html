@@ -35,4 +35,13 @@
 </ul>
 {% endif %}
 
+{% if autorisations.count %}
+<h1>Les autorisations de ce tuteur académique</h1>
+<ul>
+{% for aut in autorisations %}
+    <li>{{ aut.grille }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
 {% endblock %}
