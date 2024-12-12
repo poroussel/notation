@@ -502,7 +502,23 @@ def detail_formateur(request, object_id):
     profil = frm.get_profile()
     bulletins = Bulletin.objects.filter(formateur=frm).order_by('grille', 'eleve__last_name', 'eleve__first_name')
     autorisations = AutorisationVueGrille.objects.filter(utilisateur=profil.user)
+    autoform = AutorisationForm(initial={'grilles' : [at.grille for at in autorisations]})
+
     if request.method == 'POST':
+        if '_saveauto' in request.POST:
+            autoform = AutorisationForm(request.POST, initial={'utilisateur' : profil.user})
+            print 'check'
+            if autoform.is_valid():
+                print 'ok'
+                AutorisationVueGrille.objects.filter(utilisateur=profil.user).delete()
+                for gr in autoform.cleaned_data['grilles']:
+                    AutorisationVueGrille(grille=gr, utilisateur=profil.user).save()
+
+            autorisations = AutorisationVueGrille.objects.filter(utilisateur=profil.user)
+            autoform = AutorisationForm(initial={'grilles' : [at.grille for at in autorisations]})
+            form = ProfilUtilisateurForm(instance=frm, initial={'phone_number' : profil.phone_number})
+            return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form, 'autoform' : autoform, 'bulletins' : bulletins, 'object' : frm, 'autorisations' : autorisations}))
+
         if '_delete' in request.POST:
             return HttpResponseRedirect(reverse(suppression_objet, args=['ProfilUtilisateur', profil.id]))
         form = ProfilUtilisateurForm(request.POST, instance=frm)
@@ -512,12 +528,12 @@ def detail_formateur(request, object_id):
             profil.save()
 
             if '_reinit' in request.POST and not mail_new_password(request, formateur):
-                return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : frm, 'autorisations' : autorisations}))
+                return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form, 'autoform' : autoform, 'bulletins' : bulletins, 'object' : frm, 'autorisations' : autorisations}))
 
             return HttpResponseRedirect(reverse('liste_formateur'))
     else:
         form = ProfilUtilisateurForm(instance=frm, initial={'phone_number' : profil.phone_number})
-    return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form, 'bulletins' : bulletins, 'object' : frm, 'autorisations' : autorisations}))
+    return render_to_response('notation/formateur_form.html', RequestContext(request, {'form' : form, 'autoform' : autoform, 'bulletins' : bulletins, 'object' : frm, 'autorisations' : autorisations}))
 
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
 def detail_tuteur(request, object_id):

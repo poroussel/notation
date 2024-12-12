@@ -10,6 +10,10 @@ class SuppressionForm(forms.ModelForm):
     class Meta:
         model = Suppression
 
+class AutorisationForm(forms.Form):
+    grilles = forms.ModelMultipleChoiceField(queryset=GrilleNotation.objects.all(), widget=forms.CheckboxSelectMultiple, required=False)
+
+
 class UserChoiceField(forms.ModelChoiceField):
     def label_from_instance(self, obj):
         return obj.get_profile().nom_complet

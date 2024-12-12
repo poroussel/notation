@@ -35,13 +35,19 @@
 </ul>
 {% endif %}
 
-{% if autorisations.count %}
 <h1>Les autorisations de ce tuteur académique</h1>
-<ul>
-{% for aut in autorisations %}
-    <li>{{ aut.grille }}</li>
-{% endfor %}
-</ul>
+
+  <form style="margin-left: 10%;" action="" method="post">{% csrf_token %}
+    <table>
+    {{ autoform.as_table }}
+{% if user.get_profile.is_administratif %}
+    <tr><th></th><td>
+{% if object %}
+      <input type="submit" name="_saveauto" value="Enregistrer" />
 {% endif %}
+    </td></tr>
+{% endif %}
+    </table>
+  </form>
 
 {% endblock %}
