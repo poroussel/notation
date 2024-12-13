@@ -507,9 +507,7 @@ def detail_formateur(request, object_id):
     if request.method == 'POST':
         if '_saveauto' in request.POST:
             autoform = AutorisationForm(request.POST, initial={'utilisateur' : profil.user})
-            print 'check'
             if autoform.is_valid():
-                print 'ok'
                 AutorisationVueGrille.objects.filter(utilisateur=profil.user).delete()
                 for gr in autoform.cleaned_data['grilles']:
                     AutorisationVueGrille(grille=gr, utilisateur=profil.user).save()
