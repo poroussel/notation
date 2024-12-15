@@ -11,7 +11,7 @@ class SuppressionForm(forms.ModelForm):
         model = Suppression
 
 class AutorisationForm(forms.Form):
-    grilles = forms.ModelMultipleChoiceField(queryset=GrilleNotation.objects.all(), widget=forms.CheckboxSelectMultiple, required=False)
+    grilles = forms.ModelMultipleChoiceField(queryset=GrilleNotation.objects.filter(archive=False), widget=forms.CheckboxSelectMultiple, required=False)
 
 
 class UserChoiceField(forms.ModelChoiceField):
