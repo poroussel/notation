@@ -119,7 +119,7 @@ def bulletin(request, blt_id):
     if request.GET.get('format', None) == 'xls':
         return bulletin_xls(request, blt)
 
-    if request.method == 'POST':
+    if check_auth_mod_blt(request, blt) and request.method == 'POST':
         form = PJForm(request.POST, request.FILES)
         if form.is_valid():
             pj = form.save(commit=False)
