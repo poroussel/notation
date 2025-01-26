@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from cfai.notation.views import *
 from cfai.notation.models import Entreprise, ProfilUtilisateur
 
-liste_entreprises_dict = {'queryset' : Entreprise.objects.all()}
 
 liste_tuteurs_dict = {
     'queryset' : User.objects.filter(profilutilisateur__user_type='t').filter(profilutilisateur__suppression=None).order_by('last_name'),
@@ -37,7 +36,7 @@ urlpatterns = patterns('',
 
     (r'^grilles/(?P<object_id>\d+)/annee/(?P<annee>\d+)/$', resume_grille, None, 'resume_grille'),
 
-    (r'^entreprises/$', object_list, liste_entreprises_dict, 'liste_entreprise'),
+    (r'^entreprises/$', liste_entreprise, None, 'liste_entreprise'),
     (r'^entreprises/ajouter/$', detail_entreprise, None, 'ajouter_entreprise'),
     (r'^entreprises/(?P<object_id>\d+)/$', detail_entreprise, None, 'detail_entreprise'),
 

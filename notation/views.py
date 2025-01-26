@@ -495,6 +495,12 @@ def detail_pilote(request, object_id):
         form = ProfilUtilisateurForm(instance=pilote, initial={'phone_number' : profil.phone_number})
     return render_to_response('notation/pilote_form.html', RequestContext(request, {'form' : form, 'object' : pilote}))
 
+
+@user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
+def liste_entreprise(request):
+    qs = Entreprise.objects.all()
+    return render(request, 'notation/entreprise_list.html', {'object_list' : qs})
+
 @user_passes_test(lambda u: u.is_authenticated() and u.get_profile().is_manitou())
 def detail_entreprise(request, object_id=None):
     psr = reverse('liste_entreprise')
