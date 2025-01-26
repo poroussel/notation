@@ -101,9 +101,15 @@ def resume_grille(request, object_id, annee):
 def check_auth_blt(request, blt):
     profil = request.user.get_profile()
     if profil.is_eleve() and profil.user != blt.eleve:
-        messages.warning(request, u'Eh, il semblerait que cette page ne vous soit pas accessible ! Retour à la case départ.')
         return False
     return True
+
+def check_auth_mod_blt(request, blt):
+    profil = request.user.get_profile()
+    if profil.is_eleve():
+        return False
+    return True
+
 
 @login_required
 def bulletin(request, blt_id):
@@ -159,6 +165,8 @@ def annee_bulletin(request, blt_id, annee):
     form = BulletinForm(commentaire=commentaire, notes=notes, savoirs=setre, user=request.user)
 
     if request.method == 'POST':
+        if not check_auth_mod_blt(request, blt):
+            return HttpResponseRedirect(reverse(index))
         if 'themes' in request.POST:
             thform = NotationThemeForm(request.POST, prefix='themes', themes=themes, user=request.user, prc=pourcentage)
             if thform.is_valid():
@@ -229,17 +237,17 @@ def ensemble_bulletin(request, blt_id, annee, ens_id):
                     com.texte = form.cleaned_data['commentaire']
                     com.save()
 
-            for cap in capacites:
-                if str(cap.id) in form.cleaned_data:
-                    value = form.cleaned_data[str(cap.id)]
-                    if value and value in dict(blt.grille.frm.ecole.appreciations()).keys():
-                        note, created = Evaluation.objects.get_or_create(bulletin=blt, capacite=cap, annee=annee, defaults={'valeur' : value, 'auteur_modification' : request.user})
-                        if not created:
-                            note.valeur = value
-                            note.auteur_modification = request.user
-                            note.save()
-
-            blt.calcul_note_theme(ens.theme, annee, request.user)
+            if check_auth_mod_blt(request, blt):
+                for cap in capacites:
+                    if str(cap.id) in form.cleaned_data:
+                        value = form.cleaned_data[str(cap.id)]
+                        if value and value in dict(blt.grille.frm.ecole.appreciations()).keys():
+                            note, created = Evaluation.objects.get_or_create(bulletin=blt, capacite=cap, annee=annee, defaults={'valeur' : value, 'auteur_modification' : request.user})
+                            if not created:
+                                note.valeur = value
+                                note.auteur_modification = request.user
+                                note.save()
+                blt.calcul_note_theme(ens.theme, annee, request.user)
 
             if suivant:
                 return HttpResponseRedirect(reverse(ensemble_bulletin, args=[blt_id, annee, suivant.id]))
